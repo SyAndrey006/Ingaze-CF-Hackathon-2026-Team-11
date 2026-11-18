@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "dataset_name": "Ingaze Open-Structure Hackathon Sandbox Inputs (Schema-Agnostic Raw Domain Materials)",
+    "version": "1.3.0-open-structure-sanitized",
+    "purpose": "Provides raw, unstructured/semi-structured domain dynamics across the 4 HR pillars, empirical research excerpts, 11 anonymized historical B2B consulting case study narratives, and 3 public company diagnostic scenarios. Teams have full architectural freedom to design their own data representation, ingestion pipeline, and reasoning/planning mechanism to structure and solve these cases."
+  },
+  "domain_pillars_and_causal_dynamics": {
+    "overview": "Ingaze operates across 4 interconnected Employer Intelligence pillars. Problems in one pillar frequently cause or amplify symptoms in another pillar, and interventions have strict prerequisite dependencies and industry/workforce guardrails.",
+    "pillars": [
+      {
+        "pillar_name": "Employer Branding & Reputation Intelligence",
+        "focus_areas": [
+          "Multi-channel public reputation across Glassdoor, Indeed, and Google Reviews",
+          "Cross-country and multi-site brand consistency vs. local rating variance",
+          "The 'Say-Do Gap': when external recruiting promises contradict internal employee reality",
+          "Employer Value Proposition (EVP) credibility and passive talent awareness"
+        ],
+        "key_board_metrics": [
+          "Public Reputation Rating (1-5 stars across platforms)",
+          "Employer Brand Alignment Index (%)"
+        ]
+      },
+      {
+        "pillar_name": "Recruiting & Talent Attraction",
+        "focus_areas": [
+          "Career Portal conversion and UX/content audit",
+          "Mobile application experience (critical for frontline, retail, and logistics workers)",
+          "Candidate Persona calibration and persona-aligned Job Descriptions (JDs)",
+          "Technical engineering storytelling on LinkedIn (critical for B2B Tech and FinTech specialists)",
+          "Post-interview and Gen-Z / University Career Day candidate feedback"
+        ],
+        "key_board_metrics": [
+          "Career Website Conversion Rate (%)",
+          "Application Form Abandonment / Bounce Rate (%)",
+          "Time-to-Hire (days)",
+          "Cost-per-Hire (EUR and external agency dependency)"
+        ]
+      },
+      {
+        "pillar_name": "Employee Advocacy",
+        "focus_areas": [
+          "Data-driven selection of authentic employee brand ambassadors",
+          "Automated tracking of ambassador LinkedIn content (replacing manual HR spreadsheets)",
+          "Organic reach amplification into niche talent communities"
+        ],
+        "key_board_metrics": [
+          "Organic Engagement & Impressions",
+          "Earned Media Value (EMV) Saved in EUR and HR operational hours reclaimed"
+        ]
+      },
+      {
+        "pillar_name": "Retention & Internal Climate",
+        "focus_areas": [
+          "First-year (0-12 month) new-hire attrition",
+          "Workload burnout and work-life balance",
+          "Middle management leadership quality and coaching",
+          "360-degree internal feedback & employee listening systems",
+          "Career progression & internal mobility clarity",
+          "Retail store weekend shift rotation & scheduling fairness"
+        ],
+        "key_board_metrics": [
+          "Early First-Year Turnover Rate (%)",
+          "Estimated Annual Attrition Exposure (EUR) and replacement cost impact"
+        ]
+      }
+    ],
+    "raw_cross_pillar_rules_to_structure": [
+      "Field Note 1 (Expectation Alignment & Early Churn): Uncalibrated candidate personas and generic job descriptions lead to misaligned recruiting promises (a Say-Do Gap). Combined with weak middle management and opaque career paths, this directly drives high first-year turnover and negative Glassdoor reviews, which in turn depress qualified inbound applicant volume.",
+      "Field Note 2 (Frontline Mobile Application Friction): In logistics and retail networks where candidates browse on smartphones, desktop-heavy multi-page application forms cause >50% application abandonment, inflating Time-to-Hire and forcing expensive reliance on temporary staffing agencies.",
+      "Field Note 3 (Multi-Site Fragmentation & Manual Tracking): Tracking reviews across dozens of regional facilities or chasing employee post screenshots manually in spreadsheets wastes 100-150+ HR hours/year, fragments EVP consistency across locations, and leaves HR unable to prove quantitative ROI to the CFO/Board.",
+      "Field Note 4 (Cultural Readiness Before External Advocacy): Launching an external Employee Ambassador / Advocacy program when the company suffers from an active Say-Do Gap or severe internal burnout will backfire and damage brand credibility. Organizations must first run multi-channel reputation and internal 360 listening audits, realign their EVP, and address management/burnout foundations before scaling external advocacy.",
+      "Field Note 5 (Diagnostic Baselines Before Redesign): Before deploying a Mobile-First Fast-Apply flow, rewriting persona-aligned Job Descriptions, or realigning an EVP, the organization must first complete foundational diagnostics (Career Portal UX Audit, Multi-Channel Reputation Audit, and Candidate Persona Calibration). Similarly, Automated Ambassador Content Tracking requires first selecting and aligning the initial ambassador cohort.",
+      "Field Note 6 (Sector & Workforce Channel Fit): Physical retail store weekend shift-rotation programs are highly effective for frontline retail store staff experiencing burnout, but are completely invalid for 100% digital FinTech or B2B software companies. Conversely, technical engineering storytelling on LinkedIn works strongly for B2B Tech/FinTech engineers, but is ineffective as the primary channel for commercial truck drivers or frontline store staff who apply via mobile career portals."
+    ]
+  },
+  "raw_empirical_research_snippets": [
+    {
+      "snippet_no": 1,
+      "source": "European Enterprise Talent & Retention Study",
+      "finding": "Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates."
+    },
+    {
+      "snippet_no": 2,
+      "source": "Corporate Career Portal UX & Conversion Study",
+      "finding": "When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%."
+    },
+    {
+      "snippet_no": 3,
+      "source": "B2B Employee Advocacy & Earned Media Study",
+      "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews."
+    },
+    {
+      "snippet_no": 4,
+      "source": "Workforce Climate & First-Year Attrition Study",
+      "finding": "Weak middle management and lack of transparent career progression account for over 55% of quantifiable Financial Turnover Risk (EUR) in knowledge-worker and scale-up organizations. Structured 360 feedback combined with manager coaching reduces team-level attrition risk by 18-28%."
+    },
+    {
+      "snippet_no": 5,
+      "source": "Academic & Industry Meta-Analysis on Employee Advocacy Readiness",
+      "finding": "Asking employees to act as external brand ambassadors during periods of unaddressed workload burnout or cultural distrust produces 'performative backlash'—increasing cynical public reviews and failing to sustain ambassador participation past 60 days."
+    },
+    {
+      "snippet_no": 6,
+      "source": "B2B Tech & FinTech Engineering Talent Acquisition Study",
+      "finding": "Replacing generic corporate job ads and institutional press releases with Candidate-Persona-calibrated technical storytelling increases LinkedIn engagement by 35-45% and lifts qualified senior engineering applicant conversion by 25%."
+    },
+    {
+      "snippet_no": 7,
+      "source": "European Frontline Logistics & Retail Talent Acquisition Study",
+      "finding": "Commercial drivers (C-CQC) and retail store staff prioritize transparent shift predictability, payment punctuality, fleet/store conditions, and rapid mobile application response (<48h) over corporate mission statements."
+    },
+    {
+      "snippet_no": 8,
+      "source": "Executive HR Budget & CFO Governance Survey",
+      "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV)."
+    },
+    {
+      "snippet_no": 9,
+      "source": "Gen-Z & Early-Career Post-Interview Experience Benchmark",
+      "finding": "Digitizing post-interview and Career Day candidate feedback increases survey response rates by >40% and surfaces interview process bottlenecks within 14 days."
+    },
+    {
+      "snippet_no": 10,
+      "source": "Retail Operations & Frontline Retention Study",
+      "finding": "In physical retail chains, introducing predictable weekend shift rotation and store-manager coaching directly reduces frontline burnout and cuts 6-month store staff attrition by 15-22%."
+    }
+  ],
+  "raw_case_study_narratives": [
+    {
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "sector_and_profile": "B2B Tech / Supply Chain SaaS | 400+ employees across 4 European countries | Target talent: Senior Software & Data Engineers",
+      "initial_challenge": "LogiNext struggled to hire senior tech roles across its 4 European hubs. Employee reviews across countries were tracked manually or ignored, creating a fragmented employer brand (50% Employer Brand Alignment Index) and high turnover risk exposure on R&D teams, while HR lacked financial risk metrics for the Board.",
+      "intervention_sequence": "1. Conducted a centralized Multi-Channel Reputation Audit across all 4 countries. 2. Calibrated Senior Tech Candidate Personas. 3. Realigned the European EVP to match engineering reality. 4. Deployed a Board Financial Turnover Risk Dashboard.",
+      "measured_roi": "Employer Brand Alignment Index rose from 50% to 65% (-20% cross-country variance), and annual financial turnover risk exposure on critical R&D roles dropped by 18%."
+    },
+    {
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "sector_and_profile": "CleanTech / B2B Engineering | 250-500 distributed specialists | Strong sustainability & B-Corp-aligned internal culture",
+      "initial_challenge": "Solaris Tech already enjoyed high internal trust and an authentic sustainability culture, with 50 engineers willing to share content. However, corporate social reach was low, HR spent 8 hours/month manually tracking ambassador screenshots in spreadsheets, and the CFO demanded proof of media ROI.",
+      "intervention_sequence": "1. Data-driven selection of 50 technical brand ambassadors. 2. Deployment of Automated Ambassador Content Tracking. 3. Board reporting of certified Earned Media Value (EMV).",
+      "measured_roi": "+300% organic impressions across niche engineering communities, 100% elimination of manual tracking (8 hours/month saved), and documented paid-media budget equivalent saved for the Board."
+    },
+    {
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "sector_and_profile": "FinTech / B2B Cloud Payments | 300-600 employees across 4 European hubs | Target talent: Senior Engineers, Cybersecurity & Product Managers",
+      "initial_challenge": "FlowPay's LinkedIn posts suffered from stagnant engagement, generic job descriptions failed to attract passive senior engineers, and the People team wasted 4 hours/week manually exporting post statistics into spreadsheets.",
+      "intervention_sequence": "1. Calibrated technical Candidate Personas. 2. Implemented Technical Engineering Storytelling on LinkedIn focused on architecture and autonomy. 3. Realigned EVP messaging.",
+      "measured_roi": "+40% LinkedIn engagement rate in 1 quarter, and manual analytics time cut from 4 hours/week to 15 minutes/week (-93% time; ~20 hours/month reclaimed)."
+    },
+    {
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "sector_and_profile": "Retail | 10,000+ employees across national store network and HQ | Target talent: Frontline Retail Store Staff & Store Managers",
+      "initial_challenge": "Despite high traffic to its career portal, Global Retail suffered massive candidate drop-off because smartphone applicants faced a clunky desktop registration flow and generic job descriptions.",
+      "intervention_sequence": "1. Executed a Career Portal UX Audit and Candidate Persona Calibration for store staff. 2. Launched a Mobile-First Fast-Apply flow. 3. Rewrote Persona-Aligned Job Descriptions.",
+      "measured_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment."
+    },
+    {
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "sector_and_profile": "B2B Tech | 1,200 employees | Target talent: Senior Cloud & Data Engineers",
+      "initial_challenge": "Alfa Group faced €1.8M in estimated annual Financial Turnover Risk, driven by Weak Middle Management (€700k risk), Career Path Opacity (€450k risk), and Workload Burnout (€300k risk), alongside a Say-Do Gap that caused 15%+ early new-hire attrition.",
+      "intervention_sequence": "1. Deployed 360-Degree Internal Feedback Listening and a Multi-Channel Reputation Audit. 2. Launched a Manager Coaching Program, transparent Career Progression Framework, EVP Realignment, and Board Financial Risk Dashboard. 3. Only after stabilizing internal trust, rolled out Persona-Aligned JDs and Data-Driven Ambassador Selection.",
+      "measured_roi": "Identified and mitigated €1.8M in turnover risk exposure, reduced first-year engineering turnover by 24%, and lifted Glassdoor rating from 3.3 to 3.9."
+    },
+    {
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "sector_and_profile": "Logistics & Freight Transport | 1,500+ employees across multi-site hubs | Target talent: Commercial Truck Drivers (C-CQC) & Warehouse Operators",
+      "initial_challenge": "Beta Logistica needed over 100 licensed commercial drivers but faced a 64% mobile career site bounce rate and a 45-day Time-to-Hire, forcing heavy spend on temporary staffing agencies. Job ads used generic corporate phrasing that hid Beta's reliable on-time driver pay and modern truck fleet.",
+      "intervention_sequence": "1. Executed a Career Portal UX Audit, Multi-Channel Reputation Audit across hubs, and Driver Persona Calibration. 2. Deployed a 60-second Mobile-First Fast-Apply flow and realigned the EVP around payment reliability and fleet quality. 3. Published driver-persona-aligned Job Descriptions.",
+      "measured_roi": "Career site conversion jumped +90% (from 2.5% to 4.8%), application abandonment fell from 64% to 31%, and Time-to-Hire dropped by 33% (from 45 days to 30 days), substantially cutting external agency costs."
+    },
+    {
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "sector_and_profile": "Retail | 800+ employees across 90 stores | Target talent: In-Store Sales Associates & Store Managers",
+      "initial_challenge": "Gamma Retail experienced high 6-month store staff turnover driven by unpredictable weekend shift burnout and weak store-manager support, compounded by mobile application friction on its career site.",
+      "intervention_sequence": "1. Conducted 360 Internal Listening, Career Portal UX Audit, and Retail Persona Calibration. 2. Implemented predictable Retail Store Weekend Shift Rotation, Store Manager Coaching, and Mobile-First Fast-Apply. 3. Scaled Persona-Aligned JDs and Employee Advocacy.",
+      "measured_roi": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption."
+    },
+    {
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "sector_and_profile": "Healthcare & Clinical Care | 3,000+ employees across dozens of regional facilities | Certified B-Corp / ESG commitment",
+      "initial_challenge": "Managing reputation across dozens of local care facilities manually in spreadsheets consumed 150+ HR hours/year and obscured local EVP differences, while corporate channels struggled to reach clinical professionals and Gen-Z healthcare graduates organically.",
+      "intervention_sequence": "1. Centralized Multi-Channel Reputation Audit across all regional facilities and calibrated Clinical/Gen-Z Personas. 2. Realigned EVP and deployed a Board Financial & ESG Dashboard. 3. Selected facility ambassadors and deployed Automated Ambassador Content Tracking.",
+      "measured_roi": "Saved 150 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +210% organic reach among clinical candidates."
+    },
+    {
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "sector_and_profile": "Banking & Financial Services | 6,000+ employees | Strict financial governance & Gen-Z early-career hiring focus",
+      "initial_challenge": "Aurea Banca wanted to modernize its attraction of Gen-Z finance/tech graduates and scale authentic employee storytelling on LinkedIn, but needed structured post-interview candidate feedback and auditable Earned Media Value for governance reporting.",
+      "intervention_sequence": "1. Deployed Post-Interview & Career Day Gen-Z Surveys and Candidate Persona Calibration. 2. Structured Data-Driven Ambassador Selection and Automated Ambassador Content Tracking with Board EMV reporting.",
+      "measured_roi": "+45% candidate survey completion rate, high-credibility Gen-Z employer brand positioning, and fully automated EMV governance reporting."
+    },
+    {
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "sector_and_profile": "Retail | 600+ employees across flagship and mall stores | Frontline retail workforce",
+      "initial_challenge": "High mobile candidate drop-off on the career portal, store-level scheduling fatigue, and lack of quantitative HR ROI metrics for executive leadership.",
+      "intervention_sequence": "1. Career Portal UX Audit, Multi-Channel Reputation Audit, and 360 Listening. 2. Mobile-First Fast-Apply, Retail Store Shift Rotation, and Board Risk/ROI Dashboard.",
+      "measured_roi": "+31% mobile applicant conversion and -16% store staff early attrition."
+    },
+    {
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "sector_and_profile": "B-Corp Beauty & Formulation | Multi-country workforce | High sustainability & ESG governance standards",
+      "initial_challenge": "While internal B-Corp pride was high, candidate feedback across university Career Days and interviews was fragmented, and employee ambassador sharing was tracked manually without standardized EMV metrics.",
+      "intervention_sequence": "1. Digitized Post-Interview & Career Day Gen-Z Surveys and Multi-Channel Reputation Audit. 2. Realigned multi-country EVP and scaled Automated Ambassador Content Tracking.",
+      "measured_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach."
+    }
+  ],
+  "company_scenarios_to_diagnose": [
+    {
+      "scenario_code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+      "company_name": "CloudNova Pay S.p.A.",
+      "industry": "FinTech & B2B Cloud Payments",
+      "headcount_and_footprint": "1,450 employees across 3 European hubs",
+      "workforce_target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "organizational_context": "High-growth scale-up, multi-country operations, strict CFO financial governance. Declared EVP: 'Fast-paced digital disruption, unlimited growth, and cutting-edge cloud autonomy.'",
+      "narrative_situation_to_solve": "CloudNova Pay needs to hire 80 Senior Software Engineers, Data Scientists, and Product Managers this year across its 3 European hubs. However, inbound qualified tech applications are critically low, and LinkedIn posts get weak engagement while HR spends 4 hours/week manually exporting post stats into spreadsheets. Worse, 16% of newly hired engineers leave within their first 6 months, citing a sharp gap between recruiting promises and actual project micromanagement. Internal pulse notes and Glassdoor reviews reveal €1.8M in estimated financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k). The CEO wants to immediately launch an external Employee Ambassador campaign on LinkedIn next week to boost applications. Note: A noisy data export also mixed in some retail outlet reviews mentioning 'weekend shop shift rotation'—your system must not fall for this sector trap!",
+      "key_questions_your_structure_must_answer": [
+        "1. What are the true underlying Root Causes across the 4 pillars versus the surface symptoms?",
+        "2. Why must the CEO's request to launch an external Employee Ambassador campaign next week be deferred, and what prerequisite steps must happen first?",
+        "3. Which irrelevant industry solutions (like retail shift rotation or frontline mobile fast-apply) must be filtered out by your system's guardrails?",
+        "4. What is the exact 3-Phase Strategic Action Plan (Phase 1 -> Phase 2 -> Phase 3), and which historical Case Studies & research findings prove the expected ROI?"
+      ]
+    },
+    {
+      "scenario_code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
+      "company_name": "EuroFreight Interport S.r.l.",
+      "industry": "Freight Transport & Interport Logistics",
+      "headcount_and_footprint": "1,600 employees across 5 major logistics hubs",
+      "workforce_target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "organizational_context": "Multi-site hub network, frontline mobile-first workforce. Declared EVP: 'National leader in integrated freight transport.'",
+      "narrative_situation_to_solve": "EuroFreight operates 5 major logistics hubs with 1,600 employees and urgently needs to hire 120 licensed Commercial Drivers (C-CQC) and warehouse operators to fulfill new freight contracts. Despite strong career page traffic, 63% of visitors drop off before completing the application form, and average Time-to-Hire has ballooned to 43 days—forcing expensive reliance on external temporary staffing agencies. Most driver candidates browse on smartphones during breaks, facing a multi-page desktop registration form and generic corporate job descriptions that fail to mention EuroFreight's reliable on-time driver pay and modern vehicle fleet. Furthermore, employee reviews across the 5 hubs are tracked manually in spreadsheets, leaving HR without quantitative ROI metrics for the Board.",
+      "key_questions_your_structure_must_answer": [
+        "1. What are the underlying Root Causes of EuroFreight's 63% career site drop-off, 43-day Time-to-Hire, and multi-hub brand variance?",
+        "2. Why would a B2B Tech LinkedIn editorial strategy be the wrong channel here, and what frontline-specific interventions should be prioritized instead?",
+        "3. What foundational audits/calibrations belong in Phase 1 before executing the Phase 2/3 career site and job description overhaul?",
+        "4. Which historical Case Studies match EuroFreight's profile and quantify the expected impact on conversion rate and Time-to-Hire?"
+      ]
+    },
+    {
+      "scenario_code": "SCENARIO_C_VERDECARE_BCORP",
+      "company_name": "VerdeCare & Formulation Group (Certified B Corp)",
+      "industry": "Multi-Site Healthcare, Wellness & B-Corp Formulation",
+      "headcount_and_footprint": "2,100 employees across 50 regional care centers and wellness labs",
+      "workforce_target": "Clinical Healthcare Professionals and Gen-Z Early-Career Specialists",
+      "organizational_context": "Multi-site regional network, Certified B-Corp sustainability governance, strict CFO budget auditability. Declared EVP: 'Sustainable human care, clinical excellence, and certified B Corp social impact.'",
+      "narrative_situation_to_solve": "VerdeCare is a certified B Corp operating 50 regional care centers and wellness formulation labs (2,100 employees). Internal employee satisfaction and EVP authenticity are already strong (no internal Say-Do Gap or burnout crisis), and the company has 35 enthusiastic employees sharing posts on LinkedIn. However, the HR team wastes over 150 hours/year manually collecting local facility reviews and chasing screenshots from ambassadors on spreadsheets. Corporate social channels have low organic reach, post-interview and university Career Day candidate feedback is fragmented across isolated forms, and the CFO requires certified Earned Media Value (EMV) and auditable B Corp candidate experience metrics before approving the next annual HR budget.",
+      "key_questions_your_structure_must_answer": [
+        "1. How does VerdeCare's internal readiness for Employee Advocacy differ structurally from CloudNova Pay's situation?",
+        "2. What are the root causes of HR's 150 hours/year operational bottleneck and fragmented candidate feedback?",
+        "3. How should the 3-Phase Action Plan sequence multi-site reputation auditing, Gen-Z post-interview survey digitization, ambassador cohort selection, and automated ambassador content tracking?",
+        "4. Which historical Case Studies validate the expected hours saved, organic reach multiplier, and B-Corp CFO governance alignment?"
+      ]
+    }
+  ],
+  "poc_scenario_output_format": {
+    "note": "Your internal data representation, reasoning structure, or pipeline state is 100% up to your team. However, so the judges can evaluate your working Proof-of-Concept consistently across the 3 company scenarios, please have your PoC export its scenario diagnoses in this clean, schema-agnostic JSON structure:",
+    "example_submission_structure": {
+      "team_name": "Your Team Name",
+      "chosen_architecture_paradigm": "Brief description of your chosen architecture and stack (e.g., Relational Scoring Matrix + Constraint Rules / Multi-Agent Verifier Pipeline / Programmatic Policy Engine / Hybrid Graph)",
+      "scenarios": [
+        {
+          "scenario_code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+          "diagnosed_root_causes": [
+            "Plain-English description of each inferred underlying root cause across the 4 pillars"
+          ],
+          "blocked_traps_and_guardrails": [
+            "Plain-English description of wrong-industry solutions or premature requests blocked by your system (and why)"
+          ],
+          "phase_1_actions": [
+            "Phase 1: Foundational diagnostics, audits, and calibrations that must execute first"
+          ],
+          "phase_2_actions": [
+            "Phase 2: Core structural interventions unlocked by Phase 1"
+          ],
+          "phase_3_actions": [
+            "Phase 3: Cross-pillar scaling & amplification actions unlocked only after Phase 2 foundations are in place"
+          ],
+          "matched_case_studies": [
+            "Top 3 matched historical Case Studies from the sandbox library + quantified ROI precedent"
+          ],
+          "supporting_research_snippets": [
+            "Cited empirical research snippets backing your diagnosis and action plan"
+          ]
+        }
+      ]
+    }
+  }
+}

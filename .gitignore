@@ -1,0 +1,18 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets & API Keys (NEVER commit keys!)
+.env
+.env.*
+*.key
+secrets.json
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
