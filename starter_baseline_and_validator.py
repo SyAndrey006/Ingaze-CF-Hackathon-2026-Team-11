@@ -183,6 +183,28 @@ def _simulate_offline_naive_prompt(scenario: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _parse_llm_json_response(raw_content: str) -> Dict[str, Any]:
+    """Strip optional markdown code fences and unwrap nested scenario objects from a live LLM response."""
+    cleaned = raw_content.strip()
+    if cleaned.startswith("```"):
+        lines = cleaned.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].strip().startswith("```"):
+            lines = lines[:-1]
+        cleaned = "\n".join(lines).strip()
+    parsed = json.loads(cleaned)
+    if isinstance(parsed, list) and parsed and isinstance(parsed[0], dict):
+        return parsed[0]
+    if isinstance(parsed, dict):
+        if "scenarios" in parsed and isinstance(parsed["scenarios"], list) and parsed["scenarios"]:
+            first = parsed["scenarios"][0]
+            if isinstance(first, dict):
+                return first
+        return parsed
+    return {}
+
+
 def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Dict[str, Any]:
     """
     Optional BYOK single-prompt LLM baseline via stdlib urllib (supports OpenAI / OpenRouter / Gemini).
@@ -234,7 +256,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
         with urllib.request.urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode("utf-8"))
             content = body["choices"][0]["message"]["content"]
-            return json.loads(content)
+            return _parse_llm_json_response(content)
 
     if gemini_key:
         model = os.environ.get("BASELINE_MODEL", "gemini-2.5-flash")
@@ -249,7 +271,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
         with urllib.request.urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode("utf-8"))
             content = body["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(content)
+            return _parse_llm_json_response(content)
 
     raise RuntimeError(
         "No API key found for --live-llm. Set OPENAI_API_KEY, OPENROUTER_API_KEY, or GEMINI_API_KEY, "
@@ -269,13 +291,22 @@ def generate_naive_baseline(
             sc_out = _call_live_flat_llm(dataset, sc)
         else:
             sc_out = _simulate_offline_naive_prompt(sc)
-        # Ensure all required keys exist as lists
+        # Ensure all required keys exist as lists of strings
         normalized: Dict[str, Any] = {"scenario_code": sc.get("scenario_code", "")}
         for key in REQUIRED_SCENARIO_OUTPUT_KEYS:
             if key == "scenario_code":
                 continue
-            val = sc_out.get(key, [])
-            normalized[key] = val if isinstance(val, list) else [str(val)]
+            val = sc_out.get(key, []) if isinstance(sc_out, dict) else []
+            if val is None:
+                normalized[key] = []
+            elif isinstance(val, list):
+                normalized[key] = [
+                    (" — ".join(str(v) for v in x.values() if v is not None) if isinstance(x, dict) else str(x))
+                    for x in val
+                    if x is not None
+                ]
+            else:
+                normalized[key] = [str(val)]
         outputs.append(normalized)
 
     mode_label = "Live Single-Prompt Flat LLM (Full Raw Context Dump)" if live_llm else "Offline Naive Unstructured Prompt Simulator"
@@ -327,11 +358,19 @@ def validate_submission(
     expected_codes = {s["scenario_code"] for s in expected_scenarios}
     found_codes = set()
 
-    known_case_prefixes = [
-        c["case_name"].split("(")[0].strip().lower()
-        for c in dataset.get("raw_case_study_narratives", [])
-        if "case_name" in c
-    ]
+    known_case_prefixes: List[str] = []
+    for c in dataset.get("raw_case_study_narratives", []):
+        if "case_name" in c:
+            full_pref = c["case_name"].split("(")[0].strip().lower()
+            known_case_prefixes.append(full_pref)
+            short_pref = (
+                full_pref.replace(" group", "")
+                .replace(" network", "")
+                .replace(" retail", "")
+                .strip()
+            )
+            if short_pref and len(short_pref) >= 4 and short_pref not in known_case_prefixes:
+                known_case_prefixes.append(short_pref)
 
     for idx, item in enumerate(scenarios_list):
         if not isinstance(item, dict):
@@ -351,16 +390,16 @@ def validate_submission(
             if req_key not in item:
                 errors.append(f"[{sc_code}] Missing required key: '{req_key}'")
             elif not isinstance(item[req_key], list):
-                errors.append(f"[{sc_code}] Key '{req_key}' must be a list of strings.")
+                errors.append(f"[{sc_code}] Key '{req_key}' must be a list of strings (or structured objects).")
             else:
-                non_str = [x for x in item[req_key] if not isinstance(x, str)]
-                if non_str:
-                    errors.append(f"[{sc_code}] All entries in '{req_key}' must be strings.")
+                invalid_entries = [x for x in item[req_key] if not isinstance(x, (str, dict))]
+                if invalid_entries:
+                    errors.append(f"[{sc_code}] All entries in '{req_key}' must be strings or structured dicts.")
 
         for opt_key in OPTIONAL_SCENARIO_ENRICHMENT_KEYS:
             if opt_key in item and item[opt_key] is not None:
-                if not isinstance(item[opt_key], (list, dict)):
-                    errors.append(f"[{sc_code}] Optional key '{opt_key}' must be a list or dict if provided.")
+                if not isinstance(item[opt_key], (list, dict, str)):
+                    errors.append(f"[{sc_code}] Optional key '{opt_key}' must be a list, dict, or string if provided.")
 
         # Helpful structural sanity warnings (flexible & open to focused/original plans)
         if isinstance(item.get("diagnosed_root_causes"), list) and len(item["diagnosed_root_causes"]) == 0:
@@ -389,11 +428,16 @@ def validate_submission(
                     f"[{sc_code}] {len(mcs)} case studies returned — aim for the Top 3 strongest precedents to avoid false-positive penalties!"
                 )
             for cs_entry in mcs:
-                if isinstance(cs_entry, str):
-                    low = cs_entry.lower()
+                cs_str = (
+                    " ".join(str(v) for v in cs_entry.values() if v is not None)
+                    if isinstance(cs_entry, dict)
+                    else (cs_entry if isinstance(cs_entry, str) else "")
+                )
+                if cs_str:
+                    low = cs_str.lower()
                     if not any(pref in low for pref in known_case_prefixes):
                         warnings.append(
-                            f"[{sc_code}] Case study '{cs_entry}' did not match any of the 11 sandbox case study names."
+                            f"[{sc_code}] Case study '{cs_str}' did not match any of the 11 sandbox case study names."
                         )
 
     missing_codes = expected_codes - found_codes
