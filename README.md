@@ -47,7 +47,7 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 | **[`docs/HR_DOMAIN_PRIMER_FOR_ENGINEERS.md`](./docs/HR_DOMAIN_PRIMER_FOR_ENGINEERS.md)** | **5 min** | **Start here if HR is new to you!** Plain-English crash course on EVP, Say-Do Gap, CpH/TtH, EMV, Workforce Archetypes, Phase 1$\to$3 dependencies, and how CFOs think. |
 | **[`docs/CHALLENGE_BRIEF.md`](./docs/CHALLENGE_BRIEF.md)** | **6 min** | Full problem statement, architectural freedom (100% open paradigm & stack), and realistic scope for a 3-person weekend sprint. |
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
-| **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, ingestion/validation controls, planning mechanism, and stack trade-offs. |
+| **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
 | **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Schema-agnostic sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Anonymized B2B Case Studies**, and **3 Company Scenarios**. |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
@@ -68,7 +68,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 ## What You Deliver on Sunday (`09:30` Pre-Finals)
 
 Everything is self-contained in this repo—**no extra datasets or files to wait for during the weekend!** Before Sunday `09:30`, push to your team's GitHub repo:
-1. **`ARCHITECTURE.md`** (based on `ARCHITECTURE_TEMPLATE.md`) — Formal representation design, ingestion & validation controls, diagnostic/3-phase sequencing mechanism, and stack justification.
+1. **`ARCHITECTURE.md`** (based on `ARCHITECTURE_TEMPLATE.md`) — Formal representation design, context structuring & noise-filtering controls, diagnostic/3-phase sequencing mechanism, and stack justification.
 2. **Working Python PoC + Live Demo** — Ingests `data/ingaze_sandbox_dataset.json`, outperforms the naive baseline on all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), and generalizes cleanly (during Q&A we may tweak a scenario trait live to verify zero hardcoded `if company == ...` rules!).
 3. **Validated `submission.json`** — Committed in your repo root and passing:
    ```bash

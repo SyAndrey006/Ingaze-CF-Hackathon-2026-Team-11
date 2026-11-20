@@ -33,7 +33,7 @@ Given:
 - **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes), and
 - **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI),
 
-when an incoming **Company Situation** arrives (simulating our platform's detected warning signals + the client's internal info: industry, headcount, workforce target, organizational context, and narrative issues—including noisy/irrelevant snippets), your system must:
+when an incoming **Company Situation** arrives (for this weekend sprint, each scenario inside `company_scenarios_to_diagnose` already provides the complete synthetic input combining platform warning signals and internal client notes—no external API integration needed), your system must:
 1. **Diagnose Hidden Root Causes:** Trace surface symptoms across the 4 pillars back to their underlying structural causes (without hallucinating unrelated causes).
 2. **Enforce Industry & Workforce Guardrails:** Block interventions that violate the company's sector or workforce reality (e.g., never recommend physical retail store weekend shift rotation to a cloud FinTech, or B2B LinkedIn technical-architecture blogging as the primary hiring channel for commercial truck drivers). Conversely, dynamically *activate* frontline/retail interventions when the company actually operates physical stores!
 3. **Enforce 3-Phase Prerequisite Sequencing:** Order interventions into **`Phase 1` (Foundational Diagnostics & Calibrations) $\rightarrow$ `Phase 2` (Core Structural Fixes) $\rightarrow$ `Phase 3` (Cross-Pillar Scaling & Advocacy)**. For example, launching external Employee Advocacy *before* fixing an active Say-Do Gap or severe burnout will backfire and must be deferred to Phase 3.
@@ -59,12 +59,17 @@ When you paste a company's HR problems into a flat LLM prompt or standard chunk-
 
 ```mermaid
 flowchart TB
-    RAW["Raw Domain Field Notes + 10 Research Studies + 11 Case Studies"] --> ING["Your Ingestion, Normalization & Validation Layer"]
-    ING --> STRUCT["YOUR CHOSEN REPRESENTATION & REASONING ARCHITECTURE<br/>(100% Open Paradigm & Tech Stack)"]
-    SIT["Company Scenarios (CloudNova, EuroFreight, VerdeCare + Live Q&A Tweaks)"] --> ENG["Your Diagnostic, Guardrail & 3-Phase Planning Mechanism"]
-    STRUCT --> ENG
+    RAW["HR Domain Field Notes + 10 Research Studies + 11 Case Studies"] --> ING["Context Structuring, Normalization & Noise Filtering"]
+    SIT["Incoming Client Situation (Platform Signals + Internal Notes)"] --> ING
+    ING --> STRUCT["YOUR CHOSEN CONTEXT & REASONING ARCHITECTURE<br/>(100% Open Paradigm & Tech Stack)"]
+    STRUCT --> ENG["Diagnostic, Guardrail & 3-Phase Recommendation Engine"]
     ENG --> OUT["Validated Action Plan + Inspectable Trace + Case Study ROI<br/>(submission.json)"]
 ```
+
+**Operational Design Constraints (Stack-Agnostic):**
+- **Workload & Latency:** Plans are generated on-demand/batch per client engagement—`5–30 seconds` of execution is completely fine (millisecond real-time latency is NOT required).
+- **Human-in-the-Loop & Auditability:** Outputs assist HR experts and CFO discussions before execution—determinism, zero hallucinations, and a clear trace of *why* each action was chosen or blocked matter far more than creative prose.
+- **Portable Interface:** Keep your prototype as a clean, self-contained Python module (`JSON in -> JSON out`) without heavy cloud or external infrastructure dependencies.
 
 **Examples of radically different architectural families you can explore (or combine):**
 1. **Structured Relational / Scoring & Decision Matrix:** (`SQLite`, `DuckDB`, `Pandas`, or normalized Pydantic tables + weighted feature matching + prerequisite & sector constraint checks).
