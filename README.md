@@ -10,14 +10,14 @@ This repository contains the official sandbox dataset, zero-dependency baseline/
 
 ## The Challenge in 30 Seconds — Real Product Context
 
-**Where Ingaze is today:** Ingaze helps enterprise HR leaders build data-driven Employer Strategy across **Employer Reputation**, **Recruiting**, **Employee Advocacy**, and **Internal Retention**. Today, **our platform already surfaces all the warning signals a client needs to address** (review gaps, career-portal drop-offs, early turnover, manual bottlenecks)—but **our human consultants still recommend the strategic actions manually** based on their accumulated domain expertise and past client cases.
+**Where Ingaze is today:** Ingaze helps enterprise HR teams build data-driven Employer Strategy across **Employer Reputation**, **Recruiting**, **Employee Advocacy**, and **Internal Retention**. Today, when a client (say *Company Alpha*) arrives, **our platform already surfaces the areas needing attention**, and the client shares internal context (surveys, turnover data, leadership priorities)—but **our human experts still read all of that and manually recommend the action plan**.
 
-**What we want to automate (and why plain LLMs fail):** We want to automate the **Action Recommendation Engine**. Plain LLMs and naive vector RAG fail here **not because LLMs can't write, but because they lack structured domain context**:
+**What we want to automate (and why plain LLMs fail):** We want an **automated Action Recommendation Engine** where we feed a client's situation (our platform analysis + their internal info) into a structured system and get accurate, tailored action recommendations out. Plain LLMs fail here **because they lack structured context**:
 - Ask a flat LLM whether a FinTech with `16%` 6-month engineer churn should launch a LinkedIn Employee Ambassador campaign next week (as the CEO requested), and it happily says *"Yes!"*—triggering public backlash. It also leaks frontline retail or truck-driver fixes into B2B SaaS plans.
 
-**Your real mission as Chief AI Architect (two halves, 100% open paradigm):**
-1. **Context Collection & Organization Layer:** Design a reusable structure (*Relational Scoring Matrix, Agentic Planner-Verifier Pipeline, Programmatic Rule/Policy Engine, Case-Based Hybrid Ranker, or Graph/Network*—**zero preferred paradigm!**) that collects, normalizes, and organizes evolving HR context so Ingaze can keep adding the 20th or 200th study/case study without rewriting the engine. *(Hand-coding static `if/else` rules just for today's 6 field notes misses the point!)*
-2. **Context-Powered Recommendation Engine:** Feed that organized context into a Python recommendation engine that takes a client's detected diagnostic signals across our **3 realistic company scenarios**, recommends safe Phase 1$\to$2$\to$3 actions, and beats our naive flat-LLM baseline.
+**Your mission as Chief AI Architect (100% open paradigm):**
+1. **Structure the Context:** Design the data & context architecture (*Relational Scoring Matrix, Agentic Planner-Verifier Pipeline, Programmatic Rule/Policy Engine, Case-Based Hybrid Ranker, or Graph/Network*—**zero preferred paradigm!**) that organizes both **our HR domain knowledge/case studies** and **an incoming client's messy situation** (platform signals + internal notes).
+2. **Recommend Accurate Actions:** Feed that organized context into a Python recommendation engine that diagnoses true root causes, blocks wrong-industry traps, sequences Phase 1$\to$2$\to$3 actions, and beats our naive flat-LLM baseline across **3 realistic company scenarios** (zero hardcoded `if company == ...` rules!).
 
 ---
 
@@ -48,7 +48,7 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 | **[`docs/CHALLENGE_BRIEF.md`](./docs/CHALLENGE_BRIEF.md)** | **6 min** | Full problem statement, architectural freedom (100% open paradigm & stack), and realistic scope for a 3-person weekend sprint. |
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
 | **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, ingestion/validation controls, planning mechanism, and stack trade-offs. |
-| **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Schema-agnostic sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Anonymized B2B Case Studies**, **3 Company Scenarios**, plus **2 optional incoming context updates** (`sample_incoming_context_updates`) to test your ingestion & validation pipeline. |
+| **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Schema-agnostic sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Anonymized B2B Case Studies**, and **3 Company Scenarios**. |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
 *(Note: While the intro slides mentioned 5 sample case studies, we included **11 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*

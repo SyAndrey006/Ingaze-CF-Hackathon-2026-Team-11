@@ -21,11 +21,11 @@
 
 ---
 
-## 2. Ingestion, Normalization & Reliability Controls
+## 2. Client Intake Parsing, Normalization & Noise Filtering
 
-- **Ingestion & Structuring Pipeline:** *How are raw research snippets and narrative case studies transformed into your internal representation?*
+- **Context Organization Pipeline:** *How are an incoming client's messy situation (platform warning signals + internal notes) and the HR domain/case-study reference library transformed into your structured representation?*
 - **Concept Normalization / Deduplication:** *How do you map surface phrasing variations (e.g., "6-month churn" vs. "early first-year turnover") to a consistent internal concept?*
-- **Validation & Anti-Hallucination Controls:** *What validation checks, schema constraints, or review steps prevent noisy inputs or LLM extraction errors from introducing contradictory rules or invalid recommendations?*
+- **Noise Filtering & Anti-Hallucination Controls:** *What validation checks, schema constraints, or review steps prevent noisy client exports (e.g., unrelated retail reviews inside a FinTech dump) or LLM extraction errors from triggering wrong recommendations?*
 
 ---
 

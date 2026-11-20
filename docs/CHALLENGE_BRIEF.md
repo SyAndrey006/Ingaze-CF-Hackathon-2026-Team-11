@@ -23,18 +23,17 @@ Unlike standard coding challenges where a rigid schema is handed to you to imple
 
 > [!IMPORTANT]
 > **Why This Project Exists Inside Ingaze's Real Product:**
-> - **Today:** Our platform **already identifies all the client warning signals and areas needing attention** across these 4 pillars (reputation gaps, career-site drop-offs, early churn, manual HR bottlenecks). However, **turning those detected signals into a prioritized strategic action plan is still done manually by our human experts**, relying on domain knowledge and past consulting cases kept in their heads.
-> - **What we want to automate:** We want to build the **Action Recommendation Engine** that powers automated recommendations inside the platform.
-> - **Why LLMs alone aren't enough:** LLMs don't fail here because they can't generate text—they fail because **they lack structured, living domain context**.
-> - **What we need from your team:** Design a reusable **Context Collection & Organization Architecture** (capable of absorbing today's knowledge *plus* future studies and client cases as Ingaze grows—not static rules hard-coded for today's 6 notes!) and connect it to a **Recommendation Engine** that turns client diagnostic signals into safe, sequenced, ROI-backed actions.
+> - **Today:** When a client (say *Company Alpha*) comes to Ingaze, **our platform already identifies all the warning signals and areas needing attention** across these 4 pillars, and the client shares internal information (surveys, turnover figures, leadership priorities). Today, **our human experts read all of that and manually recommend the strategic action plan**.
+> - **What we want to automate:** We want an **Action Recommendation Engine** where we feed a client's situation (our platform analysis + their internal info) into a structured system and get accurate, tailored action recommendations out.
+> - **Why LLMs alone aren't enough:** LLMs don't fail here because they can't write—they fail because **they lack structured context**.
+> - **What we need from your team:** Design a clean architecture that **organizes an incoming client's messy situation together with HR domain rules and past case studies**, and feeds that organized context to a **Recommendation Engine** that outputs accurate, trap-free, sequenced 3-phase actions.
 
 ### The Core Reasoning Objective
 Given:
-- **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes),
-- **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI), and
-- **Optional Ingestion Test Fixture (`sample_incoming_context_updates`)** — `2` short raw text updates (1 valid new field insight + 1 noisy/contradictory claim) provided strictly so you can test and demonstrate how your ingestion layer adds valid new context while flagging/rejecting bad rules (you are also welcome to test with your own custom updates during Sunday's demo!),
+- **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes), and
+- **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI),
 
-when a **Company Situation** arrives (representing the diagnostic warning signals our platform already detects for a client: industry, headcount, workforce target, organizational context, and detected issues), your system must:
+when an incoming **Company Situation** arrives (simulating our platform's detected warning signals + the client's internal info: industry, headcount, workforce target, organizational context, and narrative issues—including noisy/irrelevant snippets), your system must:
 1. **Diagnose Hidden Root Causes:** Trace surface symptoms across the 4 pillars back to their underlying structural causes (without hallucinating unrelated causes).
 2. **Enforce Industry & Workforce Guardrails:** Block interventions that violate the company's sector or workforce reality (e.g., never recommend physical retail store weekend shift rotation to a cloud FinTech, or B2B LinkedIn technical-architecture blogging as the primary hiring channel for commercial truck drivers). Conversely, dynamically *activate* frontline/retail interventions when the company actually operates physical stores!
 3. **Enforce 3-Phase Prerequisite Sequencing:** Order interventions into **`Phase 1` (Foundational Diagnostics & Calibrations) $\rightarrow$ `Phase 2` (Core Structural Fixes) $\rightarrow$ `Phase 3` (Cross-Pillar Scaling & Advocacy)**. For example, launching external Employee Advocacy *before* fixing an active Say-Do Gap or severe burnout will backfire and must be deferred to Phase 3.
@@ -81,7 +80,7 @@ flowchart TB
 ### Part 1 — `ARCHITECTURE.md` (Fill in `ARCHITECTURE_TEMPLATE.md`)
 Consolidate your architectural design into one crisp, unambiguous engineering spec covering:
 1. **Domain Representation & State Design:** Exact data models/tables/rules/objects, symptom-to-root-cause links, hard prerequisites, industry guardrails, and Case Study representation.
-2. **Ingestion, Normalization & Reliability Controls:** How raw studies/cases enter your system without introducing contradictory rules or duplicating concepts (e.g., mapping *"6-month churn"* and *"first-year attrition"* to one consistent concept).
+2. **Client Intake Parsing, Normalization & Noise Filtering:** How a messy incoming client situation (platform findings + internal notes + noisy excerpts) and domain benchmarks are normalized into clean structured context without hallucinations or concept duplication (e.g., mapping *"6-month churn"* and *"first-year attrition"* to one consistent concept).
 3. **Diagnostic, Constraint & Phase-Ordering Mechanism:** Exact step-by-step mechanics from raw scenario text $\rightarrow$ root causes $\rightarrow$ guardrail filtering $\rightarrow$ Phase 1/2/3 ordering $\rightarrow$ Top-3 Case Study scoring.
 4. **Tech Stack & Production Trade-Offs:** Why your chosen architecture and tools outperform both a flat LLM prompt and alternative designs.
 
@@ -93,7 +92,7 @@ Consolidate your architectural design into one crisp, unambiguous engineering sp
    ```bash
    python starter_baseline_and_validator.py --validate submission.json
    ```
-5. **Stretch Goals (Bonus):** (a) Live demo of your ingestion/validation layer ingesting 1 brand-new HR finding and rejecting a contradictory rule; or (b) lightweight CLI/HTML/Notebook trace inspection view showing *why* each root cause, guardrail, and phase was chosen.
+5. **Stretch Goals (Bonus):** (a) Live demo handling a brand-new or tweaked client situation input cleanly (showing how changing one client trait dynamically updates the recommended plan); or (b) lightweight CLI/HTML/Notebook trace inspection view showing *why* each root cause, guardrail, and phase was chosen.
 
 ---
 

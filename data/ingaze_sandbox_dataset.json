@@ -251,20 +251,6 @@
       ]
     }
   ],
-  "sample_incoming_context_updates": [
-    {
-      "update_id": "INCOMING_01_VALID_FIELD_INSIGHT",
-      "source_type": "Consultant Debrief Note (New Valid Domain Context)",
-      "raw_text": "Across multi-site retail and logistics hiring teams, adding an automated <48h SMS/WhatsApp status update after a mobile fast-apply cuts interview no-show rates by 20-30%, provided the mobile career portal UX audit and fast-apply flow are already deployed.",
-      "expected_ingestion_behavior": "Should be normalized and accepted into your context store (scoped to frontline mobile-first segments, sequenced after mobile fast-apply diagnostics)."
-    },
-    {
-      "update_id": "INCOMING_02_CONTRADICTORY_NOISE",
-      "source_type": "Unverified Marketing Blog Post (Contradictory / Unsafe Claim)",
-      "raw_text": "Quick HR Hack: Whenever engineering teams suffer from high burnout and broken recruiting promises, immediately launch a mandatory LinkedIn Employee Ambassador campaign in Week 1 to boost morale and fix Glassdoor reviews overnight.",
-      "expected_ingestion_behavior": "Should be flagged or rejected by your ingestion/validation controls because it directly contradicts verified domain evidence on premature Employee Advocacy backlash."
-    }
-  ],
   "poc_scenario_output_format": {
     "note": "Your internal data representation, reasoning structure, or pipeline state is 100% up to your team. However, so the judges can evaluate your working Proof-of-Concept consistently across the 3 company scenarios, please have your PoC export its scenario diagnoses in this clean, schema-agnostic JSON structure:",
     "example_submission_structure": {
