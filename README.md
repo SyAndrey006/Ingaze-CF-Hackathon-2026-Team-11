@@ -50,6 +50,16 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 
 ---
 
+## Definition of Success (3 Functional Benchmarks)
+
+A winning weekend PoC clearly beats the naive baseline across **3 verifiable functional benchmarks**:
+
+1. **Root-Cause Precision & `100%` Sector-Trap Immunity:** Across all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), distinguish underlying cross-pillar root causes from surface symptoms without false-positive keyword stuffing, and block every wrong-industry trap (e.g., no retail weekend shift rotation for a cloud FinTech; no LinkedIn engineering-blog strategy for commercial truck drivers).
+2. **Prerequisite-Safe 3-Phase Sequencing & ROI Grounding:** Sequence actions strictly across `Phase 1 (Audits & Listening) -> Phase 2 (Core Structural Fixes) -> Phase 3 (Scaling & Advocacy)`—deferring premature advocacy when an internal Say-Do Gap/burnout blocker is active—and match the **Top-3** structurally relevant historical Case Studies with quantified ROI + empirical research citations.
+3. **Reproducible Execution, Schema Validity & Zero Hardcoding:** Export a `submission.json` that passes `python starter_baseline_and_validator.py --validate submission.json` with `0` errors, runs live from general domain logic (zero `if company == "..."` rules), and adapts dynamically if a scenario trait is tweaked live during Sunday Q&A.
+
+---
+
 ## What You Deliver on Sunday (`09:30` Pre-Finals)
 
 Everything is self-contained in this repo—**no extra datasets or files to wait for during the weekend!** Before Sunday `09:30`, push to your team's GitHub repo:
