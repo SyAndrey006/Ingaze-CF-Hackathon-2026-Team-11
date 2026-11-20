@@ -75,6 +75,7 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
     rules = pillars_block.get("raw_cross_pillar_rules_to_structure", [])
     snippets = dataset.get("raw_empirical_research_snippets", [])
     cases = dataset.get("raw_case_study_narratives", [])
+    incoming = dataset.get("sample_incoming_context_updates", [])
 
     print("=" * 78)
     print(f"INGAZE HACKATHON SANDBOX — {meta.get('version', 'unknown')}")
@@ -87,6 +88,7 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
     print(f"  - Anonymized B2B Case Studies:  {len(cases)}")
     for idx, cs in enumerate(cases, start=1):
         print(f"      {idx:2d}. {cs.get('case_name')}")
+    print(f"  - Incoming Context Test Drops:  {len(incoming)} (optional ingestion/validation fixtures)")
     print(f"  - Company Scenarios Loaded:     {len(scenarios)}")
     for sc in scenarios:
         print(f"      * {sc.get('scenario_code')} — {sc.get('company_name')} ({sc.get('industry')})")

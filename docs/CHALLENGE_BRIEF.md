@@ -12,23 +12,29 @@ Unlike standard coding challenges where a rigid schema is handed to you to imple
 
 ---
 
-## 1. Who We Are & What We Want to Achieve
+## 1. Real Product Context: What Ingaze Does Today vs. What You Are Building
 
-**Ingaze** (`ingaze.ai`) is a European B2B **Employer Intelligence** platform. We help enterprise HR Leaders and C-level Boards transform fragmented employee and talent data into **CFO-defensible financial risk metrics (€)** and **prioritized strategic action plans**.
-
-Our domain spans **4 deeply interconnected HR Pillars**:
+**Ingaze** (`ingaze.ai`) is a European B2B **Employer Intelligence** platform that helps enterprise HR Leaders and C-level Boards build data-driven Employer Strategy across **4 deeply interconnected HR Pillars**:
 
 1. **Employer Branding & Reputation Intelligence:** Multi-channel public reputation (Glassdoor, Indeed, Google Reviews), cross-country/multi-site brand consistency, Employer Brand Alignment Index, and the **"Say-Do Gap"** (when external recruiting promises contradict internal employee reality).
 2. **Recruiting & Talent Attraction:** Career Portal conversion & UX audit, Candidate Persona alignment, job description quality, technical engineering storytelling on LinkedIn, Time-to-Hire (TtH), and Cost-per-Hire (CpH).
 3. **Employee Advocacy:** Data-driven employee brand ambassadors, organic social reach amplification, manual spreadsheet tracking vs. automated ambassador content tracking, and **Earned Media Value (EMV)** saved vs. paid ads.
 4. **Retention & Internal Climate:** First-year new-hire attrition, workload burnout, middle management effectiveness, 360° internal listening, career progression clarity, and **Estimated Annual Attrition Exposure (€)**.
 
+> [!IMPORTANT]
+> **Why This Project Exists Inside Ingaze's Real Product:**
+> - **Today:** Our platform **already identifies all the client warning signals and areas needing attention** across these 4 pillars (reputation gaps, career-site drop-offs, early churn, manual HR bottlenecks). However, **turning those detected signals into a prioritized strategic action plan is still done manually by our human experts**, relying on domain knowledge and past consulting cases kept in their heads.
+> - **What we want to automate:** We want to build the **Action Recommendation Engine** that powers automated recommendations inside the platform.
+> - **Why LLMs alone aren't enough:** LLMs don't fail here because they can't generate text—they fail because **they lack structured, living domain context**.
+> - **What we need from your team:** Design a reusable **Context Collection & Organization Architecture** (capable of absorbing today's knowledge *plus* future studies and client cases as Ingaze grows—not static rules hard-coded for today's 6 notes!) and connect it to a **Recommendation Engine** that turns client diagnostic signals into safe, sequenced, ROI-backed actions.
+
 ### The Core Reasoning Objective
 Given:
-- **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes), and
-- **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI),
+- **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes),
+- **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI), and
+- **Optional Ingestion Test Fixture (`sample_incoming_context_updates`)** — `2` short raw text updates (1 valid new field insight + 1 noisy/contradictory claim) provided strictly so you can test and demonstrate how your ingestion layer adds valid new context while flagging/rejecting bad rules (you are also welcome to test with your own custom updates during Sunday's demo!),
 
-when a **Company Situation** arrives (industry, headcount, workforce target, organizational context, and narrative symptoms), your system must:
+when a **Company Situation** arrives (representing the diagnostic warning signals our platform already detects for a client: industry, headcount, workforce target, organizational context, and detected issues), your system must:
 1. **Diagnose Hidden Root Causes:** Trace surface symptoms across the 4 pillars back to their underlying structural causes (without hallucinating unrelated causes).
 2. **Enforce Industry & Workforce Guardrails:** Block interventions that violate the company's sector or workforce reality (e.g., never recommend physical retail store weekend shift rotation to a cloud FinTech, or B2B LinkedIn technical-architecture blogging as the primary hiring channel for commercial truck drivers). Conversely, dynamically *activate* frontline/retail interventions when the company actually operates physical stores!
 3. **Enforce 3-Phase Prerequisite Sequencing:** Order interventions into **`Phase 1` (Foundational Diagnostics & Calibrations) $\rightarrow$ `Phase 2` (Core Structural Fixes) $\rightarrow$ `Phase 3` (Cross-Pillar Scaling & Advocacy)**. For example, launching external Employee Advocacy *before* fixing an active Say-Do Gap or severe burnout will backfire and must be deferred to Phase 3.
