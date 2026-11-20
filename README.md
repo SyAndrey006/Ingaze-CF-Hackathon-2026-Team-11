@@ -49,6 +49,7 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
 | **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
 | **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Schema-agnostic sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Anonymized B2B Case Studies**, and **3 Company Scenarios**. |
+| **[`data/ingaze_synthetic_analytics_snapshots.json`](./data/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 11 cases + `T0` for the 3 scenarios; scales & definitions in **[`docs/ANALYTICS_TELEMETRY_DICTIONARY.md`](./docs/ANALYTICS_TELEMETRY_DICTIONARY.md)**). |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
 *(Note: While the intro slides mentioned 5 sample case studies, we included **11 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*

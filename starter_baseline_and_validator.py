@@ -94,6 +94,12 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
     print(f"  - Anonymized B2B Case Studies:  {len(cases)}")
     for idx, cs in enumerate(cases, start=1):
         print(f"      {idx:2d}. {cs.get('case_name')}")
+    snapshots_path = BASE_DIR / "data" / "ingaze_synthetic_analytics_snapshots.json"
+    if snapshots_path.exists():
+        snap_data = json.loads(snapshots_path.read_text(encoding="utf-8"))
+        cs_snaps = len(snap_data.get("case_study_analytics_snapshots", []))
+        sc_snaps = len(snap_data.get("active_scenario_analytics_snapshots", []))
+        print(f"  - Optional Analytics Snapshots: {cs_snaps} case T0->T1 + {sc_snaps} scenario T0 tables ({snapshots_path.name})")
     print(f"  - Company Scenarios Loaded:     {len(scenarios)}")
     for sc in scenarios:
         has_dual = "ingaze_platform_signals" in sc and "client_internal_context" in sc

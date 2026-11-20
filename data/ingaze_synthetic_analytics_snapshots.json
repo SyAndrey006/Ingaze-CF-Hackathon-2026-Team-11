@@ -1,0 +1,2223 @@
+{
+  "metadata": {
+    "dataset_name": "Ingaze Synthetic Multi-Channel Analytics & Sector Benchmark Snapshots",
+    "version": "1.2.0-field-realistic-sanitized",
+    "status": "100% optional quantitative companion dataset (see docs/ANALYTICS_TELEMETRY_DICTIONARY.md for metric definitions and scales)",
+    "description": "Field-calibrated synthetic HR, public reputation, career portal funnel, social/advocacy, and hiring telemetry for the 11 historical B2B case studies (sector_peer_benchmarks, t0_before_intervention, t1_after_12_months) and the 3 active company scenarios (sector_peer_benchmarks, t0_current_snapshot). All schemas and metric scales are uniform across records (see docs/ANALYTICS_TELEMETRY_DICTIONARY.md). Teams may use these tables to ground causal diagnoses, compare company metrics against sector norms, run standalone statistical/quantitative models, or ignore this file altogether."
+  },
+  "case_study_analytics_snapshots": [
+    {
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "sector_benchmark_group": "European B2B SaaS & Cloud Scale-Ups",
+      "headcount": 420,
+      "locations_count": 4,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.74,
+        "recommend_to_friend_pct": 66.4,
+        "employer_review_reply_rate_pct": 3.2,
+        "cross_location_rating_std_dev_5": 0.21,
+        "brand_alignment_index_100": 61.5,
+        "external_claims_gap_stars_5": 0.38,
+        "sub_ratings_5": {
+          "management": 3.38,
+          "career_growth": 3.24,
+          "work_life_balance": 3.68,
+          "compensation": 3.62,
+          "culture_and_values": 3.76
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 29.4,
+          "application_form_dropoff_pct": 33.8,
+          "applicant_conversion_rate_pct": 4.15,
+          "candidate_survey_completion_rate_pct": 29.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 77.8,
+            "technical_speed_100": 82.4,
+            "job_ad_clarity_100": 73.6,
+            "role_benefits_transparency_100": 64.2,
+            "application_flow_simplicity_100": 71.5,
+            "authentic_team_social_proof_100": 56.8
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.84,
+          "organic_employee_post_er_pct": 6.35
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 13.4,
+          "avg_time_to_hire_days": 38,
+          "agency_filled_roles_pct": 21.3
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 127,
+          "overall_review_rating_5": 3.43,
+          "recommend_to_friend_pct": 52.8,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.5,
+          "brand_alignment_index_100": 50.2,
+          "external_claims_gap_stars_5": 0.88,
+          "sub_ratings_5": {
+            "management": 3.18,
+            "career_growth": 2.96,
+            "work_life_balance": 3.64,
+            "compensation": 3.71,
+            "culture_and_values": 3.29
+          },
+          "segment_or_site_breakdown": {
+            "Munich_HQ_Hub": {
+              "reviews": 47,
+              "rating_5": 3.98
+            },
+            "Warsaw_RnD_Hub": {
+              "reviews": 38,
+              "rating_5": 3.44
+            },
+            "Rotterdam_Hub": {
+              "reviews": 23,
+              "rating_5": 2.86
+            },
+            "Lyon_Hub": {
+              "reviews": 19,
+              "rating_5": 2.74
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 6380,
+          "smartphone_traffic_pct": 27.6,
+          "application_form_dropoff_pct": 35.2,
+          "applicant_conversion_rate_pct": 3.38,
+          "candidate_survey_completion_rate_pct": 25.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 80.6,
+            "technical_speed_100": 84.9,
+            "job_ad_clarity_100": 59.4,
+            "role_benefits_transparency_100": 47.8,
+            "application_flow_simplicity_100": 69.2,
+            "authentic_team_social_proof_100": 41.3
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.48,
+          "quarterly_organic_impressions": 51420,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.86,
+            "generic_job_posts": 1.09,
+            "authentic_team_and_domain_stories": 4.92
+          },
+          "spontaneous_employee_mentions_quarter": 17,
+          "positive_mention_share_pct": 64.7,
+          "manual_hr_tracking_hours_month": 6.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 16.4,
+          "estimated_annual_attrition_exposure_eur": 894000,
+          "avg_time_to_hire_days": 44,
+          "agency_filled_roles_pct": 28.6
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 171,
+          "overall_review_rating_5": 3.73,
+          "recommend_to_friend_pct": 68.4,
+          "employer_review_reply_rate_pct": 81.9,
+          "cross_location_rating_std_dev_5": 0.4,
+          "brand_alignment_index_100": 65.3,
+          "external_claims_gap_stars_5": 0.36,
+          "sub_ratings_5": {
+            "management": 3.46,
+            "career_growth": 3.41,
+            "work_life_balance": 3.61,
+            "compensation": 3.73,
+            "culture_and_values": 3.79
+          },
+          "segment_or_site_breakdown": {
+            "Munich_HQ_Hub": {
+              "reviews": 61,
+              "rating_5": 4.14
+            },
+            "Warsaw_RnD_Hub": {
+              "reviews": 52,
+              "rating_5": 3.82
+            },
+            "Rotterdam_Hub": {
+              "reviews": 31,
+              "rating_5": 3.25
+            },
+            "Lyon_Hub": {
+              "reviews": 27,
+              "rating_5": 3.17
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 7140,
+          "smartphone_traffic_pct": 28.3,
+          "application_form_dropoff_pct": 33.1,
+          "applicant_conversion_rate_pct": 4.26,
+          "candidate_survey_completion_rate_pct": 27.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.4,
+            "technical_speed_100": 84.6,
+            "job_ad_clarity_100": 77.5,
+            "role_benefits_transparency_100": 73.8,
+            "application_flow_simplicity_100": 70.4,
+            "authentic_team_social_proof_100": 68.7
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.19,
+          "quarterly_organic_impressions": 78350,
+          "spontaneous_employee_mentions_quarter": 31,
+          "positive_mention_share_pct": 77.4,
+          "manual_hr_tracking_hours_month": 1.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 13.5,
+          "estimated_annual_attrition_exposure_eur": 733100,
+          "avg_time_to_hire_days": 37,
+          "agency_filled_roles_pct": 19.8
+        }
+      }
+    },
+    {
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "sector_benchmark_group": "CleanTech & Distributed Deep-Tech Engineering",
+      "headcount": 380,
+      "locations_count": 3,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.81,
+        "recommend_to_friend_pct": 69.8,
+        "employer_review_reply_rate_pct": 4.8,
+        "cross_location_rating_std_dev_5": 0.19,
+        "brand_alignment_index_100": 64.2,
+        "external_claims_gap_stars_5": 0.35,
+        "sub_ratings_5": {
+          "management": 3.44,
+          "career_growth": 3.29,
+          "work_life_balance": 3.79,
+          "compensation": 3.54,
+          "culture_and_values": 3.92
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 28.1,
+          "application_form_dropoff_pct": 31.6,
+          "applicant_conversion_rate_pct": 4.28,
+          "candidate_survey_completion_rate_pct": 31.5,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 74.6,
+            "technical_speed_100": 80.8,
+            "job_ad_clarity_100": 76.9,
+            "role_benefits_transparency_100": 67.5,
+            "application_flow_simplicity_100": 73.8,
+            "authentic_team_social_proof_100": 55.4
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.92,
+          "organic_employee_post_er_pct": 6.78
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 11.6,
+          "avg_time_to_hire_days": 39,
+          "agency_filled_roles_pct": 21.8
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 94,
+          "overall_review_rating_5": 4.28,
+          "recommend_to_friend_pct": 85.1,
+          "employer_review_reply_rate_pct": 23.4,
+          "cross_location_rating_std_dev_5": 0.13,
+          "brand_alignment_index_100": 79.4,
+          "external_claims_gap_stars_5": 0.14,
+          "sub_ratings_5": {
+            "management": 3.98,
+            "career_growth": 3.74,
+            "work_life_balance": 4.19,
+            "compensation": 3.76,
+            "culture_and_values": 4.58
+          },
+          "segment_or_site_breakdown": {
+            "Grid_Software_Engineering": {
+              "reviews": 43,
+              "rating_5": 4.38
+            },
+            "Battery_Systems_RnD": {
+              "reviews": 34,
+              "rating_5": 4.26
+            },
+            "Commercial_and_Operations": {
+              "reviews": 17,
+              "rating_5": 4.06
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 3140,
+          "smartphone_traffic_pct": 25.8,
+          "application_form_dropoff_pct": 27.4,
+          "applicant_conversion_rate_pct": 4.76,
+          "candidate_survey_completion_rate_pct": 35.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 61.8,
+            "technical_speed_100": 87.6,
+            "job_ad_clarity_100": 84.5,
+            "role_benefits_transparency_100": 81.2,
+            "application_flow_simplicity_100": 80.4,
+            "authentic_team_social_proof_100": 53.6
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.34,
+          "quarterly_organic_impressions": 47850,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.88,
+            "generic_job_posts": 1.04,
+            "authentic_team_and_domain_stories": 8.26
+          },
+          "spontaneous_employee_mentions_quarter": 63,
+          "positive_mention_share_pct": 90.5,
+          "manual_hr_tracking_hours_month": 10.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 7.9,
+          "estimated_annual_attrition_exposure_eur": 312500,
+          "avg_time_to_hire_days": 41,
+          "agency_filled_roles_pct": 25.8
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 121,
+          "overall_review_rating_5": 4.32,
+          "recommend_to_friend_pct": 86.8,
+          "employer_review_reply_rate_pct": 28.9,
+          "cross_location_rating_std_dev_5": 0.14,
+          "brand_alignment_index_100": 81.6,
+          "external_claims_gap_stars_5": 0.11,
+          "sub_ratings_5": {
+            "management": 4.01,
+            "career_growth": 3.78,
+            "work_life_balance": 4.16,
+            "compensation": 3.75,
+            "culture_and_values": 4.61
+          },
+          "segment_or_site_breakdown": {
+            "Grid_Software_Engineering": {
+              "reviews": 56,
+              "rating_5": 4.42
+            },
+            "Battery_Systems_RnD": {
+              "reviews": 43,
+              "rating_5": 4.31
+            },
+            "Commercial_and_Operations": {
+              "reviews": 22,
+              "rating_5": 4.09
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 6890,
+          "smartphone_traffic_pct": 26.4,
+          "application_form_dropoff_pct": 26.9,
+          "applicant_conversion_rate_pct": 5.24,
+          "candidate_survey_completion_rate_pct": 36.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 75.3,
+            "technical_speed_100": 87.4,
+            "job_ad_clarity_100": 84.8,
+            "role_benefits_transparency_100": 81.5,
+            "application_flow_simplicity_100": 80.1,
+            "authentic_team_social_proof_100": 73.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.87,
+          "quarterly_organic_impressions": 191400,
+          "spontaneous_employee_mentions_quarter": 158,
+          "positive_mention_share_pct": 91.8,
+          "manual_hr_tracking_hours_month": 0.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 7.6,
+          "estimated_annual_attrition_exposure_eur": 296400,
+          "avg_time_to_hire_days": 32,
+          "agency_filled_roles_pct": 14.3
+        }
+      }
+    },
+    {
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "sector_benchmark_group": "European FinTech & B2B Cloud Payments",
+      "headcount": 480,
+      "locations_count": 4,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.72,
+        "recommend_to_friend_pct": 65.2,
+        "employer_review_reply_rate_pct": 1.8,
+        "cross_location_rating_std_dev_5": 0.22,
+        "brand_alignment_index_100": 62.1,
+        "external_claims_gap_stars_5": 0.44,
+        "sub_ratings_5": {
+          "management": 3.34,
+          "career_growth": 3.21,
+          "work_life_balance": 3.42,
+          "compensation": 3.68,
+          "culture_and_values": 3.66
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 26.8,
+          "application_form_dropoff_pct": 32.4,
+          "applicant_conversion_rate_pct": 3.98,
+          "candidate_survey_completion_rate_pct": 28.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 79.8,
+            "technical_speed_100": 84.2,
+            "job_ad_clarity_100": 74.8,
+            "role_benefits_transparency_100": 65.7,
+            "application_flow_simplicity_100": 72.9,
+            "authentic_team_social_proof_100": 55.9
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.89,
+          "organic_employee_post_er_pct": 6.48
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 12.8,
+          "avg_time_to_hire_days": 39,
+          "agency_filled_roles_pct": 23.4
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 138,
+          "overall_review_rating_5": 3.81,
+          "recommend_to_friend_pct": 70.3,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.17,
+          "brand_alignment_index_100": 59.6,
+          "external_claims_gap_stars_5": 0.31,
+          "sub_ratings_5": {
+            "management": 3.58,
+            "career_growth": 3.46,
+            "work_life_balance": 3.49,
+            "compensation": 3.88,
+            "culture_and_values": 3.86
+          },
+          "segment_or_site_breakdown": {
+            "Core_Payments_Engineering": {
+              "reviews": 58,
+              "rating_5": 3.97
+            },
+            "Cybersecurity_and_Risk": {
+              "reviews": 31,
+              "rating_5": 3.84
+            },
+            "Product_Management": {
+              "reviews": 22,
+              "rating_5": 3.68
+            },
+            "Commercial_Operations": {
+              "reviews": 27,
+              "rating_5": 3.52
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 5790,
+          "smartphone_traffic_pct": 24.9,
+          "application_form_dropoff_pct": 31.4,
+          "applicant_conversion_rate_pct": 2.86,
+          "candidate_survey_completion_rate_pct": 27.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 86.8,
+            "technical_speed_100": 90.7,
+            "job_ad_clarity_100": 45.8,
+            "role_benefits_transparency_100": 51.4,
+            "application_flow_simplicity_100": 77.6,
+            "authentic_team_social_proof_100": 38.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.42,
+          "quarterly_organic_impressions": 61340,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.71,
+            "generic_job_posts": 0.92,
+            "authentic_team_and_domain_stories": 5.44
+          },
+          "spontaneous_employee_mentions_quarter": 29,
+          "positive_mention_share_pct": 79.3,
+          "manual_hr_tracking_hours_month": 12.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 11.3,
+          "estimated_annual_attrition_exposure_eur": 518000,
+          "avg_time_to_hire_days": 46,
+          "agency_filled_roles_pct": 30.8
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 169,
+          "overall_review_rating_5": 3.89,
+          "recommend_to_friend_pct": 73.4,
+          "employer_review_reply_rate_pct": 42.6,
+          "cross_location_rating_std_dev_5": 0.18,
+          "brand_alignment_index_100": 71.8,
+          "external_claims_gap_stars_5": 0.19,
+          "sub_ratings_5": {
+            "management": 3.61,
+            "career_growth": 3.52,
+            "work_life_balance": 3.47,
+            "compensation": 3.86,
+            "culture_and_values": 3.94
+          },
+          "segment_or_site_breakdown": {
+            "Core_Payments_Engineering": {
+              "reviews": 73,
+              "rating_5": 4.05
+            },
+            "Cybersecurity_and_Risk": {
+              "reviews": 39,
+              "rating_5": 3.92
+            },
+            "Product_Management": {
+              "reviews": 26,
+              "rating_5": 3.77
+            },
+            "Commercial_Operations": {
+              "reviews": 31,
+              "rating_5": 3.58
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 7420,
+          "smartphone_traffic_pct": 25.6,
+          "application_form_dropoff_pct": 30.8,
+          "applicant_conversion_rate_pct": 4.09,
+          "candidate_survey_completion_rate_pct": 29.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 87.5,
+            "technical_speed_100": 90.4,
+            "job_ad_clarity_100": 80.9,
+            "role_benefits_transparency_100": 75.6,
+            "application_flow_simplicity_100": 78.2,
+            "authentic_team_social_proof_100": 72.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.96,
+          "quarterly_organic_impressions": 112680,
+          "spontaneous_employee_mentions_quarter": 47,
+          "positive_mention_share_pct": 83.0,
+          "manual_hr_tracking_hours_month": 1.8
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 10.7,
+          "estimated_annual_attrition_exposure_eur": 481000,
+          "avg_time_to_hire_days": 35,
+          "agency_filled_roles_pct": 19.2
+        }
+      }
+    },
+    {
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "sector_benchmark_group": "Mass Distribution & National Retail Networks",
+      "headcount": 10400,
+      "locations_count": 212,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.41,
+        "recommend_to_friend_pct": 57.6,
+        "employer_review_reply_rate_pct": 3.8,
+        "cross_location_rating_std_dev_5": 0.29,
+        "brand_alignment_index_100": 57.8,
+        "external_claims_gap_stars_5": 0.48,
+        "sub_ratings_5": {
+          "management": 3.12,
+          "career_growth": 2.94,
+          "work_life_balance": 3.14,
+          "compensation": 3.26,
+          "culture_and_values": 3.39
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 76.4,
+          "application_form_dropoff_pct": 43.8,
+          "applicant_conversion_rate_pct": 4.35,
+          "candidate_survey_completion_rate_pct": 23.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.6,
+            "technical_speed_100": 73.8,
+            "job_ad_clarity_100": 69.5,
+            "role_benefits_transparency_100": 61.8,
+            "application_flow_simplicity_100": 64.7,
+            "authentic_team_social_proof_100": 51.9
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.58,
+          "organic_employee_post_er_pct": 5.18
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 26.2,
+          "avg_time_to_hire_days": 29,
+          "agency_filled_roles_pct": 18.2
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 614,
+          "overall_review_rating_5": 3.49,
+          "recommend_to_friend_pct": 60.4,
+          "employer_review_reply_rate_pct": 1.8,
+          "cross_location_rating_std_dev_5": 0.23,
+          "brand_alignment_index_100": 58.7,
+          "external_claims_gap_stars_5": 0.39,
+          "sub_ratings_5": {
+            "management": 3.24,
+            "career_growth": 3.06,
+            "work_life_balance": 3.28,
+            "compensation": 3.44,
+            "culture_and_values": 3.51
+          },
+          "segment_or_site_breakdown": {
+            "Store_Operations_Staff": {
+              "reviews": 462,
+              "rating_5": 3.39
+            },
+            "Store_Managers": {
+              "reviews": 93,
+              "rating_5": 3.68
+            },
+            "Corporate_HQ_Merchandising": {
+              "reviews": 59,
+              "rating_5": 3.96
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 48390,
+          "smartphone_traffic_pct": 81.3,
+          "application_form_dropoff_pct": 61.8,
+          "applicant_conversion_rate_pct": 3.46,
+          "candidate_survey_completion_rate_pct": 21.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 90.8,
+            "technical_speed_100": 75.4,
+            "job_ad_clarity_100": 48.6,
+            "role_benefits_transparency_100": 50.9,
+            "application_flow_simplicity_100": 31.2,
+            "authentic_team_social_proof_100": 47.5
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.61,
+          "quarterly_organic_impressions": 141280,
+          "er_by_post_format_pct": {
+            "institutional_updates": 1.18,
+            "generic_job_posts": 1.07,
+            "authentic_team_and_domain_stories": 4.14
+          },
+          "spontaneous_employee_mentions_quarter": 46,
+          "positive_mention_share_pct": 71.7,
+          "manual_hr_tracking_hours_month": 4.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 25.4,
+          "estimated_annual_attrition_exposure_eur": 3415000,
+          "avg_time_to_hire_days": 36,
+          "agency_filled_roles_pct": 24.3
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 714,
+          "overall_review_rating_5": 3.53,
+          "recommend_to_friend_pct": 61.9,
+          "employer_review_reply_rate_pct": 14.6,
+          "cross_location_rating_std_dev_5": 0.2,
+          "brand_alignment_index_100": 62.4,
+          "external_claims_gap_stars_5": 0.33,
+          "sub_ratings_5": {
+            "management": 3.26,
+            "career_growth": 3.09,
+            "work_life_balance": 3.25,
+            "compensation": 3.45,
+            "culture_and_values": 3.54
+          },
+          "segment_or_site_breakdown": {
+            "Store_Operations_Staff": {
+              "reviews": 538,
+              "rating_5": 3.44
+            },
+            "Store_Managers": {
+              "reviews": 109,
+              "rating_5": 3.71
+            },
+            "Corporate_HQ_Merchandising": {
+              "reviews": 67,
+              "rating_5": 3.94
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 51240,
+          "smartphone_traffic_pct": 82.1,
+          "application_form_dropoff_pct": 40.2,
+          "applicant_conversion_rate_pct": 4.22,
+          "candidate_survey_completion_rate_pct": 24.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 91.1,
+            "technical_speed_100": 80.7,
+            "job_ad_clarity_100": 81.8,
+            "role_benefits_transparency_100": 76.9,
+            "application_flow_simplicity_100": 83.6,
+            "authentic_team_social_proof_100": 61.4
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.66,
+          "quarterly_organic_impressions": 149650,
+          "spontaneous_employee_mentions_quarter": 49,
+          "positive_mention_share_pct": 73.5,
+          "manual_hr_tracking_hours_month": 3.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 24.6,
+          "estimated_annual_attrition_exposure_eur": 3290000,
+          "avg_time_to_hire_days": 25,
+          "agency_filled_roles_pct": 14.2
+        }
+      }
+    },
+    {
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "sector_benchmark_group": "Enterprise B2B Software & Cloud Engineering",
+      "headcount": 950,
+      "locations_count": 3,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.71,
+        "recommend_to_friend_pct": 65.8,
+        "employer_review_reply_rate_pct": 2.4,
+        "cross_location_rating_std_dev_5": 0.21,
+        "brand_alignment_index_100": 62.8,
+        "external_claims_gap_stars_5": 0.41,
+        "sub_ratings_5": {
+          "management": 3.36,
+          "career_growth": 3.19,
+          "work_life_balance": 3.54,
+          "compensation": 3.58,
+          "culture_and_values": 3.64
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 25.8,
+          "application_form_dropoff_pct": 33.2,
+          "applicant_conversion_rate_pct": 4.08,
+          "candidate_survey_completion_rate_pct": 29.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 79.6,
+            "technical_speed_100": 83.9,
+            "job_ad_clarity_100": 73.8,
+            "role_benefits_transparency_100": 65.4,
+            "application_flow_simplicity_100": 72.6,
+            "authentic_team_social_proof_100": 56.5
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.81,
+          "organic_employee_post_er_pct": 6.29
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 12.9,
+          "avg_time_to_hire_days": 40,
+          "agency_filled_roles_pct": 21.1
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 209,
+          "overall_review_rating_5": 3.21,
+          "recommend_to_friend_pct": 45.9,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.51,
+          "brand_alignment_index_100": 45.8,
+          "external_claims_gap_stars_5": 1.21,
+          "sub_ratings_5": {
+            "management": 2.58,
+            "career_growth": 2.47,
+            "work_life_balance": 2.91,
+            "compensation": 3.89,
+            "culture_and_values": 3.08
+          },
+          "segment_or_site_breakdown": {
+            "Cloud_Product_Engineering": {
+              "reviews": 124,
+              "rating_5": 2.82
+            },
+            "Data_Platform_Division": {
+              "reviews": 43,
+              "rating_5": 4.08
+            },
+            "Enterprise_Sales_and_CS": {
+              "reviews": 42,
+              "rating_5": 3.46
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 8170,
+          "smartphone_traffic_pct": 23.8,
+          "application_form_dropoff_pct": 34.6,
+          "applicant_conversion_rate_pct": 2.98,
+          "candidate_survey_completion_rate_pct": 24.7,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 83.7,
+            "technical_speed_100": 86.2,
+            "job_ad_clarity_100": 51.8,
+            "role_benefits_transparency_100": 41.9,
+            "application_flow_simplicity_100": 71.4,
+            "authentic_team_social_proof_100": 36.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.19,
+          "quarterly_organic_impressions": 53760,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.78,
+            "generic_job_posts": 0.91,
+            "authentic_team_and_domain_stories": 4.63
+          },
+          "spontaneous_employee_mentions_quarter": 19,
+          "positive_mention_share_pct": 52.6,
+          "manual_hr_tracking_hours_month": 5.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 19.0,
+          "estimated_annual_attrition_exposure_eur": 1350000,
+          "avg_time_to_hire_days": 49,
+          "agency_filled_roles_pct": 31.8
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 261,
+          "overall_review_rating_5": 3.79,
+          "recommend_to_friend_pct": 68.6,
+          "employer_review_reply_rate_pct": 84.7,
+          "cross_location_rating_std_dev_5": 0.2,
+          "brand_alignment_index_100": 67.9,
+          "external_claims_gap_stars_5": 0.32,
+          "sub_ratings_5": {
+            "management": 3.48,
+            "career_growth": 3.54,
+            "work_life_balance": 3.46,
+            "compensation": 3.87,
+            "culture_and_values": 3.78
+          },
+          "segment_or_site_breakdown": {
+            "Cloud_Product_Engineering": {
+              "reviews": 152,
+              "rating_5": 3.68
+            },
+            "Data_Platform_Division": {
+              "reviews": 56,
+              "rating_5": 4.14
+            },
+            "Enterprise_Sales_and_CS": {
+              "reviews": 53,
+              "rating_5": 3.76
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 9430,
+          "smartphone_traffic_pct": 24.5,
+          "application_form_dropoff_pct": 32.1,
+          "applicant_conversion_rate_pct": 4.18,
+          "candidate_survey_completion_rate_pct": 33.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 84.5,
+            "technical_speed_100": 85.9,
+            "job_ad_clarity_100": 80.6,
+            "role_benefits_transparency_100": 78.8,
+            "application_flow_simplicity_100": 72.9,
+            "authentic_team_social_proof_100": 70.6
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.08,
+          "quarterly_organic_impressions": 107840,
+          "spontaneous_employee_mentions_quarter": 49,
+          "positive_mention_share_pct": 81.6,
+          "manual_hr_tracking_hours_month": 2.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 14.8,
+          "estimated_annual_attrition_exposure_eur": 824000,
+          "avg_time_to_hire_days": 38,
+          "agency_filled_roles_pct": 20.9
+        }
+      }
+    },
+    {
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "sector_benchmark_group": "European Freight Transport & Interport Logistics",
+      "headcount": 1100,
+      "locations_count": 4,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.42,
+        "recommend_to_friend_pct": 56.8,
+        "employer_review_reply_rate_pct": 1.2,
+        "cross_location_rating_std_dev_5": 0.27,
+        "brand_alignment_index_100": 55.8,
+        "external_claims_gap_stars_5": 0.49,
+        "sub_ratings_5": {
+          "management": 3.16,
+          "career_growth": 2.89,
+          "work_life_balance": 3.18,
+          "compensation": 3.31,
+          "culture_and_values": 3.38
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 78.6,
+          "application_form_dropoff_pct": 41.2,
+          "applicant_conversion_rate_pct": 3.58,
+          "candidate_survey_completion_rate_pct": 20.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 73.9,
+            "technical_speed_100": 71.8,
+            "job_ad_clarity_100": 65.8,
+            "role_benefits_transparency_100": 59.6,
+            "application_flow_simplicity_100": 63.8,
+            "authentic_team_social_proof_100": 47.9
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.38,
+          "organic_employee_post_er_pct": 4.46
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 18.8,
+          "avg_time_to_hire_days": 34,
+          "agency_filled_roles_pct": 19.4
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 146,
+          "overall_review_rating_5": 3.62,
+          "recommend_to_friend_pct": 63.7,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.41,
+          "brand_alignment_index_100": 51.8,
+          "external_claims_gap_stars_5": 0.42,
+          "sub_ratings_5": {
+            "management": 3.34,
+            "career_growth": 3.02,
+            "work_life_balance": 3.38,
+            "compensation": 4.58,
+            "culture_and_values": 3.59
+          },
+          "segment_or_site_breakdown": {
+            "Northern_Freight_Hubs": {
+              "reviews": 74,
+              "rating_5": 3.98
+            },
+            "Central_and_Southern_Hubs": {
+              "reviews": 53,
+              "rating_5": 3.04
+            },
+            "HQ_Dispatch_and_Admin": {
+              "reviews": 19,
+              "rating_5": 3.82
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 9580,
+          "smartphone_traffic_pct": 82.7,
+          "application_form_dropoff_pct": 58.0,
+          "applicant_conversion_rate_pct": 2.1,
+          "candidate_survey_completion_rate_pct": 17.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 80.9,
+            "technical_speed_100": 69.8,
+            "job_ad_clarity_100": 43.7,
+            "role_benefits_transparency_100": 31.8,
+            "application_flow_simplicity_100": 28.9,
+            "authentic_team_social_proof_100": 34.6
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.39,
+          "quarterly_organic_impressions": 31240,
+          "er_by_post_format_pct": {
+            "institutional_updates": 1.08,
+            "generic_job_posts": 0.98,
+            "authentic_team_and_domain_stories": 3.62
+          },
+          "spontaneous_employee_mentions_quarter": 13,
+          "positive_mention_share_pct": 76.9,
+          "manual_hr_tracking_hours_month": 6.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 17.4,
+          "estimated_annual_attrition_exposure_eur": 638000,
+          "avg_time_to_hire_days": 52,
+          "agency_filled_roles_pct": 38.7
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 179,
+          "overall_review_rating_5": 3.89,
+          "recommend_to_friend_pct": 70.9,
+          "employer_review_reply_rate_pct": 74.3,
+          "cross_location_rating_std_dev_5": 0.18,
+          "brand_alignment_index_100": 68.9,
+          "external_claims_gap_stars_5": 0.21,
+          "sub_ratings_5": {
+            "management": 3.42,
+            "career_growth": 3.09,
+            "work_life_balance": 3.44,
+            "compensation": 4.59,
+            "culture_and_values": 3.76
+          },
+          "segment_or_site_breakdown": {
+            "Northern_Freight_Hubs": {
+              "reviews": 88,
+              "rating_5": 4.08
+            },
+            "Central_and_Southern_Hubs": {
+              "reviews": 67,
+              "rating_5": 3.64
+            },
+            "HQ_Dispatch_and_Admin": {
+              "reviews": 24,
+              "rating_5": 3.88
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 10390,
+          "smartphone_traffic_pct": 83.6,
+          "application_form_dropoff_pct": 29.0,
+          "applicant_conversion_rate_pct": 3.7,
+          "candidate_survey_completion_rate_pct": 23.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.7,
+            "technical_speed_100": 78.6,
+            "job_ad_clarity_100": 82.8,
+            "role_benefits_transparency_100": 85.9,
+            "application_flow_simplicity_100": 87.4,
+            "authentic_team_social_proof_100": 63.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.54,
+          "quarterly_organic_impressions": 37890,
+          "spontaneous_employee_mentions_quarter": 18,
+          "positive_mention_share_pct": 77.8,
+          "manual_hr_tracking_hours_month": 2.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 15.3,
+          "estimated_annual_attrition_exposure_eur": 532000,
+          "avg_time_to_hire_days": 36,
+          "agency_filled_roles_pct": 20.4
+        }
+      }
+    },
+    {
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "sector_benchmark_group": "Specialty Fashion & Omnichannel Store Chains",
+      "headcount": 800,
+      "locations_count": 90,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.39,
+        "recommend_to_friend_pct": 57.9,
+        "employer_review_reply_rate_pct": 4.1,
+        "cross_location_rating_std_dev_5": 0.28,
+        "brand_alignment_index_100": 57.6,
+        "external_claims_gap_stars_5": 0.51,
+        "sub_ratings_5": {
+          "management": 3.14,
+          "career_growth": 2.98,
+          "work_life_balance": 3.09,
+          "compensation": 3.28,
+          "culture_and_values": 3.41
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 77.2,
+          "application_form_dropoff_pct": 43.9,
+          "applicant_conversion_rate_pct": 4.46,
+          "candidate_survey_completion_rate_pct": 24.1,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 77.9,
+            "technical_speed_100": 73.6,
+            "job_ad_clarity_100": 69.8,
+            "role_benefits_transparency_100": 61.9,
+            "application_flow_simplicity_100": 64.9,
+            "authentic_team_social_proof_100": 52.3
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.62,
+          "organic_employee_post_er_pct": 5.34
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 24.2,
+          "avg_time_to_hire_days": 28,
+          "agency_filled_roles_pct": 16.9
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 183,
+          "overall_review_rating_5": 3.11,
+          "recommend_to_friend_pct": 46.4,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.48,
+          "brand_alignment_index_100": 47.9,
+          "external_claims_gap_stars_5": 0.92,
+          "sub_ratings_5": {
+            "management": 2.76,
+            "career_growth": 2.94,
+            "work_life_balance": 2.48,
+            "compensation": 3.36,
+            "culture_and_values": 3.19
+          },
+          "segment_or_site_breakdown": {
+            "High_Footfall_Mall_Stores": {
+              "reviews": 119,
+              "rating_5": 2.79
+            },
+            "Suburban_Boutique_Stores": {
+              "reviews": 43,
+              "rating_5": 3.58
+            },
+            "Omnichannel_Digital_HQ": {
+              "reviews": 21,
+              "rating_5": 3.95
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 11260,
+          "smartphone_traffic_pct": 79.8,
+          "application_form_dropoff_pct": 56.8,
+          "applicant_conversion_rate_pct": 3.22,
+          "candidate_survey_completion_rate_pct": 19.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 78.6,
+            "technical_speed_100": 72.9,
+            "job_ad_clarity_100": 50.8,
+            "role_benefits_transparency_100": 35.9,
+            "application_flow_simplicity_100": 34.2,
+            "authentic_team_social_proof_100": 39.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.49,
+          "quarterly_organic_impressions": 38940,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.99,
+            "generic_job_posts": 1.08,
+            "authentic_team_and_domain_stories": 4.68
+          },
+          "spontaneous_employee_mentions_quarter": 21,
+          "positive_mention_share_pct": 57.1,
+          "manual_hr_tracking_hours_month": 5.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 29.8,
+          "estimated_annual_attrition_exposure_eur": 782000,
+          "avg_time_to_hire_days": 35,
+          "agency_filled_roles_pct": 23.1
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 227,
+          "overall_review_rating_5": 3.6,
+          "recommend_to_friend_pct": 63.9,
+          "employer_review_reply_rate_pct": 69.6,
+          "cross_location_rating_std_dev_5": 0.2,
+          "brand_alignment_index_100": 64.1,
+          "external_claims_gap_stars_5": 0.29,
+          "sub_ratings_5": {
+            "management": 3.38,
+            "career_growth": 3.16,
+            "work_life_balance": 3.39,
+            "compensation": 3.38,
+            "culture_and_values": 3.58
+          },
+          "segment_or_site_breakdown": {
+            "High_Footfall_Mall_Stores": {
+              "reviews": 146,
+              "rating_5": 3.48
+            },
+            "Suburban_Boutique_Stores": {
+              "reviews": 54,
+              "rating_5": 3.74
+            },
+            "Omnichannel_Digital_HQ": {
+              "reviews": 27,
+              "rating_5": 3.98
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 12480,
+          "smartphone_traffic_pct": 80.9,
+          "application_form_dropoff_pct": 37.9,
+          "applicant_conversion_rate_pct": 4.12,
+          "candidate_survey_completion_rate_pct": 28.7,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 79.8,
+            "technical_speed_100": 77.9,
+            "job_ad_clarity_100": 79.6,
+            "role_benefits_transparency_100": 78.8,
+            "application_flow_simplicity_100": 82.9,
+            "authentic_team_social_proof_100": 67.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.09,
+          "quarterly_organic_impressions": 74180,
+          "spontaneous_employee_mentions_quarter": 44,
+          "positive_mention_share_pct": 79.5,
+          "manual_hr_tracking_hours_month": 1.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 24.1,
+          "estimated_annual_attrition_exposure_eur": 594000,
+          "avg_time_to_hire_days": 26,
+          "agency_filled_roles_pct": 14.9
+        }
+      }
+    },
+    {
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "sector_benchmark_group": "Multi-Site Healthcare & Clinical Care Networks",
+      "headcount": 2800,
+      "locations_count": 38,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.52,
+        "recommend_to_friend_pct": 62.4,
+        "employer_review_reply_rate_pct": 2.1,
+        "cross_location_rating_std_dev_5": 0.27,
+        "brand_alignment_index_100": 60.4,
+        "external_claims_gap_stars_5": 0.42,
+        "sub_ratings_5": {
+          "management": 3.28,
+          "career_growth": 3.16,
+          "work_life_balance": 3.31,
+          "compensation": 3.36,
+          "culture_and_values": 3.74
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 55.8,
+          "application_form_dropoff_pct": 36.8,
+          "applicant_conversion_rate_pct": 3.82,
+          "candidate_survey_completion_rate_pct": 28.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 75.2,
+            "technical_speed_100": 77.4,
+            "job_ad_clarity_100": 73.9,
+            "role_benefits_transparency_100": 66.2,
+            "application_flow_simplicity_100": 68.4,
+            "authentic_team_social_proof_100": 52.1
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.61,
+          "organic_employee_post_er_pct": 6.12
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 17.4,
+          "avg_time_to_hire_days": 42,
+          "agency_filled_roles_pct": 21.9
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 274,
+          "overall_review_rating_5": 3.99,
+          "recommend_to_friend_pct": 75.9,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.46,
+          "brand_alignment_index_100": 63.8,
+          "external_claims_gap_stars_5": 0.22,
+          "sub_ratings_5": {
+            "management": 3.84,
+            "career_growth": 3.62,
+            "work_life_balance": 3.71,
+            "compensation": 3.58,
+            "culture_and_values": 4.39
+          },
+          "segment_or_site_breakdown": {
+            "Flagship_Urban_Clinics_22_Sites": {
+              "reviews": 183,
+              "rating_5": 4.29
+            },
+            "Unmonitored_Regional_Facilities_16_Sites": {
+              "reviews": 91,
+              "rating_5": 3.38
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 12380,
+          "smartphone_traffic_pct": 57.9,
+          "application_form_dropoff_pct": 34.8,
+          "applicant_conversion_rate_pct": 3.69,
+          "candidate_survey_completion_rate_pct": 23.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 77.9,
+            "technical_speed_100": 80.2,
+            "job_ad_clarity_100": 75.8,
+            "role_benefits_transparency_100": 71.9,
+            "application_flow_simplicity_100": 69.8,
+            "authentic_team_social_proof_100": 40.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.21,
+          "quarterly_organic_impressions": 34120,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.81,
+            "generic_job_posts": 0.93,
+            "authentic_team_and_domain_stories": 6.79
+          },
+          "spontaneous_employee_mentions_quarter": 41,
+          "positive_mention_share_pct": 85.4,
+          "manual_hr_tracking_hours_month": 10.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 14.3,
+          "estimated_annual_attrition_exposure_eur": 982000,
+          "avg_time_to_hire_days": 44,
+          "agency_filled_roles_pct": 24.8
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 342,
+          "overall_review_rating_5": 4.19,
+          "recommend_to_friend_pct": 81.3,
+          "employer_review_reply_rate_pct": 87.7,
+          "cross_location_rating_std_dev_5": 0.21,
+          "brand_alignment_index_100": 76.8,
+          "external_claims_gap_stars_5": 0.12,
+          "sub_ratings_5": {
+            "management": 3.96,
+            "career_growth": 3.74,
+            "work_life_balance": 3.76,
+            "compensation": 3.59,
+            "culture_and_values": 4.48
+          },
+          "segment_or_site_breakdown": {
+            "Flagship_Urban_Clinics_22_Sites": {
+              "reviews": 219,
+              "rating_5": 4.34
+            },
+            "Monitored_Regional_Facilities_16_Sites": {
+              "reviews": 123,
+              "rating_5": 3.92
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 16190,
+          "smartphone_traffic_pct": 58.6,
+          "application_form_dropoff_pct": 33.4,
+          "applicant_conversion_rate_pct": 4.38,
+          "candidate_survey_completion_rate_pct": 30.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.9,
+            "technical_speed_100": 80.8,
+            "job_ad_clarity_100": 79.2,
+            "role_benefits_transparency_100": 75.8,
+            "application_flow_simplicity_100": 71.4,
+            "authentic_team_social_proof_100": 74.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.39,
+          "quarterly_organic_impressions": 97240,
+          "spontaneous_employee_mentions_quarter": 97,
+          "positive_mention_share_pct": 88.7,
+          "manual_hr_tracking_hours_month": 0.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 12.6,
+          "estimated_annual_attrition_exposure_eur": 841000,
+          "avg_time_to_hire_days": 35,
+          "agency_filled_roles_pct": 16.1
+        }
+      }
+    },
+    {
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "sector_benchmark_group": "Regulated Banking & Financial Institutions",
+      "headcount": 6200,
+      "locations_count": 12,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.63,
+        "recommend_to_friend_pct": 64.9,
+        "employer_review_reply_rate_pct": 1.1,
+        "cross_location_rating_std_dev_5": 0.21,
+        "brand_alignment_index_100": 62.9,
+        "external_claims_gap_stars_5": 0.39,
+        "sub_ratings_5": {
+          "management": 3.26,
+          "career_growth": 3.12,
+          "work_life_balance": 3.72,
+          "compensation": 3.79,
+          "culture_and_values": 3.61
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 41.8,
+          "application_form_dropoff_pct": 31.2,
+          "applicant_conversion_rate_pct": 4.19,
+          "candidate_survey_completion_rate_pct": 27.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.9,
+            "technical_speed_100": 78.9,
+            "job_ad_clarity_100": 84.8,
+            "role_benefits_transparency_100": 63.9,
+            "application_flow_simplicity_100": 72.8,
+            "authentic_team_social_proof_100": 51.8
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.52,
+          "organic_employee_post_er_pct": 5.79
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 11.4,
+          "avg_time_to_hire_days": 41,
+          "agency_filled_roles_pct": 19.2
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 412,
+          "overall_review_rating_5": 3.88,
+          "recommend_to_friend_pct": 73.8,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.2,
+          "brand_alignment_index_100": 67.8,
+          "external_claims_gap_stars_5": 0.23,
+          "sub_ratings_5": {
+            "management": 3.64,
+            "career_growth": 3.42,
+            "work_life_balance": 3.98,
+            "compensation": 4.08,
+            "culture_and_values": 3.89
+          },
+          "segment_or_site_breakdown": {
+            "Wealth_and_Private_Banking": {
+              "reviews": 174,
+              "rating_5": 4.09
+            },
+            "Digital_and_IT_Division": {
+              "reviews": 103,
+              "rating_5": 3.88
+            },
+            "Early_Career_GenZ_Analysts": {
+              "reviews": 135,
+              "rating_5": 3.61
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 22180,
+          "smartphone_traffic_pct": 43.9,
+          "application_form_dropoff_pct": 28.9,
+          "applicant_conversion_rate_pct": 3.88,
+          "candidate_survey_completion_rate_pct": 21.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 87.9,
+            "technical_speed_100": 83.8,
+            "job_ad_clarity_100": 92.8,
+            "role_benefits_transparency_100": 67.9,
+            "application_flow_simplicity_100": 75.8,
+            "authentic_team_social_proof_100": 36.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.31,
+          "quarterly_organic_impressions": 94820,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.79,
+            "generic_job_posts": 1.09,
+            "authentic_team_and_domain_stories": 6.18
+          },
+          "spontaneous_employee_mentions_quarter": 73,
+          "positive_mention_share_pct": 82.2,
+          "manual_hr_tracking_hours_month": 11.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 10.4,
+          "estimated_annual_attrition_exposure_eur": 1148000,
+          "avg_time_to_hire_days": 43,
+          "agency_filled_roles_pct": 21.2
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 473,
+          "overall_review_rating_5": 3.99,
+          "recommend_to_friend_pct": 77.8,
+          "employer_review_reply_rate_pct": 59.8,
+          "cross_location_rating_std_dev_5": 0.11,
+          "brand_alignment_index_100": 75.9,
+          "external_claims_gap_stars_5": 0.14,
+          "sub_ratings_5": {
+            "management": 3.74,
+            "career_growth": 3.63,
+            "work_life_balance": 3.96,
+            "compensation": 4.09,
+            "culture_and_values": 3.98
+          },
+          "segment_or_site_breakdown": {
+            "Wealth_and_Private_Banking": {
+              "reviews": 198,
+              "rating_5": 4.12
+            },
+            "Digital_and_IT_Division": {
+              "reviews": 121,
+              "rating_5": 3.96
+            },
+            "Early_Career_GenZ_Analysts": {
+              "reviews": 154,
+              "rating_5": 3.84
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 26490,
+          "smartphone_traffic_pct": 45.6,
+          "application_form_dropoff_pct": 27.4,
+          "applicant_conversion_rate_pct": 4.68,
+          "candidate_survey_completion_rate_pct": 31.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 88.7,
+            "technical_speed_100": 84.6,
+            "job_ad_clarity_100": 93.4,
+            "role_benefits_transparency_100": 77.8,
+            "application_flow_simplicity_100": 77.2,
+            "authentic_team_social_proof_100": 75.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.48,
+          "quarterly_organic_impressions": 244760,
+          "spontaneous_employee_mentions_quarter": 162,
+          "positive_mention_share_pct": 87.7,
+          "manual_hr_tracking_hours_month": 0.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 9.1,
+          "estimated_annual_attrition_exposure_eur": 989000,
+          "avg_time_to_hire_days": 34,
+          "agency_filled_roles_pct": 14.1
+        }
+      }
+    },
+    {
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "sector_benchmark_group": "Footwear, Accessories & Mall Boutique Retail",
+      "headcount": 600,
+      "locations_count": 68,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.37,
+        "recommend_to_friend_pct": 57.2,
+        "employer_review_reply_rate_pct": 3.6,
+        "cross_location_rating_std_dev_5": 0.3,
+        "brand_alignment_index_100": 56.9,
+        "external_claims_gap_stars_5": 0.53,
+        "sub_ratings_5": {
+          "management": 3.11,
+          "career_growth": 2.95,
+          "work_life_balance": 3.06,
+          "compensation": 3.24,
+          "culture_and_values": 3.38
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 77.8,
+          "application_form_dropoff_pct": 44.6,
+          "applicant_conversion_rate_pct": 4.42,
+          "candidate_survey_completion_rate_pct": 23.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 77.2,
+            "technical_speed_100": 73.1,
+            "job_ad_clarity_100": 69.1,
+            "role_benefits_transparency_100": 61.2,
+            "application_flow_simplicity_100": 64.2,
+            "authentic_team_social_proof_100": 51.4
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.56,
+          "organic_employee_post_er_pct": 5.26
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 24.6,
+          "avg_time_to_hire_days": 28,
+          "agency_filled_roles_pct": 17.4
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 129,
+          "overall_review_rating_5": 3.2,
+          "recommend_to_friend_pct": 50.4,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.41,
+          "brand_alignment_index_100": 50.8,
+          "external_claims_gap_stars_5": 0.71,
+          "sub_ratings_5": {
+            "management": 3.06,
+            "career_growth": 2.92,
+            "work_life_balance": 2.59,
+            "compensation": 3.29,
+            "culture_and_values": 3.38
+          },
+          "segment_or_site_breakdown": {
+            "Mall_Stores": {
+              "reviews": 81,
+              "rating_5": 2.91
+            },
+            "Flagship_City_Stores": {
+              "reviews": 32,
+              "rating_5": 3.59
+            },
+            "HQ_Design_and_Buying": {
+              "reviews": 16,
+              "rating_5": 3.88
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 8430,
+          "smartphone_traffic_pct": 78.9,
+          "application_form_dropoff_pct": 58.9,
+          "applicant_conversion_rate_pct": 2.96,
+          "candidate_survey_completion_rate_pct": 18.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 76.8,
+            "technical_speed_100": 70.9,
+            "job_ad_clarity_100": 54.8,
+            "role_benefits_transparency_100": 37.9,
+            "application_flow_simplicity_100": 32.8,
+            "authentic_team_social_proof_100": 41.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.48,
+          "quarterly_organic_impressions": 27860,
+          "er_by_post_format_pct": {
+            "institutional_updates": 1.09,
+            "generic_job_posts": 0.99,
+            "authentic_team_and_domain_stories": 4.48
+          },
+          "spontaneous_employee_mentions_quarter": 15,
+          "positive_mention_share_pct": 66.7,
+          "manual_hr_tracking_hours_month": 4.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 25.2,
+          "estimated_annual_attrition_exposure_eur": 512000,
+          "avg_time_to_hire_days": 34,
+          "agency_filled_roles_pct": 22.1
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 158,
+          "overall_review_rating_5": 3.58,
+          "recommend_to_friend_pct": 62.7,
+          "employer_review_reply_rate_pct": 67.7,
+          "cross_location_rating_std_dev_5": 0.18,
+          "brand_alignment_index_100": 63.9,
+          "external_claims_gap_stars_5": 0.28,
+          "sub_ratings_5": {
+            "management": 3.28,
+            "career_growth": 3.04,
+            "work_life_balance": 3.38,
+            "compensation": 3.31,
+            "culture_and_values": 3.52
+          },
+          "segment_or_site_breakdown": {
+            "Mall_Stores": {
+              "reviews": 98,
+              "rating_5": 3.46
+            },
+            "Flagship_City_Stores": {
+              "reviews": 41,
+              "rating_5": 3.73
+            },
+            "HQ_Design_and_Buying": {
+              "reviews": 19,
+              "rating_5": 3.89
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 9210,
+          "smartphone_traffic_pct": 79.6,
+          "application_form_dropoff_pct": 37.2,
+          "applicant_conversion_rate_pct": 3.88,
+          "candidate_survey_completion_rate_pct": 25.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 77.6,
+            "technical_speed_100": 77.2,
+            "job_ad_clarity_100": 75.8,
+            "role_benefits_transparency_100": 77.9,
+            "application_flow_simplicity_100": 83.8,
+            "authentic_team_social_proof_100": 60.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.68,
+          "quarterly_organic_impressions": 34920,
+          "spontaneous_employee_mentions_quarter": 23,
+          "positive_mention_share_pct": 73.9,
+          "manual_hr_tracking_hours_month": 1.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 21.2,
+          "estimated_annual_attrition_exposure_eur": 411000,
+          "avg_time_to_hire_days": 25,
+          "agency_filled_roles_pct": 14.2
+        }
+      }
+    },
+    {
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "sector_benchmark_group": "Certified B-Corp Consumer, Wellness & Formulation Brands",
+      "headcount": 920,
+      "locations_count": 5,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.79,
+        "recommend_to_friend_pct": 70.8,
+        "employer_review_reply_rate_pct": 5.9,
+        "cross_location_rating_std_dev_5": 0.24,
+        "brand_alignment_index_100": 65.8,
+        "external_claims_gap_stars_5": 0.32,
+        "sub_ratings_5": {
+          "management": 3.42,
+          "career_growth": 3.28,
+          "work_life_balance": 3.71,
+          "compensation": 3.56,
+          "culture_and_values": 3.98
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 46.2,
+          "application_form_dropoff_pct": 31.9,
+          "applicant_conversion_rate_pct": 4.38,
+          "candidate_survey_completion_rate_pct": 28.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 78.8,
+            "technical_speed_100": 79.9,
+            "job_ad_clarity_100": 77.8,
+            "role_benefits_transparency_100": 69.8,
+            "application_flow_simplicity_100": 73.9,
+            "authentic_team_social_proof_100": 59.8
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.98,
+          "organic_employee_post_er_pct": 6.68
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 11.1,
+          "avg_time_to_hire_days": 36,
+          "agency_filled_roles_pct": 18.1
+        }
+      },
+      "t0_before_intervention": {
+        "public_reputation": {
+          "reviews_analyzed": 163,
+          "overall_review_rating_5": 4.19,
+          "recommend_to_friend_pct": 82.8,
+          "employer_review_reply_rate_pct": 11.7,
+          "cross_location_rating_std_dev_5": 0.27,
+          "brand_alignment_index_100": 73.9,
+          "external_claims_gap_stars_5": 0.19,
+          "sub_ratings_5": {
+            "management": 3.92,
+            "career_growth": 3.71,
+            "work_life_balance": 4.08,
+            "compensation": 3.68,
+            "culture_and_values": 4.59
+          },
+          "segment_or_site_breakdown": {
+            "HQ_Formulation_Labs_and_Sustainability": {
+              "reviews": 72,
+              "rating_5": 4.49
+            },
+            "European_Regional_Subsidiaries": {
+              "reviews": 61,
+              "rating_5": 3.98
+            },
+            "Supply_Chain_and_Packaging_Ops": {
+              "reviews": 30,
+              "rating_5": 3.87
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 9140,
+          "smartphone_traffic_pct": 47.8,
+          "application_form_dropoff_pct": 29.8,
+          "applicant_conversion_rate_pct": 4.29,
+          "candidate_survey_completion_rate_pct": 15.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 81.9,
+            "technical_speed_100": 82.8,
+            "job_ad_clarity_100": 79.8,
+            "role_benefits_transparency_100": 74.9,
+            "application_flow_simplicity_100": 75.8,
+            "authentic_team_social_proof_100": 53.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.69,
+          "quarterly_organic_impressions": 41800,
+          "er_by_post_format_pct": {
+            "institutional_updates": 1.09,
+            "generic_job_posts": 1.18,
+            "authentic_team_and_domain_stories": 7.38
+          },
+          "spontaneous_employee_mentions_quarter": 53,
+          "positive_mention_share_pct": 88.7,
+          "manual_hr_tracking_hours_month": 9.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 9.2,
+          "estimated_annual_attrition_exposure_eur": 429000,
+          "avg_time_to_hire_days": 36,
+          "agency_filled_roles_pct": 18.9
+        }
+      },
+      "t1_after_12_months": {
+        "public_reputation": {
+          "reviews_analyzed": 204,
+          "overall_review_rating_5": 4.3,
+          "recommend_to_friend_pct": 85.8,
+          "employer_review_reply_rate_pct": 79.9,
+          "cross_location_rating_std_dev_5": 0.23,
+          "brand_alignment_index_100": 83.8,
+          "external_claims_gap_stars_5": 0.1,
+          "sub_ratings_5": {
+            "management": 4.02,
+            "career_growth": 3.82,
+            "work_life_balance": 4.09,
+            "compensation": 3.69,
+            "culture_and_values": 4.62
+          },
+          "segment_or_site_breakdown": {
+            "HQ_Formulation_Labs_and_Sustainability": {
+              "reviews": 89,
+              "rating_5": 4.52
+            },
+            "European_Regional_Subsidiaries": {
+              "reviews": 78,
+              "rating_5": 4.21
+            },
+            "Supply_Chain_and_Packaging_Ops": {
+              "reviews": 37,
+              "rating_5": 3.96
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 12830,
+          "smartphone_traffic_pct": 48.7,
+          "application_form_dropoff_pct": 28.4,
+          "applicant_conversion_rate_pct": 5.08,
+          "candidate_survey_completion_rate_pct": 43.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 84.8,
+            "technical_speed_100": 83.6,
+            "job_ad_clarity_100": 83.9,
+            "role_benefits_transparency_100": 81.8,
+            "application_flow_simplicity_100": 77.4,
+            "authentic_team_social_proof_100": 78.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 2.79,
+          "quarterly_organic_impressions": 146300,
+          "spontaneous_employee_mentions_quarter": 134,
+          "positive_mention_share_pct": 91.0,
+          "manual_hr_tracking_hours_month": 0.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 8.5,
+          "estimated_annual_attrition_exposure_eur": 384000,
+          "avg_time_to_hire_days": 30,
+          "agency_filled_roles_pct": 12.1
+        }
+      }
+    }
+  ],
+  "active_scenario_analytics_snapshots": [
+    {
+      "scenario_code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+      "company_name": "CloudNova Pay S.p.A.",
+      "sector_benchmark_group": "European FinTech & B2B Cloud Payments",
+      "headcount": 1450,
+      "locations_count": 3,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.72,
+        "recommend_to_friend_pct": 65.2,
+        "employer_review_reply_rate_pct": 0.0,
+        "cross_location_rating_std_dev_5": 0.22,
+        "brand_alignment_index_100": 62.1,
+        "external_claims_gap_stars_5": 0.44,
+        "sub_ratings_5": {
+          "management": 3.34,
+          "career_growth": 3.21,
+          "work_life_balance": 3.42,
+          "compensation": 3.68,
+          "culture_and_values": 3.66
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 26.8,
+          "application_form_dropoff_pct": 32.4,
+          "applicant_conversion_rate_pct": 3.98,
+          "candidate_survey_completion_rate_pct": 28.9,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 79.8,
+            "technical_speed_100": 84.2,
+            "job_ad_clarity_100": 74.8,
+            "role_benefits_transparency_100": 65.7,
+            "application_flow_simplicity_100": 72.9,
+            "authentic_team_social_proof_100": 55.9
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.89,
+          "organic_employee_post_er_pct": 6.48
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 12.8,
+          "avg_time_to_hire_days": 39,
+          "agency_filled_roles_pct": 23.4
+        }
+      },
+      "t0_current_snapshot": {
+        "public_reputation": {
+          "reviews_analyzed": 218,
+          "overall_review_rating_5": 3.46,
+          "recommend_to_friend_pct": 53.7,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.52,
+          "brand_alignment_index_100": 46.8,
+          "external_claims_gap_stars_5": 1.3,
+          "sub_ratings_5": {
+            "management": 2.64,
+            "career_growth": 2.52,
+            "work_life_balance": 3.36,
+            "compensation": 4.18,
+            "culture_and_values": 3.09
+          },
+          "segment_or_site_breakdown": {
+            "Milan_Product_Squads": {
+              "reviews": 94,
+              "rating_5": 3.16
+            },
+            "Berlin_Product_Squads": {
+              "reviews": 73,
+              "rating_5": 3.24
+            },
+            "Amsterdam_Core_Platform_SRE": {
+              "reviews": 51,
+              "rating_5": 4.31
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 9420,
+          "smartphone_traffic_pct": 25.7,
+          "application_form_dropoff_pct": 33.4,
+          "applicant_conversion_rate_pct": 2.38,
+          "candidate_survey_completion_rate_pct": 23.6,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 85.9,
+            "technical_speed_100": 88.7,
+            "job_ad_clarity_100": 41.8,
+            "role_benefits_transparency_100": 35.2,
+            "application_flow_simplicity_100": 74.6,
+            "authentic_team_social_proof_100": 32.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 0.9,
+          "quarterly_organic_impressions": 46180,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.58,
+            "generic_job_posts": 0.79,
+            "authentic_team_and_domain_stories": 5.14
+          },
+          "spontaneous_employee_mentions_quarter": 23,
+          "positive_mention_share_pct": 56.5,
+          "manual_hr_tracking_hours_month": 16.0
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 18.4,
+          "six_month_new_hire_attrition_milan_berlin_pct": 16.0,
+          "compensation_market_percentile_100": 82,
+          "estimated_annual_attrition_exposure_eur": 1800000,
+          "avg_time_to_hire_days": 51,
+          "agency_filled_roles_pct": 33.8
+        }
+      }
+    },
+    {
+      "scenario_code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
+      "company_name": "EuroFreight Interport S.r.l.",
+      "sector_benchmark_group": "European Freight Transport & Interport Logistics",
+      "headcount": 1600,
+      "locations_count": 5,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.42,
+        "recommend_to_friend_pct": 56.8,
+        "employer_review_reply_rate_pct": 0.0,
+        "cross_location_rating_std_dev_5": 0.27,
+        "brand_alignment_index_100": 55.8,
+        "external_claims_gap_stars_5": 0.49,
+        "sub_ratings_5": {
+          "management": 3.16,
+          "career_growth": 2.89,
+          "work_life_balance": 3.18,
+          "compensation": 3.31,
+          "culture_and_values": 3.38
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 78.6,
+          "application_form_dropoff_pct": 41.2,
+          "applicant_conversion_rate_pct": 3.58,
+          "candidate_survey_completion_rate_pct": 20.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 73.9,
+            "technical_speed_100": 71.8,
+            "job_ad_clarity_100": 65.8,
+            "role_benefits_transparency_100": 59.6,
+            "application_flow_simplicity_100": 63.8,
+            "authentic_team_social_proof_100": 47.9
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.38,
+          "organic_employee_post_er_pct": 4.46
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 18.8,
+          "avg_time_to_hire_days": 31,
+          "agency_filled_roles_pct": 19.4
+        }
+      },
+      "t0_current_snapshot": {
+        "public_reputation": {
+          "reviews_analyzed": 197,
+          "overall_review_rating_5": 3.83,
+          "recommend_to_friend_pct": 68.5,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.54,
+          "brand_alignment_index_100": 52.9,
+          "external_claims_gap_stars_5": 0.31,
+          "sub_ratings_5": {
+            "management": 3.44,
+            "career_growth": 3.06,
+            "work_life_balance": 3.39,
+            "compensation": 4.7,
+            "culture_and_values": 3.68
+          },
+          "segment_or_site_breakdown": {
+            "Verona_HQ_and_Hub": {
+              "reviews": 58,
+              "rating_5": 4.31
+            },
+            "Milan_Interport_Hub": {
+              "reviews": 49,
+              "rating_5": 4.28
+            },
+            "Rome_Interport_Hub": {
+              "reviews": 33,
+              "rating_5": 3.58
+            },
+            "Bologna_Interport_Hub": {
+              "reviews": 31,
+              "rating_5": 3.12
+            },
+            "Naples_Interport_Hub": {
+              "reviews": 26,
+              "rating_5": 3.08
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 14000,
+          "smartphone_traffic_pct": 82.0,
+          "application_form_dropoff_pct": 63.0,
+          "applicant_conversion_rate_pct": 1.89,
+          "candidate_survey_completion_rate_pct": 16.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 84.8,
+            "technical_speed_100": 71.2,
+            "job_ad_clarity_100": 40.9,
+            "role_benefits_transparency_100": 29.8,
+            "application_flow_simplicity_100": 26.4,
+            "authentic_team_social_proof_100": 33.9
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.62,
+          "quarterly_organic_impressions": 36140,
+          "er_by_post_format_pct": {
+            "institutional_updates": 1.38,
+            "generic_job_posts": 1.12,
+            "authentic_team_and_domain_stories": 3.84
+          },
+          "spontaneous_employee_mentions_quarter": 14,
+          "positive_mention_share_pct": 78.6,
+          "manual_hr_tracking_hours_month": 9.2
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 14.6,
+          "tenured_driver_annual_retention_pct": 91.0,
+          "estimated_annual_attrition_exposure_eur": 762000,
+          "avg_time_to_hire_days": 43,
+          "hq_admin_time_to_hire_days": 24,
+          "agency_filled_roles_pct": 37.9
+        }
+      }
+    },
+    {
+      "scenario_code": "SCENARIO_C_VERDECARE_BCORP",
+      "company_name": "VerdeCare & Formulation Group (Certified B Corp)",
+      "sector_benchmark_group": "Multi-Site Healthcare & Certified B-Corp Wellness Groups",
+      "headcount": 2100,
+      "locations_count": 52,
+      "sector_peer_benchmarks": {
+        "overall_review_rating_5": 3.52,
+        "recommend_to_friend_pct": 62.8,
+        "employer_review_reply_rate_pct": 2.1,
+        "cross_location_rating_std_dev_5": 0.27,
+        "brand_alignment_index_100": 60.8,
+        "external_claims_gap_stars_5": 0.41,
+        "sub_ratings_5": {
+          "management": 3.29,
+          "career_growth": 3.17,
+          "work_life_balance": 3.34,
+          "compensation": 3.38,
+          "culture_and_values": 3.76
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 54.2,
+          "application_form_dropoff_pct": 35.4,
+          "applicant_conversion_rate_pct": 3.88,
+          "candidate_survey_completion_rate_pct": 30.8,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 75.8,
+            "technical_speed_100": 78.9,
+            "job_ad_clarity_100": 76.8,
+            "role_benefits_transparency_100": 67.6,
+            "application_flow_simplicity_100": 70.8,
+            "authentic_team_social_proof_100": 53.6
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.68,
+          "organic_employee_post_er_pct": 6.18
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 16.6,
+          "avg_time_to_hire_days": 41,
+          "agency_filled_roles_pct": 21.4
+        }
+      },
+      "t0_current_snapshot": {
+        "public_reputation": {
+          "reviews_analyzed": 248,
+          "overall_review_rating_5": 4.39,
+          "recommend_to_friend_pct": 86.7,
+          "employer_review_reply_rate_pct": 0.0,
+          "cross_location_rating_std_dev_5": 0.45,
+          "brand_alignment_index_100": 81.8,
+          "external_claims_gap_stars_5": 0.08,
+          "sub_ratings_5": {
+            "management": 4.04,
+            "career_growth": 3.82,
+            "work_life_balance": 4.09,
+            "compensation": 3.68,
+            "culture_and_values": 4.68
+          },
+          "segment_or_site_breakdown": {
+            "Central_RnD_Formulation_Labs_2_Sites": {
+              "reviews": 47,
+              "rating_5": 4.62
+            },
+            "Monitored_Core_Care_Centers_32_Sites": {
+              "reviews": 149,
+              "rating_5": 4.58
+            },
+            "Outdated_Profile_Regional_Clinics_18_Sites": {
+              "reviews": 52,
+              "rating_5": 3.64
+            }
+          }
+        },
+        "career_portal_and_funnel": {
+          "monthly_visits": 11840,
+          "smartphone_traffic_pct": 53.8,
+          "application_form_dropoff_pct": 31.2,
+          "applicant_conversion_rate_pct": 3.79,
+          "candidate_survey_completion_rate_pct": 17.4,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 78.9,
+            "technical_speed_100": 83.8,
+            "job_ad_clarity_100": 82.9,
+            "role_benefits_transparency_100": 77.8,
+            "application_flow_simplicity_100": 73.9,
+            "authentic_team_social_proof_100": 35.8
+          }
+        },
+        "social_and_employee_voice": {
+          "corporate_linkedin_er_pct": 1.32,
+          "quarterly_organic_impressions": 44190,
+          "er_by_post_format_pct": {
+            "institutional_updates": 0.89,
+            "generic_job_posts": 1.02,
+            "authentic_team_and_domain_stories": 7.82
+          },
+          "spontaneous_employee_mentions_quarter": 84,
+          "positive_mention_share_pct": 89.3,
+          "active_organic_ambassadors_headcount": 35,
+          "manual_hr_tracking_hours_month": 12.5
+        },
+        "hiring_and_retention_kpis": {
+          "early_first_year_attrition_pct": 10.8,
+          "rd_labs_annual_retention_pct": 93.0,
+          "estimated_annual_attrition_exposure_eur": 618000,
+          "avg_time_to_hire_days": 42,
+          "agency_filled_roles_pct": 21.8
+        }
+      }
+    }
+  ]
+}
