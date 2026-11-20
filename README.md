@@ -15,9 +15,9 @@ This repository contains the official sandbox dataset, zero-dependency baseline/
 **What we want to automate (and why plain LLMs fail):** We want an **automated Action Recommendation Engine** where we feed a client's situation (our platform analysis + their internal info) into a structured system and get accurate, tailored action recommendations out. Plain LLMs fail here **because they lack structured context**:
 - Ask a flat LLM whether a FinTech with `16%` 6-month engineer churn should launch a LinkedIn Employee Ambassador campaign next week (as the CEO requested), and it happily says *"Yes!"*—triggering public backlash. It also leaks frontline retail or truck-driver fixes into B2B SaaS plans.
 
-**Your mission as Chief AI Architect (100% open paradigm):**
-1. **Structure the Context:** Design the data & context architecture (*Relational Scoring Matrix, Agentic Planner-Verifier Pipeline, Programmatic Rule/Policy Engine, Case-Based Hybrid Ranker, or Graph/Network*—**zero preferred paradigm!**) that organizes both **our HR domain knowledge/case studies** and **an incoming client's messy situation** (platform signals + internal notes).
-2. **Recommend Accurate Actions:** Feed that organized context into a Python recommendation engine that diagnoses true root causes, blocks wrong-industry traps, sequences Phase 1$\to$2$\to$3 actions, and beats our naive flat-LLM baseline across **3 realistic company scenarios** (zero hardcoded `if company == ...` rules!).
+**Your mission as Chief AI Architect (100% open paradigm & open recommendations):**
+1. **Structure the Context:** Design the data & context architecture (*Relational Scoring Matrix, Agentic Planner-Verifier Pipeline, Programmatic Rule/Policy Engine, Case-Based Hybrid Ranker, or Graph/Network*—**zero preferred paradigm!**) that organizes both **our HR domain knowledge/case studies** and **an incoming client's dual situation** (`ingaze_platform_signals` + `client_internal_context`, including healthy baselines not to break, cohort asymmetries, and leadership requests).
+2. **Recommend High-Leverage Actions:** Feed that organized context into a Python recommendation engine that diagnoses true root causes, decides both **what to prioritize and what healthy areas NOT to touch**, blocks wrong-industry/premature traps, sequences actions across phases, and proposes **concrete, cohort-aware, and original recommendations** (not restricted to a fixed menu of labels) across **3 realistic company scenarios** (zero hardcoded `if company == ...` rules!).
 
 ---
 

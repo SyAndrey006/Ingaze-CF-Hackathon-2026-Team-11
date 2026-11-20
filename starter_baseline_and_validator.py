@@ -41,6 +41,13 @@ REQUIRED_SCENARIO_OUTPUT_KEYS: Tuple[str, ...] = (
     "supporting_research_snippets",
 )
 
+OPTIONAL_SCENARIO_ENRICHMENT_KEYS: Tuple[str, ...] = (
+    "strategic_focus_and_do_not_touch",
+    "cohort_specific_strategies",
+    "open_questions_and_hypotheses_for_client",
+    "action_rationales",
+)
+
 
 def load_sandbox_and_scenarios(
     dataset_path: Path = DEFAULT_DATASET_PATH,
@@ -89,7 +96,9 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
         print(f"      {idx:2d}. {cs.get('case_name')}")
     print(f"  - Company Scenarios Loaded:     {len(scenarios)}")
     for sc in scenarios:
-        print(f"      * {sc.get('scenario_code')} — {sc.get('company_name')} ({sc.get('industry')})")
+        has_dual = "ingaze_platform_signals" in sc and "client_internal_context" in sc
+        dual_tag = " [Outside-In Signals + Inside-Out Client Context]" if has_dual else ""
+        print(f"      * {sc.get('scenario_code')} — {sc.get('company_name')} ({sc.get('industry')}){dual_tag}")
     print("=" * 78)
 
 
@@ -177,15 +186,24 @@ def _simulate_offline_naive_prompt(scenario: Dict[str, Any]) -> Dict[str, Any]:
 def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Dict[str, Any]:
     """
     Optional BYOK single-prompt LLM baseline via stdlib urllib (supports OpenAI / OpenRouter / Gemini).
-    Intentionally uses a single flat prompt with raw context to serve as a true naive baseline.
+    Dumps the ENTIRE raw unstructured dataset context (4 pillars, 6 field notes, 10 research snippets,
+    11 full case studies) plus the full raw scenario object into a single flat prompt to test the true
+    limits of a single-pass LLM without a structured reasoning architecture.
     """
-    case_names = [c.get("case_name", "") for c in dataset.get("raw_case_study_narratives", [])]
+    raw_domain_context = {
+        "domain_pillars_and_causal_dynamics": dataset.get("domain_pillars_and_causal_dynamics", {}),
+        "raw_empirical_research_snippets": dataset.get("raw_empirical_research_snippets", []),
+        "raw_case_study_narratives": dataset.get("raw_case_study_narratives", []),
+    }
     prompt = (
-        "You are a helpful HR assistant. Read the company situation below and return ONLY valid JSON "
-        f"with keys {list(REQUIRED_SCENARIO_OUTPUT_KEYS)} (where scenario_code is '{scenario.get('scenario_code')}'). "
-        f"Available case studies: {case_names}.\n\n"
-        f"Company: {scenario.get('company_name')} ({scenario.get('industry')})\n"
-        f"Situation: {scenario.get('narrative_situation_to_solve')}\n"
+        "You are an HR strategy assistant. Below is a raw dump of HR domain materials (pillars, field notes, "
+        "empirical research snippets, and 11 historical case studies) followed by a client company scenario.\n"
+        f"Return ONLY valid JSON with keys {list(REQUIRED_SCENARIO_OUTPUT_KEYS)} "
+        f"(where scenario_code is '{scenario.get('scenario_code')}').\n\n"
+        "=== RAW DOMAIN MATERIALS (UNSTRUCTURED DUMP) ===\n"
+        f"{json.dumps(raw_domain_context, ensure_ascii=False, indent=2)}\n\n"
+        "=== CLIENT COMPANY SCENARIO TO DIAGNOSE ===\n"
+        f"{json.dumps(scenario, ensure_ascii=False, indent=2)}\n"
     )
 
     openai_key = os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENROUTER_API_KEY")
@@ -213,7 +231,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
             headers={"Authorization": f"Bearer {openai_key}", "Content-Type": "application/json"},
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=45) as resp:
+        with urllib.request.urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode("utf-8"))
             content = body["choices"][0]["message"]["content"]
             return json.loads(content)
@@ -228,7 +246,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
             }
         ).encode("utf-8")
         req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
-        with urllib.request.urlopen(req, timeout=45) as resp:
+        with urllib.request.urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode("utf-8"))
             content = body["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(content)
@@ -260,7 +278,7 @@ def generate_naive_baseline(
             normalized[key] = val if isinstance(val, list) else [str(val)]
         outputs.append(normalized)
 
-    mode_label = "Live Single-Prompt Flat LLM" if live_llm else "Offline Naive Unstructured Prompt Simulator"
+    mode_label = "Live Single-Prompt Flat LLM (Full Raw Context Dump)" if live_llm else "Offline Naive Unstructured Prompt Simulator"
     return {
         "team_name": "Baseline_Naive_Flat_Prompt",
         "chosen_architecture_paradigm": f"Baseline to Beat ({mode_label} — single-pass unstructured prompt)",
@@ -275,6 +293,9 @@ def validate_submission(
 ) -> Tuple[List[str], List[str]]:
     """
     Validate a team's exported submission JSON against the required output contract.
+    Supports both the core required keys and optional strategic enrichment keys
+    (e.g., strategic_focus_and_do_not_touch, cohort_specific_strategies,
+    open_questions_and_hypotheses_for_client) without penalizing original or focused plans.
     Returns (errors, warnings). Does NOT contain confidential ground-truth answers.
     """
     errors: List[str] = []
@@ -284,7 +305,7 @@ def validate_submission(
         return [f"File not found: {submission_path}"], warnings
 
     try:
-        sub = json.loads(submission_path.read_text(encoding="utf-8"))
+        sub = json.loads(submission_path.read_text(encoding="utf-8-sig"))
     except json.JSONDecodeError as exc:
         return [f"Invalid JSON syntax: {exc}"], warnings
 
@@ -336,7 +357,12 @@ def validate_submission(
                 if non_str:
                     errors.append(f"[{sc_code}] All entries in '{req_key}' must be strings.")
 
-        # Helpful structural sanity warnings (without revealing answers)
+        for opt_key in OPTIONAL_SCENARIO_ENRICHMENT_KEYS:
+            if opt_key in item and item[opt_key] is not None:
+                if not isinstance(item[opt_key], (list, dict)):
+                    errors.append(f"[{sc_code}] Optional key '{opt_key}' must be a list or dict if provided.")
+
+        # Helpful structural sanity warnings (flexible & open to focused/original plans)
         if isinstance(item.get("diagnosed_root_causes"), list) and len(item["diagnosed_root_causes"]) == 0:
             warnings.append(f"[{sc_code}] 'diagnosed_root_causes' is empty.")
         if isinstance(item.get("diagnosed_root_causes"), list) and len(item["diagnosed_root_causes"]) > 6:
@@ -347,9 +373,11 @@ def validate_submission(
         p1 = item.get("phase_1_actions", []) if isinstance(item.get("phase_1_actions"), list) else []
         p2 = item.get("phase_2_actions", []) if isinstance(item.get("phase_2_actions"), list) else []
         p3 = item.get("phase_3_actions", []) if isinstance(item.get("phase_3_actions"), list) else []
-        if len(p1) > 0 and len(p2) == 0 and len(p3) == 0:
+        if len(p1) + len(p2) + len(p3) == 0:
+            warnings.append(f"[{sc_code}] No actions provided across phase_1_actions, phase_2_actions, or phase_3_actions.")
+        elif len(p1) > 0 and len(p2) == 0 and len(p3) == 0:
             warnings.append(
-                f"[{sc_code}] All actions are dumped into 'phase_1_actions' with empty Phase 2 & Phase 3 — check prerequisite sequencing!"
+                f"[{sc_code}] All actions are placed into 'phase_1_actions' with empty Phase 2 & Phase 3 — check prerequisite sequencing!"
             )
 
         mcs = item.get("matched_case_studies", [])

@@ -29,13 +29,12 @@
 
 ---
 
-## 3. Diagnostic, Constraint & Phase-Ordering Mechanism
+## 3. Diagnostic, Prioritization & Action-Planning Mechanism
 
-*Walk step-by-step through what happens when a Company Scenario JSON arrives:*
-1. **Step A — Situation & Context Parsing:**
-2. **Step B — Cross-Pillar Root Cause Diagnosis (Avoiding False Positives):**
-3. **Step C — Sector Guardrail Filtering & Phase 1 $\rightarrow$ 2 $\rightarrow$ 3 Sequencing:**
-4. **Step D — Top-3 Historical Case Study Matching & ROI Grounding:**
+*Walk through how your system processes an incoming Company Scenario (`ingaze_platform_signals` + `client_internal_context`) and generates its strategic plan (feel free to adapt the subsections to match your architecture):*
+- **Cross-Pillar Root Cause Diagnosis & Healthy Baseline Preservation:** *How does your system separate true root causes from surface symptoms—and identify healthy metrics/cohorts that should NOT be disrupted?*
+- **Guardrail Enforcement, Readiness & Sequencing:** *How does your system evaluate executive requests, respect diagnostic/cultural readiness across phases, and differentiate between cohorts or sites?*
+- **Action Generation (Precedent-Backed + Original Recommendations) & ROI Grounding:** *How does your system combine proven case-study interventions with tailored/original recommendations, match the Top-3 Case Studies, and surface open discovery questions for the client?*
 
 ---
 

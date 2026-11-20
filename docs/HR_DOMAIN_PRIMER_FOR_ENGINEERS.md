@@ -2,82 +2,87 @@
 
 If you come from a pure AI, Data Science, or Software Engineering background, **HR and Employer Branding jargon can sound fuzzy at first**.  
 
-This 5-minute guide strips away the buzzwords and gives you the **exact causal, operational, and financial mental model** behind enterprise Employer Intelligence—so your team can model the domain accurately without guessing what terms mean.
+This 5-minute guide strips away the buzzwords and gives you the **causal, operational, and financial mental model** behind enterprise Employer Intelligence—so your team can model the domain and invent high-leverage recommendations without guessing what terms mean.
 
 ---
 
-## 1. The Core Mental Model: HR Is a Coupled 4-Stage Pipeline
+## 1. The Core Mental Model: A Coupled 4-Pillar Feedback Loop + Dual Client Intake
 
 Most outsiders think *Employer Branding* just means posting happy office photos on LinkedIn. In reality, enterprise talent operates as a **tightly coupled feedback loop across 4 pillars**:
 
 ```mermaid
 flowchart LR
     P4["4. INTERNAL RETENTION & CLIMATE<br/>(Management, Workload, Career Paths)"] -->|"Drives public reviews<br/>& word-of-mouth"| P1["1. EMPLOYER REPUTATION<br/>(Glassdoor, Indeed, EVP Credibility)"]
-    P1 -->|"Shapes candidate trust<br/>& offer acceptance"| P2["2. RECRUITING & ATTRACTION<br/>(Career Site UX, JDs, LinkedIn)"]
+    P1 -->|"Shapes candidate trust<br/>& offer acceptance"| P2["2. RECRUITING & ATTRACTION<br/>(Career Site UX, JDs, Channels)"]
     P2 -->|"Sets expectations for<br/>new hires (0-12m)"| P4
     P4 -->|"Prerequisite: Healthy internal<br/>trust enables authentic..."| P3["3. EMPLOYEE ADVOCACY<br/>(Ambassadors & Earned Media)"]
     P3 -->|"5x-8x organic reach into<br/>passive talent pools"| P2
 ```
 
-**Why AI Engineers Should Care:**  
-Because these 4 pillars form a closed feedback loop, **intervening at the wrong stage—or in the wrong order—causes real business damage**:
-- Fixing external ads while internal retention is broken just pours expensive hires into a leaky bucket.
-- Turning on Employee Advocacy when employees are burned out amplifies cynicism instead of attraction.
+### How Real Client Data Arrives at Ingaze (The Dual Flow)
+When an enterprise client comes to Ingaze, our human strategists never look at a single flat paragraph in isolation. Every engagement combines **two complementary streams of information**:
+1. **Ingaze Platform Signals (*Outside-In Analysis*):** What Ingaze's software detects externally and across digital touchpoints—Glassdoor/Indeed rating trends and location variance, Say-Do Gap between recruiting claims and review sentiment, Career Portal funnel conversion and mobile drop-off steps, job description quality, and LinkedIn organic engagement vs. manual HR tracking overhead.
+2. **Client Internal Context (*Inside-Out Reality*):** What the client's HR and leadership team shares internally:
+   - **Healthy baselines & strengths NOT to break:** Competitive compensation bands, high-retention core teams, modern physical assets, or already-authentic cultural pride.
+   - **Cohort & site asymmetries:** Why Squad A or Hub North is thriving while Squad B or Hub South has 16% 6-month churn or a 43-day Time-to-Hire.
+   - **Budget & operational constraints:** Lean HR teams losing 100–150+ hours/year on spreadsheets, or CFOs freezing ad spend until financial ROI is proven.
+   - **Leadership perceptions & requests:** Executive ideas that may be spot-on—or may be premature/counterproductive (e.g., a CEO asking for an external Ambassador campaign next week while new hires are quitting, or a vendor pitching a 6-month EVP rewrite when the culture is already strong).
 
 ---
 
 ## 2. Plain-English Glossary of the 10 Key Domain Terms
 
-| Term | Engineering Translation (Plain English) | Why It Matters for Your System |
+| Term | Engineering Translation (Plain English) | Strategic Implication |
 | :--- | :--- | :--- |
-| **EVP (*Employer Value Proposition*)** | The **"SLA" a company promises talent**: what you get in exchange for working there (e.g., *cloud autonomy, fast career growth, reliable pay, modern truck fleet, B-Corp impact*). | Must match reality! An EVP disconnected from reality creates a *Say-Do Gap*, and an uncalibrated EVP makes job ads generic. |
-| **The "Say-Do Gap"** | **Spec-vs-Production Drift.** Recruiting promises *"cutting-edge autonomy"*, but new hires hit micromanagement and burnout on Day 30. | Drives **2.4x higher first-year turnover**, tanks Glassdoor ratings (`>1.1★` gap), and **strictly blocks external Employee Advocacy** until realigned. |
-| **Candidate Persona** | A data-backed specification of **what a specific workforce segment actually optimizes for** and **which channels/devices they use**. | Prevents generic corporate job ads and stops you from using white-collar channels for frontline workers. |
-| **Career Portal UX Audit** | Diagnostic UX, content, performance, and mobile-conversion audit of a company's career website before redesigning it. | Must run **before** rebuilding an application flow so you fix the real bottleneck (e.g., 5-screen desktop login on mobile). |
-| **TtH (*Time-to-Hire*) & CpH (*Cost-per-Hire*)** | **Latency** (days to fill an open role) and **unit acquisition cost** (€ spent per hire, especially external staffing/headhunting agency fees). | High mobile bounce rates inflate TtH (`40+ days`) and force companies to burn budget on temporary staffing agencies. |
-| **Early Attrition (`0–12m` Turnover)** | New hires quitting within their first 6–12 months—the **most expensive failure mode in HR** (sunk recruiting + onboarding cost with zero output). | Usually a downstream *symptom* of deeper root causes (Say-Do Gap, weak middle management, opaque career paths, or shift burnout). |
-| **360° Internal Listening** | Structured internal pulse & upward manager feedback surveys to measure climate, burnout, and leadership quality inside teams. | Foundational **Phase 1 diagnostic** needed before launching targeted manager coaching or retention fixes. |
-| **Employee Advocacy & Ambassadors** | Real employees voluntarily sharing authentic professional content on social networks (`5x–8x` higher organic engagement than corporate pages). | **High-leverage amplifier, NOT a bandage.** Works brilliantly when internal trust is high; backfires badly during burnout or a Say-Do Gap. |
-| **Automated Ambassador Content Tracking** | Software tracking of ambassador reach/engagement—replacing HR manually chasing post screenshots in spreadsheets (`8–20h/month` wasted). | Requires first selecting and aligning an ambassador cohort before automating at scale. |
-| **EMV (*Earned Media Value*) & Financial Turnover Risk (€)** | Translating HR outcomes into **CFO currency (€)**: paid-media equivalent saved via organic reach (`EMV €`) and annual attrition exposure (`Turnover Risk €`). | `78%` of HR budgets get rejected when pitched with vanity metrics (*likes, impressions*) instead of auditable `€` and hours saved. |
+| **EVP (*Employer Value Proposition*)** | The **"SLA" a company promises talent**: what you get in exchange for working there (e.g., *engineering autonomy, career growth, reliable pay, modern fleet, B-Corp impact*). | Must match internal reality. If the EVP is already authentic, **do not waste months overhauling it**; if it contradicts reality, it creates a *Say-Do Gap*. |
+| **The "Say-Do Gap"** | **Spec-vs-Production Drift.** Recruiting promises *"cutting-edge autonomy"*, but new hires hit micromanagement and opaque promotions on Day 30. | Drives **2.4x higher first-year turnover**, tanks review ratings (`>1.1★` gap), and causes external Employee Advocacy to backfire if not resolved first. |
+| **Candidate Persona** | A data-backed specification of **what a specific workforce cohort optimizes for** and **which channels/devices they actually use**. | Prevents generic corporate job ads and stops you from using desk-based white-collar channels for mobile/deskless workers. |
+| **Career Portal UX Audit** | Diagnostic UX, funnel, and device-conversion audit of a company's career website before rebuilding it. | Pinpoints the exact drop-off step (e.g., a 5-screen desktop account wall on mobile) before engineering a new application flow. |
+| **TtH (*Time-to-Hire*) & CpH (*Cost-per-Hire*)** | **Latency** (days to fill an open role) and **unit acquisition cost** (€ spent per hire, especially emergency staffing/headhunting agency fees). | High application drop-off inflates TtH (`40+ days`) and forces Operations to burn budget on external temporary staffing agencies. |
+| **Early Attrition (`0–12m` Turnover)** | New hires quitting within their first 6–12 months—the **most expensive failure mode in HR** (sunk recruiting + onboarding cost with zero output). | Almost always a downstream *symptom* of deeper root causes (expectation drift, uncoached middle managers, opaque career paths, or shift fatigue). |
+| **360° Internal Listening** | Structured internal pulse & upward manager feedback to measure climate, workload, and leadership quality across specific teams/sites. | Essential diagnostic when internal turnover or management friction is present, so coaching targets the actual bottlenecked teams. |
+| **Employee Advocacy & Ambassadors** | Real employees voluntarily sharing authentic professional content on social networks (`5x–8x` higher organic engagement than corporate brand pages). | **High-leverage amplifier, NOT a bandage.** Scales fast when internal trust is already healthy; backfires (*performative backlash*) during active burnout or a Say-Do Gap. |
+| **Automated Ambassador Content Tracking** | Software tracking of ambassador reach and engagement—replacing HR manually chasing post screenshots in spreadsheets (`8–20h/month` wasted). | Eliminates manual spreadsheet drudgery and produces auditable Earned Media Value (`EMV €`) once an ambassador cohort is active/aligned. |
+| **EMV (*Earned Media Value*) & Financial Turnover Risk (€)** | Translating HR outcomes into **CFO currency (€)**: paid-media equivalent saved via organic reach (`EMV €`) and annual attrition exposure (`Turnover Risk €`). | `78%` of HR budgets get rejected when pitched with vanity metrics (*likes, impressions*) instead of auditable `€` and operational hours saved. |
 
 ---
 
-## 3. Outside-In vs. Inside-Out: Why Diagnostics Belong in Phase 1
+## 3. Diagnostic Sequencing, Readiness & Strategic Restraint
 
-In real enterprise consulting, you never prescribe a €200k transformation or rewrite external messaging on Day 1 without establishing a baseline. Interventions naturally follow **3 Dependency Phases**:
+In real enterprise strategy, **order of operations and selective focus matter as much as the actions themselves**:
 
-1. **Phase 1 — Foundational Diagnostics, Listening & Calibration (*Measure & Map First*):**
-   - *External / Outside-In Audits:* Centralized Multi-Channel Reputation Audit (across countries/hubs/facilities), Career Portal UX Audit.
-   - *Internal / Candidate Listening:* 360° Internal Feedback Listening, Digitized Post-Interview & University Career Day Surveys, Candidate Persona Calibration.
-2. **Phase 2 — Core Structural, Operational & Governance Interventions (*Fix the Engine*):**
-   - *Internal Culture & Retention Fixes:* Manager Coaching Program, Transparent Career Progression Framework, Predictable Retail Store Weekend Shift Rotation.
-   - *Portal & Positioning Fixes:* EVP Realignment, 60-Second Mobile-First Fast-Apply Flow, Technical Engineering Storytelling on LinkedIn, Board Financial Risk / ROI Dashboard.
-3. **Phase 3 — Cross-Pillar Scaling & Amplification (*Scale What Is Healthy*):**
-   - *Downstream Execution:* Persona-Aligned Job Descriptions (requires calibrated Personas + realigned EVP), Data-Driven Ambassador Selection, Automated Ambassador Content Tracking (requires healthy internal trust + selected cohort).
-
----
-
-## 4. Workforce Worlds Are NOT Interchangeable (Industry Guardrails)
-
-One of the biggest failure modes of LLMs and vector RAG is **sector contamination**—assuming every worker behaves like a Silicon Valley software engineer. Keep this contrast matrix in mind when designing your guardrails:
-
-| Dimension | B2B SaaS / Cloud FinTech | Freight & Interport Logistics | Physical Store Retail | Multi-Site Healthcare / B-Corp / Banking |
-| :--- | :--- | :--- | :--- | :--- |
-| **Core Talent** | Senior Software/Data Engineers, PMs | Licensed Truck Drivers (C-CQC), Warehouse Ops | In-Store Sales Associates, Store Managers | Nurses/Clinicians, Lab Specialists, Gen-Z Grads |
-| **How They Browse & Apply** | Desktop + LinkedIn peer engineering content | **Smartphone on break** (<60s fast-apply, no login walls!) | **Smartphone** (local store roles) + HQ digital channels | Regional facility reputation + University Career Days |
-| **What Actually Attracts Them** | Architecture autonomy, real engineering culture, clear career tracks | **Reliable on-time pay**, modern safe fleet, route/shift clarity | Predictable **weekend shift rotation**, supportive store managers | Facility-level reputation, authentic B-Corp/ESG proof, career growth |
-| **Classic AI Trap to Block** | Recommending *physical retail weekend shift rotation* or frontline fast-apply as primary fix | Recommending a *B2B Tech LinkedIn architecture blogging playbook* to hire truck drivers | Ignoring store scheduling burnout OR using B2B tech blogging for store staff | Automating advocacy across 50+ sites *before* auditing local facility reputation & selecting ambassadors |
+1. **Diagnose Before You Redesign:**  
+   You wouldn't refactor a production codebase before profiling where the latency bottleneck lives. Similarly, foundational diagnostics (auditing multi-site reviews, profiling career portal mobile drop-off, listening to internal teams, or calibrating cohort personas) establish the evidence base needed to design targeted structural fixes.
+2. **Cultural Readiness Governs Amplification:**  
+   External amplification (like scaling an Employee Ambassador program or rewriting job ads around new cultural claims) depends on internal reality:
+   - If a company suffers from an active **Say-Do Gap** or **management burnout**, external advocacy must wait until internal trust and leadership foundations are stabilized.
+   - Conversely, if a company **already enjoys strong internal satisfaction, an authentic EVP, and enthusiastic organic ambassadors**, you do **not** need a redundant corporate EVP overhaul—you can focus directly on multi-site visibility, formalizing regional ambassadors, and automating tracking!
+3. **Preserve What Works (*What NOT to Touch*):**  
+   Clients respect an advisor who says: *"Your compensation is at the 82nd percentile and your Amsterdam SRE team has 94% retention—do NOT touch base pay or disrupt that hub; focus your budget on coaching newly promoted squad leads in Milan and Berlin."*
 
 ---
 
-## 5. How the Board & CFO Judge an Action Plan
+## 4. Workforce & Operational Context Sensitivity
 
-Inside an enterprise client, there are two distinct stakeholders:
-1. **The HR / Talent Acquisition Champion:** Time-poor, buried in manual spreadsheets (exporting LinkedIn stats or local facility reviews by hand), and cautious about bringing bad news to the C-Suite without a clear fix.
-2. **The CFO / Executive Board:** Allergic to HR buzzwords. They ask three blunt questions:
+One of the classic failure modes of naive LLMs and flat RAG is **context blindness**—treating every workforce segment as interchangeable. When designing your reasoning structure, pay attention to four operational dimensions:
+
+- **Device & Application Behavior (Deskless Mobile vs. Desk-Based Specialist):**  
+  Frontline, field, and shift-based workers (logistics drivers, warehouse staff, store associates) browse job openings on smartphones during short breaks and abandon desktop login walls within seconds. Senior software/cloud engineers rarely cold-apply on generic portals without seeing authentic technical architecture substance from peers.
+- **Physical Schedule Reality vs. Digital Workplaces:**  
+  Operational scheduling interventions (such as predictable weekend shift rotation in physical retail stores) directly solve frontline store burnout, but are completely meaningless if leaked into a 100% digital B2B SaaS or FinTech company via noisy data imports.
+- **Multi-Site / Multi-Hub Variance vs. Single-Site Uniformity:**  
+  In distributed organizations (5 logistics interports, 3 European tech hubs, or 50 regional healthcare clinics), averages lie. A `3.8★` company average often hides a `4.3★` flagship hub and a `3.1★` struggling region.
+- **Tenured Core vs. Early-Career / New-Hire Cohorts:**  
+  A company can simultaneously have `91%+` retention among tenured staff and a severe drop-off among Gen-Z university recruits or newly onboarded hires—requiring targeted cohort interventions rather than company-wide disruption.
+
+---
+
+## 5. How the Board & CFO Judge a Strategic Action Plan
+
+Inside an enterprise client, your system's output must serve two stakeholders simultaneously:
+1. **The HR / Talent Acquisition Leader:** Time-poor, buried in manual operational work (exporting LinkedIn stats or local facility reviews into Excel by hand), and looking for concrete, cohort-specific actions they can execute.
+2. **The CFO / Executive Board:** Allergic to vague HR buzzwords. They ask four blunt questions:
    - *"What is this problem costing us in **EUR per year** (`Financial Turnover Risk`, `External Agency Spend`, `Manual HR Hours`)?"*
-   - *"Why is Step A before Step B, and how do we know this won't backfire?"*
-   - *"Show me a **comparable B2B precedent** in our sector with measured ROI."*
-
-If your architecture encodes **root-cause tracing**, **phase prerequisites**, **workforce guardrails**, and **Case Study ROI grounding**, its output will read like a senior partner's strategy memo—not a generic chatbot list.
+   - *"What are we deliberately **not** spending money on because it's already healthy or wrong for our workforce?"*
+   - *"Why is Phase 1 before Phase 2, and what open questions should we verify in our internal data?"*
+   - *"Which **comparable B2B precedent** in our sector proves the expected ROI?"*
