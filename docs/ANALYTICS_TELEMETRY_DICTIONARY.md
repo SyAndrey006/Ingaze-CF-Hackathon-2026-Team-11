@@ -1,29 +1,85 @@
-# Analytics Telemetry Data Dictionary & Metric Scales
+# Data Guide & Dictionary — Understanding Both JSON Datasets ("What Is What")
 
-> **File documented:** [`data/ingaze_synthetic_analytics_snapshots.json`](../data/ingaze_synthetic_analytics_snapshots.json)  
+> **Files documented in this guide:**
+> 1. **[`data/ingaze_sandbox_dataset.json`](../data/ingaze_sandbox_dataset.json)** *(Core Sandbox Dataset)* — HR domain context, empirical research snippets, 11 completed historical case studies, 3 active incoming client scenarios to diagnose, and the output template.
+> 2. **[`data/ingaze_synthetic_analytics_snapshots.json`](../data/ingaze_synthetic_analytics_snapshots.json)** *(Optional Quantitative Companion)* — Aggregated synthetic multi-channel telemetry and sector peer benchmarks (`T0 -> T1` for the 11 historical cases + `T0` intake snapshot for the 3 active client scenarios).
+>
+> **Architectural freedom:** How you ingest, represent, join, weight, or ignore any section of these two files is **100% up to your team**. Nothing in this guide prescribes a specific data structure or reasoning pipeline.
+
+---
+
+## Part 1 — Guide to `data/ingaze_sandbox_dataset.json` ("What Is What")
+
+Because `ingaze_sandbox_dataset.json` bundles domain reference material, past project precedents, active client problems, and the output schema in a single self-contained file, here is the exact role of each top-level key:
+
+### 1.1 The 5 Top-Level Blocks & Their Roles
+
+| Top-Level Key | Records | Role in Your System | Important Distinction |
+| :--- | :---: | :--- | :--- |
+| **`domain_pillars_and_causal_dynamics`** | `4` pillars + `6` field notes | **General HR Domain Context** — Overview of the 4 HR areas (`pillars`: `pillar_name`, `focus_areas`, `key_board_metrics`) plus `raw_cross_pillar_rules_to_structure` (6 qualitative field notes on cross-pillar dynamics, channel differences, and strategic restraint). | General domain knowledge — **not** data about a specific client. |
+| **`raw_empirical_research_snippets`** | `10` studies | **Reference Research Evidence** — Industry & academic findings (`snippet_no`, `source`, `finding`) quantifying Say-Do Gap churn, mobile drop-off, advocacy multipliers, manager coaching impact, and CFO budget criteria. | External benchmark evidence you can use or cite to ground diagnoses and expected ROI. |
+| **`raw_case_study_narratives`** | `11` past projects | **Historical Precedent Library** — Anonymized B2B client engagements **already completed in the past**, showing what problem they had (`T0`), what sequence of actions was run, and what ROI was achieved (`T1`). | **Do NOT generate new action plans for these 11 companies** — they are past precedents to learn from, compare against, or retrieve! |
+| **`company_scenarios_to_diagnose`** | `3` active clients | **The 3 Target Clients to Solve** (`CloudNova`, `EuroFreight`, `VerdeCare`) — Incoming client intake combining external platform signals and internal client context. | **These are the 3 companies your PoC diagnoses and recommends actions for** in `submission.json`. |
+| **`poc_scenario_output_format`** | `1` schema example | **Output Format Reference** (`note` + `example_submission_structure`) — Illustrates the JSON shape expected by `starter_baseline_and_validator.py --validate`. | Output template only — **not** domain input data. |
+
+---
+
+### 1.2 Inside `raw_case_study_narratives` (`11` Completed Past Engagements)
+
+Each object represents a **finished historical project** across Tech/FinTech, Logistics, Retail, Healthcare, Banking, CleanTech, or B-Corp sectors:
+
+| Field | What It Contains |
+| :--- | :--- |
+| `case_name` | Company label & industry descriptor. **Also acts as the exact `1:1` join key** to `case_study_analytics_snapshots[].case_name` in `ingaze_synthetic_analytics_snapshots.json`. |
+| `sector_and_profile` | Sector, approximate employee headcount / multi-site footprint, and target talent or cultural profile. |
+| `initial_challenge` | Narrative summary of the pain points, bottlenecks, or healthy starting conditions **before** the project (`T0`). |
+| `intervention_sequence` | Numbered chronological steps (`1. ... 2. ... 3. ...`) implemented during the engagement. |
+| `measured_roi` | Verified business, conversion, reach, HR time-saved, or retention outcomes **after** execution (`T1`). |
+
+---
+
+### 1.3 Inside `company_scenarios_to_diagnose` (`3` Active Clients to Solve)
+
+Each of the 3 scenarios represents a **new client arriving at intake** and separates what external data shows (*Outside-In*) from what internal stakeholders report (*Inside-Out*):
+
+| Field / Sub-Object | What It Contains & How to Read It |
+| :--- | :--- |
+| **Company Profile Keys**<br>(`scenario_code`, `company_name`, `industry`, `headcount_and_footprint`, `workforce_target`, `organizational_context`) | Core identity of the client: industry, multi-hub/store/clinic footprint, **which specific roles they urgently need to hire or retain** (`workforce_target`), governance context, and their currently declared EVP. `scenario_code` **also acts as the exact `1:1` join key** to `active_scenario_analytics_snapshots[].scenario_code`. |
+| **`ingaze_platform_signals`** *(Outside-In)*<br>• `reputation_and_reviews`<br>• `recruiting_and_jds`<br>• `linkedin_and_content_analytics` | External signals observed across public reviews, career portal / job descriptions, and LinkedIn. **Note on real-world data hygiene:** just like real scraped feeds, external review exports can occasionally contain noisy or out-of-scope rows (e.g., unverified pilot artifacts) that should be filtered rather than blindly turned into corporate HR policy. |
+| **`client_internal_context`** *(Inside-Out)*<br>• `healthy_metrics_and_strengths_not_to_break`<br>• `cohort_and_site_asymmetries`<br>• `budget_and_capacity_constraints`<br>• `leadership_perceptions_and_requests` | Internal discovery context shared by the client:<br>• **`healthy_metrics_and_strengths_not_to_break`**: Baselines, pay bands, or cohorts that are **already healthy** (useful for deciding what *not* to over-fix or disrupt).<br>• **`cohort_and_site_asymmetries`**: How metrics differ across specific hubs, regional clinics, labs, or HQ vs. frontline populations.<br>• **`budget_and_capacity_constraints`**: Financial turnover/agency exposure, manual spreadsheet hours, and CFO approval gates.<br>• **`leadership_perceptions_and_requests`**: Urgent proposals from the CEO, Marketing, VP Eng, or Hub Directors. **Read critically:** treat these as stakeholder hypotheses to test against the evidence—not blind instructions! |
+| **`narrative_situation_to_solve`** | Single-paragraph executive summary consolidating the scenario's situation (handy if your pipeline consumes unified prose alongside or instead of the structured sub-fields above). |
+| **`key_questions_your_structure_must_answer`** | 4 open guiding questions highlighting key diagnostic and strategic tensions for that client (reflection prompts — they contain no hidden extra facts). |
+
+---
+
+### 1.4 How the Two JSON Files Connect (Optional Join Map)
+
+If your team chooses to use the optional quantitative companion file (`data/ingaze_synthetic_analytics_snapshots.json`), records link `1:1` with zero fuzzy matching needed:
+
+| Narrative Record in `ingaze_sandbox_dataset.json` | Join Key | Quantitative Record in `ingaze_synthetic_analytics_snapshots.json` | Available Snapshots |
+| :--- | :---: | :--- | :--- |
+| `raw_case_study_narratives[i]` (`11` past cases) | **`case_name`** | `case_study_analytics_snapshots[i]` (`11` records) | `sector_peer_benchmarks` + `t0_before_intervention` + `t1_after_12_months` |
+| `company_scenarios_to_diagnose[j]` (`3` active clients) | **`scenario_code`** | `active_scenario_analytics_snapshots[j]` (`3` records) | `sector_peer_benchmarks` + `t0_current_snapshot` *(no `T1`, since the client's plan has not been executed yet)* |
+
+---
+
+## Part 2 — Guide to `data/ingaze_synthetic_analytics_snapshots.json` (Metric Scales & Polarity)
+
 > **Usage:** 100% **optional** companion dataset. All values are synthetic. You are free to use these tables alongside the narratives, run standalone statistical/quantitative models, compare client metrics against `sector_peer_benchmarks`, or ignore this file completely.
 
----
+### 2.1 Top-Level Structure & Naming Conventions
 
-## 1. Top-Level Structure
+Both `case_study_analytics_snapshots` (`11` records) and `active_scenario_analytics_snapshots` (`3` records) share the exact same 4 telemetry channel blocks (`public_reputation`, `career_portal_and_funnel`, `social_and_employee_voice`, `hiring_and_retention_kpis`).
 
-The JSON file contains two standardized arrays sharing the exact same metric keys and scales:
-
-1. **`case_study_analytics_snapshots` (`11` records)** — Quantitative telemetry for the 11 historical B2B case studies in `ingaze_sandbox_dataset.json` (joinable via `case_name`), each containing:
-   - `sector_peer_benchmarks`: Synthetic sector peer averages for that company's industry.
-   - `t0_before_intervention`: Multi-channel metrics measured **before** the project started.
-   - `t1_after_12_months`: Multi-channel metrics measured **12 months after** execution.
-2. **`active_scenario_analytics_snapshots` (`3` records)** — Quantitative telemetry for the 3 target company scenarios (`SCENARIO_A_CLOUDNOVA_FINTECH`, `SCENARIO_B_EUROFREIGHT_LOGISTICS`, `SCENARIO_C_VERDECARE_BCORP`, joinable via `scenario_code`), each containing:
-   - `sector_peer_benchmarks`: Synthetic sector peer averages for that company's industry.
-   - `t0_current_snapshot`: Current multi-channel metrics at intake.
-
-*(Naming convention tip: keys ending in `_5` are on a **1–5 star** scale; keys ending in `_100` are on a **0–100 index** scale; keys ending in `_pct` are **percentages `0–100%`**).*
+- Keys ending in **`_5`** are on a **`1.0 – 5.0` star** scale.
+- Keys ending in **`_100`** are on a **`0.0 – 100.0` index** scale.
+- Keys ending in **`_pct`** are **percentages (`0.0 – 100.0%`)**.
 
 ---
 
-## 2. Metric Definitions, Scales & Polarity
+### 2.2 Metric Definitions, Scales & Polarity
 
-### A. `public_reputation` (Employee & Candidate Review Telemetry)
+#### A. `public_reputation` (Employee & Candidate Review Telemetry)
 
 | Field / Key | Scale / Range | Directionality | What It Measures |
 | :--- | :---: | :---: | :--- |
@@ -43,7 +99,7 @@ The JSON file contains two standardized arrays sharing the exact same metric key
 
 ---
 
-### B. `career_portal_and_funnel` (Career Website UX & Candidate Funnel)
+#### B. `career_portal_and_funnel` (Career Website UX & Candidate Funnel)
 
 | Field / Key | Scale / Range | Directionality | What It Measures |
 | :--- | :---: | :---: | :--- |
@@ -61,7 +117,7 @@ The JSON file contains two standardized arrays sharing the exact same metric key
 
 ---
 
-### C. `social_and_employee_voice` (LinkedIn Content & Employee Advocacy)
+#### C. `social_and_employee_voice` (LinkedIn Content & Employee Advocacy)
 
 | Field / Key | Scale / Range | Directionality | What It Measures |
 | :--- | :---: | :---: | :--- |
@@ -75,7 +131,7 @@ The JSON file contains two standardized arrays sharing the exact same metric key
 
 ---
 
-### D. `hiring_and_retention_kpis` (Recruiting Latency, Agency Spend & Attrition)
+#### D. `hiring_and_retention_kpis` (Recruiting Latency, Agency Spend & Attrition)
 
 | Field / Key | Scale / Range | Directionality | What It Measures |
 | :--- | :---: | :---: | :--- |
