@@ -91,6 +91,30 @@ def signals_for_track_tags(track_tags: Iterable[str]) -> Set[SignalCode]:
     return {signal for tag in track_tags for signal in TRACK_TAG_TO_SIGNALS.get(tag, ())}
 
 
+# Scope values that mean "not restricted to particular sites".
+_UNSCOPED_SITE_VALUES = {None, "", "all"}
+
+
+def signals_for_hypothesis_scopes(hypotheses: Iterable[Dict]) -> Set[SignalCode]:
+    """
+    Structural signals derived from where Step 2 localizes its diagnoses.
+
+    A non-conflicted hypothesis scoped to particular sites (e.g. two of five hubs)
+    means the problem is concentrated there, i.e. COHORT_OR_SITE_ASYMMETRY.
+    Cohort scopes are ignored: they usually name the target workforce itself,
+    which is not an asymmetry.
+    """
+    for hypothesis in hypotheses:
+        if hypothesis.get("status") == "conflicted":
+            continue
+        site = (hypothesis.get("scope") or {}).get("site")
+        if isinstance(site, str):
+            site = site.strip().lower()
+        if site not in _UNSCOPED_SITE_VALUES:
+            return {S.COHORT_OR_SITE_ASYMMETRY}
+    return set()
+
+
 def workforce_for_profile(profile: Iterable[str]) -> List[WorkforceArchetype]:
     tags = set(profile)
     workforce = {PROFILE_TO_WORKFORCE[tag] for tag in tags if tag in PROFILE_TO_WORKFORCE}
@@ -105,9 +129,12 @@ def sector_for_profile(profile: Iterable[str]) -> Optional[SectorCategory]:
 
 
 def client_match_profile(
-    track_tags: Iterable[str], profile: Iterable[str]
+    track_tags: Iterable[str],
+    profile: Iterable[str],
+    hypotheses: Iterable[Dict] = (),
 ) -> Tuple[List[SignalCode], List[WorkforceArchetype], Optional[SectorCategory]]:
     """`(signals, workforce, sector)` for `rank_top_cases` from Step 2 output."""
-    signals = sorted(signals_for_track_tags(track_tags), key=lambda s: s.value)
+    signals = signals_for_track_tags(track_tags) | signals_for_hypothesis_scopes(hypotheses)
+    signals = sorted(signals, key=lambda s: s.value)
     profile = list(profile)
     return signals, workforce_for_profile(profile), sector_for_profile(profile)

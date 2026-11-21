@@ -248,7 +248,9 @@ def score_diagnostic_candidates(
         client_sector = client_input.sector_category
         case_match_input_source = "step1_canonical_signals"
     else:
-        client_signals, client_workforce, client_sector = client_match_profile(ranked_tags, profile)
+        client_signals, client_workforce, client_sector = client_match_profile(
+            ranked_tags, profile, ranked_hypotheses
+        )
         case_match_input_source = "step2_track_tags_via_case_signal_bridge"
 
     normalized_case_matches = []

@@ -11,6 +11,7 @@ from src.offline.case_signal_bridge import (
     UNMAPPED_TRACK_TAGS,
     client_match_profile,
     sector_for_profile,
+    signals_for_hypothesis_scopes,
     signals_for_track_tags,
     workforce_for_profile,
 )
@@ -66,6 +67,26 @@ class TestTranslation(unittest.TestCase):
         self.assertEqual(sector_for_profile({"sustainability", "care"}), SectorCategory.HEALTHCARE_CLINICAL)
         self.assertEqual(sector_for_profile({"sustainability"}), SectorCategory.CLEANTECH_SUSTAINABILITY_BCORP)
         self.assertIsNone(sector_for_profile({"distributed"}))
+
+    def test_site_scoped_hypothesis_yields_site_asymmetry(self):
+        hyps = [
+            {"status": "plausible", "scope": {"cohort": None, "site": None}},
+            {"status": "plausible", "scope": {"cohort": None, "site": "two_of_five_hubs"}},
+        ]
+        self.assertEqual(signals_for_hypothesis_scopes(hyps), {SignalCode.COHORT_OR_SITE_ASYMMETRY})
+        signals, _, _ = client_match_profile([], [], hyps)
+        self.assertIn(SignalCode.COHORT_OR_SITE_ASYMMETRY, signals)
+
+    def test_unscoped_conflicted_or_cohort_only_yield_nothing(self):
+        for hyp in (
+            {"status": "plausible", "scope": {"site": "all"}},
+            {"status": "plausible", "scope": {"site": " ALL "}},
+            {"status": "plausible", "scope": {"site": ""}},
+            {"status": "plausible", "scope": {"cohort": "engineering_workforce", "site": None}},
+            {"status": "conflicted", "scope": {"site": "north_hub"}},
+            {"status": "plausible"},
+        ):
+            self.assertEqual(signals_for_hypothesis_scopes([hyp]), set(), hyp)
 
     def test_client_match_profile_is_deterministic(self):
         a = client_match_profile(["post_tracking", "burnout", "emv"], ["tech", "distributed"])
