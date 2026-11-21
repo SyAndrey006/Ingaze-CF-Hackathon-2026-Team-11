@@ -1,35 +1,4 @@
-"""
-Module: test_pipeline_stubs.py
-Stage: Tests (Schema Validation, Noise Filtering & Guardrail Blocking Stubs)
-Execution Type: Utility
-
-Description:
-    Provides placeholder unit tests verifying that all Pydantic schemas and
-    placeholder normalized JSON templates validate cleanly today, alongside
-    TODO-marked test skeletons for Step 1 noise filtering, Step 4 guardrail
-    blocking/pausing/do-not-touch routing, Step 5 phase sequencing, and Step 6
-    submission contract validation.
-
-Input:
-    - Pydantic models from `src/schemas/*`.
-    - Placeholder JSONs from `database/normalized/*.json`.
-    - Pipeline stage entrypoints from `src/pipeline/*` and `src/utils/verifier.py`.
-
-Output:
-    - Passing schema smoke tests now and runnable TDD targets as each team
-      member replaces `NotImplementedError` stubs with real implementations.
-
-TODO:
-    1. Replace `unittest.SkipTest` / `assertRaises(NotImplementedError)` assertions
-       with full behavioral assertions as Steps 1-6 are implemented.
-    2. Add synthetic company-agnostic test fixtures covering:
-       (a) noisy cross-industry review export filtering,
-       (b) premature external advocacy paused under active Say-Do Gap / burnout,
-       (c) advocacy acceleration when internal culture is healthy & organic ambassadors exist,
-       (d) healthy baseline preservation (`DO_NOT_TOUCH`).
-    3. Add an end-to-end contract test validating `SubmissionPayload` against
-       `starter_baseline_and_validator.validate_submission`.
-"""
+"""Tests for schemas, Step 1 hygiene, and active deterministic pipeline behavior."""
 
 from __future__ import annotations
 
@@ -39,16 +8,22 @@ import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
+
+from src.main import (
+    DEFAULT_DATA as ENGINE_DATA,
+    load_analytics as load_engine_analytics,
+    load_graph as load_engine_graph,
+    load_library as load_engine_library,
+    plan as run_engine_plan,
+)
 
 from src.schemas.domain_models import (
-    ActionCategory,
-    GuardrailRoute,
     NormalizedCasesDB,
     NormalizedRulesDB,
     SectorCategory,
     SignalCode,
     TelemetrySnapshot,
-    WorkforceArchetype,
 )
 from src.schemas.pipeline_models import (
     DiagnosisResult,
@@ -70,22 +45,24 @@ from src.pipeline.step1_normalize_input import (
     load_standalone_input,
     run_normalization_cli,
 )
+from src.pipeline.step6_hr_proposal import generate_hr_proposal
+from src.utils.verifier import verify_scenario_submission
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RULES_PLACEHOLDER_PATH = BASE_DIR / "database" / "normalized" / "normalized_rules.json"
 CASES_PLACEHOLDER_PATH = BASE_DIR / "database" / "normalized" / "normalized_cases.json"
 
 
-class TestSchemaAndPlaceholderValidation(unittest.TestCase):
-    """Smoke tests confirming all Pydantic schemas and JSON placeholders load cleanly."""
+class TestSchemaValidation(unittest.TestCase):
+    """Smoke tests confirming schemas match the current database artifacts."""
 
-    def test_placeholder_normalized_rules_json_matches_schema(self) -> None:
+    def test_normalized_rules_json_matches_schema(self) -> None:
         raw_text = RULES_PLACEHOLDER_PATH.read_text(encoding="utf-8")
         rules_db = NormalizedRulesDB.model_validate_json(raw_text)
         self.assertEqual(rules_db.schema_version, "1.0.0")
         self.assertIsInstance(rules_db.symptom_to_root_cause_rules, list)
 
-    def test_placeholder_normalized_cases_json_matches_schema(self) -> None:
+    def test_normalized_cases_json_matches_schema(self) -> None:
         raw_text = CASES_PLACEHOLDER_PATH.read_text(encoding="utf-8")
         cases_db = NormalizedCasesDB.model_validate_json(raw_text)
         self.assertEqual(cases_db.schema_version, "1.0.0")
@@ -128,8 +105,26 @@ class TestSchemaAndPlaceholderValidation(unittest.TestCase):
         self.assertEqual(scenario_keys, expected_keys)
 
 
-class TestPipelineBehaviorPlaceholders(unittest.TestCase):
-    """TODO-driven unit test placeholders for Steps 1-6."""
+class TestPipelineBehavior(unittest.TestCase):
+    """Exercise active pipeline behavior alongside the Step 1 normalization tests."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.dataset = json.loads(ENGINE_DATA.read_text(encoding="utf-8-sig"))
+        cls.graph = load_engine_graph()
+        cls.analytics = load_engine_analytics()
+        cls.library = load_engine_library()
+
+    def _plan_scenario(self, scenario_index: int):
+        scenario = self.dataset["company_scenarios_to_diagnose"][scenario_index]
+        with patch("src.main._persist_stage_result", return_value=None):
+            return run_engine_plan(
+                scenario,
+                self.dataset,
+                self.library,
+                self.graph,
+                self.analytics,
+            )
 
     def test_step1_noise_filtering_strips_contaminated_rows(self) -> None:
         class LLMFlaggedSignal(ExtractedSignal):
@@ -401,32 +396,109 @@ class TestPipelineBehaviorPlaceholders(unittest.TestCase):
         self.assertEqual(INPUT_FILE, BASE_DIR / "data" / "client_io" / "input.json")
 
     def test_step4_guardrail_blocks_wrong_industry_and_pauses_premature_advocacy(self) -> None:
-        # TODO: Implement once `step4_guardrail_check.apply_guardrail_checks` is built.
-        # Verify:
-        #   - RETAIL_SHIFT_ROTATION for DESK_BASED_TECH_SPECIALIST -> GuardrailRoute.BLOCKED
-        #   - AMBASSADOR_SELECTION_ENABLEMENT with active SAY_DO_GAP -> GuardrailRoute.PAUSE (min Phase 3)
-        #   - COMPENSATION_BAND_OVERHAUL with COMPETITIVE_COMPENSATION_HEALTHY -> GuardrailRoute.DO_NOT_TOUCH
-        _ = (
-            ActionCategory.RETAIL_SHIFT_ROTATION,
-            GuardrailRoute.BLOCKED,
-            SectorCategory.FINTECH_PAYMENTS,
-            SignalCode.SAY_DO_GAP,
-            WorkforceArchetype.DESK_BASED_TECH_SPECIALIST,
-            NormalizedClientInput,
-            DiagnosisResult,
-            ScoredAction,
-            ScoredCandidates,
-            GuardrailResult,
-            PhasePlan,
+        result, trace = self._plan_scenario(0)
+        self.assertTrue(
+            any("Exclude retail store shift rotation" in item for item in trace["guardrails"])
         )
-        self.skipTest("TODO: Implement Step 4 guardrail routing test once Step 4 is implemented.")
+        self.assertTrue(
+            any("Defer external advocacy" in item for item in trace["guardrails"])
+        )
+        phase_actions = " ".join(
+            str(item)
+            for key in ("phase_1_actions", "phase_2_actions", "phase_3_actions")
+            for item in result[key]
+        ).casefold()
+        self.assertNotIn("retail store shift rotation", phase_actions)
 
     def test_step5_phase_planner_accelerates_advocacy_when_culture_healthy(self) -> None:
-        # TODO: Implement once `step5_phase_planner.build_phase_plan` is built.
-        # Verify that when `HEALTHY_AUTHENTIC_EVP` and `ACTIVE_ORGANIC_AMBASSADORS_PRESENT`
-        # are active (with zero Say-Do Gap/burnout), advocacy/tracking accelerates instead
-        # of waiting behind irrelevant cultural-repair prerequisites.
-        self.skipTest("TODO: Implement Step 5 phase acceleration test once Step 5 is implemented.")
+        result, _ = self._plan_scenario(2)
+        phase_one = [item for item in result["phase_1_actions"] if item.get("rule") == "advocacy_pilot"]
+        phase_two = [item for item in result["phase_2_actions"] if item.get("rule") == "advocacy_pilot"]
+        phase_three = [item for item in result["phase_3_actions"] if item.get("rule") == "advocacy_pilot"]
+        self.assertTrue(phase_one, "Readiness diagnostics must precede the advocacy pilot.")
+        self.assertTrue(phase_two, "Healthy internal conditions allow a scoped pilot after diagnostics.")
+        self.assertTrue(phase_three, "Scaling remains gated on measured pilot outcomes.")
+        self.assertTrue(phase_two[0].get("prerequisite"))
+        self.assertTrue(phase_three[0].get("condition"))
+
+    def test_step6_proposal_is_deterministic_and_covers_approved_stages(self) -> None:
+        result, trace = self._plan_scenario(0)
+        proposal = trace["proposal_markdown"]
+        for heading in (
+            "## Executive Diagnosis",
+            "## Guardrails &",
+            "## Three-Phase Action Roadmap",
+            "## Evidence & Precedents",
+            "### Open client verification questions",
+        ):
+            self.assertIn(heading, proposal)
+        self.assertIn("SCENARIO_A_CLOUDNOVA_FINTECH", proposal)
+        self.assertIn("Exclude retail store shift rotation", proposal)
+        self.assertEqual(result["scenario_code"], "SCENARIO_A_CLOUDNOVA_FINTECH")
+        executive_section = proposal.split("## Executive Diagnosis", 1)[1].split(
+            "### Root-cause hypotheses", 1
+        )[0]
+        self.assertNotIn("prerequisite:", executive_section)
+        baseline_section = proposal.split("### Healthy baselines to preserve", 1)[1].split(
+            "### Cohort and site asymmetries", 1
+        )[0]
+        self.assertEqual(baseline_section.count("82nd percentile"), 1)
+
+        class InventiveLLM:
+            called = False
+
+            def generate_structured(self, *, system_prompt, user_prompt, response_model):
+                self.called = True
+                return response_model.model_validate(
+                    {"executive_summary": "Launch an unapproved global reorganization immediately."}
+                )
+
+        arguments = (
+            {"scenario_code": "SAFE_TEST", "company_name": "Safe Test"},
+            {"diagnostic_hypotheses": []},
+            {"matched_case_studies": [], "supporting_research_snippets": []},
+            {"guards": []},
+            {"phase_1_actions": [{"action": "Audit the available evidence."}],
+             "phase_2_actions": [{"action": "Run a scoped pilot after the audit."}],
+             "phase_3_actions": [{"condition": "Scale only after verified results."}]},
+        )
+        deterministic = generate_hr_proposal(*arguments)
+        optional_llm = InventiveLLM()
+        polished = generate_hr_proposal(*arguments, llm_client=optional_llm)
+        self.assertTrue(optional_llm.called)
+        self.assertEqual(polished, deterministic)
+
+    def test_verifier_builds_a_serializable_pipeline_trace(self) -> None:
+        scenario_code = "VERIFIER_SMOKE_TEST"
+        client_input = NormalizedClientInput(
+            scenario_code=scenario_code,
+            company_name="Synthetic client",
+            industry_raw="General enterprise",
+            sector_category=SectorCategory.GENERAL_ENTERPRISE,
+        )
+        diagnosis = DiagnosisResult(scenario_code=scenario_code)
+        scored = ScoredCandidates(scenario_code=scenario_code)
+        guardrails = GuardrailResult(scenario_code=scenario_code)
+        phase_plan = PhasePlan(scenario_code=scenario_code)
+        submission = ScenarioSubmission(scenario_code=scenario_code)
+
+        report = verify_scenario_submission(
+            submission,
+            client_input,
+            diagnosis,
+            scored,
+            guardrails,
+            phase_plan,
+            NormalizedCasesDB(),
+        )
+
+        self.assertTrue(report.passed)
+        self.assertEqual(report.reasoning_trace["scenario_code"], scenario_code)
+        self.assertEqual(
+            set(report.reasoning_trace),
+            {"scenario_code", "step1", "step2", "step3", "step4", "step5"},
+        )
+        json.dumps(report.model_dump(mode="json"))
 
 
 if __name__ == "__main__":

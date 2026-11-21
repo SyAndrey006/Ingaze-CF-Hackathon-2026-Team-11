@@ -108,9 +108,9 @@ The built-in [graph pack](database/knowledge/hr_knowledge_graph.json) is the per
 The current catalog contains 26 diagnostic patterns. The additional alternatives cover candidate supply and channel reach, requisition approval, screening, interview capacity, offer acceptance, pre-start withdrawal, internal mobility, work-location feasibility, speaking up, review sample changes, and campaign attribution. Each added pattern asks for independent scoped evidence before proposing a pilot. The stage-specific inputs are optional extensions to the official schema. Where the client supplies only an overall delay or a headline metric, the planner asks for stage data. [Graph catalog with sources and limitations](database/knowledge/hr_knowledge_graph.json)
 
 ```bash
-python3 recommendation_engine.py --out submission.json --trace-out outputs/ingaze-knowledge-graph/diagnostic_report.json --graph-out outputs/ingaze-knowledge-graph/graph.json
+python3 recommendation_engine.py --out submission.json --trace-out database/ingaze-knowledge-graph/diagnostic_report.json --graph-out database/ingaze-knowledge-graph/graph.json
 python3 -m unittest discover -s tests
-python3 -m scripts.evaluate_historical_replay --out outputs/ingaze-knowledge-graph/historical_replay.json
+python3 -m scripts.evaluate_historical_replay --out database/ingaze-knowledge-graph/historical_replay.json
 ```
 
 The default sandbox run uses both official JSON datasets. Pass `--observations observations.json` with arrays keyed by scenario code, or add `diagnostic_observations` to each scenario in an alternate dataset. `--analytics` attaches a companion file to a custom intake. With `--no-analytics` the CLI skips the companion file. All these paths use the same graph.

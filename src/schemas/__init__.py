@@ -14,10 +14,6 @@ Input:
 Output:
     - Re-exported Pydantic classes and Enums for `src/offline/*`, `src/pipeline/*`, `src/utils/*`, and `tests/*`.
 
-TODO:
-    1. Keep `__all__` synchronized whenever new schema classes or enums are added.
-    2. Validate schema JSON serialization round-trips in unit tests.
-    3. Enforce strict typing and zero company-name hardcoding across all exported models.
 """
 
 from src.schemas.domain_models import (

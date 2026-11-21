@@ -4,8 +4,13 @@
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Optional, Sequence
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.pipeline.step2_root_cause_analysis import (
     DEFAULT_ANALYTICS, REQUEST_FIELD, STRENGTH_FIELD, diagnose, graph_export,
@@ -20,15 +25,16 @@ from src.pipeline.step4_guardrail_check import (
     BLOCKERS, action_fit, evaluate_guardrails, protected_intervention,
 )
 from src.pipeline.step5_phase_planner import build_reasoning_phase_plan, tailor_pilot
-from src.pipeline.step6_hr_proposal import assemble_recommendation
+from src.pipeline.step6_hr_proposal import assemble_recommendation, generate_hr_proposal
 from src.schemas.submission_models import SubmissionPayload
 from starter_baseline_and_validator import validate_submission
 
 DEFAULT_DATA = Path(__file__).resolve().parents[1] / "database" / "ingaze_sandbox_dataset.json"
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CLIENT_INPUT = PROJECT_ROOT / "data" / "client_io" / "input.json"
 DEFAULT_NORMALIZED_CLIENT_OUTPUT = PROJECT_ROOT / "data" / "intermediate_steps" / "input_normalized.json"
-DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "outputs" / "custom_client_recommendation.json"
+DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "output.json"
+DEFAULT_PROPOSAL_OUTPUT = PROJECT_ROOT / "outputs" / "hr_proposal.md"
+DEFAULT_CUSTOM_PROPOSAL_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "proposal.md"
 DEFAULT_INTERMEDIATE_DIR = PROJECT_ROOT / "data" / "intermediate_steps"
 
 
@@ -138,6 +144,13 @@ def plan_from_graph(
 
     result, trace = assemble_recommendation(
         scenario, graph, diagnosis_state, scored_state, guardrail_state, phase_state
+    )
+    trace["proposal_markdown"] = generate_hr_proposal(
+        normalized_client_input or scenario.get("_normalized_client_input", scenario),
+        diagnosis_state,
+        scored_state,
+        guardrail_state,
+        phase_state,
     )
     _persist_stage_result(
         scenario["scenario_code"],
@@ -350,6 +363,7 @@ def run_custom_client(
     dataset_path: Path = DEFAULT_DATA,
     analytics_path: Optional[Path] = None,
     output_path: Path = DEFAULT_CUSTOM_OUTPUT,
+    proposal_output_path: Optional[Path] = None,
     normalized_output_path: Path = DEFAULT_NORMALIZED_CLIENT_OUTPUT,
     skip_llm_normalization: bool = False,
     no_analytics: bool = False,
@@ -410,9 +424,13 @@ def run_custom_client(
                 normalized_inputs.append(normalize_client_input(bundle, client))
             except RuntimeError as exc:
                 if "No LLM API key is configured" in str(exc):
-                    raise RuntimeError(
-                        f"{exc} For a no-key deterministic run, add --skip-llm-normalization."
-                    ) from exc
+                    normalization_status = "skipped_llm_no_key"
+                    normalized_inputs = [_minimal_normalized_client(item) for item in bundles]
+                    print(
+                        "No LLM API key is configured; Step 1 will use deterministic intake "
+                        "and continue through the recommendation pipeline."
+                    )
+                    break
                 raise
 
     normalized_path = Path(normalized_output_path)
@@ -461,8 +479,15 @@ def run_custom_client(
         print(f"  Phase actions: {sum(len(result.get(key, [])) for key in ('phase_1_actions', 'phase_2_actions', 'phase_3_actions'))}")
         print(f"  Guardrails: {len(result.get('blocked_traps_and_guardrails', []))}")
         print(f"  Matched precedents: {len(result.get('matched_case_studies', []))}")
+    proposal_path = Path(proposal_output_path or DEFAULT_CUSTOM_PROPOSAL_OUTPUT)
+    proposal_path.parent.mkdir(parents=True, exist_ok=True)
+    proposal_path.write_text(
+        "\n\n---\n\n".join(trace["proposal_markdown"] for trace in traces) + "\n",
+        encoding="utf-8",
+    )
     print(f"Wrote normalized client input: {normalized_path}")
     print(f"Wrote custom recommendation and reasoning trace: {output}")
+    print(f"Wrote readable HR proposal: {proposal_path}")
     return payload
 
 
@@ -473,11 +498,22 @@ def main(argv: Optional[Sequence[str]] = None):
     parser.add_argument("--no-analytics", action="store_true", help="Skip loading the companion telemetry file")
     parser.add_argument("--out", type=Path, help="Sandbox submission path; also selects the custom output path in client mode")
     parser.add_argument(
+        "--proposal-out",
+        type=Path,
+        help="Write the readable HR proposal Markdown to this path (default: outputs/hr_proposal.md, or data/client_io/proposal.md in client mode).",
+    )
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
         "--client-input",
         type=Path,
         nargs="?",
         const=DEFAULT_CLIENT_INPUT,
         help="Run a custom client brief instead of the three sandbox scenarios (default path: data/client_io/input.json).",
+    )
+    mode.add_argument(
+        "--sandbox",
+        action="store_true",
+        help="Run the official three sandbox scenarios instead of data/client_io/input.json.",
     )
     parser.add_argument(
         "--skip-llm-normalization",
@@ -494,6 +530,8 @@ def main(argv: Optional[Sequence[str]] = None):
                         help="Load an additional JSON evidence pack. May be repeated.")
     parser.add_argument("--search-evidence", metavar="QUERY", help="Search the evidence library without generating a plan")
     args = parser.parse_args(argv)
+    if args.client_input is None and not args.sandbox:
+        args.client_input = DEFAULT_CLIENT_INPUT
     try:
         evidence_library = load_library(args.evidence_pack)
         graph = load_graph(args.graph_pack)
@@ -511,6 +549,7 @@ def main(argv: Optional[Sequence[str]] = None):
                 dataset_path=args.dataset,
                 analytics_path=args.analytics,
                 output_path=args.out or DEFAULT_CUSTOM_OUTPUT,
+                proposal_output_path=args.proposal_out,
                 skip_llm_normalization=args.skip_llm_normalization,
                 no_analytics=args.no_analytics,
                 graph=graph,
@@ -556,6 +595,14 @@ def main(argv: Optional[Sequence[str]] = None):
     output_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     errors, warnings = validate_submission(output_path, dataset, scenarios)
     traces = [trace for _, trace in plans]
+    proposal_path = args.proposal_out or (
+        args.out.with_suffix(".md") if args.out else DEFAULT_PROPOSAL_OUTPUT
+    )
+    proposal_path.parent.mkdir(parents=True, exist_ok=True)
+    proposal_path.write_text(
+        "\n\n---\n\n".join(trace["proposal_markdown"] for trace in traces) + "\n",
+        encoding="utf-8",
+    )
     if args.graph_out:
         args.graph_out.write_text(json.dumps(graph_export(graph), indent=2, ensure_ascii=False) + "\n",
                                   encoding="utf-8")
@@ -568,6 +615,7 @@ def main(argv: Optional[Sequence[str]] = None):
     if errors:
         parser.exit(1, "\n".join(errors) + "\n")
     print(f"Wrote {output_path} with {len(plans)} scenario plans and {len(warnings)} validation warnings.")
+    print(f"Wrote readable HR proposal: {proposal_path}")
 
 
 if __name__ == "__main__":

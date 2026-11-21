@@ -1,28 +1,8 @@
-"""
-Module: pipeline_models.py
-Stage: Schemas (Inter-Step Online Pipeline I/O Contracts)
-Execution Type: Schema
+"""Typed Pydantic contracts for normalized inputs and audit utilities.
 
-Description:
-    Defines the strict Pydantic Input/Output contracts passed between Steps 1-6
-    of the online per-client reasoning pipeline (`RawScenarioBundle` ->
-    `NormalizedClientInput` -> `DiagnosisResult` -> `ScoredCandidates` ->
-    `GuardrailResult` -> `PhasePlan` -> `VerificationReport`).
-
-Input:
-    - Canonical domain types imported from `src/schemas/domain_models.py`.
-
-Output:
-    - Strongly typed stage handoff models imported by `src/pipeline/step1..step6`,
-      `src/utils/verifier.py`, and `src/main.py`.
-
-TODO:
-    1. Keep field contracts backward-compatible across Steps 1-6 as each team member
-       implements their assigned stages in parallel.
-    2. Add convenience helper properties (e.g., lookup active signal codes set) if
-       repeated across Steps 2-5.
-    3. Ensure every decision object preserves an auditable `rule_id` or `trace_log`
-       entry for the live demo and CFO auditability requirement.
+The live graph-driven orchestrator passes JSON-compatible dictionaries between
+Steps 2-5. These models define Step 1 output and reusable typed objects consumed
+by the verifier and schema-level tests.
 """
 
 from __future__ import annotations

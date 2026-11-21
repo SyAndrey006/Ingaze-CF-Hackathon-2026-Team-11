@@ -1,0 +1,635 @@
+{
+  "scenario_code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
+  "scoring_formula": {
+    "status_support": 0.34,
+    "evidence_slot_coverage": 0.2125,
+    "direct_evidence": 0.1275,
+    "reported_evidence": 0.1275,
+    "scope_specificity": 0.0425,
+    "historical_case_mechanism_fit": 0.15,
+    "guardrail_minimum_score": 0.35
+  },
+  "ranked_candidates": [
+    {
+      "candidate_id": "application_friction:1",
+      "rule": "application_friction",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "diagnosis_rank": 1,
+      "score": 0.8151,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present"
+      ],
+      "matched_case_names": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)"
+      ],
+      "score_rank": 1
+    },
+    {
+      "candidate_id": "manual_measurement:2",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "diagnosis_rank": 2,
+      "score": 0.8151,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present",
+        "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present"
+      ],
+      "matched_case_names": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "score_rank": 2
+    },
+    {
+      "candidate_id": "recruiter_handoff:4",
+      "rule": "recruiter_handoff",
+      "scope": {
+        "cohort": null,
+        "site": "bologna+naples",
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
+      "diagnosis_rank": 4,
+      "score": 0.7301,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0319,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+      ],
+      "matched_case_names": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "score_rank": 3
+    },
+    {
+      "candidate_id": "role_information:3",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "diagnosis_rank": 3,
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+      ],
+      "matched_case_names": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "score_rank": 4
+    },
+    {
+      "candidate_id": "external_staffing_dependency:5",
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "diagnosis_rank": 5,
+      "score": 0.7089,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present"
+      ],
+      "matched_case_names": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "score_rank": 5
+    }
+  ],
+  "matched_case_studies": [
+    {
+      "case": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
+      "score": 16.005,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "local_reputation",
+        "mobile_friction"
+      ],
+      "shared_context": [
+        "distributed",
+        "freight"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 19.3,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 24.9,
+          "case_t0_peer_gap": 22.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "family": "review_distribution",
+          "unit": "stars",
+          "client_peer_gap": 0.27,
+          "case_t0_peer_gap": 0.14,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.688,
+        "locations_count": 0.8
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 38.7,
+          "t1": 20.4
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "unit": "index_100",
+          "t0": 43.7,
+          "t1": 82.8
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "unit": "stars",
+          "t0": 0.41,
+          "t1": 0.18
+        }
+      ]
+    },
+    {
+      "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
+      "score": 12.985,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "mobile_friction"
+      ],
+      "shared_context": [
+        "distributed",
+        "freight"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 22.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 29.8,
+          "case_t0_peer_gap": 21.0,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.5,
+        "locations_count": 1.4
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 41.5,
+          "t1": 18.6
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 38.6,
+          "t1": 82.8
+        }
+      ]
+    },
+    {
+      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "score": 11.762,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "local_reputation",
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 3.5,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 29.8,
+          "case_t0_peer_gap": 8.4,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "family": "review_distribution",
+          "unit": "stars",
+          "client_peer_gap": 0.27,
+          "case_t0_peer_gap": 0.28,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.844,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 21.6,
+          "t1": 13.4
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 61.4,
+          "t1": 81.6
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "unit": "stars",
+          "t0": 0.49,
+          "t1": 0.3
+        }
+      ]
+    }
+  ],
+  "normalized_case_matches": [],
+  "case_informed_action_candidates": [],
+  "legacy_case_rankings": [
+    {
+      "case": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
+      "score": 16.005,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "local_reputation",
+        "mobile_friction"
+      ],
+      "shared_context": [
+        "distributed",
+        "freight"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 19.3,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 24.9,
+          "case_t0_peer_gap": 22.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "family": "review_distribution",
+          "unit": "stars",
+          "client_peer_gap": 0.27,
+          "case_t0_peer_gap": 0.14,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.688,
+        "locations_count": 0.8
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 38.7,
+          "t1": 20.4
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "unit": "index_100",
+          "t0": 43.7,
+          "t1": 82.8
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "unit": "stars",
+          "t0": 0.41,
+          "t1": 0.18
+        }
+      ]
+    },
+    {
+      "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
+      "score": 12.985,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "mobile_friction"
+      ],
+      "shared_context": [
+        "distributed",
+        "freight"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 22.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 29.8,
+          "case_t0_peer_gap": 21.0,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.5,
+        "locations_count": 1.4
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 41.5,
+          "t1": 18.6
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 38.6,
+          "t1": 82.8
+        }
+      ]
+    },
+    {
+      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "score": 11.762,
+      "shared_mechanisms": [
+        "agency_spend",
+        "generic_ads",
+        "local_reputation",
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 18.5,
+          "case_t0_peer_gap": 3.5,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 29.8,
+          "case_t0_peer_gap": 8.4,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "family": "review_distribution",
+          "unit": "stars",
+          "client_peer_gap": 0.27,
+          "case_t0_peer_gap": 0.28,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.844,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 21.6,
+          "t1": 13.4
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 61.4,
+          "t1": 81.6
+        },
+        {
+          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+          "unit": "stars",
+          "t0": 0.49,
+          "t1": 0.3
+        }
+      ]
+    }
+  ],
+  "supporting_research_snippets": [
+    {
+      "source_id": "amec",
+      "kind": "industry_standard",
+      "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+      "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+      "limitation": "An unattributed media cost estimate is not realized ROI.",
+      "evidence_class": "operational_guidance"
+    },
+    {
+      "source_id": "appcast",
+      "kind": "vendor_observation",
+      "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+      "finding": "Observed apply completion varied with application length.",
+      "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel.",
+      "evidence_class": "observational_or_context_specific_finding"
+    },
+    {
+      "source_id": "hausknecht_2004",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+      "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+      "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "ingaze_policy",
+      "kind": "hackathon_policy",
+      "url": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
+      "finding": "The challenge requires readiness gates, workforce fit and a three-phase plan.",
+      "limitation": "Policy constraint, not a published causal estimate.",
+      "evidence_class": "mandatory_constraint"
+    },
+    {
+      "source_id": "w3c_forms",
+      "kind": "design_guidance",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+      "limitation": "Design guidance, with no universal completion-time target or effect size.",
+      "evidence_class": "operational_guidance"
+    },
+    {
+      "source_id": "williamson_2010",
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1002/hrm.20379",
+      "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+      "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+      "evidence_class": "observational_or_context_specific_finding"
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 2,
+      "source": "Corporate Career Portal UX & Conversion Study",
+      "finding": "When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 3,
+      "source": "B2B Employee Advocacy & Earned Media Study",
+      "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 8,
+      "source": "Executive HR Budget & CFO Governance Survey",
+      "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    }
+  ],
+  "ranked_track_tags": [
+    "agency_spend",
+    "generic_ads",
+    "local_reputation",
+    "mobile_friction",
+    "post_tracking",
+    "review_tracking"
+  ],
+  "supporting_source_ids": [
+    "amec",
+    "appcast",
+    "hausknecht_2004",
+    "ingaze_policy",
+    "w3c_forms",
+    "williamson_2010"
+  ]
+}

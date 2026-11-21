@@ -1,0 +1,3126 @@
+{
+  "context": {
+    "healthy_metrics_and_strengths_not_to_break": "99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.",
+    "cohort_and_site_asymmetries": "HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.",
+    "budget_and_capacity_constraints": "Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies. The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+    "leadership_perceptions_and_requests": "The Marketing Director proposes launching a B2B technical LinkedIn blog series to attract drivers, while Regional Hub Directors demand deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning before running any portal UX or driver persona audits."
+  },
+  "strengths": "99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.",
+  "cohort": "HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.",
+  "requests": "the marketing director proposes launching a b2b technical linkedin blog series to attract drivers, while regional hub directors demand deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning before running any portal ux or driver persona audits.",
+  "protected": [],
+  "observations": {
+    "text:ingaze_platform_signals.reputation_and_reviews#1:local_reputation:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:local_reputation:present",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.",
+      "quantities": [
+        {
+          "value": 4.7,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.7/5"
+        },
+        {
+          "value": 4.5,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.5/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present",
+      "signal": "handoff_delay_reported",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": "bologna+naples",
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).",
+      "quantities": [
+        {
+          "value": 3.1,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.1/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.reputation_and_reviews#3:review_tracking:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#3:review_tracking:present",
+      "signal": "review_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#3",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Local hub reviews are tracked manually in spreadsheets.",
+      "quantities": []
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present",
+      "signal": "mobile_friction",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+      "signal": "form_obstacle_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.",
+      "quantities": []
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present",
+      "signal": "role_info_gap_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.",
+      "quantities": []
+    },
+    "text:ingaze_platform_signals.linkedin_and_content_analytics#1:weak_reach:present": {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#1:weak_reach:present",
+      "signal": "weak_reach",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Corporate LinkedIn page reaches white-collar freight clients and HQ analysts well, but has near-zero reach among licensed C-CQC drivers and interport warehouse operators.",
+      "quantities": []
+    },
+    "text:client_internal_context.cohort_and_site_asymmetries#2:hiring_delay:present": {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:hiring_delay:present",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": "bologna+naples",
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.",
+      "quantities": [
+        {
+          "value": 43.0,
+          "unit": "days",
+          "bound": null,
+          "text": "43 days"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies.",
+      "quantities": [
+        {
+          "value": 190000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€190k"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#2:review_tracking:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:review_tracking:present",
+      "signal": "review_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    "metric:review_coverage:public_reputation.reviews_analyzed": {
+      "id": "metric:review_coverage:public_reputation.reviews_analyzed",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.reviews_analyzed",
+      "value": 197,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.reviews_analyzed",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:employer_reputation_weak:public_reputation.overall_review_rating_5": {
+      "id": "metric:employer_reputation_weak:public_reputation.overall_review_rating_5",
+      "signal": "employer_reputation_weak",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.overall_review_rating_5",
+      "value": 3.83,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.overall_review_rating_5",
+      "peer_value": 3.42,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:employer_reputation_weak:public_reputation.recommend_to_friend_pct": {
+      "id": "metric:employer_reputation_weak:public_reputation.recommend_to_friend_pct",
+      "signal": "employer_reputation_weak",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.recommend_to_friend_pct",
+      "value": 68.5,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.recommend_to_friend_pct",
+      "peer_value": 56.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_tracking:public_reputation.employer_review_reply_rate_pct": {
+      "id": "metric:review_tracking:public_reputation.employer_review_reply_rate_pct",
+      "signal": "review_tracking",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.employer_review_reply_rate_pct",
+      "value": 0.0,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.employer_review_reply_rate_pct",
+      "peer_value": 0.0,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5": {
+      "id": "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+      "value": 0.54,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.cross_location_rating_std_dev_5",
+      "peer_value": 0.27,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:brand_misalignment:public_reputation.brand_alignment_index_100": {
+      "id": "metric:brand_misalignment:public_reputation.brand_alignment_index_100",
+      "signal": "brand_misalignment",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.brand_alignment_index_100",
+      "value": 52.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.brand_alignment_index_100",
+      "peer_value": 55.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:expectation_gap:public_reputation.external_claims_gap_stars_5": {
+      "id": "metric:expectation_gap:public_reputation.external_claims_gap_stars_5",
+      "signal": "expectation_gap",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.external_claims_gap_stars_5",
+      "value": 0.31,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.external_claims_gap_stars_5",
+      "peer_value": 0.49,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:manager_support:public_reputation.sub_ratings_5.management": {
+      "id": "metric:manager_support:public_reputation.sub_ratings_5.management",
+      "signal": "manager_support",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.management",
+      "value": 3.44,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.management",
+      "peer_value": 3.16,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:career_clarity:public_reputation.sub_ratings_5.career_growth": {
+      "id": "metric:career_clarity:public_reputation.sub_ratings_5.career_growth",
+      "signal": "career_clarity",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.career_growth",
+      "value": 3.06,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.career_growth",
+      "peer_value": 2.89,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:burnout:public_reputation.sub_ratings_5.work_life_balance": {
+      "id": "metric:burnout:public_reputation.sub_ratings_5.work_life_balance",
+      "signal": "burnout",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.work_life_balance",
+      "value": 3.39,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.work_life_balance",
+      "peer_value": 3.18,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:pay_gap_verified:public_reputation.sub_ratings_5.compensation": {
+      "id": "metric:pay_gap_verified:public_reputation.sub_ratings_5.compensation",
+      "signal": "pay_gap_verified",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.compensation",
+      "value": 4.7,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.compensation",
+      "peer_value": 3.31,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:culture_ready:public_reputation.sub_ratings_5.culture_and_values": {
+      "id": "metric:culture_ready:public_reputation.sub_ratings_5.culture_and_values",
+      "signal": "culture_ready",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
+      "value": 3.68,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.culture_and_values",
+      "peer_value": 3.38,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.reviews",
+      "value": 58,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "verona_hq_and_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.reviews",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.rating_5",
+      "value": 4.31,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "verona_hq_and_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Verona_HQ_and_Hub.rating_5",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.reviews",
+      "value": 49,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "milan_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.reviews",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.rating_5",
+      "value": 4.28,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "milan_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Milan_Interport_Hub.rating_5",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.reviews",
+      "value": 33,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "rome_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.reviews",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.rating_5",
+      "value": 3.58,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "rome_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Rome_Interport_Hub.rating_5",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.reviews",
+      "value": 31,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "bologna_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.reviews",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.rating_5",
+      "value": 3.12,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "bologna_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Bologna_Interport_Hub.rating_5",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.reviews",
+      "value": 26,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "naples_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.reviews",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.rating_5",
+      "value": 3.08,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "naples_interport_hub",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.segment_or_site_breakdown.Naples_Interport_Hub.rating_5",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:weak_reach:career_portal_and_funnel.monthly_visits": {
+      "id": "metric:weak_reach:career_portal_and_funnel.monthly_visits",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.monthly_visits",
+      "value": 14000,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.monthly_visits",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_exposure:career_portal_and_funnel.smartphone_traffic_pct": {
+      "id": "metric:mobile_exposure:career_portal_and_funnel.smartphone_traffic_pct",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.smartphone_traffic_pct",
+      "value": 82.0,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.smartphone_traffic_pct",
+      "peer_value": 78.6,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:application_abandonment:career_portal_and_funnel.application_form_dropoff_pct": {
+      "id": "metric:application_abandonment:career_portal_and_funnel.application_form_dropoff_pct",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.application_form_dropoff_pct",
+      "value": 63.0,
+      "unit": "%",
+      "denominator": "application_starts",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.application_form_dropoff_pct",
+      "peer_value": 41.2,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct": {
+      "id": "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.applicant_conversion_rate_pct",
+      "value": 1.89,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.applicant_conversion_rate_pct",
+      "peer_value": 3.58,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct": {
+      "id": "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "signal": "low_survey_coverage",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "value": 16.8,
+      "unit": "%",
+      "denominator": "eligible_candidates",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "peer_value": 20.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:weak_reach:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100": {
+      "id": "metric:weak_reach:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "value": 84.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "peer_value": 73.9,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.technical_speed_100": {
+      "id": "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "signal": "mobile_friction",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "value": 71.2,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "peer_value": 71.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "value": 40.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "peer_value": 65.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "value": 29.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "peer_value": 59.6,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100": {
+      "id": "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "signal": "mobile_friction",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "value": 26.4,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "peer_value": 63.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "value": 33.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "peer_value": 47.9,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.corporate_linkedin_er_pct": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.corporate_linkedin_er_pct",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.corporate_linkedin_er_pct",
+      "value": 1.62,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.corporate_linkedin_er_pct",
+      "peer_value": 1.38,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:weak_reach:social_and_employee_voice.quarterly_organic_impressions": {
+      "id": "metric:weak_reach:social_and_employee_voice.quarterly_organic_impressions",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.quarterly_organic_impressions",
+      "value": 36140,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "3_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.quarterly_organic_impressions",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.institutional_updates": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "value": 1.38,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.generic_job_posts": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "value": 1.12,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "value": 3.84,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:existing_advocates:social_and_employee_voice.spontaneous_employee_mentions_quarter": {
+      "id": "metric:existing_advocates:social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "signal": "existing_advocates",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "value": 14,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "3_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:culture_ready:social_and_employee_voice.positive_mention_share_pct": {
+      "id": "metric:culture_ready:social_and_employee_voice.positive_mention_share_pct",
+      "signal": "culture_ready",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.positive_mention_share_pct",
+      "value": 78.6,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.positive_mention_share_pct",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month": {
+      "id": "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.manual_hr_tracking_hours_month",
+      "value": 9.2,
+      "unit": "hours/month",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.manual_hr_tracking_hours_month",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:early_attrition:hiring_and_retention_kpis.early_first_year_attrition_pct": {
+      "id": "metric:early_attrition:hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "signal": "early_attrition",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "value": 14.6,
+      "unit": "%",
+      "denominator": "new_hires",
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "new_hire",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "peer_value": 18.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:protected_retention:hiring_and_retention_kpis.tenured_driver_annual_retention_pct": {
+      "id": "metric:protected_retention:hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+      "signal": "protected_retention",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+      "value": 91.0,
+      "unit": "%",
+      "denominator": "starting_cohort",
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "tenured_driver",
+        "site": null,
+        "tenure": "tenured",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:attrition_exposure:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur": {
+      "id": "metric:attrition_exposure:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "signal": "attrition_exposure",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "value": 762000,
+      "unit": "EUR/year",
+      "denominator": null,
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days": {
+      "id": "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.avg_time_to_hire_days",
+      "value": 43,
+      "unit": "days",
+      "denominator": "target_roles_filled",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.avg_time_to_hire_days",
+      "peer_value": 31,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:hiring_delay:hiring_and_retention_kpis.hq_admin_time_to_hire_days": {
+      "id": "metric:hiring_delay:hiring_and_retention_kpis.hq_admin_time_to_hire_days",
+      "signal": "hiring_delay",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.hq_admin_time_to_hire_days",
+      "value": 24,
+      "unit": "days",
+      "denominator": "target_roles_filled",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "hq_admin",
+        "site": null,
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.hq_admin_time_to_hire_days",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct": {
+      "id": "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+      "value": 37.9,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.agency_filled_roles_pct",
+      "peer_value": 19.4,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    }
+  },
+  "present": [
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:local_reputation:present",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.",
+      "quantities": [
+        {
+          "value": 4.7,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.7/5"
+        },
+        {
+          "value": 4.5,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.5/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present",
+      "signal": "handoff_delay_reported",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": "bologna+naples",
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).",
+      "quantities": [
+        {
+          "value": 3.1,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.1/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#3:review_tracking:present",
+      "signal": "review_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#3",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Local hub reviews are tracked manually in spreadsheets.",
+      "quantities": []
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present",
+      "signal": "mobile_friction",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+      "signal": "form_obstacle_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+      "quantities": [
+        {
+          "value": 82.0,
+          "unit": "%",
+          "bound": null,
+          "text": "82%"
+        },
+        {
+          "value": 63.0,
+          "unit": "%",
+          "bound": null,
+          "text": "63%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.",
+      "quantities": []
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present",
+      "signal": "role_info_gap_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.",
+      "quantities": []
+    },
+    {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#1:weak_reach:present",
+      "signal": "weak_reach",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Corporate LinkedIn page reaches white-collar freight clients and HQ analysts well, but has near-zero reach among licensed C-CQC drivers and interport warehouse operators.",
+      "quantities": []
+    },
+    {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:hiring_delay:present",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": "bologna+naples",
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.",
+      "quantities": [
+        {
+          "value": 43.0,
+          "unit": "days",
+          "bound": null,
+          "text": "43 days"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies.",
+      "quantities": [
+        {
+          "value": 190000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€190k"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:review_tracking:present",
+      "signal": "review_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "The 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel and lacks a unified ROI dashboard for the Board.",
+      "quantities": [
+        {
+          "value": 110.0,
+          "unit": "hours/year",
+          "bound": null,
+          "text": "110 hours/year"
+        }
+      ]
+    },
+    {
+      "id": "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+      "value": 0.54,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.cross_location_rating_std_dev_5",
+      "peer_value": 0.27,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:culture_ready:public_reputation.sub_ratings_5.culture_and_values",
+      "signal": "culture_ready",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
+      "value": 3.68,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.public_reputation.sub_ratings_5.culture_and_values",
+      "peer_value": 3.38,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:mobile_exposure:career_portal_and_funnel.smartphone_traffic_pct",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.smartphone_traffic_pct",
+      "value": 82.0,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.smartphone_traffic_pct",
+      "peer_value": 78.6,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:application_abandonment:career_portal_and_funnel.application_form_dropoff_pct",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.application_form_dropoff_pct",
+      "value": 63.0,
+      "unit": "%",
+      "denominator": "application_starts",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.application_form_dropoff_pct",
+      "peer_value": 41.2,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.applicant_conversion_rate_pct",
+      "value": 1.89,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.applicant_conversion_rate_pct",
+      "peer_value": 3.58,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "signal": "low_survey_coverage",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "value": 16.8,
+      "unit": "%",
+      "denominator": "eligible_candidates",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "peer_value": 20.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "value": 40.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "peer_value": 65.8,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "value": 29.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "peer_value": 59.6,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "value": 33.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "peer_value": 47.9,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.manual_hr_tracking_hours_month",
+      "value": 9.2,
+      "unit": "hours/month",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.social_and_employee_voice.manual_hr_tracking_hours_month",
+      "peer_value": null,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    {
+      "id": "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.avg_time_to_hire_days",
+      "value": 43,
+      "unit": "days",
+      "denominator": "target_roles_filled",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.avg_time_to_hire_days",
+      "peer_value": 31,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    {
+      "id": "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+      "value": 37.9,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_B_EUROFREIGHT_LOGISTICS.hiring_and_retention_kpis.agency_filled_roles_pct",
+      "peer_value": 19.4,
+      "peer_group": "European Freight Transport & Interport Logistics",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    }
+  ],
+  "features": [
+    "agency_spend",
+    "application_abandonment",
+    "application_loss",
+    "culture_ready",
+    "form_obstacle_verified",
+    "generic_ads",
+    "handoff_delay_reported",
+    "hiring_delay",
+    "local_reputation",
+    "low_survey_coverage",
+    "manual_tracking_load",
+    "mobile_exposure",
+    "mobile_friction",
+    "review_tracking",
+    "role_info_gap_verified",
+    "tracking_workflow_verified",
+    "weak_reach"
+  ],
+  "reported": [
+    "agency_spend",
+    "application_abandonment",
+    "form_obstacle_verified",
+    "generic_ads",
+    "handoff_delay_reported",
+    "hiring_delay",
+    "local_reputation",
+    "manual_tracking_load",
+    "mobile_exposure",
+    "mobile_friction",
+    "review_tracking",
+    "role_info_gap_verified",
+    "tracking_workflow_verified",
+    "weak_reach"
+  ],
+  "blockers": [],
+  "decisions": [
+    {
+      "rule": "application_friction",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "role_information",
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "recruiter_handoff",
+      "scope": {
+        "cohort": null,
+        "site": "bologna+naples",
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    }
+  ],
+  "evaluations": [
+    {
+      "hypothesis": {
+        "rule": "application_friction",
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "application_step",
+          "device_exposure"
+        ],
+        "missing_families": [],
+        "dependent_families": [
+          "application_step",
+          "device_exposure"
+        ],
+        "evidence_slots": [
+          {
+            "family": "application_step",
+            "expected_signals": [
+              "form_obstacle_verified",
+              "mobile_friction"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+              "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present"
+            ],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "form_exit",
+            "expected_signals": [
+              "application_abandonment"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+            "direct_slot": false
+          },
+          {
+            "family": "device_exposure",
+            "expected_signals": [
+              "mobile_exposure"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "next_check": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "role_information",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "application_friction",
+      "rule": {
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "form_obstacle_verified",
+            "mobile_friction"
+          ],
+          [
+            "application_abandonment"
+          ],
+          [
+            "mobile_exposure"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "diagnostic": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "pilot": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+        "scale_gate": "Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response.",
+        "counter": [
+          "form_completes"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "track_tags": [
+          "mobile_friction"
+        ],
+        "action_tags": [
+          "form_redesign"
+        ],
+        "counter_overlap": true
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "manual_measurement",
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present"
+        ],
+        "other_matching_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present"
+        ],
+        "origin_components": {
+          "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present": "origin:narrative_unresolved_lineage",
+          "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "staff_time"
+        ],
+        "missing_families": [],
+        "dependent_families": [
+          "staff_time"
+        ],
+        "evidence_slots": [
+          {
+            "family": "tracking_process",
+            "expected_signals": [
+              "tracking_workflow_verified",
+              "post_tracking"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present"
+            ],
+            "selected_id": "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present",
+            "direct_slot": true
+          },
+          {
+            "family": "staff_time",
+            "expected_signals": [
+              "manual_tracking_load"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ],
+        "sources": [
+          "amec"
+        ],
+        "next_check": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "competing_hypotheses": [
+          {
+            "rule": "campaign_attribution_gap",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "manual_measurement",
+      "rule": {
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "requires": [
+          [
+            "tracking_workflow_verified",
+            "post_tracking"
+          ],
+          [
+            "manual_tracking_load"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "amec"
+        ],
+        "diagnostic": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "pilot": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "scale_gate": "Expand after completeness, auditability and staff time improve.",
+        "track_tags": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "role_information",
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "frontline_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "entry_conversion"
+        ],
+        "missing_families": [
+          "entry_conversion"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_information",
+            "expected_signals": [
+              "role_info_gap_verified",
+              "generic_ads"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+              "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+            "direct_slot": true
+          },
+          {
+            "family": "entry_conversion",
+            "expected_signals": [
+              "application_loss"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "next_check": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "role_information",
+      "rule": {
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "role_info_gap_verified",
+            "generic_ads"
+          ],
+          [
+            "application_loss"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "diagnostic": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "pilot": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "scale_gate": "Scale after qualified applications improve while access and eligibility hold.",
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "track_tags": [
+          "generic_ads"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "recruiter_handoff",
+        "label": "A post-submission handoff may explain hiring delays",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": "bologna+naples",
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "hire_latency"
+        ],
+        "missing_families": [
+          "hire_latency"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "handoff_interval",
+            "expected_signals": [
+              "handoff_delay_verified",
+              "handoff_delay_reported"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present",
+            "direct_slot": true
+          },
+          {
+            "family": "hire_latency",
+            "expected_signals": [
+              "hiring_delay",
+              "vacancy_delay"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "hausknecht_2004"
+        ],
+        "next_check": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "recruiter_handoff",
+      "rule": {
+        "label": "A post-submission handoff may explain hiring delays",
+        "kind": "operational",
+        "requires": [
+          [
+            "handoff_delay_verified",
+            "handoff_delay_reported"
+          ],
+          [
+            "hiring_delay",
+            "vacancy_delay"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "hausknecht_2004"
+        ],
+        "diagnostic": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
+        "pilot": "Pilot a named recruiter queue and response review for the affected roles.",
+        "scale_gate": "Expand after response times and qualified progression improve without shifting the queue elsewhere.",
+        "alternatives": [
+          "application_friction",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "track_tags": [
+          "local_reputation"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "external_staffing_dependency",
+        "label": "A delayed hire process may contribute to agency dependence",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "hire_latency"
+        ],
+        "missing_families": [
+          "hire_latency"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "external_staffing",
+            "expected_signals": [
+              "agency_dependency_verified",
+              "agency_spend"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present"
+            ],
+            "selected_id": "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present",
+            "direct_slot": true
+          },
+          {
+            "family": "hire_latency",
+            "expected_signals": [
+              "hiring_delay"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "recruiter_handoff",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "ingaze_policy"
+        ],
+        "next_check": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "external_staffing_dependency",
+      "rule": {
+        "label": "A delayed hire process may contribute to agency dependence",
+        "kind": "operational",
+        "requires": [
+          [
+            "agency_dependency_verified",
+            "agency_spend"
+          ],
+          [
+            "hiring_delay"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "ingaze_policy"
+        ],
+        "diagnostic": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+        "pilot": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+        "scale_gate": "Scale after direct qualified hires improve and Finance verifies changes in agency spend.",
+        "alternatives": [
+          "application_friction",
+          "recruiter_handoff",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "track_tags": [
+          "agency_spend"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+      "has_strengths": true
+    }
+  ],
+  "guards": [
+    "Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.",
+    "Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.",
+    "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
+  ],
+  "advocacy_ready": false,
+  "ranked_tags": [
+    "agency_spend",
+    "generic_ads",
+    "local_reputation",
+    "mobile_friction",
+    "post_tracking",
+    "review_tracking"
+  ],
+  "source_ids": [
+    "amec",
+    "appcast",
+    "hausknecht_2004",
+    "ingaze_policy",
+    "w3c_forms",
+    "williamson_2010"
+  ],
+  "target": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+  "hiring_stage_leads": [
+    "application_friction",
+    "external_staffing_dependency",
+    "recruiter_handoff"
+  ],
+  "hiring_stage_families": [
+    "form_exit",
+    "hire_latency",
+    "offer_progression",
+    "screening_progression"
+  ],
+  "score_checks": [
+    {
+      "candidate_id": "application_friction:1",
+      "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "rule": "application_friction",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.8151,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "manual_measurement:2",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.8151,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "role_information:3",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "frontline_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "recruiter_handoff:4",
+      "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
+      "rule": "recruiter_handoff",
+      "scope": {
+        "cohort": null,
+        "site": "bologna+naples",
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "score": 0.7301,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0319,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "external_staffing_dependency:5",
+      "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7089,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    }
+  ],
+  "precedent_idea_actions": [],
+  "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
+}

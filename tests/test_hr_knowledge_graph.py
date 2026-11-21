@@ -163,7 +163,9 @@ class KnowledgeGraphTests(unittest.TestCase):
                  "--trace-out", str(paths[1]), "--graph-out", str(paths[2])],
                 cwd=root, check=True, capture_output=True,
             )
-            submission, trace, graph = [json.loads(path.read_text()) for path in paths]
+            submission, trace, graph = [
+                json.loads(path.read_text(encoding="utf-8")) for path in paths
+            ]
             self.assertEqual(len(submission["scenarios"]), 3)
             self.assertEqual(len(trace), 3)
             self.assertTrue(all(entry["diagnostic_hypotheses"] for entry in trace))

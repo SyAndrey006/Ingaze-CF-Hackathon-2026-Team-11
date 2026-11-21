@@ -1,4 +1,4 @@
-
+"""
 Description:
     Defines canonical Enums/Literals (HR pillars, universal signal codes,
     workforce archetypes, sector categories, action categories, guardrail routes,
@@ -8,21 +8,14 @@ Description:
 
 Input:
     - Raw domain knowledge and analytics snapshot structures from
-      `data/ingaze_sandbox_dataset.json`,
-      `data/ingaze_synthetic_analytics_snapshots.json`, and
+      `database/ingaze_sandbox_dataset.json`,
+      `database/ingaze_synthetic_analytics_snapshots.json`, and
       `docs/ANALYTICS_TELEMETRY_DICTIONARY.md`.
 
 Output:
     - Typed Pydantic domain schemas consumed by `src/offline/*`,
       `src/pipeline/step1..step6`, and `src/utils/*`.
 
-TODO:
-    1. Refine or extend `SignalCode`, `ActionCategory`, and `WorkforceArchetype`
-       literals if offline normalization discovers additional generalizable HR concepts.
-    2. Add Pydantic field validators (e.g., percentage bounds 0-100, rating bounds 1-5,
-       scoring weight sum == 1.0) once team agrees on final scoring math.
-    3. Keep 100% of enum values and rule schemas company-agnostic (never encode
-       company names or scenario codes as domain literals).
 """
 
 from __future__ import annotations
@@ -415,7 +408,7 @@ class PhaseSequencingRule(BaseModel):
 
 
 class NormalizedRulesDB(BaseModel):
-    """Top-level schema for `data/normalized/normalized_rules.json`."""
+    """Top-level schema for `database/normalized/normalized_rules.json`."""
 
     schema_version: str = Field(default="1.0.0")
     source_dataset_version: str = Field(default="")
@@ -483,7 +476,7 @@ class NormalizedCaseStudy(BaseModel):
 
 
 class NormalizedCasesDB(BaseModel):
-    """Top-level schema for `data/normalized/normalized_cases.json`."""
+    """Top-level schema for `database/normalized/normalized_cases.json`."""
 
     schema_version: str = Field(default="1.0.0")
     source_dataset_version: str = Field(default="")

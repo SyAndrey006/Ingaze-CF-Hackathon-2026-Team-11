@@ -1,0 +1,951 @@
+{
+  "scenario_code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+  "scoring_formula": {
+    "status_support": 0.34,
+    "evidence_slot_coverage": 0.2125,
+    "direct_evidence": 0.1275,
+    "reported_evidence": 0.1275,
+    "scope_specificity": 0.0425,
+    "historical_case_mechanism_fit": 0.15,
+    "guardrail_minimum_score": 0.35
+  },
+  "ranked_candidates": [
+    {
+      "candidate_id": "role_information:1",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "diagnosis_rank": 1,
+      "score": 0.8257,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+        "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+      ],
+      "matched_case_names": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "score_rank": 1
+    },
+    {
+      "candidate_id": "expectation_drift:3",
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "diagnosis_rank": 3,
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+        "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present"
+      ],
+      "matched_case_names": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "score_rank": 2
+    },
+    {
+      "candidate_id": "management_practice:4",
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "diagnosis_rank": 4,
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
+        "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
+      ],
+      "matched_case_names": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)"
+      ],
+      "score_rank": 3
+    },
+    {
+      "candidate_id": "onboarding_clarity:5",
+      "rule": "onboarding_clarity",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot a structured onboarding and role-expectation review with a named owner.",
+      "diagnosis_rank": 5,
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
+        "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
+      ],
+      "matched_case_names": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "score_rank": 4
+    },
+    {
+      "candidate_id": "external_staffing_dependency:6",
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "diagnosis_rank": 6,
+      "score": 0.6876,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+        "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days"
+      ],
+      "matched_case_names": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "score_rank": 5
+    },
+    {
+      "candidate_id": "manual_measurement:2",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "diagnosis_rank": 2,
+      "score": 0.6651,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.0
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present",
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+      ],
+      "matched_case_names": [],
+      "score_rank": 6
+    }
+  ],
+  "matched_case_studies": [
+    {
+      "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+      "score": 23.405,
+      "shared_mechanisms": [
+        "agency_spend",
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "generic_ads",
+        "manager_support"
+      ],
+      "shared_context": [
+        "distributed",
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 10.4,
+          "case_t0_peer_gap": 8.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.38,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 8.0,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.7,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 33.0,
+          "case_t0_peer_gap": 20.0,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "family": "manager_experience",
+          "unit": "stars",
+          "client_peer_gap": 0.7,
+          "case_t0_peer_gap": 0.29,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.276,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 29.4,
+          "t1": 19.6
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.86,
+          "t1": 3.72
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 21.4,
+          "t1": 14.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 1.08,
+          "t1": 0.28
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "unit": "index_100",
+          "t0": 53.6,
+          "t1": 81.4
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "unit": "stars",
+          "t0": 3.09,
+          "t1": 3.64
+        }
+      ]
+    },
+    {
+      "case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "historical_roi": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
+      "score": 19.422,
+      "shared_mechanisms": [
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "manager_support"
+      ],
+      "shared_context": [
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.72,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 6.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.8,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "family": "manager_experience",
+          "unit": "stars",
+          "client_peer_gap": 0.7,
+          "case_t0_peer_gap": 0.78,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.655,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.47,
+          "t1": 3.54
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 19.0,
+          "t1": 14.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 1.21,
+          "t1": 0.32
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "unit": "stars",
+          "t0": 2.58,
+          "t1": 3.48
+        }
+      ]
+    },
+    {
+      "case": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "historical_roi": "-24% reduction in early engineering turnover (from 16.9% to 12.8%, saving €390k/year in turnover exposure), career growth rating lifted from 2.88 to 3.79, and Time-to-Hire shortened by 24% (from 45 to 34 days).",
+      "score": 18.524,
+      "shared_mechanisms": [
+        "agency_spend",
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "generic_ads"
+      ],
+      "shared_context": [
+        "distributed",
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 10.4,
+          "case_t0_peer_gap": 5.8,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.41,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 5.3,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.39,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 30.5,
+          "case_t0_peer_gap": 18.3,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.517,
+        "locations_count": 2.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 27.6,
+          "t1": 16.2
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.88,
+          "t1": 3.79
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 16.9,
+          "t1": 12.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 0.74,
+          "t1": 0.22
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 49.2,
+          "t1": 79.8
+        }
+      ]
+    }
+  ],
+  "normalized_case_matches": [],
+  "case_informed_action_candidates": [],
+  "legacy_case_rankings": [
+    {
+      "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+      "score": 23.405,
+      "shared_mechanisms": [
+        "agency_spend",
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "generic_ads",
+        "manager_support"
+      ],
+      "shared_context": [
+        "distributed",
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 10.4,
+          "case_t0_peer_gap": 8.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.38,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 8.0,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.7,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 33.0,
+          "case_t0_peer_gap": 20.0,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "family": "manager_experience",
+          "unit": "stars",
+          "client_peer_gap": 0.7,
+          "case_t0_peer_gap": 0.29,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.276,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 29.4,
+          "t1": 19.6
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.86,
+          "t1": 3.72
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 21.4,
+          "t1": 14.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 1.08,
+          "t1": 0.28
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+          "unit": "index_100",
+          "t0": 53.6,
+          "t1": 81.4
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "unit": "stars",
+          "t0": 3.09,
+          "t1": 3.64
+        }
+      ]
+    },
+    {
+      "case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "historical_roi": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
+      "score": 19.422,
+      "shared_mechanisms": [
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "manager_support"
+      ],
+      "shared_context": [
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.72,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 6.1,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.8,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "family": "manager_experience",
+          "unit": "stars",
+          "client_peer_gap": 0.7,
+          "case_t0_peer_gap": 0.78,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 0.655,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.47,
+          "t1": 3.54
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 19.0,
+          "t1": 14.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 1.21,
+          "t1": 0.32
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.management",
+          "unit": "stars",
+          "t0": 2.58,
+          "t1": 3.48
+        }
+      ]
+    },
+    {
+      "case": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "historical_roi": "-24% reduction in early engineering turnover (from 16.9% to 12.8%, saving €390k/year in turnover exposure), career growth rating lifted from 2.88 to 3.79, and Time-to-Hire shortened by 24% (from 45 to 34 days).",
+      "score": 18.524,
+      "shared_mechanisms": [
+        "agency_spend",
+        "career_clarity",
+        "early_attrition",
+        "expectation_gap",
+        "generic_ads"
+      ],
+      "shared_context": [
+        "distributed",
+        "tech"
+      ],
+      "comparable_t0_metrics": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "family": "external_staffing",
+          "unit": "%",
+          "client_peer_gap": 10.4,
+          "case_t0_peer_gap": 5.8,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "family": "role_growth",
+          "unit": "stars",
+          "client_peer_gap": 0.69,
+          "case_t0_peer_gap": 0.41,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "family": "employee_exits",
+          "unit": "%",
+          "client_peer_gap": 5.6,
+          "case_t0_peer_gap": 5.3,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "family": "promise_alignment",
+          "unit": "stars",
+          "client_peer_gap": 0.86,
+          "case_t0_peer_gap": 0.39,
+          "direction": "adverse is positive"
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "family": "role_information",
+          "unit": "index_100",
+          "client_peer_gap": 30.5,
+          "case_t0_peer_gap": 18.3,
+          "direction": "adverse is positive"
+        }
+      ],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.517,
+        "locations_count": 2.0
+      },
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": [
+        {
+          "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+          "unit": "%",
+          "t0": 27.6,
+          "t1": 16.2
+        },
+        {
+          "metric_path": "public_reputation.sub_ratings_5.career_growth",
+          "unit": "stars",
+          "t0": 2.88,
+          "t1": 3.79
+        },
+        {
+          "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+          "unit": "%",
+          "t0": 16.9,
+          "t1": 12.8
+        },
+        {
+          "metric_path": "public_reputation.external_claims_gap_stars_5",
+          "unit": "stars",
+          "t0": 0.74,
+          "t1": 0.22
+        },
+        {
+          "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+          "unit": "index_100",
+          "t0": 49.2,
+          "t1": 79.8
+        }
+      ]
+    }
+  ],
+  "supporting_research_snippets": [
+    {
+      "source_id": "amec",
+      "kind": "industry_standard",
+      "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+      "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+      "limitation": "An unattributed media cost estimate is not realized ROI.",
+      "evidence_class": "operational_guidance"
+    },
+    {
+      "source_id": "bauer_2007",
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17484552/",
+      "finding": "Newcomer adjustment includes role clarity, which was related to downstream work outcomes.",
+      "limitation": "Does not quantify the impact of a promotion framework on a given cohort.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "earnest_2011",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+      "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+      "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "friebel_2021",
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2020.3905",
+      "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+      "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "hausknecht_2004",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+      "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+      "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "ingaze_policy",
+      "kind": "hackathon_policy",
+      "url": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
+      "finding": "The challenge requires readiness gates, workforce fit and a three-phase plan.",
+      "limitation": "Policy constraint, not a published causal estimate.",
+      "evidence_class": "mandatory_constraint"
+    },
+    {
+      "source_id": "lacerenza_2017",
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+      "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+      "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "williamson_2010",
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1002/hrm.20379",
+      "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+      "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+      "evidence_class": "observational_or_context_specific_finding"
+    },
+    {
+      "source_id": "zhao_2007",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+      "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+      "limitation": "Verify why employees left and test alternative contributors.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 1,
+      "source": "European Enterprise Talent & Retention Study",
+      "finding": "Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 3,
+      "source": "B2B Employee Advocacy & Earned Media Study",
+      "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 4,
+      "source": "Workforce Climate & First-Year Attrition Study",
+      "finding": "Weak middle management and lack of transparent career progression account for over 55% of quantifiable Financial Turnover Risk (EUR) in knowledge-worker and scale-up organizations. Structured 360 feedback combined with manager coaching reduces team-level attrition risk by 18-28%.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 5,
+      "source": "Academic & Industry Meta-Analysis on Employee Advocacy Readiness",
+      "finding": "Asking employees to act as external brand ambassadors during periods of unaddressed workload burnout or cultural distrust produces 'performative backlash'—increasing cynical public reviews and failing to sustain ambassador participation past 60 days.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 8,
+      "source": "Executive HR Budget & CFO Governance Survey",
+      "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "id": "friebel-heinz-zubanov-manager-attention",
+      "kind": "randomized field study",
+      "title": "Middle Managers, Personnel Turnover and Performance",
+      "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+      "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+      "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+      "topics": [
+        "manager_support",
+        "early_attrition",
+        "retention",
+        "retail"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "manager_support"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
+    },
+    {
+      "id": "phillips-1998-realistic-job-previews",
+      "kind": "meta-analysis",
+      "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+      "url": "https://doi.org/10.5465/256964",
+      "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+      "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+      "topics": [
+        "expectation_gap",
+        "early_attrition",
+        "recruiting",
+        "onboarding"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "expectation_gap"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
+    }
+  ],
+  "ranked_track_tags": [
+    "agency_spend",
+    "career_clarity",
+    "early_attrition",
+    "expectation_gap",
+    "generic_ads",
+    "manager_support",
+    "post_tracking",
+    "review_tracking"
+  ],
+  "supporting_source_ids": [
+    "amec",
+    "bauer_2007",
+    "earnest_2011",
+    "friebel_2021",
+    "hausknecht_2004",
+    "ingaze_policy",
+    "lacerenza_2017",
+    "williamson_2010",
+    "zhao_2007"
+  ]
+}

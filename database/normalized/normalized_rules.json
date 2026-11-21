@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "source_dataset_version": "TODO: populated by src/offline/normalize_databases.py",
+  "source_dataset_version": "1.4.0-open-structure-sanitized",
   "symptom_to_root_cause_rules": [],
   "metric_benchmark_thresholds": [],
   "scoring_weights": {

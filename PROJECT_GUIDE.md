@@ -24,7 +24,7 @@ flowchart LR
     S3 --> S4["Step 4<br/>guardrail check"]
     S4 --> S5["Step 5<br/>three-phase plan"]
     S5 --> S6["Step 6<br/>response assembly"]
-    S6 --> OUT["submission.json or<br/>outputs/custom_client_recommendation.json"]
+    S6 --> OUT["submission.json or custom recommendation<br/>plus readable Markdown proposal"]
     S2 -. "step2 JSON" .-> INSPECT["data/intermediate_steps/<scenario>/"]
     S3 -. "step3 JSON" .-> INSPECT
     S4 -. "step4 JSON" .-> INSPECT
@@ -44,7 +44,7 @@ The whiteboard's central idea is right: historical cases provide precedents and 
 | Step 3: conditions and score system | `src/pipeline/step3_conditions_scoring.py` plus `src/offline/case_matching.py` | Scores diagnosis candidates, retrieves source-linked research, and (when Step 1 canonical signals are supplied) ranks reviewed normalized historical cases and extracts action ideas. Details are in [Case store and scoring](#case-store-and-scoring). |
 | Step 4: guardrail check | `src/pipeline/step4_guardrail_check.py` | Checks evidence status, blockers, protected scopes and workforce/action fit. A diagnosis candidate needs a Step 3 score of at least `0.35` and must pass the deterministic checks to become a conditional pilot. It keeps historical case actions marked as ideas; they cannot override live evidence or guardrails. |
 | Step 5: phase plan | `src/pipeline/step5_phase_planner.py` | Builds Phase 1 audits/listening, Phase 2 scoped structural pilots, and Phase 3 conditional scale actions from eligible graph hypotheses. It adds finance/EMV audit checks and stage-unknown hiring diagnostics. A pilot carries a prerequisite and a scale gate. Some adaptation is rule-based on broad workforce/profile traits. |
-| Step 6: response | `src/pipeline/step6_hr_proposal.py` | The current orchestrator calls `assemble_recommendation()`, which copies the approved Step 2–5 results into the output contract and trace. Although `generate_hr_proposal()` is declared for a future LLM-rendered proposal, it currently raises `NotImplementedError`; the live run does **not** use an LLM for Step 6. |
+| Step 6: proposal and response | `src/pipeline/step6_hr_proposal.py` | `assemble_recommendation()` preserves the machine-readable JSON contract. `generate_hr_proposal()` renders approved Steps 2-5 into an executive diagnosis, guardrails, three-phase roadmap, precedents/research, and client questions. Optional structured LLM polish is limited to the summary and falls back to deterministic text. |
 
 Each stage's result is handed to the next stage as a Python object/dictionary and persisted for inspection. The normal live orchestrator is `src/main.py`.
 
@@ -85,7 +85,7 @@ Other active deterministic checks live in Python:
 - Step 4's blockers, protected-scope overlap, action-fit checks, and minimum evidence score.
 - Step 5's prerequisite/phase logic and a few broad profile-based pilot adaptations.
 
-`database/normalized/normalized_rules.json` currently contains the five scoring weights, but its root-cause, threshold, action-condition, guardrail, phase-sequencing and research arrays are empty. It is **not** currently the source of active universal rules. `src/offline/normalize_databases.py::build_normalized_rules()`, `src/offline/database_loader.py::load_normalized_rules()`, and several typed Step 2/4/5 entrypoints are still scaffolding (`NotImplementedError`).
+`database/normalized/normalized_rules.json` currently contains the five scoring weights, but its root-cause, threshold, action-condition, guardrail, phase-sequencing and research arrays are empty. It is not the source of active universal rules. The unused normalized-rule/raw-scenario loader stubs and alternate typed Step 2-5 entrypoints have been removed; the live stages use graph-driven production entrypoints.
 
 ## Repository map
 
@@ -106,16 +106,16 @@ src/
     step3_conditions_scoring.py       Candidate scoring, case/research retrieval
     step4_guardrail_check.py          Blocker, scope, and action-fit decisions
     step5_phase_planner.py            Phase 1–3 assembly and sequencing
-    step6_hr_proposal.py              Live deterministic output assembly; future LLM function is a stub
+    step6_hr_proposal.py              JSON assembly plus deterministic executive-ready Markdown proposal
   offline/
     case_curation_drafter.py          LLM-assisted draft mapping for new historical cases; human approval required
     case_normalizer.py                Verifies curation and deterministically builds normalized case records
     case_matching.py                  Company-agnostic weighted case scoring and candidate-action extraction
-    database_loader.py                Validated normalized-case loader; normalized-rules/raw-bundle functions remain stubs
-    normalize_databases.py            Deterministic case build wrapper; universal-rules build remains a stub
+    database_loader.py                Validated loader for the reviewed case store
+    normalize_databases.py            Compatibility wrapper delegating case builds to case_normalizer
   utils/
     llm_client.py                     Provider-compatible structured Pydantic LLM client
-    verifier.py                       Typed verification/trace functions declared but not yet implemented
+    verifier.py                       Deterministic guardrail/contract checks and JSON-serializable trace builder
 
 database/
   ingaze_sandbox_dataset.json         Reusable raw scenarios, historical narratives, research, and domain material
@@ -128,11 +128,15 @@ database/
 
 data/
   client_io/input.json                Default custom client input
+  client_io/output.json               Default custom recommendation and reasoning trace
+  client_io/proposal.md               Readable custom-client HR proposal
   intermediate_steps/input_normalized.json  Step 1 intermediate for custom-client bridge
   intermediate_steps/<scenario_code>/step2_*.json ... step6_*.json  Inspectable stage outputs
 outputs/
-  custom_client_recommendation.json   Custom recommendation and reasoning traces
+  hr_proposal.md                      Readable proposal for the official sandbox run
+database/
   ingaze-knowledge-graph/             Graph export, diagnostic trace, and historical replay artifacts
+  ingaze-telemetry-excel/             Existing telemetry spreadsheet
   ingaze_csv_exports/                 Existing CSV inspection exports and source note
 scripts/
   demo_recommendations.py             Demonstrates recommendation behavior
@@ -140,24 +144,27 @@ scripts/
 tests/                                Unit, graph, integrated-flow, and case curation/matching tests
 ```
 
-The legacy `src/reasoning/` helpers are retained in the repository for compatibility and reuse; the active orchestrator imports the stage implementations under `src/pipeline/`. `recommendation_engine.py` remains useful as the public entry point and should not be removed. `starter_baseline_and_validator.py` is the challenge validator, not a duplicate recommendation engine. `submission.json` is the official deliverable generated by the default run.
+The reusable `src/reasoning/hr_policy.py`, `hr_evidence.py`, `hr_intake.py`, and `hr_knowledge_graph.py` modules remain utilities. There is no second `engine.py`; `src/main.py` is the live orchestrator and `recommendation_engine.py` is its public CLI/facade. `starter_baseline_and_validator.py` is the challenge validator, and `submission.json` is the official deliverable.
 
 ## How to run and inspect
 
 From the repository root:
 
 ```powershell
+# Run the client brief in data/client_io/input.json
+python src/main.py
+
 # Generate the official 3-scenario submission
 python recommendation_engine.py
 
 # Check the official output
 python starter_baseline_and_validator.py --validate submission.json
 
-# Run a custom brief with structured Step 1 normalization
-python recommendation_engine.py --client-input data/client_io/input.json
+# Run another client brief with structured Step 1 normalization
+python src/main.py --client-input path/to/client.json
 
-# Run custom input without an API key, using deterministic intake
-python recommendation_engine.py --client-input data/client_io/input.json --skip-llm-normalization
+# Force deterministic intake without an API key
+python src/main.py --skip-llm-normalization
 
 # Run Step 1 alone against another JSON file
 python -m src.pipeline.step1_normalize_input --file path/to/client.json --output-dir data/intermediate_steps
@@ -169,7 +176,7 @@ python -m src.offline.case_normalizer --check
 python -m unittest discover -s tests -v
 ```
 
-Custom mode writes the normalized client record to `data/intermediate_steps/input_normalized.json`, the per-stage JSON files under `data/intermediate_steps/<scenario_code>/`, and the recommendation plus trace to `outputs/custom_client_recommendation.json`. The standalone Step 1 CLI writes `<input_stem>_normalized.json` under its selected output directory.
+Custom mode writes the normalized client record to `data/intermediate_steps/input_normalized.json`, per-stage JSON files under `data/intermediate_steps/<scenario_code>/`, the recommendation and trace to `data/client_io/output.json`, and a readable report to `data/client_io/proposal.md`. The official sandbox run writes `submission.json` and `outputs/hr_proposal.md`. Use `--out <path>` and `--proposal-out <path>` to choose custom output paths. The standalone Step 1 CLI writes `<input_stem>_normalized.json` under its selected output directory.
 
 To enable Step 1's LLM, copy `.env_template` to `.env` and set a provider key. Do not commit `.env`; the root `.gitignore` excludes it.
 
@@ -180,9 +187,9 @@ To enable Step 1's LLM, copy `.env_template` to `.env` and set a provider key. D
 | Reusable cases and universal rules normalized offline | Historical cases are curated, validated, and normalized. Universal normalized rules are still an empty template; active general rules live in the JSON knowledge graph and Python checks. |
 | Step 1 feeds the live client flow | Implemented for custom-client mode. The official three-scenario path intentionally retains its existing direct intake path. |
 | Step 3 uses historical cases as precedents | Implemented with the normalized weighted matcher for custom clients with canonical Step 1 signals. Other modes retain the legacy matcher. |
-| Step 4 checks/blocks/pauses before planning | Implemented in the live orchestrator with scored hypotheses, blocker checks, protected scopes, and action fit. The typed normalized-rule entrypoint remains a scaffold. |
-| Step 5 uses normalized rule DB sequencing | The live path sequences graph-driven hypotheses in Python; the typed `build_phase_plan()` entrypoint for `NormalizedRulesDB` is not implemented. |
-| Step 6 uses AI to write a proposal | The live path deterministically assembles the already-checked plan. The LLM proposal function is a stub. |
+| Step 4 checks/blocks/pauses before planning | Implemented through the live graph-driven `evaluate_guardrails()` path with scored hypotheses, blocker checks, protected scopes, and action fit. |
+| Step 5 uses normalized rule DB sequencing | The live path sequences graph-driven hypotheses in Python through `build_reasoning_phase_plan()`. |
+| Step 6 produces an HR proposal | Implemented as deterministic Markdown by default, with optional structured LLM summary polish that cannot change approved actions; JSON output is assembled independently. |
 | Each step saves JSON | Live steps 2–6 are saved per scenario; custom bridge also saves the Step 1 normalized JSON. A standalone Step 1 run writes its own normalized file. |
 
-Verification after integrating the GitHub case store: **75 tests ran, 73 passed, and 2 existing Step 4/5 scaffold tests were skipped**. The normalized case validation reported 21 reviewed cases.
+Verification on the current checkout: 77 tests pass; all 21 normalized cases verify; the official recommendation run and submission validator pass.

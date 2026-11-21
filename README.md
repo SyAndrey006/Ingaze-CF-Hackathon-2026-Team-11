@@ -43,23 +43,26 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 Run from the repository root with Python 3.9 or later.
 
 ```bash
-mkdir -p outputs/ingaze-knowledge-graph
+mkdir -p database/ingaze-knowledge-graph
 python3 recommendation_engine.py --out submission.json \
-  --trace-out outputs/ingaze-knowledge-graph/diagnostic_report.json \
-  --graph-out outputs/ingaze-knowledge-graph/graph.json
+  --trace-out database/ingaze-knowledge-graph/diagnostic_report.json \
+  --graph-out database/ingaze-knowledge-graph/graph.json
 python3 starter_baseline_and_validator.py --validate submission.json
 python3 -m scripts.demo_recommendations
 ```
 
-The working knowledge-graph engine lives in `src/reasoning/`. The Team 11 hybrid scaffold lives in `src/main.py`, `src/pipeline/`, and `src/offline/`. The offline engine runs with the standard library. Running both test suites requires Pydantic 2 and python-dotenv.
+The active knowledge-graph orchestrator lives in `src/main.py` and calls the stages in `src/pipeline/`. The reusable modules under `src/reasoning/` provide policy, intake, evidence, and graph utilities; `recommendation_engine.py` is the public CLI and Python facade. Offline case preparation lives in `src/offline/`. The online pipeline requires Pydantic 2 and python-dotenv.
 
 | Folder | Contents |
 | --- | --- |
-| `database/` | Official 21-case sandbox and companion telemetry |
+| `database/` | Sandbox datasets, normalized cases, knowledge assets, and retained Ingaze inspection datasets |
 | `database/knowledge/` | Editable graph rules and research catalog |
-| `data/` | Client input fixture and pipeline intermediate files |
+| `data/` | Client input/output files and pipeline intermediate files |
 | `scripts/` | Demo and historical replay commands |
-| `outputs/` | Graph exports, diagnostic traces, replay, and existing spreadsheets |
+| `database/ingaze-knowledge-graph/` | Graph exports, diagnostic traces, and historical replay |
+| `database/ingaze-telemetry-excel/` | Existing telemetry spreadsheet |
+| `database/ingaze_csv_exports/` | Existing CSV inspection exports and source note |
+| `outputs/` | Readable proposal for the official sandbox run |
 
 The challenge deliverables stay at the root. [Architecture](ARCHITECTURE.md) · [Submission](submission.json)
 

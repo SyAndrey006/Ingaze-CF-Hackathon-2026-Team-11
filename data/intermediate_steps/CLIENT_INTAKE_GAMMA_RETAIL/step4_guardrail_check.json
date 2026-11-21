@@ -1,0 +1,375 @@
+{
+  "context": {
+    "healthy_metrics_and_strengths_not_to_break": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
+    "cohort_and_site_asymmetries": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.",
+    "budget_and_capacity_constraints": "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag. The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes.",
+    "leadership_perceptions_and_requests": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage. At the same time, the Head of Marketing suggested a weekly B2B LinkedIn thought-leadership blog series to attract store associates, and Finance asked if we should cut the 40% staff discount to fund recruiting ads."
+  },
+  "strengths": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
+  "cohort": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.",
+  "requests": "the vp of retail wants to immediately launch an employee ambassador campaign on instagram and tiktok next month asking mall store staff to film 'day in the life' videos to fix our applicant shortage. at the same time, the head of marketing suggested a weekly b2b linkedin thought-leadership blog series to attract store associates, and finance asked if we should cut the 40% staff discount to fund recruiting ads.",
+  "protected": [],
+  "observations": {
+    "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+      "quantities": [
+        {
+          "value": 79.0,
+          "unit": "%",
+          "bound": null,
+          "text": "79%"
+        },
+        {
+          "value": 61.0,
+          "unit": "%",
+          "bound": null,
+          "text": "61%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+      "quantities": [
+        {
+          "value": 79.0,
+          "unit": "%",
+          "bound": null,
+          "text": "79%"
+        },
+        {
+          "value": 61.0,
+          "unit": "%",
+          "bound": null,
+          "text": "61%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present": {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.",
+      "quantities": [
+        {
+          "value": 12.0,
+          "unit": "hours",
+          "bound": null,
+          "text": "12 hours"
+        }
+      ]
+    }
+  },
+  "present": [
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+      "signal": "mobile_exposure",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+      "quantities": [
+        {
+          "value": 79.0,
+          "unit": "%",
+          "bound": null,
+          "text": "79%"
+        },
+        {
+          "value": 61.0,
+          "unit": "%",
+          "bound": null,
+          "text": "61%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": "applicant",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+      "quantities": [
+        {
+          "value": 79.0,
+          "unit": "%",
+          "bound": null,
+          "text": "79%"
+        },
+        {
+          "value": 61.0,
+          "unit": "%",
+          "bound": null,
+          "text": "61%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.",
+      "quantities": [
+        {
+          "value": 12.0,
+          "unit": "hours",
+          "bound": null,
+          "text": "12 hours"
+        }
+      ]
+    }
+  ],
+  "features": [
+    "application_abandonment",
+    "mobile_exposure",
+    "tracking_workflow_verified"
+  ],
+  "reported": [
+    "application_abandonment",
+    "mobile_exposure",
+    "tracking_workflow_verified"
+  ],
+  "blockers": [],
+  "decisions": [
+    {
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    }
+  ],
+  "evaluations": [
+    {
+      "hypothesis": {
+        "rule": "manual_measurement",
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "staff_time"
+        ],
+        "missing_families": [
+          "staff_time"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "tracking_process",
+            "expected_signals": [
+              "tracking_workflow_verified",
+              "post_tracking"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+            "direct_slot": true
+          },
+          {
+            "family": "staff_time",
+            "expected_signals": [
+              "manual_tracking_load"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ],
+        "sources": [
+          "amec"
+        ],
+        "next_check": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "competing_hypotheses": [
+          {
+            "rule": "campaign_attribution_gap",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "manual_measurement",
+      "rule": {
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "requires": [
+          [
+            "tracking_workflow_verified",
+            "post_tracking"
+          ],
+          [
+            "manual_tracking_load"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "amec"
+        ],
+        "diagnostic": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "pilot": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "scale_gate": "Expand after completeness, auditability and staff time improve.",
+        "track_tags": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "has_strengths": true
+    }
+  ],
+  "guards": [
+    "Defer external advocacy until target-cohort readiness, participation and trust are verified.",
+    "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
+  ],
+  "advocacy_ready": false,
+  "ranked_tags": [
+    "post_tracking",
+    "review_tracking"
+  ],
+  "source_ids": [
+    "amec"
+  ],
+  "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+  "hiring_stage_leads": [],
+  "hiring_stage_families": [
+    "form_exit",
+    "hire_latency",
+    "offer_progression",
+    "screening_progression"
+  ],
+  "score_checks": [
+    {
+      "candidate_id": "manual_measurement:1",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7089,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    }
+  ],
+  "precedent_idea_actions": [],
+  "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
+}

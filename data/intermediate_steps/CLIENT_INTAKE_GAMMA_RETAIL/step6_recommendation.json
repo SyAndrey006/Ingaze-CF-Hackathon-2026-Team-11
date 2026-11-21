@@ -1,0 +1,635 @@
+{
+  "result": {
+    "scenario_code": "CLIENT_INTAKE_GAMMA_RETAIL",
+    "diagnosed_root_causes": [
+      {
+        "hypothesis": "Manual workflows may limit reporting coverage and consume staff time",
+        "status": "plausible",
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ]
+      }
+    ],
+    "blocked_traps_and_guardrails": [
+      "Defer external advocacy until target-cohort readiness, participation and trust are verified.",
+      "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
+    ],
+    "phase_1_actions": [
+      {
+        "action": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "manual_measurement"
+      },
+      {
+        "action": "Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost."
+      }
+    ],
+    "phase_2_actions": [
+      {
+        "action": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "manual_measurement",
+        "decision": "conditional",
+        "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+        "target_to_verify": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+        "preserve_baselines": [
+          "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
+        ]
+      }
+    ],
+    "phase_3_actions": [
+      {
+        "condition": "Expand after completeness, auditability and staff time improve.",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "manual_measurement",
+        "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+      }
+    ],
+    "matched_case_studies": [
+      {
+        "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+        "score": 5.0,
+        "shared_mechanisms": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      },
+      {
+        "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+        "score": 5.0,
+        "shared_mechanisms": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      },
+      {
+        "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
+        "score": 3.0,
+        "shared_mechanisms": [
+          "post_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      }
+    ],
+    "supporting_research_snippets": [
+      {
+        "source_id": "amec",
+        "kind": "industry_standard",
+        "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+        "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+        "limitation": "An unattributed media cost estimate is not realized ROI.",
+        "evidence_class": "operational_guidance"
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 3,
+        "source": "B2B Employee Advocacy & Earned Media Study",
+        "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 8,
+        "source": "Executive HR Budget & CFO Governance Survey",
+        "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      }
+    ],
+    "strategic_focus_and_do_not_touch": [
+      "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention."
+    ],
+    "cohort_specific_strategies": [
+      "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
+    ],
+    "open_questions_and_hypotheses_for_client": [
+      {
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "verify": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "missing_families": [
+          "staff_time"
+        ],
+        "dependent_families": [],
+        "counterevidence_ids": []
+      }
+    ]
+  },
+  "trace": {
+    "scenario_code": "CLIENT_INTAKE_GAMMA_RETAIL",
+    "profile": [
+      "distributed",
+      "retail"
+    ],
+    "excluded_noise": [
+      {
+        "source": "ingaze_platform_signals.reputation_and_reviews#3",
+        "text": "Note: our raw review export also accidentally pulled 2 unverified rows from an external third-party warehouse pilot complaining about 'overnight forklift charging bays'."
+      }
+    ],
+    "diagnostic_hypotheses": [
+      {
+        "rule": "application_friction",
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "application_step",
+          "device_exposure"
+        ],
+        "missing_families": [
+          "application_step"
+        ],
+        "dependent_families": [
+          "device_exposure"
+        ],
+        "evidence_slots": [
+          {
+            "family": "application_step",
+            "expected_signals": [
+              "form_obstacle_verified",
+              "mobile_friction"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "form_exit",
+            "expected_signals": [
+              "application_abandonment"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+            "direct_slot": false
+          },
+          {
+            "family": "device_exposure",
+            "expected_signals": [
+              "mobile_exposure"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "next_check": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "role_information",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "manual_measurement",
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "staff_time"
+        ],
+        "missing_families": [
+          "staff_time"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "tracking_process",
+            "expected_signals": [
+              "tracking_workflow_verified",
+              "post_tracking"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+            "direct_slot": true
+          },
+          {
+            "family": "staff_time",
+            "expected_signals": [
+              "manual_tracking_load"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ],
+        "sources": [
+          "amec"
+        ],
+        "next_check": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "competing_hypotheses": [
+          {
+            "rule": "campaign_attribution_gap",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      }
+    ],
+    "diagnostic_observations": [
+      {
+        "id": "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+        "signal": "mobile_exposure",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+        "origins": [
+          "narrative_unresolved_lineage",
+          "telemetry:career_portal_and_funnel"
+        ],
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "evidence_type": "reported_observation",
+        "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+        "quantities": [
+          {
+            "value": 79.0,
+            "unit": "%",
+            "bound": null,
+            "text": "79%"
+          },
+          {
+            "value": 61.0,
+            "unit": "%",
+            "bound": null,
+            "text": "61%"
+          }
+        ]
+      },
+      {
+        "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+        "signal": "application_abandonment",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+        "origins": [
+          "narrative_unresolved_lineage",
+          "telemetry:career_portal_and_funnel"
+        ],
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "evidence_type": "reported_observation",
+        "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.",
+        "quantities": [
+          {
+            "value": 79.0,
+            "unit": "%",
+            "bound": null,
+            "text": "79%"
+          },
+          {
+            "value": 61.0,
+            "unit": "%",
+            "bound": null,
+            "text": "61%"
+          }
+        ]
+      },
+      {
+        "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+        "signal": "tracking_workflow_verified",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+        "origins": [
+          "narrative_unresolved_lineage"
+        ],
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reported_observation",
+        "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.",
+        "quantities": [
+          {
+            "value": 12.0,
+            "unit": "hours",
+            "bound": null,
+            "text": "12 hours"
+          }
+        ]
+      }
+    ],
+    "normalized_measurements": [],
+    "action_decisions": [
+      {
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "decision": "conditional",
+        "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+      }
+    ],
+    "guardrails": [
+      "Defer external advocacy until target-cohort readiness, participation and trust are verified.",
+      "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
+    ],
+    "protected_scopes": [],
+    "case_ranking": [
+      {
+        "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+        "score": 5.0,
+        "shared_mechanisms": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      },
+      {
+        "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+        "score": 5.0,
+        "shared_mechanisms": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      },
+      {
+        "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
+        "score": 3.0,
+        "shared_mechanisms": [
+          "post_tracking"
+        ],
+        "shared_context": [
+          "distributed"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {},
+        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+        "observed_t0_t1": []
+      }
+    ],
+    "candidate_action_scores": [
+      {
+        "candidate_id": "manual_measurement:1",
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "diagnosis_rank": 1,
+        "score": 0.7089,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ],
+        "matched_case_names": [
+          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+          "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+          "FlowPay (International FinTech & Digital Payments Scale-Up)"
+        ],
+        "score_rank": 1
+      }
+    ],
+    "normalized_case_matches": [],
+    "case_informed_action_candidates": [],
+    "mandatory_constraint_source": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
+    "protected_baselines": [
+      {
+        "text": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
+        "scope": {
+          "cohort": "hq",
+          "site": "hq",
+          "tenure": null,
+          "window": "intake"
+        },
+        "quantities": [
+          {
+            "value": 10.0,
+            "unit": "%",
+            "bound": null,
+            "text": "10%"
+          },
+          {
+            "value": 40.0,
+            "unit": "%",
+            "bound": null,
+            "text": "40%"
+          },
+          {
+            "value": 92.0,
+            "unit": "%",
+            "bound": null,
+            "text": "92%"
+          }
+        ],
+        "source_ref": "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
+      }
+    ],
+    "research": [
+      {
+        "source_id": "amec",
+        "kind": "industry_standard",
+        "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+        "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+        "limitation": "An unattributed media cost estimate is not realized ROI.",
+        "evidence_class": "operational_guidance"
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 3,
+        "source": "B2B Employee Advocacy & Earned Media Study",
+        "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 8,
+        "source": "Executive HR Budget & CFO Governance Survey",
+        "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      }
+    ],
+    "advocacy_ready_for_pilot": false,
+    "advocacy_blockers": [],
+    "operational_assumptions": [
+      "Peer-gap margins prioritize review and have no statistical or causal interpretation.",
+      "A conditional pilot requires verification and Phase 3 requires evaluated results.",
+      "Historical ranking weights are retrieval heuristics. T1 is displayed after ranking."
+    ],
+    "evidence": {
+      "application_abandonment": [
+        "ingaze_platform_signals.recruiting_and_jds#1"
+      ],
+      "mobile_exposure": [
+        "ingaze_platform_signals.recruiting_and_jds#1"
+      ],
+      "tracking_workflow_verified": [
+        "ingaze_platform_signals.linkedin_and_content_analytics#2"
+      ]
+    },
+    "proposal_markdown": "# HR Proposal — Gamma Retail S.p.A.\n\n**Scenario:** `CLIENT_INTAKE_GAMMA_RETAIL`  \n**Industry:** Omnichannel Apparel & Lifestyle Retail\n\n## Executive Diagnosis\n\nFor Gamma Retail S.p.A., the leading diagnosis is Manual workflows may limit reporting coverage and consume staff time. Start with Audit duplicate handling, reporting effort, source coverage, and ownership.; advance to Instrument verified tracking steps with source IDs and document staff time and conversion separately. only under its stated prerequisite. Preserve the listed guardrails, including: Defer external advocacy until target-cohort readiness, participation and trust are verified..\n\n### Root-cause hypotheses\n- Manual workflows may limit reporting coverage and consume staff time — status: plausible\n\n### Observed surface signals and evidence\n- mobile_exposure (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- application_abandonment (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- tracking_workflow_verified: Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.\n\n## Guardrails & “Do Not Touch”\n\n### Blocked traps and guardrails\n- Defer external advocacy until target-cohort readiness, participation and trust are verified.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Deferred requests and decisions\n- No Step 4 decisions were marked deferred.\n\n### Leadership requests captured at intake\n\n### Healthy baselines to preserve\n- Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\n\n### Cohort and site asymmetries\n\n- HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.\n\n### Filtered or quarantined input\n\n- Note: our raw review export also accidentally pulled 2 unverified rows from an external third-party warehouse pilot complaining about 'overnight forklift charging bays'.\n\n## Three-Phase Action Roadmap\n\n### Phase 1 — Diagnostics\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n\n### Phase 3 — Scaling Gates\n- Expand after completeness, auditability and staff time improve. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n\n## Evidence & Precedents\n\n### Historical case precedents\n- **VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)** (match score: 5.0)\n  - Historical outcome: Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n- **VitaCare Network (Multi-Site Healthcare & Senior Care Group)** (match score: 5.0)\n  - Historical outcome: Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n- **FlowPay (International FinTech & Digital Payments Scale-Up)** (match score: 3.0)\n  - Historical outcome: +38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n\n### Supporting research\n- **amec:** AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **B2B Employee Advocacy & Earned Media Study:** Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey:** 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Open client verification questions\n- Audit duplicate handling, reporting effort, source coverage, and ownership. — missing families: staff_time\n\n---\nThis proposal reports deterministic pipeline decisions. Historical outcomes are precedents, not forecasts; scale only after the stated measures and guardrails are verified.\n"
+  }
+}

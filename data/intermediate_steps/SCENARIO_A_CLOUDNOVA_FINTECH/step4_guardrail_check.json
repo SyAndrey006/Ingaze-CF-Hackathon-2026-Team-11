@@ -1,0 +1,3468 @@
+{
+  "context": {
+    "healthy_metrics_and_strengths_not_to_break": "Base compensation and equity packages are benchmarked at the 82nd percentile for European FinTech (0% offer rejections due to base pay), and the Amsterdam Core Platform / SRE division (320 engineers) maintains 94% annual retention with high technical pride.",
+    "cohort_and_site_asymmetries": "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months. Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+    "budget_and_capacity_constraints": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k). The CFO has frozen discretionary employer brand ad spend until HR presents a quantified risk-mitigation and ROI dashboard.",
+    "leadership_perceptions_and_requests": "The CEO wants to immediately launch an external Employee Ambassador campaign on LinkedIn next week across all hubs to boost inbound applications, while the VP of Engineering asks whether rewriting salary bands or copying retail-style shift schedules from the raw review export would fix retention."
+  },
+  "strengths": "Base compensation and equity packages are benchmarked at the 82nd percentile for European FinTech (0% offer rejections due to base pay), and the Amsterdam Core Platform / SRE division (320 engineers) maintains 94% annual retention with high technical pride.",
+  "cohort": "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months. Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+  "requests": "the ceo wants to immediately launch an external employee ambassador campaign on linkedin next week across all hubs to boost inbound applications, while the vp of engineering asks whether rewriting salary bands or copying retail-style shift schedules from the raw review export would fix retention.",
+  "protected": [],
+  "observations": {
+    "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present": {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+      "signal": "documented_broken_promise",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Inbound qualified senior engineering applications are down 38% YoY;",
+      "quantities": [
+        {
+          "value": 38.0,
+          "unit": "%",
+          "bound": null,
+          "text": "38%"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling.",
+      "quantities": []
+    },
+    "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present": {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present",
+      "signal": "role_info_gap_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling.",
+      "quantities": []
+    },
+    "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present": {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+      "signal": "post_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present": {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present": {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    "text:client_internal_context.cohort_and_site_asymmetries#1:early_attrition:present": {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#1:early_attrition:present",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": "berlin+milan",
+        "tenure": "new_or_early_tenure",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months.",
+      "quantities": [
+        {
+          "value": 16.0,
+          "unit": "%",
+          "bound": null,
+          "text": "16%"
+        },
+        {
+          "value": 6.0,
+          "unit": "months",
+          "bound": null,
+          "text": "6 months"
+        }
+      ]
+    },
+    "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present": {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+      "quantities": []
+    },
+    "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present": {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+      "quantities": []
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#1:manager_support:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#1:career_clarity:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    "text:client_internal_context.budget_and_capacity_constraints#1:burnout:present": {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:burnout:present",
+      "signal": "burnout",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    "metric:review_coverage:public_reputation.reviews_analyzed": {
+      "id": "metric:review_coverage:public_reputation.reviews_analyzed",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.reviews_analyzed",
+      "value": 218,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.reviews_analyzed",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:employer_reputation_weak:public_reputation.overall_review_rating_5": {
+      "id": "metric:employer_reputation_weak:public_reputation.overall_review_rating_5",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.overall_review_rating_5",
+      "value": 3.46,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.overall_review_rating_5",
+      "peer_value": 3.72,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:employer_reputation_weak:public_reputation.recommend_to_friend_pct": {
+      "id": "metric:employer_reputation_weak:public_reputation.recommend_to_friend_pct",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.recommend_to_friend_pct",
+      "value": 53.7,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.recommend_to_friend_pct",
+      "peer_value": 65.2,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_tracking:public_reputation.employer_review_reply_rate_pct": {
+      "id": "metric:review_tracking:public_reputation.employer_review_reply_rate_pct",
+      "signal": "review_tracking",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.employer_review_reply_rate_pct",
+      "value": 0.0,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.employer_review_reply_rate_pct",
+      "peer_value": 0.0,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5": {
+      "id": "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+      "value": 0.52,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.cross_location_rating_std_dev_5",
+      "peer_value": 0.22,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:brand_misalignment:public_reputation.brand_alignment_index_100": {
+      "id": "metric:brand_misalignment:public_reputation.brand_alignment_index_100",
+      "signal": "brand_misalignment",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.brand_alignment_index_100",
+      "value": 46.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.brand_alignment_index_100",
+      "peer_value": 62.1,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:expectation_gap:public_reputation.external_claims_gap_stars_5": {
+      "id": "metric:expectation_gap:public_reputation.external_claims_gap_stars_5",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.external_claims_gap_stars_5",
+      "value": 1.3,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.external_claims_gap_stars_5",
+      "peer_value": 0.44,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:manager_support:public_reputation.sub_ratings_5.management": {
+      "id": "metric:manager_support:public_reputation.sub_ratings_5.management",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.management",
+      "value": 2.64,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.management",
+      "peer_value": 3.34,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:career_clarity:public_reputation.sub_ratings_5.career_growth": {
+      "id": "metric:career_clarity:public_reputation.sub_ratings_5.career_growth",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.career_growth",
+      "value": 2.52,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.career_growth",
+      "peer_value": 3.21,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:burnout:public_reputation.sub_ratings_5.work_life_balance": {
+      "id": "metric:burnout:public_reputation.sub_ratings_5.work_life_balance",
+      "signal": "burnout",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.work_life_balance",
+      "value": 3.36,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.work_life_balance",
+      "peer_value": 3.42,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:pay_gap_verified:public_reputation.sub_ratings_5.compensation": {
+      "id": "metric:pay_gap_verified:public_reputation.sub_ratings_5.compensation",
+      "signal": "pay_gap_verified",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.compensation",
+      "value": 4.18,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.compensation",
+      "peer_value": 3.68,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:culture_ready:public_reputation.sub_ratings_5.culture_and_values": {
+      "id": "metric:culture_ready:public_reputation.sub_ratings_5.culture_and_values",
+      "signal": "culture_ready",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
+      "value": 3.09,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.culture_and_values",
+      "peer_value": 3.66,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Milan_Product_Squads.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Milan_Product_Squads.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Milan_Product_Squads.reviews",
+      "value": 94,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "milan_product_squads",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Milan_Product_Squads.reviews",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Milan_Product_Squads.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Milan_Product_Squads.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Milan_Product_Squads.rating_5",
+      "value": 3.16,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "milan_product_squads",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Milan_Product_Squads.rating_5",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.reviews",
+      "value": 73,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "berlin_product_squads",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.reviews",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.rating_5",
+      "value": 3.24,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "berlin_product_squads",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Berlin_Product_Squads.rating_5",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:review_coverage:public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.reviews": {
+      "id": "metric:review_coverage:public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.reviews",
+      "signal": "review_coverage",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.reviews",
+      "value": 51,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "amsterdam_core_platform_sre",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.reviews",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:local_reputation:public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.rating_5": {
+      "id": "metric:local_reputation:public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.rating_5",
+      "signal": "local_reputation",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.rating_5",
+      "value": 4.31,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": null,
+        "site": "amsterdam_core_platform_sre",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.segment_or_site_breakdown.Amsterdam_Core_Platform_SRE.rating_5",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    "metric:weak_reach:career_portal_and_funnel.monthly_visits": {
+      "id": "metric:weak_reach:career_portal_and_funnel.monthly_visits",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.monthly_visits",
+      "value": 9420,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.monthly_visits",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_exposure:career_portal_and_funnel.smartphone_traffic_pct": {
+      "id": "metric:mobile_exposure:career_portal_and_funnel.smartphone_traffic_pct",
+      "signal": "mobile_exposure",
+      "state": "absent",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.smartphone_traffic_pct",
+      "value": 25.7,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.smartphone_traffic_pct",
+      "peer_value": 26.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:application_abandonment:career_portal_and_funnel.application_form_dropoff_pct": {
+      "id": "metric:application_abandonment:career_portal_and_funnel.application_form_dropoff_pct",
+      "signal": "application_abandonment",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.application_form_dropoff_pct",
+      "value": 33.4,
+      "unit": "%",
+      "denominator": "application_starts",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.application_form_dropoff_pct",
+      "peer_value": 32.4,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct": {
+      "id": "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.applicant_conversion_rate_pct",
+      "value": 2.38,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.applicant_conversion_rate_pct",
+      "peer_value": 3.98,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct": {
+      "id": "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "signal": "low_survey_coverage",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "value": 23.6,
+      "unit": "%",
+      "denominator": "eligible_candidates",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "peer_value": 28.9,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:weak_reach:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100": {
+      "id": "metric:weak_reach:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "value": 85.9,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "peer_value": 79.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.technical_speed_100": {
+      "id": "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "signal": "mobile_friction",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "value": 88.7,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "peer_value": 84.2,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "value": 41.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "peer_value": 74.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "value": 35.2,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "peer_value": 65.7,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100": {
+      "id": "metric:mobile_friction:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "signal": "mobile_friction",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "value": 74.6,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "peer_value": 72.9,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100": {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "value": 32.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "peer_value": 55.9,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.corporate_linkedin_er_pct": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.corporate_linkedin_er_pct",
+      "signal": "corporate_engagement_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.corporate_linkedin_er_pct",
+      "value": 0.9,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.corporate_linkedin_er_pct",
+      "peer_value": 1.89,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:weak_reach:social_and_employee_voice.quarterly_organic_impressions": {
+      "id": "metric:weak_reach:social_and_employee_voice.quarterly_organic_impressions",
+      "signal": "weak_reach",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.quarterly_organic_impressions",
+      "value": 46180,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "3_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.quarterly_organic_impressions",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.institutional_updates": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "value": 0.58,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.er_by_post_format_pct.institutional_updates",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.generic_job_posts": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "value": 0.79,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.er_by_post_format_pct.generic_job_posts",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories": {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "signal": "corporate_engagement_weak",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "value": 5.14,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.er_by_post_format_pct.authentic_team_and_domain_stories",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:existing_advocates:social_and_employee_voice.spontaneous_employee_mentions_quarter": {
+      "id": "metric:existing_advocates:social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "signal": "existing_advocates",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "value": 23,
+      "unit": "count",
+      "denominator": null,
+      "measurement_horizon": "3_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:culture_ready:social_and_employee_voice.positive_mention_share_pct": {
+      "id": "metric:culture_ready:social_and_employee_voice.positive_mention_share_pct",
+      "signal": "culture_ready",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.positive_mention_share_pct",
+      "value": 56.5,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.positive_mention_share_pct",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month": {
+      "id": "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.manual_hr_tracking_hours_month",
+      "value": 16.0,
+      "unit": "hours/month",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.manual_hr_tracking_hours_month",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    "metric:early_attrition:hiring_and_retention_kpis.early_first_year_attrition_pct": {
+      "id": "metric:early_attrition:hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "value": 18.4,
+      "unit": "%",
+      "denominator": "new_hires",
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "new_hire",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "peer_value": 12.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:early_attrition:hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct": {
+      "id": "metric:early_attrition:hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct",
+      "signal": "early_attrition",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct",
+      "value": 16.0,
+      "unit": "%",
+      "denominator": "new_hires",
+      "measurement_horizon": "6_months",
+      "scope": {
+        "cohort": null,
+        "site": "berlin+milan",
+        "tenure": "new_hire",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:pay_gap_verified:hiring_and_retention_kpis.compensation_market_percentile_100": {
+      "id": "metric:pay_gap_verified:hiring_and_retention_kpis.compensation_market_percentile_100",
+      "signal": "pay_gap_verified",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.compensation_market_percentile_100",
+      "value": 82,
+      "unit": "percentile",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.compensation_market_percentile_100",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:attrition_exposure:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur": {
+      "id": "metric:attrition_exposure:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "signal": "attrition_exposure",
+      "state": "unknown",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "value": 1800000,
+      "unit": "EUR/year",
+      "denominator": null,
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days": {
+      "id": "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.avg_time_to_hire_days",
+      "value": 51,
+      "unit": "days",
+      "denominator": "target_roles_filled",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.avg_time_to_hire_days",
+      "peer_value": 39,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct": {
+      "id": "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+      "value": 33.8,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.agency_filled_roles_pct",
+      "peer_value": 23.4,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    }
+  },
+  "present": [
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+      "signal": "documented_broken_promise",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.reputation_and_reviews#1",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.",
+      "quantities": [
+        {
+          "value": 3.2,
+          "unit": "/5",
+          "bound": null,
+          "text": "3.2/5"
+        },
+        {
+          "value": 4.3,
+          "unit": "/5",
+          "bound": null,
+          "text": "4.3/5"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Inbound qualified senior engineering applications are down 38% YoY;",
+      "quantities": [
+        {
+          "value": 38.0,
+          "unit": "%",
+          "bound": null,
+          "text": "38%"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:career_portal_and_funnel"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling.",
+      "quantities": []
+    },
+    {
+      "id": "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present",
+      "signal": "role_info_gap_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.recruiting_and_jds#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling.",
+      "quantities": []
+    },
+    {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+      "signal": "post_tracking",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present",
+      "signal": "tracking_workflow_verified",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    {
+      "id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "ingaze_platform_signals.linkedin_and_content_analytics#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:social_and_employee_voice"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.",
+      "quantities": [
+        {
+          "value": 4.0,
+          "unit": "hours/week",
+          "bound": null,
+          "text": "4 hours/week"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#1:early_attrition:present",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:hiring_and_retention_kpis"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": "berlin+milan",
+        "tenure": "new_or_early_tenure",
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months.",
+      "quantities": [
+        {
+          "value": 16.0,
+          "unit": "%",
+          "bound": null,
+          "text": "16%"
+        },
+        {
+          "value": 6.0,
+          "unit": "months",
+          "bound": null,
+          "text": "6 months"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+      "quantities": []
+    },
+    {
+      "id": "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.cohort_and_site_asymmetries#2",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.",
+      "quantities": []
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:manager_support:present",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:career_clarity:present",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    {
+      "id": "text:client_internal_context.budget_and_capacity_constraints#1:burnout:present",
+      "signal": "burnout",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "client_internal_context.budget_and_capacity_constraints#1",
+      "origins": [
+        "narrative_unresolved_lineage",
+        "telemetry:public_reputation"
+      ],
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reported_observation",
+      "text": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).",
+      "quantities": [
+        {
+          "value": 1800000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€1.8M"
+        },
+        {
+          "value": 700000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€700k"
+        },
+        {
+          "value": 450000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€450k"
+        },
+        {
+          "value": 300000.0,
+          "unit": "EUR",
+          "bound": null,
+          "text": "€300k"
+        }
+      ]
+    },
+    {
+      "id": "metric:employer_reputation_weak:public_reputation.overall_review_rating_5",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.overall_review_rating_5",
+      "value": 3.46,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.overall_review_rating_5",
+      "peer_value": 3.72,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:employer_reputation_weak:public_reputation.recommend_to_friend_pct",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.recommend_to_friend_pct",
+      "value": 53.7,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.recommend_to_friend_pct",
+      "peer_value": 65.2,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:local_reputation:public_reputation.cross_location_rating_std_dev_5",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.cross_location_rating_std_dev_5",
+      "value": 0.52,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.cross_location_rating_std_dev_5",
+      "peer_value": 0.22,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:brand_misalignment:public_reputation.brand_alignment_index_100",
+      "signal": "brand_misalignment",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.brand_alignment_index_100",
+      "value": 46.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.brand_alignment_index_100",
+      "peer_value": 62.1,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:expectation_gap:public_reputation.external_claims_gap_stars_5",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.external_claims_gap_stars_5",
+      "value": 1.3,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.external_claims_gap_stars_5",
+      "peer_value": 0.44,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:manager_support:public_reputation.sub_ratings_5.management",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.management",
+      "value": 2.64,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.management",
+      "peer_value": 3.34,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:career_clarity:public_reputation.sub_ratings_5.career_growth",
+      "signal": "career_clarity",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "public_reputation.sub_ratings_5.career_growth",
+      "value": 2.52,
+      "unit": "stars",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.public_reputation.sub_ratings_5.career_growth",
+      "peer_value": 3.21,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:public_reputation"
+      ]
+    },
+    {
+      "id": "metric:application_loss:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.applicant_conversion_rate_pct",
+      "value": 2.38,
+      "unit": "%",
+      "denominator": "portal_visits",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.applicant_conversion_rate_pct",
+      "peer_value": 3.98,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:low_survey_coverage:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "signal": "low_survey_coverage",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "value": 23.6,
+      "unit": "%",
+      "denominator": "eligible_candidates",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "peer_value": 28.9,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "value": 41.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "peer_value": 74.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "value": 35.2,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "peer_value": 65.7,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "value": 32.8,
+      "unit": "index_100",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "peer_value": 55.9,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:career_portal_and_funnel"
+      ]
+    },
+    {
+      "id": "metric:corporate_engagement_weak:social_and_employee_voice.corporate_linkedin_er_pct",
+      "signal": "corporate_engagement_weak",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.corporate_linkedin_er_pct",
+      "value": 0.9,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.corporate_linkedin_er_pct",
+      "peer_value": 1.89,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    {
+      "id": "metric:manual_tracking_load:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "social_and_employee_voice.manual_hr_tracking_hours_month",
+      "value": 16.0,
+      "unit": "hours/month",
+      "denominator": null,
+      "measurement_horizon": "1_month",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.social_and_employee_voice.manual_hr_tracking_hours_month",
+      "peer_value": null,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:social_and_employee_voice"
+      ]
+    },
+    {
+      "id": "metric:early_attrition:hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "value": 18.4,
+      "unit": "%",
+      "denominator": "new_hires",
+      "measurement_horizon": "12_months",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "new_hire",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "peer_value": 12.8,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    {
+      "id": "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "signal": "hiring_delay",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.avg_time_to_hire_days",
+      "value": 51,
+      "unit": "days",
+      "denominator": "target_roles_filled",
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.avg_time_to_hire_days",
+      "peer_value": 39,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    },
+    {
+      "id": "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "signal": "agency_spend",
+      "state": "present",
+      "quality": "reported",
+      "evidence_type": "synthetic_observation",
+      "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
+      "value": 33.8,
+      "unit": "%",
+      "denominator": null,
+      "measurement_horizon": null,
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "source_ref": "telemetry:SCENARIO_A_CLOUDNOVA_FINTECH.hiring_and_retention_kpis.agency_filled_roles_pct",
+      "peer_value": 23.4,
+      "peer_group": "European FinTech & B2B Cloud Payments",
+      "origins": [
+        "telemetry:hiring_and_retention_kpis"
+      ]
+    }
+  ],
+  "features": [
+    "agency_spend",
+    "application_loss",
+    "brand_misalignment",
+    "burnout",
+    "career_clarity",
+    "corporate_engagement_weak",
+    "documented_broken_promise",
+    "early_attrition",
+    "employer_reputation_weak",
+    "expectation_gap",
+    "generic_ads",
+    "hiring_delay",
+    "local_reputation",
+    "low_survey_coverage",
+    "manager_support",
+    "manual_tracking_load",
+    "post_tracking",
+    "role_info_gap_verified",
+    "tracking_workflow_verified"
+  ],
+  "reported": [
+    "application_loss",
+    "burnout",
+    "career_clarity",
+    "documented_broken_promise",
+    "early_attrition",
+    "expectation_gap",
+    "generic_ads",
+    "manager_support",
+    "manual_tracking_load",
+    "post_tracking",
+    "role_info_gap_verified",
+    "tracking_workflow_verified"
+  ],
+  "blockers": [
+    "burnout",
+    "documented_broken_promise",
+    "expectation_gap",
+    "manager_support"
+  ],
+  "decisions": [
+    {
+      "rule": "role_information",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "onboarding_clarity",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "conditional",
+      "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "decision": "deferred",
+      "reason": "More scoped evidence is required before proposing this intervention."
+    }
+  ],
+  "evaluations": [
+    {
+      "hypothesis": {
+        "rule": "role_information",
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "role_information"
+        ],
+        "missing_families": [],
+        "dependent_families": [
+          "role_information"
+        ],
+        "evidence_slots": [
+          {
+            "family": "role_information",
+            "expected_signals": [
+              "role_info_gap_verified",
+              "generic_ads"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+              "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+            ],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "entry_conversion",
+            "expected_signals": [
+              "application_loss"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "next_check": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "role_information",
+      "rule": {
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "role_info_gap_verified",
+            "generic_ads"
+          ],
+          [
+            "application_loss"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "diagnostic": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "pilot": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "scale_gate": "Scale after qualified applications improve while access and eligibility hold.",
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "track_tags": [
+          "generic_ads"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "manual_measurement",
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "tracking_process"
+        ],
+        "missing_families": [],
+        "dependent_families": [
+          "tracking_process"
+        ],
+        "evidence_slots": [
+          {
+            "family": "tracking_process",
+            "expected_signals": [
+              "tracking_workflow_verified",
+              "post_tracking"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+              "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+            ],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "staff_time",
+            "expected_signals": [
+              "manual_tracking_load"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ],
+        "sources": [
+          "amec"
+        ],
+        "next_check": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "competing_hypotheses": [
+          {
+            "rule": "campaign_attribution_gap",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "manual_measurement",
+      "rule": {
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "requires": [
+          [
+            "tracking_workflow_verified",
+            "post_tracking"
+          ],
+          [
+            "manual_tracking_load"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "amec"
+        ],
+        "diagnostic": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "pilot": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "scale_gate": "Expand after completeness, auditability and staff time improve.",
+        "track_tags": [
+          "post_tracking",
+          "review_tracking"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "expectation_drift",
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present"
+        ],
+        "origin_components": {
+          "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "promise_alignment",
+            "expected_signals": [
+              "documented_broken_promise",
+              "expectation_gap",
+              "brand_misalignment"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+              "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "next_check": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "expectation_drift",
+      "rule": {
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "documented_broken_promise",
+            "expectation_gap",
+            "brand_misalignment"
+          ],
+          [
+            "early_attrition"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "diagnostic": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "pilot": "Pilot accurate role previews and correct the verified gap in work practices.",
+        "scale_gate": "Scale when new hires report alignment and comparable early-exit indicators improve.",
+        "counter": [
+          "expectations_met"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "track_tags": [
+          "expectation_gap",
+          "early_attrition"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
+        ],
+        "origin_components": {
+          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
+              "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
+            ],
+            "selected_id": "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "management_practice",
+      "rule": {
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "manager_practice_verified",
+            "manager_support"
+          ],
+          [
+            "early_attrition"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "diagnostic": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "pilot": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+        "scale_gate": "Extend after delegation feedback and comparable early retention improve.",
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "track_tags": [
+          "manager_support"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "onboarding_clarity",
+        "label": "Unclear role or progression expectations may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present"
+        ],
+        "other_matching_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
+        ],
+        "origin_components": {
+          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present": "origin:narrative_unresolved_lineage",
+          "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_growth",
+            "expected_signals": [
+              "role_clarity_failure",
+              "career_clarity"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
+              "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
+            ],
+            "selected_id": "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "bauer_2007"
+        ],
+        "next_check": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "onboarding_clarity",
+      "rule": {
+        "label": "Unclear role or progression expectations may contribute to early exits",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "role_clarity_failure",
+            "career_clarity"
+          ],
+          [
+            "early_attrition"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "bauer_2007"
+        ],
+        "diagnostic": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+        "pilot": "Pilot a structured onboarding and role-expectation review with a named owner.",
+        "scale_gate": "Expand after role clarity improves and comparable exit indicators show no deterioration.",
+        "alternatives": [
+          "management_practice",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "track_tags": [
+          "career_clarity"
+        ]
+      },
+      "reason": null,
+      "narrative_lead": true,
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "external_staffing_dependency",
+        "label": "A delayed hire process may contribute to agency dependence",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": "all",
+          "site": "all",
+          "tenure": "all",
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct"
+        ],
+        "other_matching_ids": [
+          "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days"
+        ],
+        "origin_components": {
+          "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct": "origin:telemetry:hiring_and_retention_kpis",
+          "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days": "origin:telemetry:hiring_and_retention_kpis"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "hire_latency"
+        ],
+        "missing_families": [],
+        "dependent_families": [
+          "hire_latency"
+        ],
+        "evidence_slots": [
+          {
+            "family": "external_staffing",
+            "expected_signals": [
+              "agency_dependency_verified",
+              "agency_spend"
+            ],
+            "matching_ids": [
+              "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct"
+            ],
+            "selected_id": "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+            "direct_slot": true
+          },
+          {
+            "family": "hire_latency",
+            "expected_signals": [
+              "hiring_delay"
+            ],
+            "matching_ids": [
+              "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "recruiter_handoff",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "ingaze_policy"
+        ],
+        "next_check": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      "rule_id": "external_staffing_dependency",
+      "rule": {
+        "label": "A delayed hire process may contribute to agency dependence",
+        "kind": "operational",
+        "requires": [
+          [
+            "agency_dependency_verified",
+            "agency_spend"
+          ],
+          [
+            "hiring_delay"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "ingaze_policy"
+        ],
+        "diagnostic": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+        "pilot": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+        "scale_gate": "Scale after direct qualified hires improve and Finance verifies changes in agency spend.",
+        "alternatives": [
+          "application_friction",
+          "recruiter_handoff",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "track_tags": [
+          "agency_spend"
+        ]
+      },
+      "reason": "More scoped evidence is required before proposing this intervention.",
+      "narrative_lead": false,
+      "prerequisite": null,
+      "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+      "has_strengths": true
+    }
+  ],
+  "guards": [
+    "Defer external advocacy until target-cohort readiness, participation and trust are verified.",
+    "Exclude retail store shift rotation for this non-retail workforce.",
+    "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.",
+    "Defer salary changes pending verified compensation problems in comparable roles."
+  ],
+  "advocacy_ready": false,
+  "ranked_tags": [
+    "agency_spend",
+    "career_clarity",
+    "early_attrition",
+    "expectation_gap",
+    "generic_ads",
+    "manager_support",
+    "post_tracking",
+    "review_tracking"
+  ],
+  "source_ids": [
+    "amec",
+    "bauer_2007",
+    "earnest_2011",
+    "friebel_2021",
+    "hausknecht_2004",
+    "ingaze_policy",
+    "lacerenza_2017",
+    "williamson_2010",
+    "zhao_2007"
+  ],
+  "target": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+  "hiring_stage_leads": [
+    "external_staffing_dependency"
+  ],
+  "hiring_stage_families": [
+    "form_exit",
+    "hire_latency",
+    "offer_progression",
+    "screening_progression"
+  ],
+  "score_checks": [
+    {
+      "candidate_id": "role_information:1",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.8257,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "manual_measurement:2",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.6651,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.0
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "expectation_drift:3",
+      "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "management_practice:4",
+      "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "onboarding_clarity:5",
+      "action_title": "Pilot a structured onboarding and role-expectation review with a named owner.",
+      "rule": "onboarding_clarity",
+      "scope": {
+        "cohort": "engineering_workforce",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.7195,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "external_staffing_dependency:6",
+      "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "rule": "external_staffing_dependency",
+      "scope": {
+        "cohort": "all",
+        "site": "all",
+        "tenure": "all",
+        "window": "intake"
+      },
+      "score": 0.6876,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    }
+  ],
+  "precedent_idea_actions": [],
+  "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
+}

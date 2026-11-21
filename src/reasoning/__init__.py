@@ -1,1 +1,1 @@
-"""Offline knowledge-graph reasoning and recommendation engine."""
+"""Reusable deterministic HR policy, evidence, intake, and graph utilities."""

@@ -1,0 +1,83 @@
+{
+  "diagnosed_root_causes": [
+    {
+      "hypothesis": "Manual workflows may limit reporting coverage and consume staff time",
+      "status": "plausible",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_ids": [
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+      ]
+    }
+  ],
+  "phase_1_actions": [
+    {
+      "action": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "rule": "manual_measurement"
+    },
+    {
+      "action": "Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost."
+    }
+  ],
+  "phase_2_actions": [
+    {
+      "action": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "rule": "manual_measurement",
+      "decision": "conditional",
+      "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+      "target_to_verify": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "preserve_baselines": [
+        "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
+      ]
+    }
+  ],
+  "phase_3_actions": [
+    {
+      "condition": "Expand after completeness, auditability and staff time improve.",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "rule": "manual_measurement",
+      "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+    }
+  ],
+  "open_questions_and_hypotheses_for_client": [
+    {
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "verify": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+      "missing_families": [
+        "staff_time"
+      ],
+      "dependent_families": [],
+      "counterevidence_ids": []
+    }
+  ],
+  "strengths": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
+  "cohort": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
+}

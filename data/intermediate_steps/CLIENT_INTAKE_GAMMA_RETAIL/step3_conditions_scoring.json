@@ -1,0 +1,182 @@
+{
+  "scenario_code": "CLIENT_INTAKE_GAMMA_RETAIL",
+  "scoring_formula": {
+    "status_support": 0.34,
+    "evidence_slot_coverage": 0.2125,
+    "direct_evidence": 0.1275,
+    "reported_evidence": 0.1275,
+    "scope_specificity": 0.0425,
+    "historical_case_mechanism_fit": 0.15,
+    "guardrail_minimum_score": 0.35
+  },
+  "ranked_candidates": [
+    {
+      "candidate_id": "manual_measurement:1",
+      "rule": "manual_measurement",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "diagnosis_rank": 1,
+      "score": 0.7089,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+      ],
+      "matched_case_names": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "FlowPay (International FinTech & Digital Payments Scale-Up)"
+      ],
+      "score_rank": 1
+    }
+  ],
+  "matched_case_studies": [
+    {
+      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "score": 5.0,
+      "shared_mechanisms": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    },
+    {
+      "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+      "score": 5.0,
+      "shared_mechanisms": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    },
+    {
+      "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
+      "score": 3.0,
+      "shared_mechanisms": [
+        "post_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    }
+  ],
+  "normalized_case_matches": [],
+  "case_informed_action_candidates": [],
+  "legacy_case_rankings": [
+    {
+      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "score": 5.0,
+      "shared_mechanisms": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    },
+    {
+      "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+      "score": 5.0,
+      "shared_mechanisms": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    },
+    {
+      "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
+      "score": 3.0,
+      "shared_mechanisms": [
+        "post_tracking"
+      ],
+      "shared_context": [
+        "distributed"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {},
+      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
+      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
+      "observed_t0_t1": []
+    }
+  ],
+  "supporting_research_snippets": [
+    {
+      "source_id": "amec",
+      "kind": "industry_standard",
+      "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+      "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+      "limitation": "An unattributed media cost estimate is not realized ROI.",
+      "evidence_class": "operational_guidance"
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 3,
+      "source": "B2B Employee Advocacy & Earned Media Study",
+      "finding": "Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 8,
+      "source": "Executive HR Budget & CFO Governance Survey",
+      "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    }
+  ],
+  "ranked_track_tags": [
+    "post_tracking",
+    "review_tracking"
+  ],
+  "supporting_source_ids": [
+    "amec"
+  ]
+}
