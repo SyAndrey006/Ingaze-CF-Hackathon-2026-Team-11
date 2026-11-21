@@ -22,132 +22,691 @@
       "status": "plausible",
       "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
       "diagnosis_rank": 1,
-      "score": 0.7089,
+      "score": 0.6303,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.1062,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0714
       },
       "matched_evidence_ids": [
         "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
       ],
       "matched_case_names": [
-        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-        "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-        "FlowPay (International FinTech & Digital Payments Scale-Up)"
+        "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
       ],
       "score_rank": 1
+    },
+    {
+      "candidate_id": "application_friction:2",
+      "rule": "application_friction",
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "diagnosis_rank": 2,
+      "score": 0.5489,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1417,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "matched_evidence_ids": [
+        "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+        "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+      ],
+      "matched_case_names": [
+        "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+      ],
+      "score_rank": 2
+    },
+    {
+      "candidate_id": "expectation_drift:3",
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "diagnosis_rank": 3,
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "matched_evidence_ids": [
+        "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+      ],
+      "matched_case_names": [
+        "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+      ],
+      "score_rank": 3
+    },
+    {
+      "candidate_id": "management_practice:4",
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "diagnosis_rank": 4,
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "matched_evidence_ids": [
+        "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+      ],
+      "matched_case_names": [
+        "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+      ],
+      "score_rank": 4
+    },
+    {
+      "candidate_id": "role_information:5",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "Store, HQ",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "diagnosis_rank": 5,
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "matched_evidence_ids": [
+        "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+      ],
+      "matched_case_names": [
+        "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+      ],
+      "score_rank": 5
     }
   ],
   "matched_case_studies": [
     {
-      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-      "score": 5.0,
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.625,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.4762,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "WORKLOAD_BURNOUT",
+        "WEAK_MIDDLE_MANAGEMENT",
+        "MOBILE_PORTAL_FRICTION"
+      ],
+      "measured_roi_summary": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 38,940 -> 74,180 (+90%)",
+        "Manual HR tracking: 5 h/month -> 1 h/month (-80%)",
+        "Say-Do Gap (claims vs reviews): 0.92 stars -> 0.29 stars (-68%)"
+      ],
+      "match_reason": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "case": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "historical_roi": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+      "score": 0.625,
       "shared_mechanisms": [
-        "post_tracking",
-        "review_tracking"
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "WORKLOAD_BURNOUT",
+        "WEAK_MIDDLE_MANAGEMENT",
+        "MOBILE_PORTAL_FRICTION"
       ],
-      "shared_context": [
-        "distributed"
-      ],
+      "shared_context": [],
       "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
     },
     {
-      "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-      "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-      "score": 5.0,
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.6233,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.4,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
+      },
+      "matched_problem_tags": [
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "measured_roi_summary": "+31% mobile applicant conversion and -16% store staff early attrition.",
+      "quantified_roi_highlights": [
+        "Manual HR tracking: 4.5 h/month -> 1.5 h/month (-67%)",
+        "Say-Do Gap (claims vs reviews): 0.71 stars -> 0.28 stars (-61%)",
+        "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+      ],
+      "match_reason": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "case": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "historical_roi": "+31% mobile applicant conversion and -16% store staff early attrition.",
+      "score": 0.6233,
       "shared_mechanisms": [
-        "post_tracking",
-        "review_tracking"
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
       ],
-      "shared_context": [
-        "distributed"
-      ],
+      "shared_context": [],
       "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
     },
     {
-      "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
-      "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
-      "score": 3.0,
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.5689,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.3158,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "GENERIC_BOILERPLATE_JDS"
+      ],
+      "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+      "quantified_roi_highlights": [
+        "Agency-filled roles: 24.3% -> 14.2% (-42%)",
+        "Application form drop-off: 61.8% -> 40.2% (-35%)",
+        "Time-to-Hire: 36 days -> 25 days (-31%)"
+      ],
+      "match_reason": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+      "score": 0.5689,
       "shared_mechanisms": [
-        "post_tracking"
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "GENERIC_BOILERPLATE_JDS"
       ],
-      "shared_context": [
-        "distributed"
-      ],
+      "shared_context": [],
       "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
     }
   ],
-  "normalized_case_matches": [],
-  "case_informed_action_candidates": [],
-  "legacy_case_rankings": [
+  "normalized_case_matches": [
     {
-      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-      "score": 5.0,
-      "shared_mechanisms": [
-        "post_tracking",
-        "review_tracking"
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.625,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.4762,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "WORKLOAD_BURNOUT",
+        "WEAK_MIDDLE_MANAGEMENT",
+        "MOBILE_PORTAL_FRICTION"
       ],
-      "shared_context": [
-        "distributed"
+      "measured_roi_summary": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 38,940 -> 74,180 (+90%)",
+        "Manual HR tracking: 5 h/month -> 1 h/month (-80%)",
+        "Say-Do Gap (claims vs reviews): 0.92 stars -> 0.29 stars (-68%)"
       ],
-      "comparable_t0_metrics": [],
-      "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "match_reason": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed"
     },
     {
-      "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-      "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-      "score": 5.0,
-      "shared_mechanisms": [
-        "post_tracking",
-        "review_tracking"
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.6233,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.4,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
+      },
+      "matched_problem_tags": [
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "UNPREDICTABLE_SHIFT_SCHEDULING",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
       ],
-      "shared_context": [
-        "distributed"
+      "measured_roi_summary": "+31% mobile applicant conversion and -16% store staff early attrition.",
+      "quantified_roi_highlights": [
+        "Manual HR tracking: 4.5 h/month -> 1.5 h/month (-67%)",
+        "Say-Do Gap (claims vs reviews): 0.71 stars -> 0.28 stars (-61%)",
+        "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
       ],
-      "comparable_t0_metrics": [],
-      "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "match_reason": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed"
     },
     {
-      "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
-      "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
-      "score": 3.0,
-      "shared_mechanisms": [
-        "post_tracking"
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "similarity_score": 0.5689,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.3158,
+        "workforce_fit_score": 0.3333,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "HIGH_APPLICATION_DROPOFF",
+        "MOBILE_PORTAL_FRICTION",
+        "GENERIC_BOILERPLATE_JDS"
       ],
-      "shared_context": [
-        "distributed"
+      "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+      "quantified_roi_highlights": [
+        "Agency-filled roles: 24.3% -> 14.2% (-42%)",
+        "Application form drop-off: 61.8% -> 40.2% (-35%)",
+        "Time-to-Hire: 36 days -> 25 days (-31%)"
       ],
-      "comparable_t0_metrics": [],
-      "case_to_client_scale_ratios": {},
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": []
+      "match_reason": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed"
     }
   ],
+  "case_informed_action_candidates": [
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    }
+  ],
+  "legacy_case_rankings": [],
   "supporting_research_snippets": [
     {
       "source_id": "amec",
@@ -158,6 +717,84 @@
       "evidence_class": "operational_guidance"
     },
     {
+      "source_id": "appcast",
+      "kind": "vendor_observation",
+      "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+      "finding": "Observed apply completion varied with application length.",
+      "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel.",
+      "evidence_class": "observational_or_context_specific_finding"
+    },
+    {
+      "source_id": "earnest_2011",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+      "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+      "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "friebel_2021",
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2020.3905",
+      "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+      "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "hausknecht_2004",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+      "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+      "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "lacerenza_2017",
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+      "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+      "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "source_id": "w3c_forms",
+      "kind": "design_guidance",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+      "limitation": "Design guidance, with no universal completion-time target or effect size.",
+      "evidence_class": "operational_guidance"
+    },
+    {
+      "source_id": "williamson_2010",
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1002/hrm.20379",
+      "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+      "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+      "evidence_class": "observational_or_context_specific_finding"
+    },
+    {
+      "source_id": "zhao_2007",
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+      "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+      "limitation": "Verify why employees left and test alternative contributors.",
+      "evidence_class": "published_scientific_finding"
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 1,
+      "source": "European Enterprise Talent & Retention Study",
+      "finding": "Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 2,
+      "source": "Corporate Career Portal UX & Conversion Study",
+      "finding": "When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
       "evidence_class": "organizer_reference",
       "snippet_no": 3,
       "source": "B2B Employee Advocacy & Earned Media Study",
@@ -166,17 +803,84 @@
     },
     {
       "evidence_class": "organizer_reference",
+      "snippet_no": 4,
+      "source": "Workforce Climate & First-Year Attrition Study",
+      "finding": "Weak middle management and lack of transparent career progression account for over 55% of quantifiable Financial Turnover Risk (EUR) in knowledge-worker and scale-up organizations. Structured 360 feedback combined with manager coaching reduces team-level attrition risk by 18-28%.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
+      "snippet_no": 5,
+      "source": "Academic & Industry Meta-Analysis on Employee Advocacy Readiness",
+      "finding": "Asking employees to act as external brand ambassadors during periods of unaddressed workload burnout or cultural distrust produces 'performative backlash'—increasing cynical public reviews and failing to sustain ambassador participation past 60 days.",
+      "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "evidence_class": "organizer_reference",
       "snippet_no": 8,
       "source": "Executive HR Budget & CFO Governance Survey",
       "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
       "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "id": "friebel-heinz-zubanov-manager-attention",
+      "kind": "randomized field study",
+      "title": "Middle Managers, Personnel Turnover and Performance",
+      "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+      "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+      "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+      "topics": [
+        "manager_support",
+        "early_attrition",
+        "retention",
+        "retail"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "manager_support"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
+    },
+    {
+      "id": "phillips-1998-realistic-job-previews",
+      "kind": "meta-analysis",
+      "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+      "url": "https://doi.org/10.5465/256964",
+      "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+      "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+      "topics": [
+        "expectation_gap",
+        "early_attrition",
+        "recruiting",
+        "onboarding"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "expectation_gap"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
     }
   ],
   "ranked_track_tags": [
+    "early_attrition",
+    "expectation_gap",
+    "generic_ads",
+    "manager_support",
+    "mobile_friction",
     "post_tracking",
     "review_tracking"
   ],
   "supporting_source_ids": [
-    "amec"
+    "amec",
+    "appcast",
+    "earnest_2011",
+    "friebel_2021",
+    "hausknecht_2004",
+    "lacerenza_2017",
+    "w3c_forms",
+    "williamson_2010",
+    "zhao_2007"
   ]
 }

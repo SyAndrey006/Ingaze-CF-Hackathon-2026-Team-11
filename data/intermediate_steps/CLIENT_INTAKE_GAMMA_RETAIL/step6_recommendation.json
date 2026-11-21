@@ -15,6 +15,62 @@
         "evidence_ids": [
           "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
         ]
+      },
+      {
+        "hypothesis": "A mobile application obstacle may explain pre-submission loss",
+        "status": "plausible",
+        "rule": "application_friction",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction"
+        ]
+      },
+      {
+        "hypothesis": "Expectation drift may contribute to early exits",
+        "status": "plausible",
+        "rule": "expectation_drift",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+        ]
+      },
+      {
+        "hypothesis": "A management practice may contribute to exits",
+        "status": "plausible",
+        "rule": "management_practice",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+        ]
+      },
+      {
+        "hypothesis": "Unclear role information may weaken candidate attraction",
+        "status": "plausible",
+        "rule": "role_information",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+        ]
       }
     ],
     "blocked_traps_and_guardrails": [
@@ -31,6 +87,46 @@
           "window": "intake"
         },
         "rule": "manual_measurement"
+      },
+      {
+        "action": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "application_friction"
+      },
+      {
+        "action": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "expectation_drift"
+      },
+      {
+        "action": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "management_practice"
+      },
+      {
+        "action": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "rule": "role_information"
       },
       {
         "action": "Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost."
@@ -51,7 +147,8 @@
         "target_to_verify": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
         "preserve_baselines": [
           "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-        ]
+        ],
+        "pilot_design": "Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs."
       }
     ],
     "phase_3_actions": [
@@ -69,54 +166,127 @@
     ],
     "matched_case_studies": [
       {
-        "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-        "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-        "score": 5.0,
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.625,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4762,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "WORKLOAD_BURNOUT",
+          "WEAK_MIDDLE_MANAGEMENT",
+          "MOBILE_PORTAL_FRICTION"
+        ],
+        "measured_roi_summary": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 38,940 -> 74,180 (+90%)",
+          "Manual HR tracking: 5 h/month -> 1 h/month (-80%)",
+          "Say-Do Gap (claims vs reviews): 0.92 stars -> 0.29 stars (-68%)"
+        ],
+        "match_reason": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "historical_roi": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+        "score": 0.625,
         "shared_mechanisms": [
-          "post_tracking",
-          "review_tracking"
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "WORKLOAD_BURNOUT",
+          "WEAK_MIDDLE_MANAGEMENT",
+          "MOBILE_PORTAL_FRICTION"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-        "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-        "score": 5.0,
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.6233,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": "+31% mobile applicant conversion and -16% store staff early attrition.",
+        "quantified_roi_highlights": [
+          "Manual HR tracking: 4.5 h/month -> 1.5 h/month (-67%)",
+          "Say-Do Gap (claims vs reviews): 0.71 stars -> 0.28 stars (-61%)",
+          "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+        ],
+        "match_reason": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "historical_roi": "+31% mobile applicant conversion and -16% store staff early attrition.",
+        "score": 0.6233,
         "shared_mechanisms": [
-          "post_tracking",
-          "review_tracking"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
-        "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
-        "score": 3.0,
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.5689,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3158,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "GENERIC_BOILERPLATE_JDS"
+        ],
+        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "quantified_roi_highlights": [
+          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
+          "Application form drop-off: 61.8% -> 40.2% (-35%)",
+          "Time-to-Hire: 36 days -> 25 days (-31%)"
+        ],
+        "match_reason": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "score": 0.5689,
         "shared_mechanisms": [
-          "post_tracking"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "GENERIC_BOILERPLATE_JDS"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       }
     ],
     "supporting_research_snippets": [
@@ -129,6 +299,84 @@
         "evidence_class": "operational_guidance"
       },
       {
+        "source_id": "appcast",
+        "kind": "vendor_observation",
+        "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+        "finding": "Observed apply completion varied with application length.",
+        "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel.",
+        "evidence_class": "observational_or_context_specific_finding"
+      },
+      {
+        "source_id": "earnest_2011",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+        "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+        "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "friebel_2021",
+        "kind": "field_experiment",
+        "url": "https://doi.org/10.1287/mnsc.2020.3905",
+        "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+        "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "hausknecht_2004",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+        "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+        "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "lacerenza_2017",
+        "kind": "meta_analysis",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+        "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+        "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "w3c_forms",
+        "kind": "design_guidance",
+        "url": "https://www.w3.org/WAI/tutorials/forms/",
+        "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+        "limitation": "Design guidance, with no universal completion-time target or effect size.",
+        "evidence_class": "operational_guidance"
+      },
+      {
+        "source_id": "williamson_2010",
+        "kind": "empirical_study",
+        "url": "https://doi.org/10.1002/hrm.20379",
+        "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+        "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+        "evidence_class": "observational_or_context_specific_finding"
+      },
+      {
+        "source_id": "zhao_2007",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+        "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+        "limitation": "Verify why employees left and test alternative contributors.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 1,
+        "source": "European Enterprise Talent & Retention Study",
+        "finding": "Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 2,
+        "source": "Corporate Career Portal UX & Conversion Study",
+        "finding": "When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
         "evidence_class": "organizer_reference",
         "snippet_no": 3,
         "source": "B2B Employee Advocacy & Earned Media Study",
@@ -137,10 +385,64 @@
       },
       {
         "evidence_class": "organizer_reference",
+        "snippet_no": 4,
+        "source": "Workforce Climate & First-Year Attrition Study",
+        "finding": "Weak middle management and lack of transparent career progression account for over 55% of quantifiable Financial Turnover Risk (EUR) in knowledge-worker and scale-up organizations. Structured 360 feedback combined with manager coaching reduces team-level attrition risk by 18-28%.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 5,
+        "source": "Academic & Industry Meta-Analysis on Employee Advocacy Readiness",
+        "finding": "Asking employees to act as external brand ambassadors during periods of unaddressed workload burnout or cultural distrust produces 'performative backlash'—increasing cynical public reviews and failing to sustain ambassador participation past 60 days.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
         "snippet_no": 8,
         "source": "Executive HR Budget & CFO Governance Survey",
         "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
         "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "id": "friebel-heinz-zubanov-manager-attention",
+        "kind": "randomized field study",
+        "title": "Middle Managers, Personnel Turnover and Performance",
+        "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+        "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+        "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+        "topics": [
+          "manager_support",
+          "early_attrition",
+          "retention",
+          "retail"
+        ],
+        "matched_topics": [
+          "early_attrition",
+          "manager_support"
+        ],
+        "score": 8,
+        "evidence_class": "published_reference"
+      },
+      {
+        "id": "phillips-1998-realistic-job-previews",
+        "kind": "meta-analysis",
+        "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+        "url": "https://doi.org/10.5465/256964",
+        "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+        "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+        "topics": [
+          "expectation_gap",
+          "early_attrition",
+          "recruiting",
+          "onboarding"
+        ],
+        "matched_topics": [
+          "early_attrition",
+          "expectation_gap"
+        ],
+        "score": 8,
+        "evidence_class": "published_reference"
       }
     ],
     "strategic_focus_and_do_not_touch": [
@@ -164,6 +466,68 @@
         ],
         "dependent_families": [],
         "counterevidence_ids": []
+      },
+      {
+        "rule": "application_friction",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "verify": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "missing_families": [
+          "device_exposure"
+        ],
+        "dependent_families": [
+          "form_exit"
+        ],
+        "counterevidence_ids": []
+      },
+      {
+        "rule": "expectation_drift",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "verify": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "counterevidence_ids": []
+      },
+      {
+        "rule": "management_practice",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "verify": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "counterevidence_ids": []
+      },
+      {
+        "rule": "role_information",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "verify": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "missing_families": [
+          "entry_conversion"
+        ],
+        "dependent_families": [],
+        "counterevidence_ids": []
       }
     ]
   },
@@ -180,6 +544,112 @@
       }
     ],
     "diagnostic_hypotheses": [
+      {
+        "rule": "application_friction",
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction"
+        ],
+        "other_matching_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+        ],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction": "origin:step1_normalized_client_input",
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "form_exit",
+          "device_exposure"
+        ],
+        "missing_families": [
+          "device_exposure"
+        ],
+        "dependent_families": [
+          "form_exit"
+        ],
+        "evidence_slots": [
+          {
+            "family": "application_step",
+            "expected_signals": [
+              "form_obstacle_verified",
+              "mobile_friction"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+            "direct_slot": true
+          },
+          {
+            "family": "form_exit",
+            "expected_signals": [
+              "application_abandonment"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          },
+          {
+            "family": "device_exposure",
+            "expected_signals": [
+              "mobile_exposure"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "next_check": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "role_information",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
       {
         "rule": "application_friction",
         "label": "A mobile application obstacle may explain pre-submission loss",
@@ -287,6 +757,958 @@
         ]
       },
       {
+        "rule": "compensation_pressure",
+        "label": "A cohort-specific pay gap may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "compensation"
+        ],
+        "missing_families": [
+          "compensation"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "compensation",
+            "expected_signals": [
+              "pay_gap_verified"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "expectation_drift",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "dube_2019"
+        ],
+        "next_check": "Audit comparable pay and exit reasons within the same role, location and tenure window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "compensation_pressure",
+        "label": "A cohort-specific pay gap may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "compensation"
+        ],
+        "missing_families": [
+          "compensation"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "compensation",
+            "expected_signals": [
+              "pay_gap_verified"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "expectation_drift",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "dube_2019"
+        ],
+        "next_check": "Audit comparable pay and exit reasons within the same role, location and tenure window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "expectation_drift",
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "promise_alignment"
+        ],
+        "missing_families": [
+          "promise_alignment"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "promise_alignment",
+            "expected_signals": [
+              "documented_broken_promise",
+              "expectation_gap",
+              "brand_misalignment"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "next_check": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "expectation_drift",
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "promise_alignment",
+            "expected_signals": [
+              "documented_broken_promise",
+              "expectation_gap",
+              "brand_misalignment"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "next_check": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "expectation_drift",
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "promise_alignment"
+        ],
+        "missing_families": [
+          "promise_alignment"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "promise_alignment",
+            "expected_signals": [
+              "documented_broken_promise",
+              "expectation_gap",
+              "brand_misalignment"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "next_check": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "internal_mobility_access",
+        "label": "Restricted access to internal openings may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "internal_mobility"
+        ],
+        "missing_families": [
+          "internal_mobility"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "internal_mobility",
+            "expected_signals": [
+              "internal_mobility_barrier_verified",
+              "internal_mobility_barrier_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition",
+              "voluntary_exit_increase"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "onboarding_clarity",
+          "compensation_pressure",
+          "management_practice"
+        ],
+        "sources": [
+          "keller_2018"
+        ],
+        "next_check": "Compare internal posting visibility, applicant access and exit themes by role and tenure. Check actual opportunities apart from clarity about progression.",
+        "competing_hypotheses": [
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "internal_mobility_access",
+        "label": "Restricted access to internal openings may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "internal_mobility"
+        ],
+        "missing_families": [
+          "internal_mobility"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "internal_mobility",
+            "expected_signals": [
+              "internal_mobility_barrier_verified",
+              "internal_mobility_barrier_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition",
+              "voluntary_exit_increase"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "onboarding_clarity",
+          "compensation_pressure",
+          "management_practice"
+        ],
+        "sources": [
+          "keller_2018"
+        ],
+        "next_check": "Compare internal posting visibility, applicant access and exit themes by role and tenure. Check actual opportunities apart from clarity about progression.",
+        "competing_hypotheses": [
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "manager_experience"
+        ],
+        "missing_families": [
+          "manager_experience"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "manager_experience"
+        ],
+        "missing_families": [
+          "manager_experience"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "manual_measurement",
+        "label": "Manual workflows may limit reporting coverage and consume staff time",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": "team, store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "tracking_process"
+        ],
+        "missing_families": [
+          "tracking_process"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "tracking_process",
+            "expected_signals": [
+              "tracking_workflow_verified",
+              "post_tracking"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "staff_time",
+            "expected_signals": [
+              "manual_tracking_load"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "campaign_attribution_gap"
+        ],
+        "sources": [
+          "amec"
+        ],
+        "next_check": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+        "competing_hypotheses": [
+          {
+            "rule": "campaign_attribution_gap",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
         "rule": "manual_measurement",
         "label": "Manual workflows may limit reporting coverage and consume staff time",
         "kind": "operational",
@@ -351,6 +1773,937 @@
           {
             "rule": "campaign_attribution_gap",
             "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "onboarding_clarity",
+        "label": "Unclear role or progression expectations may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "role_growth"
+        ],
+        "missing_families": [
+          "role_growth"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_growth",
+            "expected_signals": [
+              "role_clarity_failure",
+              "career_clarity"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "bauer_2007"
+        ],
+        "next_check": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "onboarding_clarity",
+        "label": "Unclear role or progression expectations may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "role_growth"
+        ],
+        "missing_families": [
+          "role_growth"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_growth",
+            "expected_signals": [
+              "role_clarity_failure",
+              "career_clarity"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "bauer_2007"
+        ],
+        "next_check": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "reputation_location",
+        "label": "A local operating issue may explain uneven site reputation",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "78 suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "local_operations"
+        ],
+        "missing_families": [
+          "local_operations"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "local_operations",
+            "expected_signals": [
+              "local_issue_verified"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "review_distribution",
+            "expected_signals": [
+              "local_reputation"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "review_sample_shift"
+        ],
+        "sources": [
+          "marinescu_2021"
+        ],
+        "next_check": "Compare themes, sample counts and local operational records for the affected sites.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "review_sample_shift",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "reputation_location",
+        "label": "A local operating issue may explain uneven site reputation",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "HQ, suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "local_operations"
+        ],
+        "missing_families": [
+          "local_operations"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "local_operations",
+            "expected_signals": [
+              "local_issue_verified"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "review_distribution",
+            "expected_signals": [
+              "local_reputation"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "review_sample_shift"
+        ],
+        "sources": [
+          "marinescu_2021"
+        ],
+        "next_check": "Compare themes, sample counts and local operational records for the affected sites.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "review_sample_shift",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "review_sample_shift",
+        "label": "Review collection changes may explain some apparent reputation movement",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": "78 suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "review_selection"
+        ],
+        "missing_families": [
+          "review_selection"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "review_selection",
+            "expected_signals": [
+              "review_sample_shift_verified",
+              "review_sample_shift_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "review_distribution",
+            "expected_signals": [
+              "local_reputation"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "reputation_location",
+          "speak_up_barriers"
+        ],
+        "sources": [
+          "marinescu_2021"
+        ],
+        "next_check": "Compare review counts and respondent mix by platform, site and period. Cross-check changes against independent operational and listening records.",
+        "competing_hypotheses": [
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "speak_up_barriers",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "review_sample_shift",
+        "label": "Review collection changes may explain some apparent reputation movement",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": "HQ, suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "review_selection"
+        ],
+        "missing_families": [
+          "review_selection"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "review_selection",
+            "expected_signals": [
+              "review_sample_shift_verified",
+              "review_sample_shift_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "review_distribution",
+            "expected_signals": [
+              "local_reputation"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "reputation_location",
+          "speak_up_barriers"
+        ],
+        "sources": [
+          "marinescu_2021"
+        ],
+        "next_check": "Compare review counts and respondent mix by platform, site and period. Cross-check changes against independent operational and listening records.",
+        "competing_hypotheses": [
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "speak_up_barriers",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "role_information",
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Employee, store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "role_information"
+        ],
+        "missing_families": [
+          "role_information"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_information",
+            "expected_signals": [
+              "role_info_gap_verified",
+              "generic_ads"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "entry_conversion",
+            "expected_signals": [
+              "application_loss"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "next_check": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "role_information",
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "entry_conversion"
+        ],
+        "missing_families": [
+          "entry_conversion"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_information",
+            "expected_signals": [
+              "role_info_gap_verified",
+              "generic_ads"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads",
+            "direct_slot": true
+          },
+          {
+            "family": "entry_conversion",
+            "expected_signals": [
+              "application_loss"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "next_check": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "schedule_instability",
+        "label": "Short-notice or unstable shifts may contribute to work strain",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "schedule",
+          "work_design"
+        ],
+        "missing_families": [
+          "schedule",
+          "work_design"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "schedule",
+            "expected_signals": [
+              "schedule_instability"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "exhaustion",
+            "expected_signals": [
+              "burnout"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout",
+            "direct_slot": false
+          },
+          {
+            "family": "work_design",
+            "expected_signals": [
+              "shift_based_work"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "workload_strain"
+        ],
+        "sources": [
+          "kesavan_2022",
+          "demerouti_2001"
+        ],
+        "next_check": "Compare roster notice, coverage and strain; check whether the target workforce actually works shifts.",
+        "competing_hypotheses": [
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "work_location_flexibility",
+        "label": "A feasible location change may address a reported retention barrier",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "location_flexibility",
+          "role_location_feasibility"
+        ],
+        "missing_families": [
+          "location_flexibility",
+          "role_location_feasibility"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "location_flexibility",
+            "expected_signals": [
+              "flexibility_barrier_verified",
+              "flexibility_barrier_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition",
+              "voluntary_exit_increase"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+            "direct_slot": false
+          },
+          {
+            "family": "role_location_feasibility",
+            "expected_signals": [
+              "flexibility_feasible"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "schedule_instability",
+          "workload_strain",
+          "compensation_pressure"
+        ],
+        "sources": [
+          "bloom_2024"
+        ],
+        "next_check": "Verify commute or location concerns in the affected cohort and confirm that service, access and team responsibilities allow a trial.",
+        "competing_hypotheses": [
+          {
+            "rule": "schedule_instability",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "work_location_flexibility",
+        "label": "A feasible location change may address a reported retention barrier",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "location_flexibility",
+          "role_location_feasibility"
+        ],
+        "missing_families": [
+          "location_flexibility",
+          "role_location_feasibility"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "location_flexibility",
+            "expected_signals": [
+              "flexibility_barrier_verified",
+              "flexibility_barrier_reported"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition",
+              "voluntary_exit_increase"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+            "direct_slot": false
+          },
+          {
+            "family": "role_location_feasibility",
+            "expected_signals": [
+              "flexibility_feasible"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "schedule_instability",
+          "workload_strain",
+          "compensation_pressure"
+        ],
+        "sources": [
+          "bloom_2024"
+        ],
+        "next_check": "Verify commute or location concerns in the affected cohort and confirm that service, access and team responsibilities allow a trial.",
+        "competing_hypotheses": [
+          {
+            "rule": "schedule_instability",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "plausible"
+          }
+        ]
+      },
+      {
+        "rule": "workload_strain",
+        "label": "Excess workload may contribute to employee exhaustion",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "job_demands"
+        ],
+        "missing_families": [
+          "job_demands"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "job_demands",
+            "expected_signals": [
+              "workload_verified"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": true
+          },
+          {
+            "family": "exhaustion",
+            "expected_signals": [
+              "burnout"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout",
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "schedule_instability"
+        ],
+        "sources": [
+          "demerouti_2001",
+          "bes_2023"
+        ],
+        "next_check": "Compare staffing, overtime and confidential listening by cohort; check schedule instability and workload changes.",
+        "competing_hypotheses": [
+          {
+            "rule": "schedule_instability",
+            "same_scope_status": "plausible"
           }
         ]
       }
@@ -447,6 +2800,276 @@
             "text": "12 hours"
           }
         ]
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:1:employer_reputation_weak",
+        "signal": "employer_reputation_weak",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.LOW_PUBLIC_RATING",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "HQ, suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation",
+        "signal": "local_reputation",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.MULTISITE_REPUTATION_VARIANCE",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "HQ, suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+        "signal": "mobile_friction",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.MOBILE_PORTAL_FRICTION",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment",
+        "signal": "application_abandonment",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.HIGH_APPLICATION_DROPOFF",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads",
+        "signal": "generic_ads",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.GENERIC_BOILERPLATE_JDS",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Store job ads are copy-pasted from old HQ templates ('synergistic brand ambassador with omnichannel KPI mindset') and never mention shift rules or store perks."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:6:corporate_engagement_weak",
+        "signal": "corporate_engagement_weak",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.CHANNEL_WORKFORCE_MISMATCH",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "HQ, in-store roles",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Our corporate LinkedIn page gets decent engagement from fashion buyers and HQ marketers, but almost zero applications for in-store roles."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load",
+        "signal": "manual_tracking_load",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.MANUAL_HR_SPREADSHEET_DRAG",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "team, store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+        "signal": "early_attrition",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.EARLY_FIRST_YEAR_ATTRITION",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "suburban mall stores, newly hired sales associates, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout",
+        "signal": "burnout",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.WORKLOAD_BURNOUT",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support",
+        "signal": "manager_support",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.WEAK_MIDDLE_MANAGEMENT",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+        "signal": "early_attrition",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.HIGH_FINANCIAL_TURNOVER_RISK",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "Store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:13:emv",
+        "signal": "emv",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.MISSING_CFO_ROI_EMV_VISIBILITY",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "HQ, suburban mall stores, store, store managers, retail candidates, candidates, in-store roles, team, sales associates, employees, merchandising teams, city-center flagship stores, newly hired sales associates, Employee, store associates, locations, site, In-Store Sales Associates, Assistant Store Managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss",
+        "signal": "application_loss",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.LOW_INBOUND_QUALIFIED_APPLICANTS",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "Employee, store",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap",
+        "signal": "expectation_gap",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.SAY_DO_GAP",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "A vibrant, people-first fashion community where creativity and work-life balance thrive. | Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+      },
+      {
+        "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation",
+        "signal": "local_reputation",
+        "state": "present",
+        "quality": "reported",
+        "source_ref": "step1.normalized_input.COHORT_OR_SITE_ASYMMETRY",
+        "origins": [
+          "step1_normalized_client_input"
+        ],
+        "scope": {
+          "cohort": "78 suburban mall stores",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_type": "reviewed_local_observation",
+        "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
       }
     ],
     "normalized_measurements": [],
@@ -461,6 +3084,50 @@
         },
         "decision": "conditional",
         "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+      },
+      {
+        "rule": "application_friction",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "decision": "deferred",
+        "reason": "More scoped evidence is required before proposing this intervention."
+      },
+      {
+        "rule": "expectation_drift",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "decision": "deferred",
+        "reason": "More scoped evidence is required before proposing this intervention."
+      },
+      {
+        "rule": "management_practice",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "decision": "deferred",
+        "reason": "More scoped evidence is required before proposing this intervention."
+      },
+      {
+        "rule": "role_information",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "decision": "deferred",
+        "reason": "More scoped evidence is required before proposing this intervention."
       }
     ],
     "guardrails": [
@@ -470,54 +3137,127 @@
     "protected_scopes": [],
     "case_ranking": [
       {
-        "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-        "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-        "score": 5.0,
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.625,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4762,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "WORKLOAD_BURNOUT",
+          "WEAK_MIDDLE_MANAGEMENT",
+          "MOBILE_PORTAL_FRICTION"
+        ],
+        "measured_roi_summary": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 38,940 -> 74,180 (+90%)",
+          "Manual HR tracking: 5 h/month -> 1 h/month (-80%)",
+          "Say-Do Gap (claims vs reviews): 0.92 stars -> 0.29 stars (-68%)"
+        ],
+        "match_reason": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "historical_roi": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+        "score": 0.625,
         "shared_mechanisms": [
-          "post_tracking",
-          "review_tracking"
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "WORKLOAD_BURNOUT",
+          "WEAK_MIDDLE_MANAGEMENT",
+          "MOBILE_PORTAL_FRICTION"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-        "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-        "score": 5.0,
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.6233,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": "+31% mobile applicant conversion and -16% store staff early attrition.",
+        "quantified_roi_highlights": [
+          "Manual HR tracking: 4.5 h/month -> 1.5 h/month (-67%)",
+          "Say-Do Gap (claims vs reviews): 0.71 stars -> 0.28 stars (-61%)",
+          "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+        ],
+        "match_reason": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "historical_roi": "+31% mobile applicant conversion and -16% store staff early attrition.",
+        "score": 0.6233,
         "shared_mechanisms": [
-          "post_tracking",
-          "review_tracking"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
-        "historical_roi": "+38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).",
-        "score": 3.0,
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.5689,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3158,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "GENERIC_BOILERPLATE_JDS"
+        ],
+        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "quantified_roi_highlights": [
+          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
+          "Application form drop-off: 61.8% -> 40.2% (-35%)",
+          "Time-to-Hire: 36 days -> 25 days (-31%)"
+        ],
+        "match_reason": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "score": 0.5689,
         "shared_mechanisms": [
-          "post_tracking"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "GENERIC_BOILERPLATE_JDS"
         ],
-        "shared_context": [
-          "distributed"
-        ],
+        "shared_context": [],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {},
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": []
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas"
       }
     ],
     "candidate_action_scores": [
@@ -533,28 +3273,565 @@
         "status": "plausible",
         "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
         "diagnosis_rank": 1,
-        "score": 0.7089,
+        "score": 0.6303,
         "score_breakdown": {
           "status_support": 0.187,
           "evidence_slot_coverage": 0.1062,
           "direct_evidence": 0.1275,
           "reported_evidence": 0.1275,
           "scope_specificity": 0.0106,
-          "historical_case_mechanism_fit": 0.15
+          "historical_case_mechanism_fit": 0.0714
         },
         "matched_evidence_ids": [
           "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
         ],
         "matched_case_names": [
-          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-          "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-          "FlowPay (International FinTech & Digital Payments Scale-Up)"
+          "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+          "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
         ],
         "score_rank": 1
+      },
+      {
+        "candidate_id": "application_friction:2",
+        "rule": "application_friction",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+        "diagnosis_rank": 2,
+        "score": 0.5489,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1417,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.0714
+        },
+        "matched_evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+        ],
+        "matched_case_names": [
+          "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+          "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        ],
+        "score_rank": 2
+      },
+      {
+        "candidate_id": "expectation_drift:3",
+        "rule": "expectation_drift",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+        "diagnosis_rank": 3,
+        "score": 0.5134,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.0714
+        },
+        "matched_evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+        ],
+        "matched_case_names": [
+          "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+          "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        ],
+        "score_rank": 3
+      },
+      {
+        "candidate_id": "management_practice:4",
+        "rule": "management_practice",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+        "diagnosis_rank": 4,
+        "score": 0.5134,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.0714
+        },
+        "matched_evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+        ],
+        "matched_case_names": [
+          "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+          "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        ],
+        "score_rank": 4
+      },
+      {
+        "candidate_id": "role_information:5",
+        "rule": "role_information",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "diagnosis_rank": 5,
+        "score": 0.5134,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.0714
+        },
+        "matched_evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+        ],
+        "matched_case_names": [
+          "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+          "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        ],
+        "score_rank": 5
       }
     ],
-    "normalized_case_matches": [],
-    "case_informed_action_candidates": [],
+    "normalized_case_matches": [
+      {
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.625,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4762,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "WORKLOAD_BURNOUT",
+          "WEAK_MIDDLE_MANAGEMENT",
+          "MOBILE_PORTAL_FRICTION"
+        ],
+        "measured_roi_summary": "-19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 38,940 -> 74,180 (+90%)",
+          "Manual HR tracking: 5 h/month -> 1 h/month (-80%)",
+          "Say-Do Gap (claims vs reviews): 0.92 stars -> 0.29 stars (-68%)"
+        ],
+        "match_reason": "5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed"
+      },
+      {
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.6233,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": "+31% mobile applicant conversion and -16% store staff early attrition.",
+        "quantified_roi_highlights": [
+          "Manual HR tracking: 4.5 h/month -> 1.5 h/month (-67%)",
+          "Say-Do Gap (claims vs reviews): 0.71 stars -> 0.28 stars (-61%)",
+          "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+        ],
+        "match_reason": "4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed"
+      },
+      {
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "sector_category": "RETAIL_OMNICHANNEL",
+        "similarity_score": 0.5689,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3158,
+          "workforce_fit_score": 0.3333,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "GENERIC_BOILERPLATE_JDS"
+        ],
+        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "quantified_roi_highlights": [
+          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
+          "Application form drop-off: 61.8% -> 40.2% (-35%)",
+          "Time-to-Hire: 36 days -> 25 days (-31%)"
+        ],
+        "match_reason": "3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed"
+      }
+    ],
+    "case_informed_action_candidates": [
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "RETAIL_SHIFT_ROTATION",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MOBILE_FAST_APPLY_FLOW",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_07_GAMMA_RETAIL",
+        "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MOBILE_FAST_APPLY_FLOW",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "RETAIL_SHIFT_ROTATION",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_10_BELLAMODA",
+        "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MOBILE_FAST_APPLY_FLOW",
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_04_GLOBAL_RETAIL",
+        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "RETAIL_SHIFT_ROTATION",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+        "case_id": "CASE_18_NORDICHOME_LIVING",
+        "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+        "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+        "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+        "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+        "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      }
+    ],
     "mandatory_constraint_source": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
     "protected_baselines": [
       {
@@ -598,6 +3875,84 @@
         "evidence_class": "operational_guidance"
       },
       {
+        "source_id": "appcast",
+        "kind": "vendor_observation",
+        "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+        "finding": "Observed apply completion varied with application length.",
+        "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel.",
+        "evidence_class": "observational_or_context_specific_finding"
+      },
+      {
+        "source_id": "earnest_2011",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+        "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+        "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "friebel_2021",
+        "kind": "field_experiment",
+        "url": "https://doi.org/10.1287/mnsc.2020.3905",
+        "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+        "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "hausknecht_2004",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+        "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+        "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "lacerenza_2017",
+        "kind": "meta_analysis",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+        "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+        "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "source_id": "w3c_forms",
+        "kind": "design_guidance",
+        "url": "https://www.w3.org/WAI/tutorials/forms/",
+        "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+        "limitation": "Design guidance, with no universal completion-time target or effect size.",
+        "evidence_class": "operational_guidance"
+      },
+      {
+        "source_id": "williamson_2010",
+        "kind": "empirical_study",
+        "url": "https://doi.org/10.1002/hrm.20379",
+        "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+        "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+        "evidence_class": "observational_or_context_specific_finding"
+      },
+      {
+        "source_id": "zhao_2007",
+        "kind": "meta_analysis",
+        "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+        "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+        "limitation": "Verify why employees left and test alternative contributors.",
+        "evidence_class": "published_scientific_finding"
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 1,
+        "source": "European Enterprise Talent & Retention Study",
+        "finding": "Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 2,
+        "source": "Corporate Career Portal UX & Conversion Study",
+        "finding": "When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
         "evidence_class": "organizer_reference",
         "snippet_no": 3,
         "source": "B2B Employee Advocacy & Earned Media Study",
@@ -606,14 +3961,72 @@
       },
       {
         "evidence_class": "organizer_reference",
+        "snippet_no": 4,
+        "source": "Workforce Climate & First-Year Attrition Study",
+        "finding": "Weak middle management and lack of transparent career progression account for over 55% of quantifiable Financial Turnover Risk (EUR) in knowledge-worker and scale-up organizations. Structured 360 feedback combined with manager coaching reduces team-level attrition risk by 18-28%.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
+        "snippet_no": 5,
+        "source": "Academic & Industry Meta-Analysis on Employee Advocacy Readiness",
+        "finding": "Asking employees to act as external brand ambassadors during periods of unaddressed workload burnout or cultural distrust produces 'performative backlash'—increasing cynical public reviews and failing to sustain ambassador participation past 60 days.",
+        "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "evidence_class": "organizer_reference",
         "snippet_no": 8,
         "source": "Executive HR Budget & CFO Governance Survey",
         "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
         "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+      },
+      {
+        "id": "friebel-heinz-zubanov-manager-attention",
+        "kind": "randomized field study",
+        "title": "Middle Managers, Personnel Turnover and Performance",
+        "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+        "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+        "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+        "topics": [
+          "manager_support",
+          "early_attrition",
+          "retention",
+          "retail"
+        ],
+        "matched_topics": [
+          "early_attrition",
+          "manager_support"
+        ],
+        "score": 8,
+        "evidence_class": "published_reference"
+      },
+      {
+        "id": "phillips-1998-realistic-job-previews",
+        "kind": "meta-analysis",
+        "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+        "url": "https://doi.org/10.5465/256964",
+        "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+        "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+        "topics": [
+          "expectation_gap",
+          "early_attrition",
+          "recruiting",
+          "onboarding"
+        ],
+        "matched_topics": [
+          "early_attrition",
+          "expectation_gap"
+        ],
+        "score": 8,
+        "evidence_class": "published_reference"
       }
     ],
     "advocacy_ready_for_pilot": false,
-    "advocacy_blockers": [],
+    "advocacy_blockers": [
+      "burnout",
+      "expectation_gap",
+      "manager_support"
+    ],
     "operational_assumptions": [
       "Peer-gap margins prioritize review and have no statistical or causal interpretation.",
       "A conditional pilot requires verification and Phase 3 requires evaluated results.",
@@ -621,15 +4034,54 @@
     ],
     "evidence": {
       "application_abandonment": [
-        "ingaze_platform_signals.recruiting_and_jds#1"
+        "ingaze_platform_signals.recruiting_and_jds#1",
+        "step1.normalized_input.HIGH_APPLICATION_DROPOFF"
+      ],
+      "application_loss": [
+        "step1.normalized_input.LOW_INBOUND_QUALIFIED_APPLICANTS"
+      ],
+      "burnout": [
+        "step1.normalized_input.WORKLOAD_BURNOUT"
+      ],
+      "corporate_engagement_weak": [
+        "step1.normalized_input.CHANNEL_WORKFORCE_MISMATCH"
+      ],
+      "early_attrition": [
+        "step1.normalized_input.EARLY_FIRST_YEAR_ATTRITION",
+        "step1.normalized_input.HIGH_FINANCIAL_TURNOVER_RISK"
+      ],
+      "employer_reputation_weak": [
+        "step1.normalized_input.LOW_PUBLIC_RATING"
+      ],
+      "emv": [
+        "step1.normalized_input.MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "expectation_gap": [
+        "step1.normalized_input.SAY_DO_GAP"
+      ],
+      "generic_ads": [
+        "step1.normalized_input.GENERIC_BOILERPLATE_JDS"
+      ],
+      "local_reputation": [
+        "step1.normalized_input.MULTISITE_REPUTATION_VARIANCE",
+        "step1.normalized_input.COHORT_OR_SITE_ASYMMETRY"
+      ],
+      "manager_support": [
+        "step1.normalized_input.WEAK_MIDDLE_MANAGEMENT"
+      ],
+      "manual_tracking_load": [
+        "step1.normalized_input.MANUAL_HR_SPREADSHEET_DRAG"
       ],
       "mobile_exposure": [
         "ingaze_platform_signals.recruiting_and_jds#1"
+      ],
+      "mobile_friction": [
+        "step1.normalized_input.MOBILE_PORTAL_FRICTION"
       ],
       "tracking_workflow_verified": [
         "ingaze_platform_signals.linkedin_and_content_analytics#2"
       ]
     },
-    "proposal_markdown": "# HR Proposal — Gamma Retail S.p.A.\n\n**Scenario:** `CLIENT_INTAKE_GAMMA_RETAIL`  \n**Industry:** Omnichannel Apparel & Lifestyle Retail\n\n## Executive Diagnosis\n\nFor Gamma Retail S.p.A., the leading diagnosis is Manual workflows may limit reporting coverage and consume staff time. Start with Audit duplicate handling, reporting effort, source coverage, and ownership.; advance to Instrument verified tracking steps with source IDs and document staff time and conversion separately. only under its stated prerequisite. Preserve the listed guardrails, including: Defer external advocacy until target-cohort readiness, participation and trust are verified..\n\n### Root-cause hypotheses\n- Manual workflows may limit reporting coverage and consume staff time — status: plausible\n\n### Observed surface signals and evidence\n- mobile_exposure (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- application_abandonment (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- tracking_workflow_verified: Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.\n\n## Guardrails & “Do Not Touch”\n\n### Blocked traps and guardrails\n- Defer external advocacy until target-cohort readiness, participation and trust are verified.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Deferred requests and decisions\n- No Step 4 decisions were marked deferred.\n\n### Leadership requests captured at intake\n\n### Healthy baselines to preserve\n- Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\n\n### Cohort and site asymmetries\n\n- HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.\n\n### Filtered or quarantined input\n\n- Note: our raw review export also accidentally pulled 2 unverified rows from an external third-party warehouse pilot complaining about 'overnight forklift charging bays'.\n\n## Three-Phase Action Roadmap\n\n### Phase 1 — Diagnostics\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n\n### Phase 3 — Scaling Gates\n- Expand after completeness, auditability and staff time improve. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n\n## Evidence & Precedents\n\n### Historical case precedents\n- **VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)** (match score: 5.0)\n  - Historical outcome: Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n- **VitaCare Network (Multi-Site Healthcare & Senior Care Group)** (match score: 5.0)\n  - Historical outcome: Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n- **FlowPay (International FinTech & Digital Payments Scale-Up)** (match score: 3.0)\n  - Historical outcome: +38% LinkedIn engagement rate in 1 quarter, and manual analytics time cut by 85% (~10 hours/month reclaimed).\n  - Transfer note: Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.\n\n### Supporting research\n- **amec:** AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **B2B Employee Advocacy & Earned Media Study:** Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey:** 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Open client verification questions\n- Audit duplicate handling, reporting effort, source coverage, and ownership. — missing families: staff_time\n\n---\nThis proposal reports deterministic pipeline decisions. Historical outcomes are precedents, not forecasts; scale only after the stated measures and guardrails are verified.\n"
+    "proposal_markdown": "# HR Proposal — Gamma Retail S.p.A.\n\n**Scenario:** `CLIENT_INTAKE_GAMMA_RETAIL`  \n**Industry:** Omnichannel Apparel & Lifestyle Retail\n\n## Executive Diagnosis\n\nFor Gamma Retail S.p.A., the leading diagnosis is Manual workflows may limit reporting coverage and consume staff time. Start with Audit duplicate handling, reporting effort, source coverage, and ownership.; advance to Instrument verified tracking steps with source IDs and document staff time and conversion separately. only under its stated prerequisite. Preserve the listed guardrails, including: Defer external advocacy until target-cohort readiness, participation and trust are verified..\n\n### Root-cause hypotheses\n- Manual workflows may limit reporting coverage and consume staff time — status: plausible\n- A mobile application obstacle may explain pre-submission loss — status: plausible; scope: cohort: retail candidates\n- Expectation drift may contribute to early exits — status: plausible; scope: cohort: store, store managers\n- A management practice may contribute to exits — status: plausible; scope: cohort: store, store managers\n- Unclear role information may weaken candidate attraction — status: plausible; scope: cohort: Store, HQ\n\n### Observed surface signals and evidence\n- mobile_exposure (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- application_abandonment (tenure: applicant): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- tracking_workflow_verified: Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker.\n- employer_reputation_weak (cohort: HQ, suburban mall stores): Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5.\n- local_reputation (cohort: HQ, suburban mall stores): Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5.\n- mobile_friction (cohort: retail candidates): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- application_abandonment (cohort: retail candidates): Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through.\n- generic_ads (cohort: Store, HQ): Store job ads are copy-pasted from old HQ templates ('synergistic brand ambassador with omnichannel KPI mindset') and never mention shift rules or store perks.\n\n## Guardrails & “Do Not Touch”\n\n### Blocked traps and guardrails\n- Defer external advocacy until target-cohort readiness, participation and trust are verified.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Deferred requests and decisions\n- Application friction — decision: deferred; reason: More scoped evidence is required before proposing this intervention.; scope: cohort: retail candidates\n- Expectation drift — decision: deferred; reason: More scoped evidence is required before proposing this intervention.; scope: cohort: store, store managers\n- Management practice — decision: deferred; reason: More scoped evidence is required before proposing this intervention.; scope: cohort: store, store managers\n- Role information — decision: deferred; reason: More scoped evidence is required before proposing this intervention.; scope: cohort: Store, HQ\n\n### Leadership requests captured at intake\n- {\"inferred_action_category\": \"AMBASSADOR_SELECTION_ENABLEMENT\", \"requested_action_text\": \"to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage. At the same time\", \"requested_urgency\": \"IMMEDIATE_PHASE_1\", \"stakeholder_role\": \"VP of Retail\", \"target_scope\": \"Employee, store\"}\n- {\"inferred_action_category\": \"TECHNICAL_LINKEDIN_STORYTELLING\", \"requested_action_text\": \"a weekly B2B LinkedIn thought-leadership blog series to attract store associates, and\", \"requested_urgency\": \"STANDARD\", \"stakeholder_role\": \"Head of Marketing\", \"target_scope\": \"store associates\"}\n- {\"inferred_action_category\": \"COMPENSATION_BAND_OVERHAUL\", \"requested_action_text\": \"if we should cut the 40% staff discount to fund recruiting ads\", \"requested_urgency\": \"STANDARD\", \"stakeholder_role\": \"Finance\", \"target_scope\": \"company-wide\"}\n\n### Healthy baselines to preserve\n- {\"asset_or_cohort_name\": \"Competitive base pay\", \"do_not_touch_scope\": \"Preserve the documented pay position; do not overhaul compensation without separate evidence.\", \"evidence\": \"Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\", \"related_signal\": \"COMPETITIVE_COMPENSATION_HEALTHY\"}\n- {\"asset_or_cohort_name\": \"High-retention cohort\", \"do_not_touch_scope\": \"Protect the identified high-retention cohort from broad changes; use it as a comparison group.\", \"evidence\": \"Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\", \"related_signal\": \"HIGH_COHORT_RETENTION_HEALTHY\"}\n- {\"asset_or_cohort_name\": \"Valued employee benefit\", \"do_not_touch_scope\": \"Preserve the documented benefit; do not remove it to fund a different initiative.\", \"evidence\": \"Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\", \"related_signal\": \"STRONG_OPERATIONAL_ASSETS_HEALTHY\"}\n- Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.\n\n### Cohort and site asymmetries\n\n- [{'struggling_segment': '78 suburban mall stores', 'struggling_evidence': 'The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.', 'healthy_comparison_segment': 'HQ, city-center flagship stores', 'healthy_evidence': 'HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term.'}]\n\n### Filtered or quarantined input\n\n- {\"inferred_mismatched_action_or_topic\": \"Unverified externally imported evidence\", \"raw_excerpt\": \"feedback or scheduling notice. Note: our raw review export also accidentally pulled 2 unverified rows from an external third-party warehouse pilot complaining about 'overnight forklift charging bays'\", \"reason_filtered\": \"The raw platform feed explicitly labels this material as unverified and imported from an external pilot.\"}\n\n## Three-Phase Action Roadmap\n\n### Phase 1 — Diagnostics\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. — scope: cohort: retail candidates\n- Compare dated promises, observed work practices and reasons for exits over a comparable hire window. — scope: cohort: store, store managers\n- Compare exits and reported decision rights or manager practices across comparable teams and tenure. — scope: cohort: store, store managers\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: Store, HQ\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; pilot design: Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n\n### Phase 3 — Scaling Gates\n- Expand after completeness, auditability and staff time improve. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n\n## Evidence & Precedents\n\n### Historical case precedents\n- **Gamma Retail (Omnichannel Apparel & Lifestyle Chain)** (match score: 0.625)\n  - Historical outcome: -19% frontline store turnover within 6 months, +28% mobile applicant conversion, and measurable reduction in store operating disruption.\n  - Transfer note: 5/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas\n- **BellaModa Retail (Fashion Footwear & Accessories Chain)** (match score: 0.6233)\n  - Historical outcome: +31% mobile applicant conversion and -16% store staff early attrition.\n  - Transfer note: 4/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas\n- **Global Retail Group (Mass Distribution & Fashion Retail Enterprise)** (match score: 0.5689)\n  - Historical outcome: +22% Career Website application conversion rate and -35% mobile application abandonment.\n  - Transfer note: 3/16 root causes match, partial workforce overlap (1/3), same sector, 14 measured T0->T1 deltas\n\n### Supporting research\n- **amec:** AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **appcast:** Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **earnest_2011:** Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis. ([source](https://doi.org/10.1111/j.1744-6570.2011.01230.x))\n- **friebel_2021:** A field experiment gave retail managers explicit retention goals and measured quits. ([source](https://doi.org/10.1287/mnsc.2020.3905))\n- **hausknecht_2004:** Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **lacerenza_2017:** A meta-analysis examined effectiveness and design moderators of leadership training. ([source](https://pubmed.ncbi.nlm.nih.gov/28749153/))\n- **w3c_forms:** Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **williamson_2010:** Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n\n### Open client verification questions\n- Audit duplicate handling, reporting effort, source coverage, and ownership. — missing families: staff_time\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. — scope: cohort: retail candidates; missing families: device_exposure; dependent families: form_exit\n- Compare dated promises, observed work practices and reasons for exits over a comparable hire window. — scope: cohort: store, store managers; missing families: employee_exits\n- Compare exits and reported decision rights or manager practices across comparable teams and tenure. — scope: cohort: store, store managers; missing families: employee_exits\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: Store, HQ; missing families: entry_conversion\n\n---\nThis proposal reports deterministic pipeline decisions. Historical outcomes are precedents, not forecasts; scale only after the stated measures and guardrails are verified.\n"
   }
 }

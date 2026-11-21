@@ -359,7 +359,7 @@ class TestPipelineBehavior(unittest.TestCase):
                     llm_client=FakeLLMClient(),
                 )
 
-            normalized_path = output_dir / "input_normalized.json"
+            normalized_path = output_dir / "input" / "step1_normalize_input.json"
             self.assertEqual(len(results), 1)
             self.assertTrue(normalized_path.is_file())
             loaded = NormalizedClientInput.model_validate_json(
