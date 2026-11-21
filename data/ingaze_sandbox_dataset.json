@@ -2,7 +2,7 @@
   "metadata": {
     "dataset_name": "Ingaze Open-Structure Hackathon Sandbox Inputs (Schema-Agnostic Raw Domain Materials)",
     "version": "1.4.0-open-structure-sanitized",
-    "purpose": "Provides raw, unstructured/semi-structured domain dynamics across the 4 HR pillars, empirical research excerpts, 11 anonymized historical B2B consulting case study narratives, and 3 realistic company diagnostic scenarios (combining Ingaze's Outside-In platform signals with the client's Inside-Out internal context, healthy baselines, cohort asymmetries, and leadership requests). Teams have full architectural and strategic freedom to design their own representation, reasoning mechanism, and tailored recommendations."
+    "purpose": "Provides raw, unstructured/semi-structured domain dynamics across the 4 HR pillars, empirical research excerpts, 21 anonymized historical B2B consulting case study narratives, and 3 realistic company diagnostic scenarios (combining Ingaze's Outside-In platform signals with the client's Inside-Out internal context, healthy baselines, cohort asymmetries, and leadership requests). Teams have full architectural and strategic freedom to design their own representation, reasoning mechanism, and tailored recommendations."
   },
   "domain_pillars_and_causal_dynamics": {
     "overview": "Ingaze operates across 4 interconnected Employer Intelligence pillars. In real client engagements, problems in one pillar frequently trigger or amplify symptoms in another, different employee cohorts or sites inside the same company can experience very different realities, and interventions require careful prioritization—knowing both what to fix first and what healthy foundations NOT to disrupt.",
@@ -201,6 +201,76 @@
       "initial_challenge": "While internal B-Corp pride was high, candidate feedback across university Career Days and interviews was fragmented, and employee ambassador sharing was tracked manually without standardized EMV metrics.",
       "intervention_sequence": "1. Digitized Post-Interview & Career Day Gen-Z Surveys and Multi-Channel Reputation Audit. 2. Realigned multi-country EVP and scaled Automated Ambassador Content Tracking.",
       "measured_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach."
+    },
+    {
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "sector_and_profile": "B2B Tech / E-Commerce Engineering | 1,850 employees across 3 European hubs | Target talent: Senior Software, Platform & Data Engineers",
+      "initial_challenge": "KronoCart suffered 21.4% first-year attrition among relocating software engineers caused by opaque engineering leveling (2.86/5 career growth rating), unaddressed negative public reviews (0% employer reply rate, 3.31/5 overall rating), and unrealistic role expectations during recruiting.",
+      "intervention_sequence": "1. Executed a Multi-Channel Reputation Audit and 360-Degree Internal Feedback Listening across hubs. 2. Rolled out a transparent Career Progression & Engineering Leveling Framework, constructive review response governance, and Manager Coaching. 3. Published Persona-Aligned JDs with realistic technical role previews.",
+      "measured_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89."
+    },
+    {
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "sector_and_profile": "FinTech & Capital Markets Tech | 1,200 employees across 3 hubs | Target talent: Low-Latency Software Engineers & Quantitative Analysts",
+      "initial_challenge": "Despite top-quartile compensation (4.18/5 pay rating) and strong external brand prestige, QuantEx faced 17.8% voluntary first-year engineering turnover (€920k annual risk exposure) driven by post-acquisition manager action paralysis on pulse surveys and uncoached team leads (3.12/5 management rating).",
+      "intervention_sequence": "1. Deployed continuous 360-Degree Internal Feedback Listening and team-level risk diagnostics. 2. Implemented bottom-up Manager Coaching Programs and action playbooks across 140 engineering leads alongside transparent Career Progression Frameworks. 3. Deferred external ambassador campaigns until internal leadership trust stabilized.",
+      "measured_roi": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure."
+    },
+    {
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "sector_and_profile": "Banking & Financial Services | 3,400 employees across 4 Nordic & European hubs | Target talent: Quantitative Risk, Digital Banking & Graduate Specialists",
+      "initial_challenge": "Unlike banks struggling with internal retention, NordicTrust enjoyed high employee stability (9.8% first-year attrition, 4.04/5 rating) but suffered a 54.6% application form drop-off rate and a 46-day Time-to-Hire because static job descriptions lacked day-in-the-life role transparency.",
+      "intervention_sequence": "1. Conducted a Career Portal UX Audit and Candidate Persona Calibration for digital banking and risk cohorts. 2. Realigned EVP role messaging with realistic day-in-the-life team previews and streamlined the application flow. 3. Deployed Persona-Aligned Job Descriptions.",
+      "measured_roi": "-38% reduction in application form drop-off (from 54.6% to 33.8%), +28% increase in applicant conversion rate (from 2.95% to 3.78%), and Time-to-Hire reduced by 24% (from 46 to 35 days)."
+    },
+    {
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "sector_and_profile": "Banking & Insurance | 4,200 employees across 12 regional offices | Strict CFO governance & actuarial/commercial workforce",
+      "initial_challenge": "HelvetiaInsure had a stable internal culture (4.18/5 rating, 9.4% attrition) and 45 specialists already sharing posts organically, but corporate LinkedIn engagement was stagnant (1.12%), HR lost 14 hours/month tracking employee posts in spreadsheets, and the CFO required auditable Earned Media Value (EMV) before approving budget.",
+      "intervention_sequence": "1. Conducted a Multi-Channel Reputation Audit to verify cross-office EVP readiness. 2. Executed Data-Driven Ambassador Selection across the 12 regional offices. 3. Deployed Automated Ambassador Content Tracking and a CFO Earned Media Value & ROI Dashboard.",
+      "measured_roi": "+240% increase in quarterly organic impressions (from 68.3k to 232.2k), 90% reduction in manual HR tracking time (from 14.0 to 1.4 hours/month), and certified EMV governance reporting approved by the CFO."
+    },
+    {
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "sector_and_profile": "Logistics & Warehousing | 2,400 employees across 7 interport distribution hubs | Target talent: Warehouse Operators & Licensed Commercial Drivers (C-CQC)",
+      "initial_challenge": "With 84% of candidates browsing on smartphones, TransEuropa suffered a 61.4% mobile application drop-off rate and slow, unstructured hub interview scheduling that pushed Time-to-Hire to 48 days (41.5% agency reliance) and early frontline turnover to 24.6%.",
+      "intervention_sequence": "1. Executed a Career Portal UX Audit and Frontline Driver/Warehouse Persona Calibration across the 7 hubs. 2. Deployed a 60-second Mobile-First Fast-Apply flow paired with automated conversational interview scheduling and realistic shift previews. 3. Published Persona-Aligned Job Descriptions highlighting pay reliability and shift clarity.",
+      "measured_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%)."
+    },
+    {
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "sector_and_profile": "Logistics & Express Freight | 1,950 employees across 6 regional hubs | Target talent: Express Couriers, Sortation Staff & Hub Supervisors",
+      "initial_challenge": "Although Meridian Express had already modernized its mobile career portal (low 31.5% drop-off and healthy 3.85% conversion), it suffered 26.8% first-year frontline turnover and severe cross-hub rating variance (0.54 star std dev: 4.18 in northern hubs vs 2.86 in southern hubs) driven by uncoached local hub supervisors (2.84/5 management rating).",
+      "intervention_sequence": "1. Deployed 360-Degree Internal Feedback Listening and a centralized Multi-Channel Reputation Audit across all 6 hubs. 2. Launched a Frontline Supervisor Coaching Program and structured 90-day onboarding in lagging hubs, tracked via a Board Financial Turnover Risk Dashboard. 3. Activated peer-led hub advocacy only after local trust stabilized.",
+      "measured_roi": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated."
+    },
+    {
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "sector_and_profile": "Retail | 3,200 employees across 28 stores and 3 fulfilment hubs | Target talent: In-Store Sales Co-Workers, Visual Merchandisers & Gen-Z Associates",
+      "initial_challenge": "NordicHome experienced 27.4% early store staff turnover driven by transactional CV screening that failed to preview weekend store reality, combined with perceived dead-end store roles (2.82/5 career growth rating) that pushed associates to quit rather than grow internally.",
+      "intervention_sequence": "1. Conducted 360 Internal Listening, a Career Portal UX Audit, and Retail Candidate Persona Calibration. 2. Deployed realistic 'Give & Get' store job previews, predictable Retail Store Shift Rotation, and a transparent Store Career Progression Framework. 3. Rolled out Persona-Aligned Job Descriptions and internal mobility pathways.",
+      "measured_roi": "-21% reduction in early store attrition (from 27.4% to 21.6%), career growth sub-rating lifted from 2.82 to 3.68, and external agency reliance cut by more than half (from 26.4% to 12.5%)."
+    },
+    {
+      "case_name": "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+      "sector_and_profile": "Healthcare & Life Sciences | 1,750 employees across 4 R&D labs and 14 clinical trial sites | Target talent: Clinical Trial Specialists, Biostatisticians & R&D Scientists",
+      "initial_challenge": "Unlike healthcare networks with stable internal climate, rapid expansion at BioNova triggered severe workload burnout (3.04/5 work-life balance), hierarchical management friction (3.15/5 management rating), and 18.2% first-year scientist/clinical turnover (€1.12M risk), while corporate LinkedIn posts averaged just 1.18% engagement.",
+      "intervention_sequence": "1. Deployed 360-Degree Internal Listening and a Multi-Channel Reputation Audit across labs and clinical sites. 2. Implemented a Manager Coaching Program ('unbossed' scientific leadership), workload/async norms, and a transparent Career Progression Framework. 3. Once internal retention stabilized, launched technical/scientific LinkedIn storytelling and Ambassador Selection.",
+      "measured_roi": "-29% reduction in first-year clinical and R&D turnover (from 18.2% to 12.9%), work-life balance and management ratings lifted to 3.84 and 3.92, and LinkedIn engagement rate more than doubled (from 1.18% to 2.86%)."
+    },
+    {
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "sector_and_profile": "B-Corp Beauty & Sustainable Formulation | 1,350 employees across 5 European countries and 3 formulation labs | Target talent: Gen-Z Formulation Chemists & Brand Specialists",
+      "initial_challenge": "While B-Corp culture was strong in the headquarters lab (4.38/5), employer ratings varied widely across 4 foreign subsidiaries (0.49 star std dev), university Career Day candidate surveys had a 17.2% response rate on paper forms, and HR spent 11.5 hours/month manually tracking ambassador posts in spreadsheets.",
+      "intervention_sequence": "1. Executed a Multi-Channel Reputation Audit across all 5 countries and digitized Post-Interview & Career Day Gen-Z Surveys. 2. Realigned the multi-country B-Corp EVP with realistic lab previews and deployed a Board ESG & EMV Dashboard. 3. Scaled Data-Driven Ambassador Selection and Automated Ambassador Content Tracking.",
+      "measured_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter)."
+    },
+    {
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "sector_and_profile": "CleanTech & Grid Infrastructure | 2,200 employees across 6 regional engineering & field operations hubs | Target talent: Smart-Grid Software Engineers & Field Electrical Technicians",
+      "initial_challenge": "Unlike CleanTech peers with high internal cohesion, VoltGrid faced a legacy-to-digital transition gap: mid-tenure and new grid engineers cited opaque career progression (2.88/5 career growth rating, 16.9% early turnover, €1.18M risk exposure), while generic corporate job ads (54.5/100 clarity) resulted in a 45-day Time-to-Hire.",
+      "intervention_sequence": "1. Conducted 360-Degree Internal Feedback Listening, a Multi-Channel Reputation Audit across the 6 hubs, and Technical Persona Calibration. 2. Launched a transparent Engineering Career Progression & Reskilling Framework, Manager Coaching, and a Board Financial Turnover Risk Dashboard. 3. Rewrote Persona-Aligned Job Descriptions and activated Technical Engineering Storytelling on LinkedIn.",
+      "measured_roi": "-24% reduction in early engineering turnover (from 16.9% to 12.8%, saving €390k/year in turnover exposure), career growth rating lifted from 2.88 to 3.79, and Time-to-Hire shortened by 24% (from 45 to 34 days)."
     }
   ],
   "company_scenarios_to_diagnose": [

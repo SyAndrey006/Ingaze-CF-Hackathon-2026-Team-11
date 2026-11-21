@@ -31,8 +31,8 @@ Unlike standard coding challenges where a rigid schema is handed to you to imple
 ### The Core Reasoning Objective
 Given:
 - **Layer A — Multi-Pillar Domain Field Notes & Empirical Research Benchmarks** (`10` research excerpts + `6` cross-pillar field notes),
-- **Layer B — Anonymized B2B Consulting Case Studies** (`11` historical interventions with sector profile, intervention sequence, and measured Board ROI), and
-- **Optional Quantitative Telemetry (`data/ingaze_synthetic_analytics_snapshots.json`)** — synthetic aggregated metrics (`t0_before_intervention`, `sector_peer_benchmarks`, and `t1_after_12_months` for the `11` case studies, plus `t0_current_snapshot` and `sector_peer_benchmarks` for the `3` scenarios; zero prescribed usage—use to complement case studies, run standalone quantitative/statistical analysis, compare against peer norms, or ignore entirely),
+- **Layer B — Anonymized B2B Consulting Case Studies** (`21` historical interventions with sector profile, intervention sequence, and measured Board ROI), and
+- **Optional Quantitative Telemetry (`data/ingaze_synthetic_analytics_snapshots.json`)** — synthetic aggregated metrics (`t0_before_intervention`, `sector_peer_benchmarks`, and `t1_after_12_months` for the `21` case studies, plus `t0_current_snapshot` and `sector_peer_benchmarks` for the `3` scenarios; zero prescribed usage—use to complement case studies, run standalone quantitative/statistical analysis, compare against peer norms, or ignore entirely),
 
 when an incoming **Company Situation** arrives (each scenario inside `company_scenarios_to_diagnose` provides the complete synthetic dual intake: `ingaze_platform_signals` + `client_internal_context` with healthy baselines, cohort asymmetries, constraints, and leadership requests—plus `narrative_situation_to_solve`), your system must:
 1. **Diagnose Root Causes & Preserve Healthy Baselines:** Trace surface symptoms across the 4 pillars back to their underlying structural causes—while explicitly recognizing which healthy metrics, cohorts, or assets are already working and should **not** be over-fixed.
@@ -60,7 +60,7 @@ When you paste a company's HR problems into a flat LLM prompt or standard chunk-
 
 ```mermaid
 flowchart TB
-    RAW["HR Domain Field Notes + 10 Research Studies + 11 Case Studies"] --> ING["Context Structuring, Normalization & Noise Filtering"]
+    RAW["HR Domain Field Notes + 10 Research Studies + 21 Case Studies"] --> ING["Context Structuring, Normalization & Noise Filtering"]
     SIT["Incoming Client Situation (Platform Signals + Internal Notes)"] --> ING
     ING --> STRUCT["YOUR CHOSEN CONTEXT & REASONING ARCHITECTURE<br/>(100% Open Paradigm & Tech Stack)"]
     STRUCT --> ENG["Diagnostic, Guardrail & 3-Phase Recommendation Engine"]

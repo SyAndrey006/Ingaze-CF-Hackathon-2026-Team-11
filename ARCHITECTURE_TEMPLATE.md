@@ -17,7 +17,7 @@
 - **Cross-Pillar Symptom $\rightarrow$ Root Cause Links:** *How does your representation trace surface symptoms back to underlying structural causes across the 4 HR pillars?*
 - **Dependency Prerequisites (`Phase 1 -> Phase 2 -> Phase 3`):** *How does your design prevent a downstream intervention (e.g., Employee Advocacy) from being scheduled when an active blocker (e.g., Say-Do Gap or severe burnout) is present or when foundational diagnostics have not run yet?*
 - **Industry & Workforce Guardrails:** *How do you prevent sector contamination (e.g., Retail vs. FinTech vs. Logistics) while dynamically activating context-appropriate interventions when the company profile calls for them?*
-- **Evidence & Case Study Representation:** *How are the 10 empirical research benchmarks and 11 historical Case Studies indexed and linked to problems, interventions, and ROI metrics?*
+- **Evidence & Case Study Representation:** *How are the 10 empirical research benchmarks and 21 historical Case Studies indexed and linked to problems, interventions, and ROI metrics?*
 
 ---
 

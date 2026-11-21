@@ -215,7 +215,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
     """
     Optional BYOK single-prompt LLM baseline via stdlib urllib (supports OpenAI / OpenRouter / Gemini).
     Dumps the ENTIRE raw unstructured dataset context (4 pillars, 6 field notes, 10 research snippets,
-    11 full case studies) plus the full raw scenario object into a single flat prompt to test the true
+    21 full case studies) plus the full raw scenario object into a single flat prompt to test the true
     limits of a single-pass LLM without a structured reasoning architecture.
     """
     raw_domain_context = {
@@ -225,7 +225,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
     }
     prompt = (
         "You are an HR strategy assistant. Below is a raw dump of HR domain materials (pillars, field notes, "
-        "empirical research snippets, and 11 historical case studies) followed by a client company scenario.\n"
+        "empirical research snippets, and 21 historical case studies) followed by a client company scenario.\n"
         f"Return ONLY valid JSON with keys {list(REQUIRED_SCENARIO_OUTPUT_KEYS)} "
         f"(where scenario_code is '{scenario.get('scenario_code')}').\n\n"
         "=== RAW DOMAIN MATERIALS (UNSTRUCTURED DUMP) ===\n"
@@ -443,7 +443,7 @@ def validate_submission(
                     low = cs_str.lower()
                     if not any(pref in low for pref in known_case_prefixes):
                         warnings.append(
-                            f"[{sc_code}] Case study '{cs_str}' did not match any of the 11 sandbox case study names."
+                            f"[{sc_code}] Case study '{cs_str}' did not match any of the 21 sandbox case study names."
                         )
 
     missing_codes = expected_codes - found_codes

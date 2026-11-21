@@ -26,7 +26,7 @@ This repository contains the official sandbox dataset, zero-dependency baseline/
 Requires only **Python 3.9+** (standard library only):
 
 ```bash
-# 1. Inspect the 4 HR pillars, 6 domain field notes, 10 studies, 11 case studies & 3 scenarios
+# 1. Inspect the 4 HR pillars, 6 domain field notes, 10 studies, 21 case studies & 3 scenarios
 python starter_baseline_and_validator.py --inspect
 
 # 2. Run the "Naive Flat Prompt" baseline to see the exact traps your system must beat
@@ -49,11 +49,11 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
 | **[`docs/ANALYTICS_TELEMETRY_DICTIONARY.md`](./docs/ANALYTICS_TELEMETRY_DICTIONARY.md)** | **4 min** | **Data Guide ("What Is What"):** Field-by-field walkthrough of **both** JSON files (`ingaze_sandbox_dataset.json` + `ingaze_synthetic_analytics_snapshots.json`), how they link `1:1`, and all metric scales/polarities. |
 | **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
-| **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Past B2B Case Studies**, and **3 Active Client Scenarios to Solve**. |
-| **[`data/ingaze_synthetic_analytics_snapshots.json`](./data/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 11 past cases + `T0` intake snapshot for the 3 active scenarios). |
+| **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **21 Past B2B Case Studies**, and **3 Active Client Scenarios to Solve**. |
+| **[`data/ingaze_synthetic_analytics_snapshots.json`](./data/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 21 past cases + `T0` intake snapshot for the 3 active scenarios). |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
-*(Note: While the intro slides mentioned 5 sample case studies, we included **11 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*
+*(Note: While the intro slides mentioned 5 sample case studies, we included **21 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*
 
 ---
 
