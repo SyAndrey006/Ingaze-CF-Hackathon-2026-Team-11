@@ -66,7 +66,10 @@ def _persist_stage_result(scenario_code, stage_name, result, output_dir=DEFAULT_
     return output_path
 
 
-def plan(scenario, dataset, evidence_library=(), graph=None, analytics=None):
+def plan(
+    scenario, dataset, evidence_library=(), graph=None, analytics=None,
+    proposal_llm_client=None,
+):
     if graph is None:
         graph = load_graph()
     analytics = analytics if analytics is not None else {"active": {}, "cases": {}}
@@ -82,6 +85,7 @@ def plan(scenario, dataset, evidence_library=(), graph=None, analytics=None):
         engine_scenario, dataset, evidence_library, graph, intake, hypotheses, profile, analytics,
         ranked_hypotheses=ranked_hypotheses,
         normalized_client_input=normalized_client_input,
+        proposal_llm_client=proposal_llm_client,
     )
 
 
@@ -97,6 +101,7 @@ def plan_from_graph(
     ranked_hypotheses=None,
     intermediate_dir=DEFAULT_INTERMEDIATE_DIR,
     normalized_client_input=None,
+    proposal_llm_client=None,
 ):
     """Run diagnosis -> scoring -> guardrails -> phase plan -> final response."""
     if ranked_hypotheses is None:
@@ -152,6 +157,7 @@ def plan_from_graph(
         scored_state,
         guardrail_state,
         phase_state,
+        llm_client=proposal_llm_client,
     )
     _persist_stage_result(
         scenario["scenario_code"],
@@ -314,6 +320,7 @@ def run_custom_client(
     graph=None,
     evidence_library=None,
     llm_client=None,
+    proposal_llm_client=None,
 ):
     """Normalize a custom brief, adapt it, and run the deterministic planner."""
     from src.pipeline.step1_normalize_input import load_standalone_input, normalize_client_input
@@ -356,6 +363,7 @@ def run_custom_client(
 
     normalized_inputs = []
     normalization_status = "llm_normalized"
+    proposal_llm_client = None if skip_llm_normalization else proposal_llm_client
     adapted_count = sum("intake_normalization_audit" in bundle.raw_scenario for bundle in bundles)
     if skip_llm_normalization or adapted_count == len(bundles):
         normalization_status = (
@@ -374,6 +382,7 @@ def run_custom_client(
             except RuntimeError as exc:
                 if "No LLM API key is configured" in str(exc):
                     normalization_status = "deterministic_fallback_no_api_key"
+                    proposal_llm_client = None
                     normalized_inputs = [_deterministic_normalized_client(item) for item in bundles]
                     print(
                         "No LLM API key is configured; Step 1 is using deterministic fact "
@@ -419,7 +428,10 @@ def run_custom_client(
     traces = []
     for bundle, normalized in zip(bundles, normalized_inputs):
         scenario = _adapt_client_for_engine(bundle, normalized, graph)
-        result, trace = plan(scenario, dataset, evidence_library, graph, analytics)
+        result, trace = plan(
+            scenario, dataset, evidence_library, graph, analytics,
+            proposal_llm_client=proposal_llm_client,
+        )
         planned.append(result)
         traces.append(trace)
 
@@ -512,6 +524,18 @@ def main(argv: Optional[Sequence[str]] = None):
         parser.error("--skip-llm-normalization requires --client-input.")
     if args.client_input is not None:
         try:
+            proposal_llm_client = None
+            if not args.skip_llm_normalization:
+                from src.utils.llm_client import StructuredLLMClient
+
+                candidate_client = StructuredLLMClient()
+                try:
+                    candidate_client._resolve_credentials()
+                except RuntimeError as exc:
+                    if "No LLM API key is configured" not in str(exc):
+                        raise
+                else:
+                    proposal_llm_client = candidate_client
             result = run_custom_client(
                 args.client_input,
                 dataset_path=args.dataset,
@@ -522,6 +546,8 @@ def main(argv: Optional[Sequence[str]] = None):
                 no_analytics=args.no_analytics,
                 graph=graph,
                 evidence_library=evidence_library,
+                llm_client=proposal_llm_client,
+                proposal_llm_client=proposal_llm_client,
             )
         except (OSError, ValueError, RuntimeError, json.JSONDecodeError) as exc:
             parser.error(str(exc))
