@@ -1,14 +1,14 @@
 # Data Guide & Dictionary — Understanding Both JSON Datasets ("What Is What")
 
 > **Files documented in this guide:**
-> 1. **[`data/ingaze_sandbox_dataset.json`](../data/ingaze_sandbox_dataset.json)** *(Core Sandbox Dataset)* — HR domain context, empirical research snippets, 11 completed historical case studies, 3 active incoming client scenarios to diagnose, and the output template.
-> 2. **[`data/ingaze_synthetic_analytics_snapshots.json`](../data/ingaze_synthetic_analytics_snapshots.json)** *(Optional Quantitative Companion)* — Aggregated synthetic multi-channel telemetry and sector peer benchmarks (`T0 -> T1` for the 11 historical cases + `T0` intake snapshot for the 3 active client scenarios).
+> 1. **[`database/ingaze_sandbox_dataset.json`](../database/ingaze_sandbox_dataset.json)** *(Core Sandbox Dataset)* — HR domain context, empirical research snippets, 21 completed historical case studies, 3 active incoming client scenarios to diagnose, and the output template.
+> 2. **[`database/ingaze_synthetic_analytics_snapshots.json`](../database/ingaze_synthetic_analytics_snapshots.json)** *(Optional Quantitative Companion)* — Aggregated synthetic multi-channel telemetry and sector peer benchmarks (`T0 -> T1` for the 21 historical cases + `T0` intake snapshot for the 3 active client scenarios).
 >
 > **Architectural freedom:** How you ingest, represent, join, weight, or ignore any section of these two files is **100% up to your team**. Nothing in this guide prescribes a specific data structure or reasoning pipeline.
 
 ---
 
-## Part 1 — Guide to `data/ingaze_sandbox_dataset.json` ("What Is What")
+## Part 1 — Guide to `database/ingaze_sandbox_dataset.json` ("What Is What")
 
 Because `ingaze_sandbox_dataset.json` bundles domain reference material, past project precedents, active client problems, and the output schema in a single self-contained file, here is the exact role of each top-level key:
 
@@ -18,13 +18,13 @@ Because `ingaze_sandbox_dataset.json` bundles domain reference material, past pr
 | :--- | :---: | :--- | :--- |
 | **`domain_pillars_and_causal_dynamics`** | `4` pillars + `6` field notes | **General HR Domain Context** — Overview of the 4 HR areas (`pillars`: `pillar_name`, `focus_areas`, `key_board_metrics`) plus `raw_cross_pillar_rules_to_structure` (6 qualitative field notes on cross-pillar dynamics, channel differences, and strategic restraint). | General domain knowledge — **not** data about a specific client. |
 | **`raw_empirical_research_snippets`** | `10` studies | **Reference Research Evidence** — Industry & academic findings (`snippet_no`, `source`, `finding`) quantifying Say-Do Gap churn, mobile drop-off, advocacy multipliers, manager coaching impact, and CFO budget criteria. | External benchmark evidence you can use or cite to ground diagnoses and expected ROI. |
-| **`raw_case_study_narratives`** | `11` past projects | **Historical Precedent Library** — Anonymized B2B client engagements **already completed in the past**, showing what problem they had (`T0`), what sequence of actions was run, and what ROI was achieved (`T1`). | **Do NOT generate new action plans for these 11 companies** — they are past precedents to learn from, compare against, or retrieve! |
+| **`raw_case_study_narratives`** | `21` past projects | **Historical Precedent Library** — Anonymized B2B client engagements **already completed in the past**, showing what problem they had (`T0`), what sequence of actions was run, and what ROI was achieved (`T1`). | **Do NOT generate new action plans for these 21 companies** — they are past precedents to learn from, compare against, or retrieve! |
 | **`company_scenarios_to_diagnose`** | `3` active clients | **The 3 Target Clients to Solve** (`CloudNova`, `EuroFreight`, `VerdeCare`) — Incoming client intake combining external platform signals and internal client context. | **These are the 3 companies your PoC diagnoses and recommends actions for** in `submission.json`. |
 | **`poc_scenario_output_format`** | `1` schema example | **Output Format Reference** (`note` + `example_submission_structure`) — Illustrates the JSON shape expected by `starter_baseline_and_validator.py --validate`. | Output template only — **not** domain input data. |
 
 ---
 
-### 1.2 Inside `raw_case_study_narratives` (`11` Completed Past Engagements)
+### 1.2 Inside `raw_case_study_narratives` (`21` Completed Past Engagements)
 
 Each object represents a **finished historical project** across Tech/FinTech, Logistics, Retail, Healthcare, Banking, CleanTech, or B-Corp sectors:
 
@@ -54,22 +54,22 @@ Each of the 3 scenarios represents a **new client arriving at intake** and separ
 
 ### 1.4 How the Two JSON Files Connect (Optional Join Map)
 
-If your team chooses to use the optional quantitative companion file (`data/ingaze_synthetic_analytics_snapshots.json`), records link `1:1` with zero fuzzy matching needed:
+If your team chooses to use the optional quantitative companion file (`database/ingaze_synthetic_analytics_snapshots.json`), records link `1:1` with zero fuzzy matching needed:
 
 | Narrative Record in `ingaze_sandbox_dataset.json` | Join Key | Quantitative Record in `ingaze_synthetic_analytics_snapshots.json` | Available Snapshots |
 | :--- | :---: | :--- | :--- |
-| `raw_case_study_narratives[i]` (`11` past cases) | **`case_name`** | `case_study_analytics_snapshots[i]` (`11` records) | `sector_peer_benchmarks` + `t0_before_intervention` + `t1_after_12_months` |
+| `raw_case_study_narratives[i]` (`21` past cases) | **`case_name`** | `case_study_analytics_snapshots[i]` (`21` records) | `sector_peer_benchmarks` + `t0_before_intervention` + `t1_after_12_months` |
 | `company_scenarios_to_diagnose[j]` (`3` active clients) | **`scenario_code`** | `active_scenario_analytics_snapshots[j]` (`3` records) | `sector_peer_benchmarks` + `t0_current_snapshot` *(no `T1`, since the client's plan has not been executed yet)* |
 
 ---
 
-## Part 2 — Guide to `data/ingaze_synthetic_analytics_snapshots.json` (Metric Scales & Polarity)
+## Part 2 — Guide to `database/ingaze_synthetic_analytics_snapshots.json` (Metric Scales & Polarity)
 
 > **Usage:** 100% **optional** companion dataset. All values are synthetic. You are free to use these tables alongside the narratives, run standalone statistical/quantitative models, compare client metrics against `sector_peer_benchmarks`, or ignore this file completely.
 
 ### 2.1 Top-Level Structure & Naming Conventions
 
-Both `case_study_analytics_snapshots` (`11` records) and `active_scenario_analytics_snapshots` (`3` records) share the exact same 4 telemetry channel blocks (`public_reputation`, `career_portal_and_funnel`, `social_and_employee_voice`, `hiring_and_retention_kpis`).
+Both `case_study_analytics_snapshots` (`21` records) and `active_scenario_analytics_snapshots` (`3` records) share the exact same 4 telemetry channel blocks (`public_reputation`, `career_portal_and_funnel`, `social_and_employee_voice`, `hiring_and_retention_kpis`).
 
 - Keys ending in **`_5`** are on a **`1.0 – 5.0` star** scale.
 - Keys ending in **`_100`** are on a **`0.0 – 100.0` index** scale.

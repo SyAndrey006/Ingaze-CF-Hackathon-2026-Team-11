@@ -1,0 +1,29 @@
+﻿json_pointer,value_type,value
+/,object,
+/note,string,"Your internal data representation, reasoning structure, or pipeline state is 100% up to your team. So the judges can evaluate your working Proof-of-Concept consistently across the 3 company scenarios, export your scenario diagnoses in this schema-agnostic JSON structure. Beyond the required core keys, you are encouraged to propose concrete, original, cohort-specific recommendations (not restricted to any fixed vocabulary) and optionally include strategic focus / client discovery keys:"
+/example_submission_structure,object,
+/example_submission_structure/team_name,string,Your Team Name
+/example_submission_structure/chosen_architecture_paradigm,string,"Brief description of your chosen architecture and stack (e.g., Relational Scoring Matrix + Constraint Rules / Multi-Agent Verifier Pipeline / Programmatic Policy Engine / Hybrid Graph)"
+/example_submission_structure/scenarios,array,
+/example_submission_structure/scenarios/0,object,
+/example_submission_structure/scenarios/0/scenario_code,string,SCENARIO_A_CLOUDNOVA_FINTECH
+/example_submission_structure/scenarios/0/diagnosed_root_causes,array,
+/example_submission_structure/scenarios/0/diagnosed_root_causes/0,string,Plain-English description of each inferred underlying root cause across the 4 pillars
+/example_submission_structure/scenarios/0/blocked_traps_and_guardrails,array,
+/example_submission_structure/scenarios/0/blocked_traps_and_guardrails/0,string,"Plain-English description of wrong-industry solutions, premature executive requests, or redundant interventions blocked/deferred by your system (and why)"
+/example_submission_structure/scenarios/0/phase_1_actions,array,
+/example_submission_structure/scenarios/0/phase_1_actions/0,string,"Phase 1: Foundational diagnostics, audits, listening, or immediate low-risk quick wins"
+/example_submission_structure/scenarios/0/phase_2_actions,array,
+/example_submission_structure/scenarios/0/phase_2_actions/0,string,"Phase 2: Core structural, management, portal, governance, or cohort-specific interventions"
+/example_submission_structure/scenarios/0/phase_3_actions,array,
+/example_submission_structure/scenarios/0/phase_3_actions/0,string,Phase 3: Cross-pillar scaling & amplification actions unlocked once foundations are in place
+/example_submission_structure/scenarios/0/matched_case_studies,array,
+/example_submission_structure/scenarios/0/matched_case_studies/0,string,Top 3 matched historical Case Studies from the sandbox library + quantified ROI precedent
+/example_submission_structure/scenarios/0/supporting_research_snippets,array,
+/example_submission_structure/scenarios/0/supporting_research_snippets/0,string,Cited empirical research snippets backing your diagnosis and action plan
+/example_submission_structure/scenarios/0/strategic_focus_and_do_not_touch,array,
+/example_submission_structure/scenarios/0/strategic_focus_and_do_not_touch/0,string,"(Optional) Healthy baselines, cohorts, or policies your strategy deliberately preserves without over-fixing"
+/example_submission_structure/scenarios/0/cohort_specific_strategies,array,
+/example_submission_structure/scenarios/0/cohort_specific_strategies/0,string,"(Optional) How your interventions differentiate between specific hubs, sites, or workforce segments"
+/example_submission_structure/scenarios/0/open_questions_and_hypotheses_for_client,array,
+/example_submission_structure/scenarios/0/open_questions_and_hypotheses_for_client/0,string,(Optional) Key hypotheses or HRIS/ATS data questions your system would verify with the client

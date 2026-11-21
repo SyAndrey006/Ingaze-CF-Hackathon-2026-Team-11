@@ -28,7 +28,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 BASE_DIR = Path(__file__).resolve().parent
-DEFAULT_DATASET_PATH = BASE_DIR / "data" / "ingaze_sandbox_dataset.json"
+DEFAULT_DATASET_PATH = BASE_DIR / "database" / "ingaze_sandbox_dataset.json"
 
 REQUIRED_SCENARIO_OUTPUT_KEYS: Tuple[str, ...] = (
     "scenario_code",
@@ -94,7 +94,7 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
     print(f"  - Anonymized B2B Case Studies:  {len(cases)}")
     for idx, cs in enumerate(cases, start=1):
         print(f"      {idx:2d}. {cs.get('case_name')}")
-    snapshots_path = BASE_DIR / "data" / "ingaze_synthetic_analytics_snapshots.json"
+    snapshots_path = BASE_DIR / "database" / "ingaze_synthetic_analytics_snapshots.json"
     if snapshots_path.exists():
         snap_data = json.loads(snapshots_path.read_text(encoding="utf-8"))
         cs_snaps = len(snap_data.get("case_study_analytics_snapshots", []))
@@ -215,7 +215,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
     """
     Optional BYOK single-prompt LLM baseline via stdlib urllib (supports OpenAI / OpenRouter / Gemini).
     Dumps the ENTIRE raw unstructured dataset context (4 pillars, 6 field notes, 10 research snippets,
-    11 full case studies) plus the full raw scenario object into a single flat prompt to test the true
+    21 full case studies) plus the full raw scenario object into a single flat prompt to test the true
     limits of a single-pass LLM without a structured reasoning architecture.
     """
     raw_domain_context = {
@@ -225,7 +225,7 @@ def _call_live_flat_llm(dataset: Dict[str, Any], scenario: Dict[str, Any]) -> Di
     }
     prompt = (
         "You are an HR strategy assistant. Below is a raw dump of HR domain materials (pillars, field notes, "
-        "empirical research snippets, and 11 historical case studies) followed by a client company scenario.\n"
+        "empirical research snippets, and 21 historical case studies) followed by a client company scenario.\n"
         f"Return ONLY valid JSON with keys {list(REQUIRED_SCENARIO_OUTPUT_KEYS)} "
         f"(where scenario_code is '{scenario.get('scenario_code')}').\n\n"
         "=== RAW DOMAIN MATERIALS (UNSTRUCTURED DUMP) ===\n"
@@ -443,7 +443,7 @@ def validate_submission(
                     low = cs_str.lower()
                     if not any(pref in low for pref in known_case_prefixes):
                         warnings.append(
-                            f"[{sc_code}] Case study '{cs_str}' did not match any of the 11 sandbox case study names."
+                            f"[{sc_code}] Case study '{cs_str}' did not match any of the 21 sandbox case study names."
                         )
 
     missing_codes = expected_codes - found_codes

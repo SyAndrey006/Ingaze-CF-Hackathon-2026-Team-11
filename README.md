@@ -26,7 +26,7 @@ This repository contains the official sandbox dataset, zero-dependency baseline/
 Requires only **Python 3.9+** (standard library only):
 
 ```bash
-# 1. Inspect the 4 HR pillars, 6 domain field notes, 10 studies, 11 case studies & 3 scenarios
+# 1. Inspect the 4 HR pillars, 6 domain field notes, 10 studies, 21 case studies & 3 scenarios
 python starter_baseline_and_validator.py --inspect
 
 # 2. Run the "Naive Flat Prompt" baseline to see the exact traps your system must beat
@@ -37,6 +37,31 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 ```
 
 > **Optional Live LLM Baseline (BYOK):** Set `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, or `GEMINI_API_KEY` and pass `--live-llm` to benchmark your architecture directly against a live single-prompt LLM call.
+
+### Team 11 offline engine
+
+Run from the repository root with Python 3.9 or later.
+
+```bash
+mkdir -p outputs/ingaze-knowledge-graph
+python3 recommendation_engine.py --out submission.json \
+  --trace-out outputs/ingaze-knowledge-graph/diagnostic_report.json \
+  --graph-out outputs/ingaze-knowledge-graph/graph.json
+python3 starter_baseline_and_validator.py --validate submission.json
+python3 -m scripts.demo_recommendations
+```
+
+The working knowledge-graph engine lives in `src/reasoning/`. The Team 11 hybrid scaffold lives in `src/main.py`, `src/pipeline/`, and `src/offline/`. The offline engine runs with the standard library. Running both test suites requires Pydantic 2 and python-dotenv.
+
+| Folder | Contents |
+| --- | --- |
+| `database/` | Official 21-case sandbox and companion telemetry |
+| `database/knowledge/` | Editable graph rules and research catalog |
+| `data/` | Client input fixture and pipeline intermediate files |
+| `scripts/` | Demo and historical replay commands |
+| `outputs/` | Graph exports, diagnostic traces, replay, and existing spreadsheets |
+
+The challenge deliverables stay at the root. [Architecture](ARCHITECTURE.md) · [Submission](submission.json)
 
 ---
 
@@ -49,11 +74,11 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
 | **[`docs/ANALYTICS_TELEMETRY_DICTIONARY.md`](./docs/ANALYTICS_TELEMETRY_DICTIONARY.md)** | **4 min** | **Data Guide ("What Is What"):** Field-by-field walkthrough of **both** JSON files (`ingaze_sandbox_dataset.json` + `ingaze_synthetic_analytics_snapshots.json`), how they link `1:1`, and all metric scales/polarities. |
 | **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
-| **[`data/ingaze_sandbox_dataset.json`](./data/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **11 Past B2B Case Studies**, and **3 Active Client Scenarios to Solve**. |
-| **[`data/ingaze_synthetic_analytics_snapshots.json`](./data/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 11 past cases + `T0` intake snapshot for the 3 active scenarios). |
+| **[`database/ingaze_sandbox_dataset.json`](./database/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **21 Past B2B Case Studies**, and **3 Active Client Scenarios to Solve**. |
+| **[`database/ingaze_synthetic_analytics_snapshots.json`](./database/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 21 past cases + `T0` intake snapshot for the 3 active scenarios). |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
-*(Note: While the intro slides mentioned 5 sample case studies, we included **11 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*
+*(Note: While the intro slides mentioned 5 sample case studies, we included **21 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*
 
 ---
 
@@ -71,7 +96,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 
 Everything is self-contained in this repo—**no extra datasets or files to wait for during the weekend!** Before Sunday `09:30`, push to your team's GitHub repo:
 1. **`ARCHITECTURE.md`** (based on `ARCHITECTURE_TEMPLATE.md`) — Formal representation design, context structuring & noise-filtering controls, diagnostic/3-phase sequencing mechanism, and stack justification.
-2. **Working Python PoC + Live Demo** — Ingests `data/ingaze_sandbox_dataset.json`, outperforms the naive baseline on all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), and generalizes cleanly (during Q&A we may tweak a scenario trait live to verify zero hardcoded `if company == ...` rules!).
+2. **Working Python PoC + Live Demo** — Ingests `database/ingaze_sandbox_dataset.json`, outperforms the naive baseline on all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), and generalizes cleanly (during Q&A we may tweak a scenario trait live to verify zero hardcoded `if company == ...` rules!).
 3. **Validated `submission.json`** — Committed in your repo root and passing:
    ```bash
    python starter_baseline_and_validator.py --validate submission.json

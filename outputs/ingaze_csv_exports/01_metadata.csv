@@ -1,0 +1,4 @@
+﻿field,value
+dataset_name,Ingaze Open-Structure Hackathon Sandbox Inputs (Schema-Agnostic Raw Domain Materials)
+version,1.4.0-open-structure-sanitized
+purpose,"Provides raw, unstructured/semi-structured domain dynamics across the 4 HR pillars, empirical research excerpts, 11 anonymized historical B2B consulting case study narratives, and 3 realistic company diagnostic scenarios (combining Ingaze's Outside-In platform signals with the client's Inside-Out internal context, healthy baselines, cohort asymmetries, and leadership requests). Teams have full architectural and strategic freedom to design their own representation, reasoning mechanism, and tailored recommendations."

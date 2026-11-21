@@ -32,7 +32,7 @@ So we can evaluate all teams consistently across the 3 company scenarios (`SCENA
         "Phase 3: Downstream scaling & amplification unlocked once core foundations are in place"
       ],
       "matched_case_studies": [
-        "Top 3 matched Case Studies from the 11-case sandbox library + quantified ROI precedent"
+        "Top 3 matched Case Studies from the 21-case sandbox library + quantified ROI precedent"
       ],
       "supporting_research_snippets": [
         "Cited empirical research snippets from the sandbox backing your plan"
@@ -61,7 +61,7 @@ So we can evaluate all teams consistently across the 3 company scenarios (`SCENA
 ## 2. Open Recommendations: Why There Is NO Closed Action Vocabulary
 
 In real enterprise consulting, **there is no fixed 15-item menu of HR interventions**.  
-While the 11 historical Case Studies illustrate proven interventions (such as reputation audits, 360° listening, persona calibration, mobile fast-apply flows, manager coaching, career frameworks, CFO risk dashboards, and ambassador automation), **your system is NOT restricted to a closed vocabulary of pre-labeled actions**:
+While the 21 historical Case Studies illustrate proven interventions (such as reputation audits, 360° listening, persona calibration, mobile fast-apply flows, manager coaching, career frameworks, CFO risk dashboards, and ambassador automation), **your system is NOT restricted to a closed vocabulary of pre-labeled actions**:
 
 1. **Concrete Precedent Actions + Original Recommendations:** Your engine should combine relevant evidence-backed interventions from the domain corpus with **original, non-obvious, context-specific recommendations** tailored to the client's specific bottlenecks.
 2. **Strategic Restraint (*What to Do vs. What NOT to Touch*):** A great strategy engine knows when **not** to intervene. If a client's compensation is already at the 82nd percentile, if one hub has 94% retention, or if their B-Corp EVP is already authentic with active organic ambassadors, explicitly state what you are *preserving* and why you are skipping redundant corporate overhauls.
@@ -130,7 +130,7 @@ python starter_baseline_and_validator.py --validate submission.json
    - **Strictly Forbidden (Hardcoding):** Any company-specific `if/else` logic (`if company == "CloudNova"`) or pre-baked answers tied to the 3 test scenarios. During Sunday live Q&A, we may tweak one input signal live to verify your system adapts dynamically!
 2. **Focus Over Keyword Stuffing:**
    - **Do NOT dump every conceivable HR problem** into `diagnosed_root_causes`—pinpoint the true underlying root causes supported by the scenario's platform signals and internal context.
-   - **Do NOT dump all 11 Case Studies** into `matched_case_studies`—select the **Top 3** most structurally relevant precedents for that company's profile and bottlenecks.
+   - **Do NOT dump all 21 Case Studies** into `matched_case_studies`—select the **Top 3** most structurally relevant precedents for that company's profile and bottlenecks.
    - **Do NOT dump every action into `phase_1_actions`**—sequence diagnostics, structural fixes, and scaling logically based on the company's actual readiness.
 
 ---

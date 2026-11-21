@@ -1,0 +1,29 @@
+[
+  {
+    "id": "phillips-1998-realistic-job-previews",
+    "kind": "meta-analysis",
+    "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+    "url": "https://doi.org/10.5465/256964",
+    "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+    "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+    "topics": ["expectation_gap", "early_attrition", "recruiting", "onboarding"]
+  },
+  {
+    "id": "friebel-heinz-zubanov-manager-attention",
+    "kind": "randomized field study",
+    "title": "Middle Managers, Personnel Turnover and Performance",
+    "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+    "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+    "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+    "topics": ["manager_support", "early_attrition", "retention", "retail"]
+  },
+  {
+    "id": "bloom-han-liang-2024-hybrid-work",
+    "kind": "randomized field study",
+    "title": "Hybrid working from home improves retention without damaging performance",
+    "url": "https://doi.org/10.1038/s41586-024-07500-2",
+    "finding": "In a randomized experiment with 1,612 employees at a Chinese technology company, hybrid work reduced six-month attrition from 7.2% to 4.8%.",
+    "applicability": "Relevant when testing hybrid work for roles that can be done remotely. The trial does not establish effects for on-site roles or a different schedule.",
+    "topics": ["hybrid_work", "flexible_work", "remote_work", "retention"]
+  }
+]

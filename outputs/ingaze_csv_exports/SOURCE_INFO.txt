@@ -1,0 +1,9 @@
+Ingaze dataset CSV export (lossless master + readable section tables)
+Source repository: https://raw.githubusercontent.com/SyAndrey006/Ingaze-CF-Hackathon-2026-Team-11/main/data/ingaze_sandbox_dataset.json
+Dataset version: 1.4.0-open-structure-sanitized
+
+00_COMPLETE_JSON_ALL_NODES.csv: EVERY original JSON value and container, including nested arrays, empty objects and nulls, with JSON pointer paths.
+01-08: readable views of the same source; nested arrays in the wide tables are serialized to JSON text in a cell.
+Tip: For Excel, open 07_company_scenarios_READABLE.csv, 05_historical_case_studies.csv and 04_research_snippets.csv first.
+All CSV files use UTF-8 with BOM so Excel detects accents/special characters.
+The source JSON is authoritative for the recommendation engine.

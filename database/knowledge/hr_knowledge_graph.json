@@ -1,0 +1,1601 @@
+{
+  "version": 1,
+  "signals": {
+    "expectation_gap": {
+      "family": "promise_alignment",
+      "role": "indicator",
+      "meaning": "A documented mismatch between an employer promise and reported work experience.",
+      "metrics": [
+        "public_reputation.external_claims_gap_stars_5"
+      ]
+    },
+    "brand_misalignment": {
+      "family": "promise_alignment",
+      "role": "indicator",
+      "meaning": "Brand messaging diverges from observed employee experience.",
+      "metrics": [
+        "public_reputation.brand_alignment_index_100"
+      ]
+    },
+    "documented_broken_promise": {
+      "family": "promise_alignment",
+      "role": "direct",
+      "meaning": "A dated recruiting claim and a specific contrary practice are verified for the same cohort."
+    },
+    "expectations_met": {
+      "family": "promise_alignment",
+      "role": "direct",
+      "meaning": "Comparable hires report that specific recruiting promises are being met."
+    },
+    "manager_support": {
+      "family": "manager_experience",
+      "role": "indicator",
+      "meaning": "Employees report insufficient coaching, support or authority.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.management"
+      ]
+    },
+    "manager_practice_verified": {
+      "family": "manager_experience",
+      "role": "direct",
+      "meaning": "Interviews or records verify a management practice such as restricted decision rights or missing coaching."
+    },
+    "career_clarity": {
+      "family": "role_growth",
+      "role": "indicator",
+      "meaning": "Employees report unclear growth or advancement expectations.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.career_growth"
+      ]
+    },
+    "role_clarity_failure": {
+      "family": "role_growth",
+      "role": "direct",
+      "meaning": "A review verifies inconsistent onboarding responsibilities, role expectations or progression criteria."
+    },
+    "early_attrition": {
+      "family": "employee_exits",
+      "role": "outcome",
+      "meaning": "Early exits rise for a defined entry cohort and follow-up window.",
+      "metrics": [
+        "hiring_and_retention_kpis.early_first_year_attrition_pct",
+        "hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct"
+      ]
+    },
+    "pay_gap_verified": {
+      "family": "compensation",
+      "role": "direct",
+      "meaning": "Matched role and location records show a meaningful internal or external pay discrepancy.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.compensation",
+        "hiring_and_retention_kpis.compensation_market_percentile_100"
+      ]
+    },
+    "burnout": {
+      "family": "exhaustion",
+      "role": "indicator",
+      "meaning": "A cohort reports sustained work-related exhaustion or strain.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.work_life_balance"
+      ]
+    },
+    "workload_verified": {
+      "family": "job_demands",
+      "role": "direct",
+      "meaning": "Overtime, staffing or workload records show sustained excess demand in the same cohort."
+    },
+    "adequate_workload": {
+      "family": "job_demands",
+      "role": "direct",
+      "meaning": "Comparable workload records show adequate capacity over the disputed window."
+    },
+    "schedule_instability": {
+      "family": "schedule",
+      "role": "direct",
+      "meaning": "Roster records show short-notice changes or inconsistent hours in a shift-based cohort."
+    },
+    "shift_based_work": {
+      "family": "work_design",
+      "role": "context",
+      "meaning": "The cohort works shifts that can vary within and across weeks."
+    },
+    "mobile_exposure": {
+      "family": "device_exposure",
+      "role": "context",
+      "meaning": "The target candidates predominantly encounter the mobile experience.",
+      "metrics": [
+        "career_portal_and_funnel.smartphone_traffic_pct"
+      ],
+      "intake_pattern": "smartphone(?:s| traffic)|mobile[- ]first workforce"
+    },
+    "mobile_friction": {
+      "family": "application_step",
+      "role": "indicator",
+      "meaning": "Intake reports a hard-to-use form, account wall or upload difficulty.",
+      "metrics": [
+        "career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+        "career_portal_and_funnel.portal_component_scores_100.technical_speed_100"
+      ]
+    },
+    "form_obstacle_verified": {
+      "family": "application_step",
+      "role": "direct",
+      "meaning": "A candidate walkthrough or step events reproduce a blocking form obstacle."
+    },
+    "application_abandonment": {
+      "family": "form_exit",
+      "role": "outcome",
+      "meaning": "Candidates who start the application abandon it before submission.",
+      "metrics": [
+        "career_portal_and_funnel.application_form_dropoff_pct"
+      ],
+      "intake_pattern": "drop[- ]?off before complet|abandon[^.;]{0,40}application|application[^.;]{0,35}drop[- ]?off"
+    },
+    "form_completes": {
+      "family": "form_exit",
+      "role": "direct",
+      "meaning": "Eligible target candidates complete the instrumented form without unusual loss."
+    },
+    "application_loss": {
+      "family": "entry_conversion",
+      "role": "outcome",
+      "meaning": "Fewer portal visits convert to submitted applications for the target role.",
+      "metrics": [
+        "career_portal_and_funnel.applicant_conversion_rate_pct"
+      ],
+      "intake_pattern": "applications are down|low qualified applicant conversion|weak applicant conversion"
+    },
+    "handoff_delay_reported": {
+      "family": "handoff_interval",
+      "role": "indicator",
+      "meaning": "The intake identifies slow recruiter response after application or interview.",
+      "intake_pattern": "slow candidate response|slow local[^.;]{0,50}interview handoffs|handoff delays|recruiter response delays"
+    },
+    "handoff_delay_verified": {
+      "family": "handoff_interval",
+      "role": "direct",
+      "meaning": "Application system timestamps locate the delay between distinct post-submission events."
+    },
+    "hiring_delay": {
+      "family": "hire_latency",
+      "role": "outcome",
+      "meaning": "The target cohort has protracted time from requisition to accepted offer.",
+      "metrics": [
+        "hiring_and_retention_kpis.avg_time_to_hire_days",
+        "hiring_and_retention_kpis.hq_admin_time_to_hire_days"
+      ],
+      "intake_pattern": "time.to.hire has (?:reached|increased|ballooned)|slow hiring|long hiring delays"
+    },
+    "agency_spend": {
+      "family": "external_staffing",
+      "role": "outcome",
+      "meaning": "The target role relies heavily on external staffing or agencies.",
+      "metrics": [
+        "hiring_and_retention_kpis.agency_filled_roles_pct"
+      ]
+    },
+    "agency_dependency_verified": {
+      "family": "external_staffing",
+      "role": "direct",
+      "meaning": "Invoices or placement records document agency reliance for the affected roles."
+    },
+    "generic_ads": {
+      "family": "role_information",
+      "role": "indicator",
+      "meaning": "Job information omits relevant role details.",
+      "metrics": [
+        "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+        "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+        "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100"
+      ]
+    },
+    "role_info_gap_verified": {
+      "family": "role_information",
+      "role": "direct",
+      "meaning": "An ad audit verifies that requirements or valued job conditions are missing."
+    },
+    "weak_reach": {
+      "family": "audience_reach",
+      "role": "indicator",
+      "meaning": "The channel has poor reach or discoverability for the target audience.",
+      "metrics": [
+        "career_portal_and_funnel.monthly_visits",
+        "career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+        "social_and_employee_voice.quarterly_organic_impressions"
+      ],
+      "intake_pattern": "near.zero reach|low organic reach|low passive candidate awareness"
+    },
+    "corporate_engagement_weak": {
+      "family": "engagement",
+      "role": "indicator",
+      "meaning": "Corporate posts receive comparatively weak engagement.",
+      "metrics": [
+        "social_and_employee_voice.corporate_linkedin_er_pct",
+        "social_and_employee_voice.er_by_post_format_pct",
+        "social_and_employee_voice.er_by_post_format_pct.*"
+      ],
+      "intake_pattern": "weak (?:organic |linkedin )?engagement|low (?:corporate |linkedin )?engagement"
+    },
+    "local_reputation": {
+      "family": "review_distribution",
+      "role": "indicator",
+      "meaning": "Ratings vary across comparable sites, or site-level evidence is uneven.",
+      "metrics": [
+        "public_reputation.cross_location_rating_std_dev_5",
+        "public_reputation.segment_or_site_breakdown",
+        "public_reputation.segment_or_site_breakdown.*.rating_5"
+      ]
+    },
+    "review_coverage": {
+      "family": "review_sample",
+      "role": "context",
+      "meaning": "Review volume, site counts and coverage affect the reliability of the reputation signal.",
+      "metrics": [
+        "public_reputation.reviews_analyzed",
+        "public_reputation.segment_or_site_breakdown.*.reviews"
+      ]
+    },
+    "local_issue_verified": {
+      "family": "local_operations",
+      "role": "direct",
+      "meaning": "Site records or scoped listening verify a local employment or candidate experience issue."
+    },
+    "employer_reputation_weak": {
+      "family": "employer_sentiment",
+      "role": "indicator",
+      "meaning": "Public reviews show weak perception of the employer.",
+      "metrics": [
+        "public_reputation.overall_review_rating_5",
+        "public_reputation.recommend_to_friend_pct"
+      ]
+    },
+    "review_tracking": {
+      "family": "review_operations",
+      "role": "indicator",
+      "meaning": "Review monitoring or responses are handled manually or inconsistently.",
+      "metrics": [
+        "public_reputation.employer_review_reply_rate_pct"
+      ]
+    },
+    "feedback_fragmentation": {
+      "family": "feedback_process",
+      "role": "indicator",
+      "meaning": "Candidate feedback is collected in disconnected formats or systems."
+    },
+    "feedback_workflow_verified": {
+      "family": "feedback_process",
+      "role": "direct",
+      "meaning": "A workflow audit verifies inconsistent invitations, capture, or ownership."
+    },
+    "low_survey_coverage": {
+      "family": "feedback_coverage",
+      "role": "outcome",
+      "meaning": "A small share of eligible candidates complete the feedback survey.",
+      "metrics": [
+        "career_portal_and_funnel.candidate_survey_completion_rate_pct"
+      ],
+      "intake_pattern": "low (?:survey )?response rate|low survey completion|poor feedback response"
+    },
+    "post_tracking": {
+      "family": "tracking_process",
+      "role": "indicator",
+      "meaning": "HR reports manual recording of employee posts or campaign results."
+    },
+    "tracking_workflow_verified": {
+      "family": "tracking_process",
+      "role": "direct",
+      "meaning": "A workflow audit identifies manual steps, duplicates or missing attribution."
+    },
+    "manual_tracking_load": {
+      "family": "staff_time",
+      "role": "outcome",
+      "meaning": "HR spends time on manual review or post tracking.",
+      "metrics": [
+        "social_and_employee_voice.manual_hr_tracking_hours_month"
+      ],
+      "intake_pattern": "(?:hours?/(?:week|year|month)|hours? per (?:week|year|month))[^.;]{0,140}(?:manually|spreadsheet|screenshots)|hours/year manually"
+    },
+    "existing_advocates": {
+      "family": "organic_participation",
+      "role": "indicator",
+      "meaning": "Employees already post voluntarily, regardless of formal program status.",
+      "metrics": [
+        "social_and_employee_voice.spontaneous_employee_mentions_quarter",
+        "social_and_employee_voice.active_organic_ambassadors_headcount"
+      ]
+    },
+    "volunteers_verified": {
+      "family": "organic_participation",
+      "role": "direct",
+      "meaning": "Opt-in and relevant participation are verified for the target cohort."
+    },
+    "culture_ready": {
+      "family": "trust",
+      "role": "indicator",
+      "meaning": "Scoped evidence supports credible internal experience and willingness to participate.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.culture_and_values",
+        "social_and_employee_voice.positive_mention_share_pct"
+      ]
+    },
+    "employee_engagement_reference": {
+      "family": "employee_post_engagement",
+      "role": "context",
+      "meaning": "Peer benchmark for employee-post engagement. It is not observed client engagement.",
+      "metrics": [
+        "social_and_employee_voice.organic_employee_post_er_pct"
+      ]
+    },
+    "emv": {
+      "family": "finance_requirements",
+      "role": "context",
+      "meaning": "Finance requires an attributable and auditable measure of the employer-brand program."
+    },
+    "attrition_exposure": {
+      "family": "modeled_cost",
+      "role": "outcome",
+      "meaning": "Estimated cost of attrition. Expected exposure and realized savings are separate.",
+      "metrics": [
+        "hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur"
+      ]
+    },
+    "protected_retention": {
+      "family": "healthy_retention",
+      "role": "context",
+      "meaning": "A reported healthy retention baseline for a specific cohort.",
+      "metrics": [
+        "hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+        "hiring_and_retention_kpis.rd_labs_annual_retention_pct"
+      ]
+    },
+    "qualified_supply_verified": {
+      "family": "eligible_pool",
+      "role": "direct",
+      "meaning": "A role and location audit finds too few eligible applicants despite comparable distribution and a working apply flow.",
+      "metrics": [
+        "career_portal_and_funnel.qualified_applicants_per_requisition"
+      ]
+    },
+    "qualified_supply_reported": {
+      "family": "eligible_pool",
+      "role": "indicator",
+      "meaning": "Intake reports too few suitably qualified applicants.",
+      "intake_pattern": "(?:too few|scarce|shortage of|few) (?:suitably )?qualified (?:applicants|candidates)|qualified applicant supply is limited"
+    },
+    "qualified_supply_adequate": {
+      "family": "eligible_pool",
+      "role": "direct",
+      "meaning": "The relevant requisitions have a sufficient number of applicants meeting validated essential criteria."
+    },
+    "approval_queue_verified": {
+      "family": "requisition_approval",
+      "role": "direct",
+      "meaning": "Workflow timestamps show elapsed time between a documented hiring request and approval or release.",
+      "metrics": [
+        "hiring_and_retention_kpis.request_to_requisition_approval_days"
+      ]
+    },
+    "approval_queue_reported": {
+      "family": "requisition_approval",
+      "role": "indicator",
+      "meaning": "Intake reports vacancies waiting for budget or requisition sign-off.",
+      "intake_pattern": "requisitions? (?:are )?(?:stuck|waiting|held).{0,45}(?:approval|sign.off)|(?:delayed|slow) (?:requisition|headcount) approvals?"
+    },
+    "approval_on_time": {
+      "family": "requisition_approval",
+      "role": "direct",
+      "meaning": "Comparable hiring requests are approved or deliberately closed within the agreed local interval."
+    },
+    "vacancy_delay": {
+      "family": "hire_latency",
+      "role": "outcome",
+      "meaning": "A workforce need remains open longer than expected from request through hire.",
+      "metrics": [
+        "hiring_and_retention_kpis.request_to_fill_days"
+      ],
+      "intake_pattern": "(?:long|extended) request.to.fill|(?:vacancies|roles) remain unfilled"
+    },
+    "interview_capacity_verified": {
+      "family": "interview_queue",
+      "role": "direct",
+      "meaning": "Scheduling records verify that eligible screened candidates wait for interview slots or panel capacity.",
+      "metrics": [
+        "career_portal_and_funnel.screen_to_interview_days"
+      ]
+    },
+    "interview_capacity_reported": {
+      "family": "interview_queue",
+      "role": "indicator",
+      "meaning": "Intake reports difficulty booking an interview or assembling a panel after screening.",
+      "intake_pattern": "interview (?:slots?|panels?) (?:are )?(?:fully booked|unavailable|overbooked)|(?:wait|waiting) for (?:panel availability|an interview slot)"
+    },
+    "interviews_on_time": {
+      "family": "interview_queue",
+      "role": "direct",
+      "meaning": "Comparable eligible candidates receive feasible interview slots without a material queue."
+    },
+    "offer_decline_rate": {
+      "family": "offer_progression",
+      "role": "outcome",
+      "meaning": "A high share of extended offers are declined for the target cohort.",
+      "metrics": [
+        "hiring_and_retention_kpis.offer_decline_pct"
+      ],
+      "intake_pattern": "high offer (?:decline|rejection) rate|(?:offers|job offers) (?:are )?frequently declined"
+    },
+    "offer_terms_mismatch_verified": {
+      "family": "offer_fit",
+      "role": "direct",
+      "meaning": "Exit or decline records identify specific offer conditions that diverge from candidate requirements."
+    },
+    "offer_terms_mismatch_reported": {
+      "family": "offer_fit",
+      "role": "indicator",
+      "meaning": "Candidates reportedly cite terms, working conditions or timing when declining offers.",
+      "intake_pattern": "candidates? (?:decline|declined|reject|rejected).{0,50}(?:offer terms|working conditions|offer timing|pay expectations)"
+    },
+    "offer_terms_accepted": {
+      "family": "offer_fit",
+      "role": "direct",
+      "meaning": "Comparable candidates report that the offer terms meet their needs."
+    },
+    "qualified_screen_loss": {
+      "family": "screening_progression",
+      "role": "outcome",
+      "meaning": "Qualified applicants are lost between application and screening progression.",
+      "metrics": [
+        "career_portal_and_funnel.qualified_screen_rejection_pct"
+      ]
+    },
+    "screening_criteria_mismatch_verified": {
+      "family": "selection_design",
+      "role": "direct",
+      "meaning": "An audit identifies screen criteria or questions that do not reflect validated essential role requirements."
+    },
+    "screening_criteria_mismatch_reported": {
+      "family": "selection_design",
+      "role": "indicator",
+      "meaning": "Intake reports a mismatch between screening and actual role requirements.",
+      "intake_pattern": "(?:screening|screen) criteria.{0,36}(?:unrelated|do not match|not aligned with) (?:the )?(?:role|job)"
+    },
+    "screening_criteria_validated": {
+      "family": "selection_design",
+      "role": "direct",
+      "meaning": "Independent review confirms the criteria reflect essential job requirements."
+    },
+    "channel_target_mismatch_verified": {
+      "family": "targeting",
+      "role": "direct",
+      "meaning": "Attribution and audience data show that the channel reaches a different population from the intended job cohort."
+    },
+    "channel_target_mismatch_reported": {
+      "family": "targeting",
+      "role": "indicator",
+      "meaning": "The intake distinguishes a channel's current audience from the target candidates.",
+      "intake_pattern": "channel reaches (?:the )?wrong audience|(?:channel|campaign) misses (?:the )?target (?:audience|workers)"
+    },
+    "channel_target_reached": {
+      "family": "targeting",
+      "role": "direct",
+      "meaning": "The current channel gives the intended cohort sufficient opportunity to see the posting."
+    },
+    "prestart_loss": {
+      "family": "pre_entry_progression",
+      "role": "outcome",
+      "meaning": "A material share of accepted offers fail to become starts.",
+      "metrics": [
+        "hiring_and_retention_kpis.accepted_offer_nonstart_pct"
+      ],
+      "intake_pattern": "accepted offers? (?:do|did) not (?:turn into|become) starts|(?:pre.start|first.day) no.shows"
+    },
+    "prestart_gap_verified": {
+      "family": "pre_entry_process",
+      "role": "direct",
+      "meaning": "Accepted offers and pre-start contact records identify missed or conflicting steps preceding scheduled starts."
+    },
+    "prestart_gap_reported": {
+      "family": "pre_entry_process",
+      "role": "indicator",
+      "meaning": "Intake reports broken follow-up between offer acceptance and start.",
+      "intake_pattern": "(?:no|missing|inconsistent) (?:contact|updates|instructions) (?:after acceptance|before (?:the )?start)"
+    },
+    "prestart_steps_completed": {
+      "family": "pre_entry_process",
+      "role": "direct",
+      "meaning": "Accepted candidates received and confirmed their required pre-start information."
+    },
+    "internal_mobility_barrier_verified": {
+      "family": "internal_mobility",
+      "role": "direct",
+      "meaning": "A review finds qualified staff unable to discover or pursue available internal roles."
+    },
+    "internal_mobility_barrier_reported": {
+      "family": "internal_mobility",
+      "role": "indicator",
+      "meaning": "Employees report limited access to internal openings or transfers.",
+      "intake_pattern": "(?:internal vacancies|internal jobs) (?:are )?(?:not posted|hidden)|(?:blocked|prevented) from applying internally"
+    },
+    "internal_mobility_accessible": {
+      "family": "internal_mobility",
+      "role": "direct",
+      "meaning": "Eligible employees can discover and apply for the relevant internal roles."
+    },
+    "voluntary_exit_increase": {
+      "family": "employee_exits",
+      "role": "outcome",
+      "meaning": "Voluntary exits increased in a defined workforce and observation period.",
+      "metrics": [
+        "hiring_and_retention_kpis.voluntary_attrition_pct"
+      ],
+      "intake_pattern": "voluntary (?:attrition|exits|turnover) (?:has |have )?(?:risen|increased|accelerated)"
+    },
+    "flexibility_barrier_verified": {
+      "family": "location_flexibility",
+      "role": "direct",
+      "meaning": "Employees in the cohort identify a specific commuting or work-location constraint and the timing is verified."
+    },
+    "flexibility_barrier_reported": {
+      "family": "location_flexibility",
+      "role": "indicator",
+      "meaning": "Employees cite commuting or location requirements when considering leaving.",
+      "intake_pattern": "(?:commut(?:e|ing)|return.to.office).{0,40}(?:reason for leaving|cited in exits)"
+    },
+    "flexibility_feasible": {
+      "family": "role_location_feasibility",
+      "role": "context",
+      "meaning": "Work design, customer coverage and access requirements permit a local hybrid-work trial."
+    },
+    "flexibility_infeasible": {
+      "family": "role_location_feasibility",
+      "role": "context",
+      "meaning": "The role's essential work or access requirements prevent the proposed hybrid arrangement."
+    },
+    "speak_up_barrier_verified": {
+      "family": "speak_up",
+      "role": "direct",
+      "meaning": "Independent confidential channels corroborate fear of speaking up or retaliation for raising concerns."
+    },
+    "speak_up_barrier_reported": {
+      "family": "speak_up",
+      "role": "indicator",
+      "meaning": "Employees report fear of speaking up about problems.",
+      "intake_pattern": "(?:fear of|afraid to) speak(?:ing)? up|fear of retaliation"
+    },
+    "low_speak_up_participation": {
+      "family": "issue_reporting",
+      "role": "outcome",
+      "meaning": "Two-way reporting shows low issue-raising or follow-up coverage despite a defined opportunity to report."
+    },
+    "safe_voice_corroborated": {
+      "family": "speak_up",
+      "role": "direct",
+      "meaning": "Multiple confidential sources corroborate practical access to a safe channel for raising concerns."
+    },
+    "review_sample_shift_verified": {
+      "family": "review_selection",
+      "role": "direct",
+      "meaning": "Review composition, platform mix or collection coverage changed in the relevant comparison period."
+    },
+    "review_sample_shift_reported": {
+      "family": "review_selection",
+      "role": "indicator",
+      "meaning": "Intake reports a change in the mix of reviewers or review platforms.",
+      "intake_pattern": "(?:reviewer mix|review platform mix|review coverage) (?:changed|shifted|fell)"
+    },
+    "review_collection_stable": {
+      "family": "review_selection",
+      "role": "direct",
+      "meaning": "Platform and cohort breakdowns show stable coverage over comparable periods."
+    },
+    "tracking_attribution_gap_verified": {
+      "family": "attribution_integrity",
+      "role": "direct",
+      "meaning": "A reconciliation finds duplicate, unmatched or missing source IDs in campaign-to-outcome records."
+    },
+    "tracking_attribution_gap_reported": {
+      "family": "attribution_integrity",
+      "role": "indicator",
+      "meaning": "The intake reports missing attribution or duplicate tracking records.",
+      "intake_pattern": "(?:missing|incomplete) campaign attribution|duplicate (?:campaign|tracking) records"
+    },
+    "campaign_outcomes_unmeasured": {
+      "family": "outcome_observability",
+      "role": "outcome",
+      "meaning": "Eligible reach or downstream hiring outcomes are unavailable or cannot be reconciled."
+    },
+    "attribution_reconciled": {
+      "family": "attribution_integrity",
+      "role": "direct",
+      "meaning": "A source-to-outcome reconciliation confirms the relevant records and definitions reconcile."
+    }
+  },
+  "sources": {
+    "earnest_2011": {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+      "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+      "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold."
+    },
+    "zhao_2007": {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+      "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+      "limitation": "Verify why employees left and test alternative contributors."
+    },
+    "bauer_2007": {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17484552/",
+      "finding": "Newcomer adjustment includes role clarity, which was related to downstream work outcomes.",
+      "limitation": "Does not quantify the impact of a promotion framework on a given cohort."
+    },
+    "friebel_2021": {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2020.3905",
+      "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+      "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere."
+    },
+    "demerouti_2001": {
+      "kind": "empirical_study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11419809/",
+      "finding": "Job demands and resources measured across occupational groups relate to different burnout dimensions.",
+      "limitation": "A reported workload problem is not a clinical diagnosis or proof of turnover causation."
+    },
+    "bes_2023": {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1007/s00420-023-02009-z",
+      "finding": "Controlled studies found a small pooled reduction in exhaustion after organizational interventions, with very low certainty.",
+      "limitation": "Do not transfer the pooled effect to a client or infer impact on actual exits."
+    },
+    "w3c_forms": {
+      "kind": "design_guidance",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+      "limitation": "Design guidance, with no universal completion-time target or effect size."
+    },
+    "appcast": {
+      "kind": "vendor_observation",
+      "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+      "finding": "Observed apply completion varied with application length.",
+      "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel."
+    },
+    "hausknecht_2004": {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+      "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+      "limitation": "Does not establish a universal callback SLA or a conversion uplift."
+    },
+    "williamson_2010": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1002/hrm.20379",
+      "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+      "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect."
+    },
+    "edwards_2023": {
+      "kind": "systematic_review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10687884/",
+      "finding": "Shorter questionnaires and selected reminders can improve response in some settings.",
+      "limitation": "Response and representativeness are distinct; local candidate effects are unknown."
+    },
+    "marinescu_2021": {
+      "kind": "empirical_study",
+      "url": "https://marinescu.eu/publication/marinescu-incentives-2021/",
+      "finding": "Voluntary employer reviews can overrepresent extreme opinions.",
+      "limitation": "Ratings and review volume cannot establish a local operational cause by themselves."
+    },
+    "van_hoye_2016": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1111/ijsa.12128",
+      "finding": "Recruitment word-of-mouth studies found that source and disclosed incentives influenced employer attractiveness.",
+      "limitation": "Does not prove the success or harm of a given advocacy campaign."
+    },
+    "amec": {
+      "kind": "industry_standard",
+      "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+      "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+      "limitation": "An unattributed media cost estimate is not realized ROI."
+    },
+    "dube_2019": {
+      "kind": "quasi_experiment",
+      "url": "https://doi.org/10.1257/aer.20160232",
+      "finding": "A retail quasi-experiment linked unequal raises and quit behavior.",
+      "limitation": "Relevant as an alternative to test using comparable roles, with no transferable pay or quit threshold."
+    },
+    "kesavan_2022": {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2021.4291",
+      "finding": "An experiment in retail tested a bundle of more responsible scheduling practices and reported store performance effects.",
+      "limitation": "Does not establish a universal retention effect or fit for other shift-based roles."
+    },
+    "ingaze_policy": {
+      "kind": "hackathon_policy",
+      "url": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
+      "finding": "The challenge requires readiness gates, workforce fit and a three-phase plan.",
+      "limitation": "Policy constraint, not a published causal estimate."
+    },
+    "davis_2013": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1093/QJE/QJT002",
+      "finding": "US establishment data show heterogeneity in vacancies, hiring rates and recruiting intensity.",
+      "limitation": "An aggregate time-to-fill or low qualified count does not establish labor scarcity. Verify exposure, role requirements and competing stages locally."
+    },
+    "opm_hiring_roadmap": {
+      "kind": "design_guidance",
+      "url": "https://www.opm.gov/policy-data-oversight/human-capital-management/hiring-reform/reference/end-to-end-hiring-initiative.pdf",
+      "finding": "The federal hiring roadmap separates needs validation, review, interviews and offers into stages.",
+      "limitation": "Use only as a process measurement example. Its deadlines and governance requirements are specific to its setting."
+    },
+    "chapman_2005": {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16162065/",
+      "finding": "The meta-analysis examined associations of job, organizational and recruitment-process characteristics with applicant attraction, intentions and job choice.",
+      "limitation": "Does not establish why a specific offer was declined or isolate the effect of changing a term."
+    },
+    "keppeler_papenfuss": {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1111/puar.13324",
+      "finding": "Social media field experiments tested employer messages using clicks as an early indicator of interest.",
+      "limitation": "A click is neither a qualified application nor a hire. The setting was public employers."
+    },
+    "pre_entry_withdrawal": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1111/1748-8583.70050",
+      "finding": "The authors studied pre-entry withdrawal after acceptance, including an archival telecommunications sample.",
+      "limitation": "The reported rate belongs to that sample. The source does not prove a specific communication workflow prevents nonstarts."
+    },
+    "keller_2018": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1177/0001839217736045",
+      "finding": "An analysis of internal hires at one health-services firm compared posting with manager-designated moves and found differing outcomes.",
+      "limitation": "Observational evidence from one firm cannot establish a universal causal retention effect."
+    },
+    "bloom_2024": {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1038/s41586-024-07500-2",
+      "finding": "A randomized trial at a Chinese technology company evaluated a specific hybrid schedule and found lower attrition in the treatment group.",
+      "limitation": "Applies to the studied schedule and role setting. Verify feasibility and measure local outcomes."
+    },
+    "edmondson_1999": {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.2307/2666999",
+      "finding": "A study of manufacturing teams found team psychological safety associated with learning behavior.",
+      "limitation": "Low reporting alone cannot diagnose fear or establish a turnover effect. Confidential verification and applicable case procedures are needed."
+    },
+    "lacerenza_2017": {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+      "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+      "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately."
+    }
+  },
+  "rules": {
+    "expectation_drift": {
+      "label": "Expectation drift may contribute to early exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "documented_broken_promise",
+          "expectation_gap",
+          "brand_misalignment"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "earnest_2011",
+        "zhao_2007"
+      ],
+      "diagnostic": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+      "pilot": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "scale_gate": "Scale when new hires report alignment and comparable early-exit indicators improve.",
+      "counter": [
+        "expectations_met"
+      ],
+      "alternatives": [
+        "management_practice",
+        "onboarding_clarity",
+        "compensation_pressure",
+        "workload_strain",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "expectation_gap",
+        "early_attrition"
+      ]
+    },
+    "management_practice": {
+      "label": "A management practice may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "manager_practice_verified",
+          "manager_support"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "friebel_2021",
+        "lacerenza_2017"
+      ],
+      "diagnostic": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+      "pilot": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "scale_gate": "Extend after delegation feedback and comparable early retention improve.",
+      "alternatives": [
+        "expectation_drift",
+        "onboarding_clarity",
+        "compensation_pressure",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "manager_support"
+      ]
+    },
+    "onboarding_clarity": {
+      "label": "Unclear role or progression expectations may contribute to early exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "role_clarity_failure",
+          "career_clarity"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "bauer_2007"
+      ],
+      "diagnostic": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+      "pilot": "Pilot a structured onboarding and role-expectation review with a named owner.",
+      "scale_gate": "Expand after role clarity improves and comparable exit indicators show no deterioration.",
+      "alternatives": [
+        "management_practice",
+        "compensation_pressure",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "career_clarity"
+      ]
+    },
+    "workload_strain": {
+      "label": "Excess workload may contribute to employee exhaustion",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "workload_verified"
+        ],
+        [
+          "burnout"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "demerouti_2001",
+        "bes_2023"
+      ],
+      "diagnostic": "Compare staffing, overtime and confidential listening by cohort; check schedule instability and workload changes.",
+      "pilot": "Co-design a capacity or workload change in the affected team.",
+      "scale_gate": "Scale after sustained workload and exhaustion measures improve without shifting the burden to another cohort.",
+      "counter": [
+        "adequate_workload"
+      ],
+      "alternatives": [
+        "schedule_instability"
+      ],
+      "track_tags": [
+        "burnout"
+      ]
+    },
+    "application_friction": {
+      "label": "A mobile application obstacle may explain pre-submission loss",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "form_obstacle_verified",
+          "mobile_friction"
+        ],
+        [
+          "application_abandonment"
+        ],
+        [
+          "mobile_exposure"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "w3c_forms",
+        "appcast"
+      ],
+      "diagnostic": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+      "pilot": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "scale_gate": "Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response.",
+      "counter": [
+        "form_completes"
+      ],
+      "alternatives": [
+        "recruiter_handoff",
+        "role_information",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "mobile_friction"
+      ],
+      "action_tags": [
+        "form_redesign"
+      ],
+      "counter_overlap": true
+    },
+    "recruiter_handoff": {
+      "label": "A post-submission handoff may explain hiring delays",
+      "kind": "operational",
+      "requires": [
+        [
+          "handoff_delay_verified",
+          "handoff_delay_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
+      "pilot": "Pilot a named recruiter queue and response review for the affected roles.",
+      "scale_gate": "Expand after response times and qualified progression improve without shifting the queue elsewhere.",
+      "alternatives": [
+        "application_friction",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "local_reputation"
+      ]
+    },
+    "role_information": {
+      "label": "Unclear role information may weaken candidate attraction",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "role_info_gap_verified",
+          "generic_ads"
+        ],
+        [
+          "application_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "williamson_2010",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+      "pilot": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "scale_gate": "Scale after qualified applications improve while access and eligibility hold.",
+      "alternatives": [
+        "application_friction",
+        "reputation_location"
+      ],
+      "track_tags": [
+        "generic_ads"
+      ]
+    },
+    "reputation_location": {
+      "label": "A local operating issue may explain uneven site reputation",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "local_issue_verified"
+        ],
+        [
+          "local_reputation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "marinescu_2021"
+      ],
+      "diagnostic": "Compare themes, sample counts and local operational records for the affected sites.",
+      "pilot": "Pilot local ownership and fix the issue independently verified at those sites.",
+      "scale_gate": "Expand the workflow after coverage and local operational outcomes improve.",
+      "alternatives": [
+        "recruiter_handoff",
+        "review_sample_shift"
+      ],
+      "track_tags": [
+        "local_reputation",
+        "review_tracking"
+      ]
+    },
+    "feedback_coverage": {
+      "label": "Fragmented feedback collection may hide candidate experience issues",
+      "kind": "operational",
+      "requires": [
+        [
+          "feedback_workflow_verified",
+          "feedback_fragmentation"
+        ],
+        [
+          "low_survey_coverage"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "edwards_2023",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Reconcile eligible candidates, invitations, responses and timestamps by stage and site.",
+      "pilot": "Pilot a short accessible survey and documented invitations at an affected site.",
+      "scale_gate": "Expand once response coverage improves and nonresponse patterns are checked.",
+      "alternatives": [
+        "recruiter_handoff"
+      ],
+      "track_tags": [
+        "feedback_fragmentation"
+      ]
+    },
+    "manual_measurement": {
+      "label": "Manual workflows may limit reporting coverage and consume staff time",
+      "kind": "operational",
+      "requires": [
+        [
+          "tracking_workflow_verified",
+          "post_tracking"
+        ],
+        [
+          "manual_tracking_load"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "amec"
+      ],
+      "diagnostic": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+      "pilot": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "scale_gate": "Expand after completeness, auditability and staff time improve.",
+      "track_tags": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "alternatives": [
+        "campaign_attribution_gap"
+      ]
+    },
+    "advocacy_pilot": {
+      "label": "An existing willing cohort may support a scoped advocacy pilot",
+      "kind": "policy",
+      "requires": [
+        [
+          "volunteers_verified",
+          "existing_advocates"
+        ],
+        [
+          "culture_ready"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "van_hoye_2016",
+        "ingaze_policy"
+      ],
+      "diagnostic": "Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.",
+      "pilot": "Trial opt-in, role-relevant participation with auditable tracking.",
+      "scale_gate": "Expand only with credible internal conditions, consent and measured audience or hiring outcomes.",
+      "counter": [
+        "expectation_gap",
+        "documented_broken_promise",
+        "burnout",
+        "manager_support",
+        "manager_practice_verified"
+      ],
+      "track_tags": [
+        "existing_advocates",
+        "culture_ready"
+      ],
+      "counter_overlap": true,
+      "action_tags": [
+        "external_advocacy"
+      ]
+    },
+    "external_staffing_dependency": {
+      "label": "A delayed hire process may contribute to agency dependence",
+      "kind": "operational",
+      "requires": [
+        [
+          "agency_dependency_verified",
+          "agency_spend"
+        ],
+        [
+          "hiring_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "ingaze_policy"
+      ],
+      "diagnostic": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+      "pilot": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "scale_gate": "Scale after direct qualified hires improve and Finance verifies changes in agency spend.",
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "agency_spend"
+      ]
+    },
+    "compensation_pressure": {
+      "label": "A cohort-specific pay gap may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "pay_gap_verified"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "dube_2019"
+      ],
+      "diagnostic": "Audit comparable pay and exit reasons within the same role, location and tenure window.",
+      "pilot": "If a meaningful discrepancy is verified, pilot a targeted compensation correction with Finance.",
+      "scale_gate": "Review fairness and comparable retention before expanding any pay change.",
+      "alternatives": [
+        "management_practice",
+        "expectation_drift",
+        "workload_strain",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "action_tags": [
+        "compensation"
+      ]
+    },
+    "schedule_instability": {
+      "label": "Short-notice or unstable shifts may contribute to work strain",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "schedule_instability"
+        ],
+        [
+          "burnout"
+        ],
+        [
+          "shift_based_work"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "kesavan_2022",
+        "demerouti_2001"
+      ],
+      "diagnostic": "Compare roster notice, coverage and strain; check whether the target workforce actually works shifts.",
+      "pilot": "Pilot more predictable shift assignments with the affected workers and operational owner.",
+      "scale_gate": "Expand if roster stability improves without worse coverage or workload.",
+      "alternatives": [
+        "workload_strain"
+      ],
+      "action_tags": [
+        "schedule_change"
+      ]
+    },
+    "qualified_applicant_supply": {
+      "label": "A limited qualified applicant pool may delay hiring",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "qualified_supply_verified",
+          "qualified_supply_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "davis_2013",
+        "chapman_2005"
+      ],
+      "diagnostic": "Count qualified applicants per approved requisition by role and market. Verify essential criteria, distribution and form completion before calling the pool small.",
+      "pilot": "Test one additional sourcing route for the verified role and region. Track eligible applicants per requisition and keep essential qualifications fixed.",
+      "scale_gate": "Expand if eligible applicants per opening and qualified hires improve without worsening cost or assessment quality.",
+      "counter": [
+        "qualified_supply_adequate"
+      ],
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "requisition_approval",
+        "channel_reach_mismatch",
+        "screening_mismatch"
+      ],
+      "track_tags": [
+        "hiring_delay",
+        "qualified_supply_verified"
+      ],
+      "requires_verified_pilot": true
+    },
+    "requisition_approval": {
+      "label": "A pre-posting approval queue may delay vacancy fulfillment",
+      "kind": "operational",
+      "requires": [
+        [
+          "approval_queue_verified",
+          "approval_queue_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "opm_hiring_roadmap"
+      ],
+      "diagnostic": "Compare request, sign-off, posting and acceptance timestamps. Verify whether the time-to-hire clock even includes time in approval.",
+      "pilot": "Pilot a standard request checklist and named approver for one role family while retaining existing hiring and budget controls.",
+      "scale_gate": "Expand if the request-to-post interval improves and approval exceptions or hiring-control failures do not increase.",
+      "counter": [
+        "approval_on_time"
+      ],
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "qualified_applicant_supply"
+      ],
+      "track_tags": [
+        "requisition_approval"
+      ],
+      "requires_verified_pilot": true
+    },
+    "interview_capacity": {
+      "label": "Interview slot availability may delay qualified candidates",
+      "kind": "operational",
+      "requires": [
+        [
+          "interview_capacity_verified",
+          "interview_capacity_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "opm_hiring_roadmap",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Measure screens, scheduling attempts and actual interview starts. Separate panel capacity from recruiter contact and candidate availability.",
+      "pilot": "Reserve interview blocks with trained backup interviewers and let eligible candidates choose accessible slots.",
+      "scale_gate": "Expand after verified interview wait times fall and assessment quality and candidate access hold.",
+      "counter": [
+        "interviews_on_time"
+      ],
+      "alternatives": [
+        "recruiter_handoff",
+        "requisition_approval",
+        "offer_acceptance"
+      ],
+      "track_tags": [
+        "interview_capacity"
+      ],
+      "requires_verified_pilot": true
+    },
+    "offer_acceptance": {
+      "label": "Offer conditions may explain a late-stage loss of candidates",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "offer_terms_mismatch_verified",
+          "offer_terms_mismatch_reported"
+        ],
+        [
+          "offer_decline_rate"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "chapman_2005"
+      ],
+      "diagnostic": "Reconcile extended, declined and expired offers. Confirm role-level decline reasons and separate terms, approval timing and competing offers.",
+      "pilot": "Test clearer and earlier disclosure of approved offer conditions. Escalate term changes through the relevant decision owners.",
+      "scale_gate": "Expand if offer acceptance and subsequent starts improve while compensation and fairness controls hold.",
+      "counter": [
+        "offer_terms_accepted"
+      ],
+      "alternatives": [
+        "interview_capacity",
+        "prestart_withdrawal",
+        "compensation_pressure"
+      ],
+      "track_tags": [
+        "offer_acceptance"
+      ],
+      "requires_verified_pilot": true
+    },
+    "screening_mismatch": {
+      "label": "Off-target screening criteria may exclude eligible applicants",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "screening_criteria_mismatch_verified",
+          "screening_criteria_mismatch_reported"
+        ],
+        [
+          "qualified_screen_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "hausknecht_2004",
+        "opm_hiring_roadmap"
+      ],
+      "diagnostic": "Manually review de-identified decisions against job-validated essentials and look for structured counterexamples before changing the screen.",
+      "pilot": "Review questioned criteria with HR and role experts and pilot a documented, job-relevant rubric with human review.",
+      "scale_gate": "Expand only after assessment quality and accessible progression improve while required qualifications are preserved.",
+      "counter": [
+        "screening_criteria_validated"
+      ],
+      "alternatives": [
+        "qualified_applicant_supply",
+        "application_friction",
+        "role_information"
+      ],
+      "track_tags": [
+        "screening_mismatch"
+      ],
+      "requires_verified_pilot": true
+    },
+    "channel_reach_mismatch": {
+      "label": "A sourcing channel may be missing the intended workforce",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "channel_target_mismatch_verified",
+          "channel_target_mismatch_reported"
+        ],
+        [
+          "weak_reach"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "keppeler_papenfuss",
+        "davis_2013"
+      ],
+      "diagnostic": "Compare target cohort impressions, qualified visits and application outcomes by channel. Check whether the issue is reach, ad information or the apply flow.",
+      "pilot": "Test one role-appropriate channel with comparable job information and attributable qualified outcomes.",
+      "scale_gate": "Expand if incremental qualified reach and applications justify the cost and there is no reduction in access.",
+      "counter": [
+        "channel_target_reached"
+      ],
+      "alternatives": [
+        "qualified_applicant_supply",
+        "role_information",
+        "application_friction"
+      ],
+      "track_tags": [
+        "channel_reach_mismatch"
+      ],
+      "requires_verified_pilot": true
+    },
+    "prestart_withdrawal": {
+      "label": "A pre-start communication gap may contribute to nonstarts",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "prestart_gap_verified",
+          "prestart_gap_reported"
+        ],
+        [
+          "prestart_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "pre_entry_withdrawal"
+      ],
+      "diagnostic": "Check accepted offers, scheduled starts, withdrawals and confirmed contact while preserving candidate confidentiality.",
+      "pilot": "Pilot an opt-in contact schedule with confirmed instructions, a named contact and a way to resolve access or scheduling problems.",
+      "scale_gate": "Expand after measured starts improve without intrusive follow-up or worse candidate experience.",
+      "counter": [
+        "prestart_steps_completed"
+      ],
+      "alternatives": [
+        "offer_acceptance",
+        "onboarding_clarity"
+      ],
+      "track_tags": [
+        "prestart_withdrawal"
+      ],
+      "requires_verified_pilot": true
+    },
+    "internal_mobility_access": {
+      "label": "Restricted access to internal openings may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "internal_mobility_barrier_verified",
+          "internal_mobility_barrier_reported"
+        ],
+        [
+          "early_attrition",
+          "voluntary_exit_increase"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "keller_2018"
+      ],
+      "diagnostic": "Compare internal posting visibility, applicant access and exit themes by role and tenure. Check actual opportunities apart from clarity about progression.",
+      "pilot": "Pilot transparent access to relevant vacancies and a documented transfer review, preserving eligibility and role requirements.",
+      "scale_gate": "Expand if equitable access and mobility improve while monitoring retention in the same group.",
+      "counter": [
+        "internal_mobility_accessible"
+      ],
+      "alternatives": [
+        "onboarding_clarity",
+        "compensation_pressure",
+        "management_practice"
+      ],
+      "track_tags": [
+        "internal_mobility"
+      ],
+      "requires_verified_pilot": true
+    },
+    "work_location_flexibility": {
+      "label": "A feasible location change may address a reported retention barrier",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "flexibility_barrier_verified",
+          "flexibility_barrier_reported"
+        ],
+        [
+          "early_attrition",
+          "voluntary_exit_increase"
+        ],
+        [
+          "flexibility_feasible"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "bloom_2024"
+      ],
+      "diagnostic": "Verify commute or location concerns in the affected cohort and confirm that service, access and team responsibilities allow a trial.",
+      "pilot": "Test an opt-in, role-compatible schedule for one cohort with coverage and collaboration safeguards.",
+      "scale_gate": "Expand only if the local trial meets coverage, collaboration and retention criteria.",
+      "counter": [
+        "flexibility_infeasible"
+      ],
+      "alternatives": [
+        "schedule_instability",
+        "workload_strain",
+        "compensation_pressure"
+      ],
+      "track_tags": [
+        "work_location_flexibility"
+      ],
+      "requires_verified_pilot": true,
+      "counter_overlap": true
+    },
+    "speak_up_barriers": {
+      "label": "Fear of speaking up may limit visibility into workplace problems",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "speak_up_barrier_verified",
+          "speak_up_barrier_reported"
+        ],
+        [
+          "low_speak_up_participation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "edmondson_1999"
+      ],
+      "diagnostic": "Compare confidential reporting access, independently corroborated concerns and follow-up coverage. Refer individual allegations to appropriate safeguarding processes.",
+      "pilot": "Pilot confidential aggregate listening and tracked follow-up with a responsible HR owner. Keep individual case handling outside this workflow.",
+      "scale_gate": "Expand only after safe access and response quality are demonstrated. Assess participation separately from incident prevalence.",
+      "counter": [
+        "safe_voice_corroborated"
+      ],
+      "alternatives": [
+        "management_practice",
+        "workload_strain",
+        "review_sample_shift"
+      ],
+      "track_tags": [
+        "speak_up_barriers"
+      ],
+      "requires_verified_pilot": true,
+      "counter_overlap": true
+    },
+    "review_sample_shift": {
+      "label": "Review collection changes may explain some apparent reputation movement",
+      "kind": "operational",
+      "requires": [
+        [
+          "review_sample_shift_verified",
+          "review_sample_shift_reported"
+        ],
+        [
+          "local_reputation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "marinescu_2021"
+      ],
+      "diagnostic": "Compare review counts and respondent mix by platform, site and period. Cross-check changes against independent operational and listening records.",
+      "pilot": "Publish a coverage-aware reputation view separating like-for-like trends from composition changes.",
+      "scale_gate": "Expand when independent site evidence is linked and coverage differences are visible in management reports.",
+      "counter": [
+        "review_collection_stable"
+      ],
+      "alternatives": [
+        "reputation_location",
+        "speak_up_barriers"
+      ],
+      "track_tags": [
+        "review_sample_shift"
+      ],
+      "requires_verified_pilot": true
+    },
+    "campaign_attribution_gap": {
+      "label": "Missing attribution limits what can be inferred about hiring impact",
+      "kind": "operational",
+      "requires": [
+        [
+          "tracking_attribution_gap_verified",
+          "tracking_attribution_gap_reported"
+        ],
+        [
+          "campaign_outcomes_unmeasured"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "amec",
+        "keppeler_papenfuss"
+      ],
+      "diagnostic": "Reconcile source identifiers and downstream events. Check whether reach, candidate response or qualified outcomes are genuinely unmeasured.",
+      "pilot": "Pilot an auditable source-to-outcome ledger with deduplicated events and separate reporting for reach, qualified applications and hires.",
+      "scale_gate": "Expand after completeness and reconciliation improve and comparisons use consistent outcome definitions.",
+      "counter": [
+        "attribution_reconciled"
+      ],
+      "alternatives": [
+        "manual_measurement",
+        "channel_reach_mismatch"
+      ],
+      "track_tags": [
+        "campaign_attribution_gap"
+      ],
+      "requires_verified_pilot": true
+    }
+  }
+}
