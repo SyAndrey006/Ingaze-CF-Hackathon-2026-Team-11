@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0.0",
+  "benchmark_commit": "a8d4fa0",
+  "team": {
+    "number": 11,
+    "name": "Team 11",
+    "members": [],
+    "roster_status": "pending_confirmation"
+  },
+  "system": "Ingaze HR Recommendation Engine",
+  "paradigm": "Typed evidence graph, deterministic policy gates and weighted case-based reasoning",
+  "official_architecture_document": "ARCHITECTURE.md",
+  "entrypoint": "recommendation_engine.py",
+  "inputs": {
+    "sandbox": {
+      "flag": "--sandbox",
+      "dataset": "database/ingaze_sandbox_dataset.json",
+      "scenario_list_key": "company_scenarios_to_diagnose",
+      "first_stage": 2
+    },
+    "custom_client": {
+      "flag": "--client-input",
+      "default_path": "data/client_io/input.json",
+      "formats": ["JSON", "plain text"],
+      "first_stage": 1,
+      "fact_extraction": ["structured LLM extraction", "deterministic extraction"],
+      "offline_flag": "--skip-llm-normalization",
+      "organizer_messy_intake_adapter": "src/pipeline/messy_intake.py"
+    },
+    "optional_telemetry": {
+      "dataset": "database/ingaze_synthetic_analytics_snapshots.json",
+      "active_join_key": "scenario_code",
+      "historical_join_key": "case_name",
+      "inline_takes_precedence": true
+    }
+  },
+  "domain_state": {
+    "intake_models": {
+      "module": "src/schemas/pipeline_models.py",
+      "types": ["RawScenarioBundle", "ExtractedSignal", "NormalizedClientInput"]
+    },
+    "observation": {
+      "identity_fields": ["id", "signal", "state", "quality", "source_ref", "origins"],
+      "scope_fields": ["cohort", "site", "tenure", "window"],
+      "optional_lineage_fields": ["population_ids", "dependency_ids"],
+      "measurement_fields": ["metric_path", "value", "unit", "denominator", "measurement_horizon"],
+      "states": ["present", "absent", "unknown"],
+      "qualities": ["verified", "reported", "unverified"]
+    },
+    "graph": {
+      "source_path": "database/knowledge/hr_knowledge_graph.json",
+      "pack_version": 1,
+      "counts": {"signals": 92, "rules": 26, "sources": 26},
+      "signal_fields": ["family", "role", "meaning", "metrics", "intake_pattern"],
+      "rule_fields": ["kind", "requires", "direct", "counter", "alternatives", "sources", "diagnostic", "pilot", "scale_gate"],
+      "example_rule": {
+        "id": "expectation_drift",
+        "required_slots": [
+          ["documented_broken_promise", "expectation_gap", "brand_misalignment"],
+          ["early_attrition"]
+        ],
+        "direct_slot_index": 0,
+        "counter_signal": "expectations_met",
+        "example_alternatives": ["management_practice", "onboarding_clarity", "workload_strain"]
+      }
+    },
+    "cases": {
+      "source_path": "database/normalized/normalized_cases.json",
+      "curation_path": "database/curation/case_curation.json",
+      "model": "NormalizedCaseStudy",
+      "reviewed_count": 21,
+      "profile_fields": ["sector_category", "workforce_archetypes", "headcount", "locations_count"],
+      "start_fields": ["canonical_problem_tags", "healthy_starting_conditions", "t0_snapshot"],
+      "intervention_fields": ["intervention_steps", "applicable_research_snippet_nos"],
+      "outcome_fields": ["measured_roi_summary", "quantified_roi_deltas", "t1_snapshot"]
+    },
+    "research": {
+      "organizer_snippet_count": 10,
+      "evidence_library": "database/knowledge/hr_evidence_library.json",
+      "graph_source_fields": ["kind", "url", "finding", "limitation"],
+      "classes": [
+        "published_scientific_finding",
+        "observational_or_context_specific_finding",
+        "operational_guidance",
+        "organizer_reference",
+        "mandatory_constraint"
+      ]
+    }
+  },
+  "pipeline": [
+    {
+      "step": 1,
+      "id": "normalize_input",
+      "module": "src/pipeline/step1_normalize_input.py",
+      "outputs": ["NormalizedClientInput"],
+      "checks": ["source quote or metric grounding", "contamination filter", "canonical signal deduplication", "cohort retention"]
+    },
+    {
+      "step": 2,
+      "id": "root_cause_analysis",
+      "module": "src/pipeline/step2_root_cause_analysis.py",
+      "outputs": ["intake", "diagnostic_hypotheses", "prioritized_hypotheses"],
+      "scope_grouping": "Exact cohort, site, tenure and window",
+      "independence_algorithm": "Union-find over shared origin, source reference, population and dependency IDs, followed by maximum slot-to-component matching",
+      "statuses": {
+        "supported": "All required families fill independently, the scope is explicit and the direct slot has verified evidence",
+        "plausible": "A credible lead has unresolved scope, dependence or missing direct evidence",
+        "conflicted": "Counterevidence contradicts the mechanism",
+        "insufficient_evidence": "An alternative lacks enough observed evidence in the same scope"
+      }
+    },
+    {
+      "step": 3,
+      "id": "conditions_scoring",
+      "module": "src/pipeline/step3_conditions_scoring.py",
+      "outputs": ["ranked_candidates", "matched_case_studies", "supporting_research_snippets", "case_informed_action_candidates"],
+      "candidate_weights": {
+        "status_support": 0.34,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0425,
+        "historical_case_mechanism_fit": 0.15
+      },
+      "case_ranking": {
+        "matcher": "src/offline/case_matching.py",
+        "weights_file": "database/normalized/normalized_rules.json",
+        "top_k": 3,
+        "client_inputs": ["Step 1 canonical signals", "Step 2 track tags and supported or plausible site asymmetry via the case signal bridge"],
+        "candidate_filters": ["human-reviewed and present in the supplied corpus", "at least one shared problem tag", "compatible desk or frontline workforce"],
+        "weights": {
+          "root_cause_overlap_weight": 0.35,
+          "workforce_fit_weight": 0.25,
+          "sector_fit_weight": 0.15,
+          "roi_evidence_weight": 0.15,
+          "cfo_auditability_weight": 0.10
+        },
+        "tie_break": "case_id ascending",
+        "fallback": "Narrative mechanism retrieval when the normalized matcher yields no rows",
+        "roi_interpretation": "Observed historical results and documentation coverage contextualize the precedent. Client impact requires local measurement."
+      }
+    },
+    {
+      "step": 4,
+      "id": "guardrail_check",
+      "module": "src/pipeline/step4_guardrail_check.py",
+      "outputs": ["decisions", "guards", "protected", "evaluations"],
+      "minimum_candidate_score": 0.35,
+      "checks": ["counterevidence", "protected scope overlap", "sector and workforce fit", "verified evidence where required", "advocacy readiness and blockers"]
+    },
+    {
+      "step": 5,
+      "id": "phase_planner",
+      "module": "src/pipeline/step5_phase_planner.py",
+      "phases": [
+        {"number": 1, "output_key": "phase_1_actions", "purpose": "Diagnose and establish a baseline"},
+        {"number": 2, "output_key": "phase_2_actions", "purpose": "Pilot after scoped evidence and policy checks"},
+        {"number": 3, "output_key": "phase_3_actions", "purpose": "Scale after evaluating pilot outcomes and guard metrics"}
+      ]
+    },
+    {
+      "step": 6,
+      "id": "recommendation_export",
+      "module": "src/pipeline/step6_hr_proposal.py",
+      "outputs": ["ScenarioSubmission", "reasoning trace", "Markdown proposal"]
+    }
+  ],
+  "outputs": {
+    "official_submission": "submission.json",
+    "submission_model": "src/schemas/submission_models.py",
+    "trace_flag": "--trace-out",
+    "graph_export_flag": "--graph-out",
+    "intermediate_path_pattern": "data/intermediate_steps/<scenario_code>/<stage>.json"
+  },
+  "trade_offs": {
+    "data": "Local JSON keeps the demo portable. Larger catalogs can use indexed storage.",
+    "planning": "Explicit evidence slots and policy gates support audit and replay. Coverage grows through new rule and signal authoring.",
+    "parsing": "The benchmark and offline routes use zero LLM API tokens. Optional custom extraction adds a provider dependency and grounding checks.",
+    "baseline_method": "Organizer mock naive baseline. Live LLM and vector RAG comparisons were outside the audit.",
+    "baseline_comparison": "docs/baseline_comparison.md"
+  },
+  "verification": {
+    "reference": "docs/CHALLENGE_BRIEF.md",
+    "validator": "starter_baseline_and_validator.py",
+    "tests_passed": 89,
+    "organizer_validation": {"errors": 0, "warnings": 0},
+    "reproduced_committed_submission": true,
+    "scenarios": [
+      {
+        "code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+        "phase_action_counts": [6, 5, 5],
+        "verified_behavior": "Defer external advocacy and exclude retail shift rotation",
+        "top_cases": ["Alfa Group", "KronoCart Tech", "QuantEx Markets"]
+      },
+      {
+        "code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
+        "phase_action_counts": [5, 5, 5],
+        "verified_behavior": "Exclude technical LinkedIn as the driver channel and scope recruiter handoff to Bologna and Naples",
+        "top_cases": ["Beta Logistica", "TransEuropa Supply Chain", "Meridian Express Logistics"]
+      },
+      {
+        "code": "SCENARIO_C_VERDECARE_BCORP",
+        "phase_action_counts": [7, 5, 5],
+        "verified_behavior": "Preserve the healthy employer proposition and defer broad advocacy automation",
+        "top_cases": ["VitaCare Network", "VerdiCraft Botanicals", "NaturaPure Group"]
+      }
+    ]
+  },
+  "known_limits": [
+    "The offline client_intake_case adapter extracts recognized patterns. New survey fields and different wording may require additional mappings.",
+    "The VerdeCare advocacy pilot requires an explicitly confirmed target cohort.",
+    "Population and construct dependence detection relies on declared lineage IDs or shared provenance."
+  ]
+}

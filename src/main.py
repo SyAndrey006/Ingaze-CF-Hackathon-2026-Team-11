@@ -259,7 +259,10 @@ def _adapt_client_for_engine(bundle, normalized, graph):
     if not isinstance(existing_observations, list):
         existing_observations = []
     observations = list(existing_observations)
-    for index, signal in enumerate(normalized.canonical_signals, start=1):
+    # The organizer adapter already supplies source-level observations. Its
+    # canonical signal list is for matching, with no second copy of the evidence.
+    adapted_signals = () if "intake_normalization_audit" in scenario else normalized.canonical_signals
+    for index, signal in enumerate(adapted_signals, start=1):
         engine_signal = next(
             (tag for tag in _STEP1_SIGNAL_ADAPTER.get(signal.signal_code.value, ()) if tag in graph["signals"]),
             None,
@@ -352,11 +355,16 @@ def run_custom_client(
 
     normalized_inputs = []
     normalization_status = "llm_normalized"
-    if skip_llm_normalization:
-        normalization_status = "deterministic_fallback"
+    adapted_count = sum("intake_normalization_audit" in bundle.raw_scenario for bundle in bundles)
+    if skip_llm_normalization or adapted_count == len(bundles):
+        normalization_status = (
+            "deterministic_messy_intake" if adapted_count == len(bundles) else "deterministic_fallback"
+        )
         normalized_inputs = [_deterministic_normalized_client(bundle) for bundle in bundles]
-        print("Step 1 is using deterministic fact extraction because LLM normalization was skipped.")
+        print("Step 1 is using deterministic fact extraction.")
     else:
+        if adapted_count:
+            normalization_status = "mixed_llm_and_deterministic_messy_intake"
         client = llm_client or StructuredLLMClient()
         for bundle in bundles:
             print(f"Processing {input_path.name} — {bundle.scenario_code}...")
@@ -378,15 +386,19 @@ def run_custom_client(
         # Accept the former file-style argument while placing Step 1 beside the
         # other per-scenario stage results.
         normalized_root = normalized_root.parent
-    normalized_paths = [
-        _persist_stage_result(
-            bundle.scenario_code,
-            "step1_normalize_input",
-            normalized,
-            normalized_root,
+    normalized_paths = []
+    for bundle, normalized in zip(bundles, normalized_inputs):
+        raw = bundle.raw_scenario
+        output = normalized.model_dump(mode="json")
+        if "intake_normalization_audit" in raw:
+            output.update(
+                reported_intake_observations=raw["reported_intake_observations"],
+                protected_scopes=raw["protected_scopes"],
+                intake_normalization_audit=raw["intake_normalization_audit"],
+            )
+        normalized_paths.append(
+            _persist_stage_result(bundle.scenario_code, "step1_normalize_input", output, normalized_root)
         )
-        for bundle, normalized in zip(bundles, normalized_inputs)
-    ]
     portable_normalized_paths = [
         path.relative_to(PROJECT_ROOT).as_posix()
         if path.is_absolute() and path.is_relative_to(PROJECT_ROOT)

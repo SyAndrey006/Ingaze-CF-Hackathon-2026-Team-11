@@ -16,6 +16,7 @@ from typing import List, Optional, Sequence, Tuple
 
 from pydantic import BaseModel, Field
 
+from src.pipeline.messy_intake import adapt_messy_intake, is_messy_intake, summarized_intake
 from src.schemas.domain_models import (
     ActionCategory,
     SectorCategory,
@@ -120,6 +121,8 @@ def load_standalone_input(input_path: Path) -> List[RawScenarioBundle]:
             document = json.load(handle)
         if isinstance(document, list):
             rows = document
+        elif isinstance(document, dict) and is_messy_intake(document):
+            rows = [document]
         elif isinstance(document, dict):
             rows = None
             for key in (
@@ -165,7 +168,9 @@ def load_standalone_input(input_path: Path) -> List[RawScenarioBundle]:
         raw_candidate = row.get("raw_scenario", row)
         if not isinstance(raw_candidate, dict):
             raise ValueError(f"Standalone JSON client #{index} has an invalid raw_scenario object.")
-        raw_scenario = dict(raw_candidate)
+        raw_scenario = (
+            adapt_messy_intake(raw_candidate) if is_messy_intake(raw_candidate) else dict(raw_candidate)
+        )
         derived_code = path.stem if len(rows) == 1 else f"{path.stem}_{index:03d}"
         scenario_code = str(
             row.get("scenario_code")
@@ -668,10 +673,21 @@ def normalize_client_input_deterministically(
                 )
             )
 
-    canonical_signals, filtered_noise = filter_contaminated_signals(
-        raw_bundle, signals
-    )
-    baselines = _deterministic_healthy_baselines(internal)
+    if "intake_normalization_audit" in raw:
+        reported_signals, filtered_noise = summarized_intake(raw)
+        canonical_signals = _deduplicate_signals(reported_signals)
+        baselines = [
+            HealthyBaseline(
+                asset_or_cohort_name="Tenured workforce",
+                evidence=row["text"],
+                related_signal=SignalCode.HIGH_COHORT_RETENTION_HEALTHY,
+                do_not_touch_scope="Preserve the reported strengths of the named workforce pending verification.",
+            )
+            for row in raw["intake_normalization_audit"]["reported_strengths"]
+        ]
+    else:
+        canonical_signals, filtered_noise = filter_contaminated_signals(raw_bundle, signals)
+        baselines = _deterministic_healthy_baselines(internal)
     asymmetries = _deterministic_asymmetries(internal)
     if asymmetries and not any(
         signal.signal_code == SignalCode.COHORT_OR_SITE_ASYMMETRY
@@ -961,6 +977,8 @@ def normalize_client_input(
     llm_client: StructuredLLMClient,
 ) -> NormalizedClientInput:
     """Run fact-only LLM extraction followed by deterministic Python hygiene."""
+    if "intake_normalization_audit" in raw_bundle.raw_scenario:
+        return normalize_client_input_deterministically(raw_bundle)
     system_prompt = _build_system_prompt()
     user_prompt = json.dumps(
         {
