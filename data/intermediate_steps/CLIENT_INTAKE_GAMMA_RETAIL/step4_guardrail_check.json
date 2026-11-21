@@ -3,11 +3,11 @@
     "healthy_metrics_and_strengths_not_to_break": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
     "cohort_and_site_asymmetries": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.",
     "budget_and_capacity_constraints": "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag. The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes.",
-    "leadership_perceptions_and_requests": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage. At the same time, the Head of Marketing suggested a weekly B2B LinkedIn thought-leadership blog series to attract store associates, and Finance asked if we should cut the 40% staff discount to fund recruiting ads."
+    "leadership_perceptions_and_requests": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage. At the same time, the Head of Marketing suggested a weekly B2B LinkedIn thought-leadership blog series to attract store associates, and Finance asked if we should cut the 40% staff discount to fund recruiting ads. VP of Retail requested to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage. At the same time (mapped category: AMBASSADOR_SELECTION_ENABLEMENT; urgency: IMMEDIATE_PHASE_1; scope: Employee, store). Head of Marketing requested a weekly B2B LinkedIn thought-leadership blog series to attract store associates, and (mapped category: TECHNICAL_LINKEDIN_STORYTELLING; urgency: STANDARD; scope: store associates). Finance requested if we should cut the 40% staff discount to fund recruiting ads (mapped category: COMPENSATION_BAND_OVERHAUL; urgency: STANDARD; scope: company-wide)."
   },
   "strengths": "Base hourly pay for sales associates is actually 10% above the regional retail average (exit interviews almost never cite base pay), employees love the 40% staff product discount, and our Turin HQ design/merchandising teams maintain 92% annual retention.",
   "cohort": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training.",
-  "requests": "the vp of retail wants to immediately launch an employee ambassador campaign on instagram and tiktok next month asking mall store staff to film 'day in the life' videos to fix our applicant shortage. at the same time, the head of marketing suggested a weekly b2b linkedin thought-leadership blog series to attract store associates, and finance asked if we should cut the 40% staff discount to fund recruiting ads.",
+  "requests": "the vp of retail wants to immediately launch an employee ambassador campaign on instagram and tiktok next month asking mall store staff to film 'day in the life' videos to fix our applicant shortage. at the same time, the head of marketing suggested a weekly b2b linkedin thought-leadership blog series to attract store associates, and finance asked if we should cut the 40% staff discount to fund recruiting ads. vp of retail requested to immediately launch an employee ambassador campaign on instagram and tiktok next month asking mall store staff to film 'day in the life' videos to fix our applicant shortage. at the same time (mapped category: ambassador_selection_enablement; urgency: immediate_phase_1; scope: employee, store). head of marketing requested a weekly b2b linkedin thought-leadership blog series to attract store associates, and (mapped category: technical_linkedin_storytelling; urgency: standard; scope: store associates). finance requested if we should cut the 40% staff discount to fund recruiting ads (mapped category: compensation_band_overhaul; urgency: standard; scope: company-wide).",
   "protected": [],
   "observations": {
     "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present": {
@@ -101,6 +101,276 @@
           "text": "12 hours"
         }
       ]
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:1:employer_reputation_weak": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:1:employer_reputation_weak",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.LOW_PUBLIC_RATING",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MULTISITE_REPUTATION_VARIANCE",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+      "signal": "mobile_friction",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MOBILE_PORTAL_FRICTION",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.HIGH_APPLICATION_DROPOFF",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.GENERIC_BOILERPLATE_JDS",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Store, HQ",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Store job ads are copy-pasted from old HQ templates ('synergistic brand ambassador with omnichannel KPI mindset') and never mention shift rules or store perks."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:6:corporate_engagement_weak": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:6:corporate_engagement_weak",
+      "signal": "corporate_engagement_weak",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.CHANNEL_WORKFORCE_MISMATCH",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, in-store roles",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our corporate LinkedIn page gets decent engagement from fashion buyers and HQ marketers, but almost zero applications for in-store roles."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MANUAL_HR_SPREADSHEET_DRAG",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "team, store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.EARLY_FIRST_YEAR_ATTRITION",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "suburban mall stores, newly hired sales associates, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout",
+      "signal": "burnout",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.WORKLOAD_BURNOUT",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.WEAK_MIDDLE_MANAGEMENT",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.HIGH_FINANCIAL_TURNOVER_RISK",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:13:emv": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:13:emv",
+      "signal": "emv",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MISSING_CFO_ROI_EMV_VISIBILITY",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores, store, store managers, retail candidates, candidates, in-store roles, team, sales associates, employees, merchandising teams, city-center flagship stores, newly hired sales associates, Employee, store associates, locations, site, In-Store Sales Associates, Assistant Store Managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.LOW_INBOUND_QUALIFIED_APPLICANTS",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Employee, store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.SAY_DO_GAP",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "A vibrant, people-first fashion community where creativity and work-life balance thrive. | Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation": {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.COHORT_OR_SITE_ASYMMETRY",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "78 suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
     }
   },
   "present": [
@@ -195,19 +465,317 @@
           "text": "12 hours"
         }
       ]
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:1:employer_reputation_weak",
+      "signal": "employer_reputation_weak",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.LOW_PUBLIC_RATING",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:2:local_reputation",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MULTISITE_REPUTATION_VARIANCE",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+      "signal": "mobile_friction",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MOBILE_PORTAL_FRICTION",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment",
+      "signal": "application_abandonment",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.HIGH_APPLICATION_DROPOFF",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our career page gets solid smartphone traffic (~79% mobile visitors), mostly young retail candidates browsing during commutes, yet 61% abandon the application halfway through."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads",
+      "signal": "generic_ads",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.GENERIC_BOILERPLATE_JDS",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Store, HQ",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Store job ads are copy-pasted from old HQ templates ('synergistic brand ambassador with omnichannel KPI mindset') and never mention shift rules or store perks."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:6:corporate_engagement_weak",
+      "signal": "corporate_engagement_weak",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.CHANNEL_WORKFORCE_MISMATCH",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, in-store roles",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Our corporate LinkedIn page gets decent engagement from fashion buyers and HQ marketers, but almost zero applications for in-store roles."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:7:manual_tracking_load",
+      "signal": "manual_tracking_load",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MANUAL_HR_SPREADSHEET_DRAG",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "team, store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Meanwhile, our 2-person HR ops team spends roughly 12 hours every month manually copying store Google/Indeed reviews into an Excel tracker."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:8:early_attrition",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.EARLY_FIRST_YEAR_ATTRITION",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "suburban mall stores, newly hired sales associates, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:10:burnout",
+      "signal": "burnout",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.WORKLOAD_BURNOUT",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support",
+      "signal": "manager_support",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.WEAK_MIDDLE_MANAGEMENT",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:12:early_attrition",
+      "signal": "early_attrition",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.HIGH_FINANCIAL_TURNOVER_RISK",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:13:emv",
+      "signal": "emv",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.MISSING_CFO_ROI_EMV_VISIBILITY",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "HQ, suburban mall stores, store, store managers, retail candidates, candidates, in-store roles, team, sales associates, employees, merchandising teams, city-center flagship stores, newly hired sales associates, Employee, store associates, locations, site, In-Store Sales Associates, Assistant Store Managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:14:application_loss",
+      "signal": "application_loss",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.LOW_INBOUND_QUALIFIED_APPLICANTS",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "Employee, store",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The VP of Retail wants to immediately launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap",
+      "signal": "expectation_gap",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.SAY_DO_GAP",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "A vibrant, people-first fashion community where creativity and work-life balance thrive. | Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes, burnout during holiday peaks, and store managers who never give feedback or scheduling notice."
+    },
+    {
+      "id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:16:local_reputation",
+      "signal": "local_reputation",
+      "state": "present",
+      "quality": "reported",
+      "source_ref": "step1.normalized_input.COHORT_OR_SITE_ASYMMETRY",
+      "origins": [
+        "step1_normalized_client_input"
+      ],
+      "scope": {
+        "cohort": "78 suburban mall stores",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "evidence_type": "reviewed_local_observation",
+      "text": "The real bleeding is concentrated in the 78 suburban mall stores, where 24% of newly hired sales associates quit within their first 6 months due to chaotic weekend rosters and newly promoted store managers with zero people-management training."
     }
   ],
   "features": [
     "application_abandonment",
+    "application_loss",
+    "burnout",
+    "corporate_engagement_weak",
+    "early_attrition",
+    "employer_reputation_weak",
+    "emv",
+    "expectation_gap",
+    "generic_ads",
+    "local_reputation",
+    "manager_support",
+    "manual_tracking_load",
     "mobile_exposure",
+    "mobile_friction",
     "tracking_workflow_verified"
   ],
   "reported": [
     "application_abandonment",
+    "application_loss",
+    "burnout",
+    "corporate_engagement_weak",
+    "early_attrition",
+    "employer_reputation_weak",
+    "emv",
+    "expectation_gap",
+    "generic_ads",
+    "local_reputation",
+    "manager_support",
+    "manual_tracking_load",
     "mobile_exposure",
+    "mobile_friction",
     "tracking_workflow_verified"
   ],
-  "blockers": [],
+  "blockers": [
+    "burnout",
+    "expectation_gap",
+    "manager_support"
+  ],
   "decisions": [
     {
       "rule": "manual_measurement",
@@ -219,6 +787,50 @@
       },
       "decision": "conditional",
       "reason": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline."
+    },
+    {
+      "rule": "application_friction",
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "deferred",
+      "reason": "More scoped evidence is required before proposing this intervention."
+    },
+    {
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "deferred",
+      "reason": "More scoped evidence is required before proposing this intervention."
+    },
+    {
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "deferred",
+      "reason": "More scoped evidence is required before proposing this intervention."
+    },
+    {
+      "rule": "role_information",
+      "scope": {
+        "cohort": "Store, HQ",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "decision": "deferred",
+      "reason": "More scoped evidence is required before proposing this intervention."
     }
   ],
   "evaluations": [
@@ -324,6 +936,539 @@
       "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
       "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
       "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "application_friction",
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "retail candidates",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction"
+        ],
+        "other_matching_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+        ],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction": "origin:step1_normalized_client_input",
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "form_exit",
+          "device_exposure"
+        ],
+        "missing_families": [
+          "device_exposure"
+        ],
+        "dependent_families": [
+          "form_exit"
+        ],
+        "evidence_slots": [
+          {
+            "family": "application_step",
+            "expected_signals": [
+              "form_obstacle_verified",
+              "mobile_friction"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:3:mobile_friction",
+            "direct_slot": true
+          },
+          {
+            "family": "form_exit",
+            "expected_signals": [
+              "application_abandonment"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:4:application_abandonment"
+            ],
+            "selected_id": null,
+            "direct_slot": false
+          },
+          {
+            "family": "device_exposure",
+            "expected_signals": [
+              "mobile_exposure"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "next_check": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "competing_hypotheses": [
+          {
+            "rule": "recruiter_handoff",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "role_information",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "application_friction",
+      "rule": {
+        "label": "A mobile application obstacle may explain pre-submission loss",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "form_obstacle_verified",
+            "mobile_friction"
+          ],
+          [
+            "application_abandonment"
+          ],
+          [
+            "mobile_exposure"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "w3c_forms",
+          "appcast"
+        ],
+        "diagnostic": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+        "pilot": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+        "scale_gate": "Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response.",
+        "counter": [
+          "form_completes"
+        ],
+        "alternatives": [
+          "recruiter_handoff",
+          "role_information",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "track_tags": [
+          "mobile_friction"
+        ],
+        "action_tags": [
+          "form_redesign"
+        ],
+        "counter_overlap": true
+      },
+      "reason": "More scoped evidence is required before proposing this intervention.",
+      "narrative_lead": false,
+      "prerequisite": null,
+      "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "expectation_drift",
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "promise_alignment",
+            "expected_signals": [
+              "documented_broken_promise",
+              "expectation_gap",
+              "brand_misalignment"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:15:expectation_gap",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "next_check": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "workload_strain",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "expectation_drift",
+      "rule": {
+        "label": "Expectation drift may contribute to early exits",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "documented_broken_promise",
+            "expectation_gap",
+            "brand_misalignment"
+          ],
+          [
+            "early_attrition"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "earnest_2011",
+          "zhao_2007"
+        ],
+        "diagnostic": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+        "pilot": "Pilot accurate role previews and correct the verified gap in work practices.",
+        "scale_gate": "Scale when new hires report alignment and comparable early-exit indicators improve.",
+        "counter": [
+          "expectations_met"
+        ],
+        "alternatives": [
+          "management_practice",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "workload_strain",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "track_tags": [
+          "expectation_gap",
+          "early_attrition"
+        ]
+      },
+      "reason": "More scoped evidence is required before proposing this intervention.",
+      "narrative_lead": false,
+      "prerequisite": null,
+      "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "store, store managers",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:11:manager_support",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "management_practice",
+      "rule": {
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "manager_practice_verified",
+            "manager_support"
+          ],
+          [
+            "early_attrition"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "diagnostic": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "pilot": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+        "scale_gate": "Extend after delegation feedback and comparable early retention improve.",
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "track_tags": [
+          "manager_support"
+        ]
+      },
+      "reason": "More scoped evidence is required before proposing this intervention.",
+      "narrative_lead": false,
+      "prerequisite": null,
+      "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "has_strengths": true
+    },
+    {
+      "hypothesis": {
+        "rule": "role_information",
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "Store, HQ",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads": "origin:step1_normalized_client_input"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "entry_conversion"
+        ],
+        "missing_families": [
+          "entry_conversion"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_information",
+            "expected_signals": [
+              "role_info_gap_verified",
+              "generic_ads"
+            ],
+            "matching_ids": [
+              "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads"
+            ],
+            "selected_id": "step1:CLIENT_INTAKE_GAMMA_RETAIL:5:generic_ads",
+            "direct_slot": true
+          },
+          {
+            "family": "entry_conversion",
+            "expected_signals": [
+              "application_loss"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "next_check": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "reputation_location",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      "rule_id": "role_information",
+      "rule": {
+        "label": "Unclear role information may weaken candidate attraction",
+        "kind": "mechanism",
+        "requires": [
+          [
+            "role_info_gap_verified",
+            "generic_ads"
+          ],
+          [
+            "application_loss"
+          ]
+        ],
+        "direct": 0,
+        "sources": [
+          "williamson_2010",
+          "hausknecht_2004"
+        ],
+        "diagnostic": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+        "pilot": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "scale_gate": "Scale after qualified applications improve while access and eligibility hold.",
+        "alternatives": [
+          "application_friction",
+          "reputation_location"
+        ],
+        "track_tags": [
+          "generic_ads"
+        ]
+      },
+      "reason": "More scoped evidence is required before proposing this intervention.",
+      "narrative_lead": false,
+      "prerequisite": null,
+      "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+      "has_strengths": true
     }
   ],
   "guards": [
@@ -332,14 +1477,29 @@
   ],
   "advocacy_ready": false,
   "ranked_tags": [
+    "early_attrition",
+    "expectation_gap",
+    "generic_ads",
+    "manager_support",
+    "mobile_friction",
     "post_tracking",
     "review_tracking"
   ],
   "source_ids": [
-    "amec"
+    "amec",
+    "appcast",
+    "earnest_2011",
+    "friebel_2021",
+    "hausknecht_2004",
+    "lacerenza_2017",
+    "w3c_forms",
+    "williamson_2010",
+    "zhao_2007"
   ],
   "target": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
-  "hiring_stage_leads": [],
+  "hiring_stage_leads": [
+    "application_friction"
+  ],
   "hiring_stage_families": [
     "form_exit",
     "hire_latency",
@@ -357,19 +1517,437 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.7089,
+      "score": 0.6303,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.1062,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "application_friction:2",
+      "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "rule": "application_friction",
+      "scope": {
+        "cohort": "retail candidates",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.5489,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1417,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "expectation_drift:3",
+      "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "rule": "expectation_drift",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "management_practice:4",
+      "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "rule": "management_practice",
+      "scope": {
+        "cohort": "store, store managers",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
+      },
+      "minimum_score": 0.35,
+      "passed": true
+    },
+    {
+      "candidate_id": "role_information:5",
+      "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "rule": "role_information",
+      "scope": {
+        "cohort": "Store, HQ",
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "score": 0.5134,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.1062,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.0,
+        "scope_specificity": 0.0213,
+        "historical_case_mechanism_fit": 0.0714
       },
       "minimum_score": 0.35,
       "passed": true
     }
   ],
-  "precedent_idea_actions": [],
+  "precedent_idea_actions": [
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "RETAIL_SHIFT_ROTATION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    }
+  ],
   "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
 }

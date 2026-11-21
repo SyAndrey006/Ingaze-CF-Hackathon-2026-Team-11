@@ -31,7 +31,7 @@ from starter_baseline_and_validator import validate_submission
 
 DEFAULT_DATA = Path(__file__).resolve().parents[1] / "database" / "ingaze_sandbox_dataset.json"
 DEFAULT_CLIENT_INPUT = PROJECT_ROOT / "data" / "client_io" / "input.json"
-DEFAULT_NORMALIZED_CLIENT_OUTPUT = PROJECT_ROOT / "data" / "intermediate_steps" / "input_normalized.json"
+DEFAULT_NORMALIZED_CLIENT_OUTPUT = PROJECT_ROOT / "data" / "intermediate_steps"
 DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "output.json"
 DEFAULT_PROPOSAL_OUTPUT = PROJECT_ROOT / "outputs" / "hr_proposal.md"
 DEFAULT_CUSTOM_PROPOSAL_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "proposal.md"
@@ -189,71 +189,11 @@ _STEP1_SIGNAL_ADAPTER = {
 }
 
 
-def _minimal_normalized_client(bundle):
-    """Build a clearly minimal Step 1-shaped record when LLM normalization is skipped."""
-    import re
+def _deterministic_normalized_client(bundle):
+    """Build a fact-extracted Step 1 record when LLM normalization is unavailable."""
+    from src.pipeline.step1_normalize_input import normalize_client_input_deterministically
 
-    from src.schemas.domain_models import SectorCategory, WorkforceArchetype
-    from src.schemas.pipeline_models import NormalizedClientInput
-
-    raw = bundle.raw_scenario
-    sector_value = raw.get("sector_category")
-    try:
-        sector = SectorCategory(sector_value)
-    except (TypeError, ValueError):
-        sector = SectorCategory.GENERAL_ENTERPRISE
-
-    def positive_int(value):
-        if isinstance(value, int) and not isinstance(value, bool) and value > 0:
-            return value
-        if isinstance(value, str):
-            match = re.search(r"\b(\d[\d,]*)\b", value)
-            if match:
-                number = int(match.group(1).replace(",", ""))
-                return number if number > 0 else None
-        return None
-
-    footprint = str(raw.get("headcount_and_footprint", ""))
-    headcount = positive_int(raw.get("headcount")) or positive_int(
-        re.search(r"\b\d[\d,]*\s+employees?\b", footprint, re.I).group(0)
-        if re.search(r"\b\d[\d,]*\s+employees?\b", footprint, re.I)
-        else None
-    )
-    locations = positive_int(raw.get("locations_count"))
-    if locations is None:
-        location_match = re.search(
-            r"\b(?:across|at|in)\s+(\d[\d,]*)\s+(?:physical\s+)?"
-            r"(?:retail\s+)?(?:stores?|sites?|locations?|clinics?|hubs?)\b",
-            footprint,
-            re.I,
-        )
-        locations = positive_int(location_match.group(1)) if location_match else None
-
-    archetypes = []
-    for value in raw.get("workforce_archetypes", []):
-        try:
-            archetypes.append(WorkforceArchetype(value))
-        except (TypeError, ValueError):
-            continue
-
-    context = raw.get("client_internal_context", {})
-    declared_evp = raw.get("declared_evp")
-    if not declared_evp and isinstance(context, dict):
-        declared_evp = context.get("declared_evp", "")
-
-    return NormalizedClientInput(
-        scenario_code=bundle.scenario_code,
-        company_name=str(raw.get("company_name") or bundle.scenario_code),
-        industry_raw=str(raw.get("industry") or "Unspecified"),
-        sector_category=sector,
-        workforce_archetypes=archetypes,
-        headcount=headcount,
-        locations_count=locations,
-        workforce_target_summary=str(raw.get("workforce_target") or ""),
-        declared_evp=str(declared_evp or ""),
-        t0_telemetry=bundle.t0_telemetry,
-        sector_benchmarks=bundle.sector_benchmarks,
-    )
+    return normalize_client_input_deterministically(bundle)
 
 
 def _adapt_client_for_engine(bundle, normalized, graph):
@@ -413,9 +353,9 @@ def run_custom_client(
     normalized_inputs = []
     normalization_status = "llm_normalized"
     if skip_llm_normalization:
-        normalization_status = "skipped_llm"
-        normalized_inputs = [_minimal_normalized_client(bundle) for bundle in bundles]
-        print("Step 1 LLM normalization skipped; the deterministic engine will read the raw brief directly.")
+        normalization_status = "deterministic_fallback"
+        normalized_inputs = [_deterministic_normalized_client(bundle) for bundle in bundles]
+        print("Step 1 is using deterministic fact extraction because LLM normalization was skipped.")
     else:
         client = llm_client or StructuredLLMClient()
         for bundle in bundles:
@@ -424,25 +364,39 @@ def run_custom_client(
                 normalized_inputs.append(normalize_client_input(bundle, client))
             except RuntimeError as exc:
                 if "No LLM API key is configured" in str(exc):
-                    normalization_status = "skipped_llm_no_key"
-                    normalized_inputs = [_minimal_normalized_client(item) for item in bundles]
+                    normalization_status = "deterministic_fallback_no_api_key"
+                    normalized_inputs = [_deterministic_normalized_client(item) for item in bundles]
                     print(
-                        "No LLM API key is configured; Step 1 will use deterministic intake "
-                        "and continue through the recommendation pipeline."
+                        "No LLM API key is configured; Step 1 is using deterministic fact "
+                        "extraction and continuing through the recommendation pipeline."
                     )
                     break
                 raise
 
-    normalized_path = Path(normalized_output_path)
-    normalized_path.parent.mkdir(parents=True, exist_ok=True)
-    serialized_normalized = (
-        normalized_inputs[0].model_dump(mode="json")
-        if len(normalized_inputs) == 1
-        else [item.model_dump(mode="json") for item in normalized_inputs]
-    )
-    normalized_path.write_text(
-        json.dumps(serialized_normalized, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
+    normalized_root = Path(normalized_output_path)
+    if normalized_root.suffix.casefold() == ".json":
+        # Accept the former file-style argument while placing Step 1 beside the
+        # other per-scenario stage results.
+        normalized_root = normalized_root.parent
+    normalized_paths = [
+        _persist_stage_result(
+            bundle.scenario_code,
+            "step1_normalize_input",
+            normalized,
+            normalized_root,
+        )
+        for bundle, normalized in zip(bundles, normalized_inputs)
+    ]
+    portable_normalized_paths = [
+        path.relative_to(PROJECT_ROOT).as_posix()
+        if path.is_absolute() and path.is_relative_to(PROJECT_ROOT)
+        else str(path)
+        for path in normalized_paths
+    ]
+    normalized_path_value = (
+        portable_normalized_paths[0]
+        if len(portable_normalized_paths) == 1
+        else portable_normalized_paths
     )
 
     graph = graph or load_graph()
@@ -463,7 +417,7 @@ def run_custom_client(
             "with weighted case-based reasoning"
         ),
         "normalization_status": normalization_status,
-        "normalized_input_path": str(normalized_path),
+        "normalized_input_path": normalized_path_value,
         "scenarios": planned,
         "traces": traces,
     }
@@ -485,7 +439,8 @@ def run_custom_client(
         "\n\n---\n\n".join(trace["proposal_markdown"] for trace in traces) + "\n",
         encoding="utf-8",
     )
-    print(f"Wrote normalized client input: {normalized_path}")
+    for normalized_path in normalized_paths:
+        print(f"Wrote normalized client input: {normalized_path}")
     print(f"Wrote custom recommendation and reasoning trace: {output}")
     print(f"Wrote readable HR proposal: {proposal_path}")
     return payload

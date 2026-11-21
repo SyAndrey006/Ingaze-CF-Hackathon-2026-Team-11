@@ -320,7 +320,15 @@ def _find_unverified_feed_excerpts(raw_scenario: dict) -> List[str]:
             continue
         # Keep a concise, verbatim window around the marker for the report.
         start = max(0, match.start() - 90)
+        if start:
+            boundary = value.find(" ", start, match.start())
+            if boundary >= 0:
+                start = boundary + 1
         end = min(len(value), match.end() + 120)
+        if end < len(value):
+            boundary = value.rfind(" ", match.end(), end)
+            if boundary > match.end():
+                end = boundary
         excerpt = value[start:end].strip(" ,.;\n\t")
         if excerpt and excerpt not in excerpts:
             excerpts.append(excerpt)
@@ -532,6 +540,422 @@ def _deduplicate_signals(signals: Sequence[ExtractedSignal]) -> List[ExtractedSi
     return list(merged.values())
 
 
+def normalize_client_input_deterministically(
+    raw_bundle: RawScenarioBundle,
+) -> NormalizedClientInput:
+    """Extract explicit facts with general rules when no LLM is available.
+
+    This fallback deliberately tags only evidence matched in the supplied text
+    or telemetry. It does not diagnose causes or recommend interventions.
+    """
+    raw = raw_bundle.raw_scenario
+    platform = raw.get("ingaze_platform_signals", {})
+    internal = raw.get("client_internal_context", {})
+    platform_texts = _flatten_source_values(platform)
+    internal_texts = _flatten_source_values(internal)
+    internal_texts.extend(
+        str(raw[key])
+        for key in ("organizational_context", "hr_intake_notes", "workforce_target")
+        if raw.get(key)
+    )
+
+    industry = str(raw.get("industry") or "Unspecified")
+    profile_text = " ".join(
+        [
+            industry,
+            str(raw.get("workforce_target", "")),
+            str(raw.get("headcount_and_footprint", "")),
+            str(raw.get("organizational_context", "")),
+        ]
+    )
+    sector = _deterministic_sector(raw.get("sector_category"), profile_text)
+    workforce = _deterministic_workforce(profile_text)
+    for value in raw.get("workforce_archetypes", []):
+        try:
+            archetype = WorkforceArchetype(value)
+        except (TypeError, ValueError):
+            continue
+        if archetype not in workforce:
+            workforce.append(archetype)
+    headcount, locations = _deterministic_footprint(raw)
+    declared_evp = str(raw.get("declared_evp") or "").strip()
+    if not declared_evp:
+        declared_evp = _extract_declared_evp(raw)
+
+    cohorts = _extract_cohort_labels(" ".join([*platform_texts, *internal_texts]))
+    source_texts = {
+        "outside_in_platform": platform_texts,
+        "inside_out_client": internal_texts,
+        "t0_telemetry": (
+            _flatten_source_values(raw_bundle.t0_telemetry.model_dump(mode="json"))
+            if raw_bundle.t0_telemetry
+            else []
+        ),
+    }
+    rules = (
+        (SignalCode.LOW_PUBLIC_RATING, "outside_in_platform", r"\brating\b.{0,55}\b[1-3](?:\.\d+)?\s*/\s*5\b", "HIGH"),
+        (SignalCode.MULTISITE_REPUTATION_VARIANCE, "outside_in_platform", r"\b(?:split|disparity|variance)\b.{0,130}\b(?:HQ|headquarters|stores?|sites?|locations?|hubs?)\b|\bHQ\b.{0,100}\b(?:while|versus|vs\.?)\b.{0,100}\b(?:stores?|sites?|locations?|hubs?)\b", "HIGH"),
+        (SignalCode.UNMONITORED_LOCAL_REVIEWS, "outside_in_platform", r"\b(?:unmonitored|untracked|not monitored|not tracked|no monitoring)\b.{0,50}\b(?:reviews?|feedback|mentions?)\b", "MEDIUM"),
+        (SignalCode.MOBILE_PORTAL_FRICTION, "outside_in_platform", r"\b(?:mobile|smartphone)\b.{0,140}\b(?:application|portal|apply|visitors?|traffic)\b|\b(?:desktop account|verify (?:their )?email|formatted PDF resume|application.{0,20}screens?)\b", "HIGH"),
+        (SignalCode.HIGH_APPLICATION_DROPOFF, "outside_in_platform", r"\b\d+(?:[.,]\d+)?%\s+(?:of\s+)?(?:visitors?\s+)?(?:abandon|drop(?:s|ped)?\s+off)\b|\b(?:application|applicants?).{0,60}\b(?:abandon|drop[- ]off)\b", "HIGH"),
+        (SignalCode.GENERIC_BOILERPLATE_JDS, "outside_in_platform", r"\b(?:copy[- ]pasted|boilerplate|generic.{0,30}(?:job|role) descriptions?|old.{0,30}templates?|never mention)\b", "MEDIUM"),
+        (SignalCode.CHANNEL_WORKFORCE_MISMATCH, "outside_in_platform", r"\b(?:LinkedIn|corporate social|social channel).{0,160}\b(?:almost zero|few|no|low)\s+(?:applications?|applicants?)\b|\b(?:almost zero|few|no|low)\s+(?:applications?|applicants?).{0,100}\b(?:store|frontline|clinical|warehouse|field)\b", "MEDIUM"),
+        (SignalCode.MANUAL_HR_SPREADSHEET_DRAG, "outside_in_platform", r"\b(?:manual(?:ly)?|copying|spreadsheet|Excel tracker)\b.{0,100}\b(?:reviews?|data|track(?:er|ing)?|hours?)\b|\b\d+(?:[.,]\d+)?\s+hours?.{0,80}\b(?:manual|spreadsheet|copying|tracking)\b", "MEDIUM"),
+        (SignalCode.EARLY_FIRST_YEAR_ATTRITION, "inside_out_client", r"\b(?:quit|leave|resign|attrition|turnover)\b.{0,100}\b(?:first|six|6|12|twelve|year|months?|newly hired)\b|\b(?:first|six|6|12|twelve|year|months?|newly hired)\b.{0,100}\b(?:quit|leave|resign|attrition|turnover)\b", "HIGH"),
+        (SignalCode.UNPREDICTABLE_SHIFT_SCHEDULING, "outside_in_platform", r"\b(?:unpredictable|last[- ]minute|chaotic|unstable)\b.{0,90}\b(?:weekend|shift|roster|schedule)s?\b|\b(?:weekend|shift|roster|schedule)s?\b.{0,90}\b(?:unpredictable|last[- ]minute|chaotic|unstable)\b", "HIGH"),
+        (SignalCode.WORKLOAD_BURNOUT, "outside_in_platform", r"\b(?:burnout|burned out|overwork(?:ed)?|exhaust(?:ion|ed)|fatigue)\b", "HIGH"),
+        (SignalCode.WEAK_MIDDLE_MANAGEMENT, "outside_in_platform", r"\b(?:manager|supervisor)s?\b.{0,90}\b(?:never give feedback|no feedback|zero people[- ]management training|lack of training|not trained)\b|\b(?:zero|no|lack of)\s+(?:people[- ]management|managerial|management) training\b", "HIGH"),
+        (SignalCode.HIGH_FINANCIAL_TURNOVER_RISK, "inside_out_client", r"\b(?:turnover|attrition|replacement|lost[- ]sales)\b.{0,100}\b(?:EUR|USD|€|\$)?\s*\d[\d,.]*\s*(?:k|m|million)?\s*(?:/\s*year|per year|annually)\b", "HIGH"),
+        (SignalCode.MISSING_CFO_ROI_EMV_VISIBILITY, "inside_out_client", r"\b(?:freeze|frozen|hard numbers|ROI|return on investment|EMV|cost[- ]per[- ]hire|vanity metrics)\b", "MEDIUM"),
+        (SignalCode.LOW_INBOUND_QUALIFIED_APPLICANTS, "inside_out_client", r"\b(?:applicant shortage|shortage of applicants|too few applicants|not enough applicants|lack of qualified applicants)\b", "MEDIUM"),
+    )
+
+    signals: List[ExtractedSignal] = []
+    seen_quotes: set[tuple[SignalCode, str]] = set()
+    for code, stream, pattern_text, severity in rules:
+        pattern = re.compile(pattern_text, re.IGNORECASE)
+        evidence = _first_matching_sentence(source_texts[stream], pattern)
+        if evidence:
+            key = (code, evidence.casefold())
+            if key not in seen_quotes:
+                signals.append(
+                    ExtractedSignal(
+                        signal_code=code,
+                        evidence_quote=evidence,
+                        source_stream=stream,
+                        severity=severity,
+                        affected_cohorts=_extract_cohort_labels(evidence) or cohorts,
+                    )
+                )
+                seen_quotes.add(key)
+
+    # Preserve a say/do gap only when the raw EVP claim and an employee-review
+    # contradiction are both present in the source.
+    negative_review_pattern = re.compile(
+        r"\b(?:unpredictable|burnout|burned out|poor management|never give feedback|"
+        r"broken promise|unsafe|hostile|lack of support)\b",
+        re.IGNORECASE,
+    )
+    positive_evp_pattern = re.compile(
+        r"\b(?:people[- ]first|work[- ]life balance|well[- ]being|supportive|"
+        r"flexib(?:le|ility)|career growth|creativity|inclusive|development)\b",
+        re.IGNORECASE,
+    )
+    review_evidence = _first_matching_sentence(platform_texts, negative_review_pattern)
+    if declared_evp and positive_evp_pattern.search(declared_evp) and review_evidence:
+        signals.append(
+            ExtractedSignal(
+                signal_code=SignalCode.SAY_DO_GAP,
+                evidence_quote=f"{declared_evp} | {review_evidence}",
+                source_stream="outside_in_platform",
+                severity="HIGH",
+                affected_cohorts=_extract_cohort_labels(review_evidence) or cohorts,
+            )
+        )
+
+    # T0 telemetry is retained in full; only the explicitly defined >1.1-star
+    # external-claims gap is promoted to a canonical signal here.
+    if raw_bundle.t0_telemetry:
+        gap = raw_bundle.t0_telemetry.public_reputation.external_claims_gap_stars_5
+        if gap is not None and gap > 1.1:
+            signals.append(
+                ExtractedSignal(
+                    signal_code=SignalCode.SAY_DO_GAP,
+                    evidence_quote=f"public_reputation.external_claims_gap_stars_5: {gap}",
+                    source_stream="t0_telemetry",
+                    severity="HIGH",
+                    affected_cohorts=cohorts,
+                )
+            )
+
+    canonical_signals, filtered_noise = filter_contaminated_signals(
+        raw_bundle, signals
+    )
+    baselines = _deterministic_healthy_baselines(internal)
+    asymmetries = _deterministic_asymmetries(internal)
+    if asymmetries and not any(
+        signal.signal_code == SignalCode.COHORT_OR_SITE_ASYMMETRY
+        for signal in canonical_signals
+    ):
+        asymmetry = asymmetries[0]
+        canonical_signals = _deduplicate_signals(
+            [
+                *canonical_signals,
+                ExtractedSignal(
+                    signal_code=SignalCode.COHORT_OR_SITE_ASYMMETRY,
+                    evidence_quote=asymmetry.struggling_evidence,
+                    source_stream="inside_out_client",
+                    severity="HIGH",
+                    affected_cohorts=[asymmetry.struggling_segment],
+                ),
+            ]
+        )
+
+    requests = _deterministic_leadership_requests(internal)
+    budget = internal.get("budget_and_capacity_constraints", "") if isinstance(internal, dict) else ""
+    budget_constraints = [str(budget).strip()] if str(budget).strip() else []
+
+    return NormalizedClientInput(
+        scenario_code=raw_bundle.scenario_code,
+        company_name=str(raw.get("company_name") or raw_bundle.scenario_code),
+        industry_raw=industry,
+        sector_category=sector,
+        workforce_archetypes=workforce,
+        headcount=headcount,
+        locations_count=locations,
+        workforce_target_summary=str(raw.get("workforce_target") or ""),
+        declared_evp=declared_evp,
+        canonical_signals=canonical_signals,
+        filtered_noise_items=filtered_noise,
+        healthy_baselines=baselines,
+        cohort_site_asymmetries=asymmetries,
+        leadership_requests=requests,
+        budget_and_cfo_constraints=budget_constraints,
+        t0_telemetry=raw_bundle.t0_telemetry,
+        sector_benchmarks=raw_bundle.sector_benchmarks,
+    )
+
+
+def _first_matching_sentence(values: Sequence[str], pattern: re.Pattern[str]) -> str:
+    for value in values:
+        for sentence in re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'“])", str(value).strip()):
+            if pattern.search(sentence):
+                return sentence.strip()
+        if pattern.search(str(value)):
+            return str(value).strip()
+    return ""
+
+
+def _deterministic_sector(value: object, text: str) -> SectorCategory:
+    try:
+        return SectorCategory(value)
+    except (TypeError, ValueError):
+        lowered = text.casefold()
+    if re.search(r"\b(?:fintech|payments?|payment processing)\b", lowered):
+        return SectorCategory.FINTECH_PAYMENTS
+    if re.search(r"\b(?:bank(?:ing)?|financial services?)\b", lowered):
+        return SectorCategory.BANKING_FINANCIAL_SERVICES
+    if re.search(r"\b(?:logistics|freight|supply chain|warehouse)\b", lowered):
+        return SectorCategory.LOGISTICS_FREIGHT
+    if re.search(r"\b(?:retail|stores?|shops?|apparel|fashion)\b", lowered):
+        return SectorCategory.RETAIL_OMNICHANNEL
+    if re.search(r"\b(?:healthcare|clinical|clinic|hospital|senior care)\b", lowered):
+        return SectorCategory.HEALTHCARE_CLINICAL
+    if re.search(r"\b(?:cleantech|clean[- ]tech|sustainability|renewable energy|b corp)\b", lowered):
+        return SectorCategory.CLEANTECH_SUSTAINABILITY_BCORP
+    if re.search(r"\b(?:software|saas|technology|tech company)\b", lowered):
+        return SectorCategory.B2B_TECH_SAAS
+    return SectorCategory.GENERAL_ENTERPRISE
+
+
+def _deterministic_workforce(text: str) -> List[WorkforceArchetype]:
+    lowered = text.casefold()
+    result: List[WorkforceArchetype] = []
+    rules = (
+        (r"\b(?:retail|store|shop|apparel|sales associate|shop floor)\b", WorkforceArchetype.DESKLESS_FRONTLINE_RETAIL),
+        (r"\b(?:logistics|freight|warehouse|driver|distribution center)\b", WorkforceArchetype.DESKLESS_FRONTLINE_LOGISTICS),
+        (r"\b(?:healthcare|clinical|clinic|nurse|hospital|patient care)\b", WorkforceArchetype.MULTISITE_CLINICAL_HEALTHCARE),
+        (r"\b(?:software engineer|engineering team|technology specialist|developer)\b", WorkforceArchetype.DESK_BASED_TECH_SPECIALIST),
+        (r"\b(?:hq|headquarters|corporate office|corporate team)\b", WorkforceArchetype.CORPORATE_HQ_ADMIN),
+        (r"\b(?:multiple sites|multi[- ]site|distributed locations|across \d+\s+(?:physical\s+)?(?:retail\s+)?(?:locations?|stores?|sites?))\b", WorkforceArchetype.MIXED_DISTRIBUTED),
+    )
+    for pattern, archetype in rules:
+        if re.search(pattern, lowered) and archetype not in result:
+            result.append(archetype)
+    return result
+
+
+def _deterministic_footprint(raw: dict) -> tuple[Optional[int], Optional[int]]:
+    def positive_int(value: object) -> Optional[int]:
+        if isinstance(value, int) and not isinstance(value, bool) and value > 0:
+            return value
+        match = re.search(r"\b(\d[\d,]*)\b", str(value)) if value else None
+        if match:
+            number = int(match.group(1).replace(",", ""))
+            return number if number > 0 else None
+        return None
+
+    footprint = str(raw.get("headcount_and_footprint", ""))
+    headcount = positive_int(raw.get("headcount"))
+    if headcount is None:
+        match = re.search(r"\b\d[\d,]*\s+employees?\b", footprint, re.IGNORECASE)
+        headcount = positive_int(match.group(0)) if match else None
+    locations = positive_int(raw.get("locations_count"))
+    if locations is None:
+        match = re.search(
+            r"\b(?:across|at|in)\s+(\d[\d,]*)\s+(?:physical\s+)?"
+            r"(?:retail\s+)?(?:stores?|sites?|locations?|clinics?|hubs?)\b",
+            footprint,
+            re.IGNORECASE,
+        )
+        locations = positive_int(match.group(1)) if match else None
+    return headcount, locations
+
+
+def _extract_declared_evp(raw: dict) -> str:
+    for value in _flatten_source_values(raw):
+        match = re.search(
+            r"\b(?:declared\s+)?EVP\b[^:]{0,70}:\s*[\"'“‘](.+?)[\"'”’]",
+            value,
+            re.IGNORECASE,
+        )
+        if match:
+            return match.group(1).strip()
+    return ""
+
+
+def _extract_cohort_labels(text: str) -> List[str]:
+    pattern = re.compile(
+        r"\b(?:(?:suburban\s+mall|city[- ]center\s+flagship|newly[- ]hired|"
+        r"in[- ]store|assistant\s+store|store|retail|sales|corporate|design|"
+        r"merchandising|frontline|warehouse|clinical|candidate|HQ|headquarters)"
+        r"[\s-]+){0,3}(?:stores?|associates?|managers?|teams?|workers?|"
+        r"employees?|candidates?|roles?|sites?|hubs?|locations?)\b|"
+        r"\b(?:store|retail|frontline|corporate)\s+staff\b|"
+        r"\b(?:HQ|headquarters)\b",
+        re.IGNORECASE,
+    )
+    labels: List[str] = []
+    for match in pattern.finditer(text):
+        label = match.group(0).strip(" ,.;:")
+        if label and label.casefold() not in {item.casefold() for item in labels}:
+            labels.append(label)
+    return labels
+
+
+def _deterministic_healthy_baselines(internal: object) -> List[HealthyBaseline]:
+    if isinstance(internal, dict):
+        texts = _flatten_source_values(
+            internal.get("healthy_metrics_and_strengths_not_to_break", "")
+        )
+    else:
+        texts = []
+    baseline_rules = (
+        (re.compile(r"\b(?:pay|compensation|wages?)\b.{0,80}\b(?:above|higher|competitive|exceed)\b", re.I),
+         SignalCode.COMPETITIVE_COMPENSATION_HEALTHY, "Competitive base pay",
+         "Preserve the documented pay position; do not overhaul compensation without separate evidence."),
+        (re.compile(r"\b\d+(?:[.,]\d+)?%?\s+(?:annual\s+)?retention\b|\bhigh[- ]retention\b", re.I),
+         SignalCode.HIGH_COHORT_RETENTION_HEALTHY, "High-retention cohort",
+         "Protect the identified high-retention cohort from broad changes; use it as a comparison group."),
+        (re.compile(r"\b(?:employees?\s+love|valued|popular|strong)\b.{0,80}\b(?:discount|benefit|perk|asset)\b|\b\d+%\s+(?:staff\s+)?discount\b", re.I),
+         SignalCode.STRONG_OPERATIONAL_ASSETS_HEALTHY, "Valued employee benefit",
+         "Preserve the documented benefit; do not remove it to fund a different initiative."),
+    )
+    baselines: List[HealthyBaseline] = []
+    for text in texts:
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'“])", text.strip())
+        for sentence in sentences:
+            for pattern, code, asset, preserve in baseline_rules:
+                if pattern.search(sentence) and not any(item.related_signal == code and item.evidence == sentence for item in baselines):
+                    baselines.append(
+                        HealthyBaseline(
+                            asset_or_cohort_name=asset,
+                            evidence=sentence.strip(),
+                            related_signal=code,
+                            do_not_touch_scope=preserve,
+                        )
+                    )
+    return baselines
+
+
+def _deterministic_asymmetries(internal: object) -> List[CohortSiteAsymmetry]:
+    if isinstance(internal, dict):
+        texts = _flatten_source_values(internal.get("cohort_and_site_asymmetries", ""))
+    else:
+        texts = []
+    for text in texts:
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'“])", text.strip())
+        struggling = next(
+            (sentence.strip() for sentence in sentences if re.search(
+                r"\b(?:concentrated|bleeding|struggling|quit|leave|turnover|attrition|chaotic)\b", sentence, re.I
+            )),
+            "",
+        )
+        healthy = next(
+            (sentence.strip() for sentence in sentences if re.search(
+                r"\b(?:smoothly|long[- ]term|high[- ]retention|retain|retention|strong performance)\b", sentence, re.I
+            )),
+            "",
+        )
+        if not struggling or not healthy:
+            continue
+        struggling_match = re.search(
+            r"\b(?:concentrated in|focused in|located in)\s+(?:the\s+)?([^,.;]+)",
+            struggling,
+            re.IGNORECASE,
+        )
+        struggling_labels = _extract_cohort_labels(struggling)
+        healthy_labels = _extract_cohort_labels(healthy)
+        struggling_segment = (
+            struggling_match.group(1).strip()
+            if struggling_match
+            else (struggling_labels[0] if struggling_labels else "Affected cohort described by the client")
+        )
+        healthy_segment = ", ".join(healthy_labels) or "Healthy comparison cohort described by the client"
+        return [
+            CohortSiteAsymmetry(
+                struggling_segment=struggling_segment,
+                struggling_evidence=struggling,
+                healthy_comparison_segment=healthy_segment,
+                healthy_evidence=healthy,
+            )
+        ]
+    return []
+
+
+def _deterministic_leadership_requests(internal: object) -> List[LeadershipRequest]:
+    if not isinstance(internal, dict):
+        return []
+    text = str(internal.get("leadership_perceptions_and_requests", ""))
+    if not text:
+        return []
+    pattern = re.compile(
+        r"\b(?P<role>(?:the\s+)?(?:VP|Vice President|Head|Director|CFO|CEO|"
+        r"Finance|Marketing|Leadership)[\w /&-]{0,48}?)\s+"
+        r"(?P<verb>wants|suggested|asked|requested|proposed)\s+",
+        re.IGNORECASE,
+    )
+    matches = list(pattern.finditer(text))
+    requests: List[LeadershipRequest] = []
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        action_text = text[match.end():end].strip(" ,.;")
+        if not action_text:
+            continue
+        lowered = action_text.casefold()
+        if re.search(r"ambassador|employee advocacy|day in the life", lowered):
+            category = ActionCategory.AMBASSADOR_SELECTION_ENABLEMENT
+        elif re.search(r"linkedin|thought leadership|blog|content campaign", lowered):
+            category = ActionCategory.TECHNICAL_LINKEDIN_STORYTELLING
+        elif re.search(r"discount|pay|compensation|wage|benefit", lowered):
+            category = ActionCategory.COMPENSATION_BAND_OVERHAUL
+        elif re.search(r"shift|roster|schedule", lowered):
+            category = ActionCategory.RETAIL_SHIFT_ROTATION
+        elif re.search(r"mobile|portal|application form|apply flow", lowered):
+            category = ActionCategory.MOBILE_FAST_APPLY_FLOW
+        elif re.search(r"manager|coaching|feedback", lowered):
+            category = ActionCategory.MANAGER_COACHING_AND_LEVELING
+        elif re.search(r"job description|job ad|recruiting ad", lowered):
+            category = ActionCategory.PERSONA_ALIGNED_JDS
+        else:
+            category = ActionCategory.COHORT_TARGETED_ORIGINAL_ACTION
+        scope = _extract_cohort_labels(action_text)
+        requests.append(
+            LeadershipRequest(
+                stakeholder_role=re.sub(r"^the\s+", "", match.group("role").strip(), flags=re.I),
+                requested_action_text=action_text,
+                inferred_action_category=category,
+                requested_urgency=(
+                    "IMMEDIATE_PHASE_1"
+                    if re.search(r"\b(?:immediate(?:ly)?|urgent|next month|right away)\b", action_text, re.I)
+                    else "STANDARD"
+                ),
+                target_scope=", ".join(scope) or "company-wide",
+            )
+        )
+    return requests
+
+
 def normalize_client_input(
     raw_bundle: RawScenarioBundle,
     llm_client: StructuredLLMClient,
@@ -612,7 +1036,14 @@ def _build_system_prompt() -> str:
         "contradiction. "
         "Map early turnover at six months or during the first year to "
         "EARLY_FIRST_YEAR_ATTRITION. Keep direct metrics and T0 telemetry grounded "
-        "in the supplied values. Use null for unknown numeric profile fields.\n\n"
+        "in the supplied values. Use null for unknown numeric profile fields. "
+        "Before returning, perform a coverage pass over every raw source field: extract "
+        "each distinct supported problem signal, preserve quantified healthy baselines, "
+        "record explicit struggling-versus-thriving groups, retain every leadership "
+        "request separately, and capture budget constraints. Do not leave a field empty "
+        "when its evidence is present; leave it empty only when the input contains no "
+        "supporting fact. Choose sector and workforce archetypes from company profile "
+        "facts, not from unrelated or quarantined feed rows.\n\n"
         f"SignalCode values: {', '.join(signals)}\n"
         f"SectorCategory values: {', '.join(sectors)}\n"
         f"WorkforceArchetype values: {', '.join(workforces)}\n"
@@ -755,25 +1186,37 @@ def run_normalization_cli(
     results: List[NormalizedClientInput] = []
     for bundle in bundles:
         print(f"Processing {source_path.name}...")
-        results.append(normalize_client_input(bundle, client))
+        try:
+            results.append(normalize_client_input(bundle, client))
+        except RuntimeError as exc:
+            if "No LLM API key is configured" not in str(exc):
+                raise
+            print(
+                "No LLM API key is configured; using deterministic fact extraction "
+                "for this input."
+            )
+            results = [normalize_client_input_deterministically(item) for item in bundles]
+            break
 
-    serialized: object
-    if len(results) == 1:
-        serialized = results[0].model_dump(mode="json")
-    else:
-        serialized = [result.model_dump(mode="json") for result in results]
-    normalized_path = output_dir / f"{source_path.stem}_normalized.json"
-    normalized_path.write_text(
-        json.dumps(serialized, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    normalized_paths: List[Path] = []
+    for result in results:
+        safe_code = re.sub(r"[^A-Za-z0-9_.-]+", "_", result.scenario_code).strip("._") or "scenario"
+        scenario_dir = output_dir / safe_code
+        scenario_dir.mkdir(parents=True, exist_ok=True)
+        normalized_path = scenario_dir / "step1_normalize_input.json"
+        normalized_path.write_text(
+            json.dumps(result.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        normalized_paths.append(normalized_path)
     signal_count = sum(len(result.canonical_signals) for result in results)
     noise_count = sum(len(result.filtered_noise_items) for result in results)
     print(
         f"Normalization complete: {len(results)} client(s), "
         f"{signal_count} active signal(s), {noise_count} quarantined item(s)."
     )
-    print(f"Wrote normalized JSON: {normalized_path}")
+    for normalized_path in normalized_paths:
+        print(f"Wrote normalized JSON: {normalized_path}")
     return results
 
 
@@ -792,7 +1235,7 @@ def _join_or_none(values: Sequence[str]) -> str:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Normalize data/client_io/input.json into data/intermediate_steps/."
+        description="Normalize data/client_io/input.json into per-scenario intermediate steps."
     )
     parser.add_argument(
         "--scenario",
