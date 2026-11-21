@@ -1,0 +1,1567 @@
+{
+  "_about": "Curation of the raw historical case narratives into canonical enums (src/schemas/domain_models.py). Every quote must be an exact substring of the raw case text; evidence 'inferred' marks tags derived rather than stated. review_status: 'reviewed' = checked by a human, 'llm_draft' = drafted by src/offline/case_curation_drafter.py and not yet reviewed (built with a warning; approve with `python -m src.offline.case_curation_drafter --approve CASE_ID`). Consumed deterministically by src/offline/case_normalizer.py.",
+  "cases": [
+    {
+      "case_id": "CASE_01_LOGINEXT",
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "review_status": "reviewed",
+      "sector_category": "B2B_TECH_SAAS",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "LOW_INBOUND_QUALIFIED_APPLICANTS",
+          "evidence": "stated",
+          "quote": "struggled to hire senior tech roles"
+        },
+        {
+          "signal": "UNMONITORED_LOCAL_REVIEWS",
+          "evidence": "stated",
+          "quote": "Employee reviews across countries were tracked manually or ignored"
+        },
+        {
+          "signal": "MULTISITE_REPUTATION_VARIANCE",
+          "evidence": "stated",
+          "quote": "creating a fragmented employer brand"
+        },
+        {
+          "signal": "LOW_EMPLOYER_BRAND_ALIGNMENT",
+          "evidence": "stated",
+          "quote": "50% Employer Brand Alignment Index"
+        },
+        {
+          "signal": "HIGH_FINANCIAL_TURNOVER_RISK",
+          "evidence": "stated",
+          "quote": "high turnover risk exposure on R&D teams"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "HR lacked financial risk metrics for the Board"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Centralized Multi-Channel Reputation Audit across all 4 countries",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Calibrated Senior Tech Candidate Personas",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned the European EVP to match engineering reality",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Deployed a Board Financial Turnover Risk Dashboard",
+          "phase_bucket": 2
+        }
+      ],
+      "snippets": [
+        4,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_02_SOLARIS",
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "review_status": "reviewed",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "LOW_CORPORATE_SOCIAL_ENGAGEMENT",
+          "evidence": "stated",
+          "quote": "corporate social reach was low"
+        },
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "HR spent 10 hours/month manually tracking ambassador screenshots in spreadsheets"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "the CFO demanded proof of media ROI"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_INTERNAL_CULTURE_HEALTHY",
+          "evidence": "stated",
+          "quote": "already enjoyed high internal trust"
+        },
+        {
+          "signal": "HEALTHY_AUTHENTIC_EVP",
+          "evidence": "stated",
+          "quote": "an authentic sustainability culture"
+        },
+        {
+          "signal": "ACTIVE_ORGANIC_AMBASSADORS_PRESENT",
+          "evidence": "stated",
+          "quote": "50 engineers willing to share content"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Data-driven selection of 50 technical brand ambassadors",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Deployment of Automated Ambassador Content Tracking",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board reporting of certified Earned Media Value (EMV)",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        3,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_03_FLOWPAY",
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "review_status": "reviewed",
+      "sector_category": "FINTECH_PAYMENTS",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "LOW_CORPORATE_SOCIAL_ENGAGEMENT",
+          "evidence": "stated",
+          "quote": "LinkedIn posts suffered from stagnant engagement"
+        },
+        {
+          "signal": "GENERIC_BOILERPLATE_JDS",
+          "evidence": "stated",
+          "quote": "generic job descriptions"
+        },
+        {
+          "signal": "LOW_INBOUND_QUALIFIED_APPLICANTS",
+          "evidence": "stated",
+          "quote": "failed to attract passive senior engineers"
+        },
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "wasted 12 hours/month manually compiling post statistics into spreadsheets"
+        },
+        {
+          "signal": "MISSING_CANDIDATE_PERSONA_FIT",
+          "evidence": "inferred",
+          "quote": "Calibrated technical Candidate Personas"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Calibrated technical Candidate Personas",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+          "action_title": "Technical Engineering Storytelling on LinkedIn focused on architecture and autonomy",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned EVP messaging",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        6,
+        3
+      ]
+    },
+    {
+      "case_id": "CASE_04_GLOBAL_RETAIL",
+      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "review_status": "reviewed",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_RETAIL"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_APPLICATION_DROPOFF",
+          "evidence": "stated",
+          "quote": "massive candidate drop-off"
+        },
+        {
+          "signal": "MOBILE_PORTAL_FRICTION",
+          "evidence": "stated",
+          "quote": "smartphone applicants faced a clunky desktop registration flow"
+        },
+        {
+          "signal": "GENERIC_BOILERPLATE_JDS",
+          "evidence": "stated",
+          "quote": "generic job descriptions"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Candidate Persona Calibration for store staff",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "MOBILE_FAST_APPLY_FLOW",
+          "action_title": "Mobile-First Fast-Apply flow",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Rewrote Persona-Aligned Job Descriptions",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        2,
+        7
+      ]
+    },
+    {
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "review_status": "reviewed",
+      "sector_category": "B2B_TECH_SAAS",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_FINANCIAL_TURNOVER_RISK",
+          "evidence": "stated",
+          "quote": "€1.35M in estimated annual Financial Turnover Risk"
+        },
+        {
+          "signal": "WEAK_MIDDLE_MANAGEMENT",
+          "evidence": "stated",
+          "quote": "Weak Middle Management (€540k risk)"
+        },
+        {
+          "signal": "CAREER_PATH_OPACITY",
+          "evidence": "stated",
+          "quote": "Career Path Opacity (€360k risk)"
+        },
+        {
+          "signal": "WORKLOAD_BURNOUT",
+          "evidence": "stated",
+          "quote": "Workload Burnout (€250k risk)"
+        },
+        {
+          "signal": "SAY_DO_GAP",
+          "evidence": "stated",
+          "quote": "a Say-Do Gap"
+        },
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "19% early new-hire attrition"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360-Degree Internal Feedback Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Manager Coaching Program",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "Transparent Career Progression Framework",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "EVP Realignment",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board Financial Risk Dashboard",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Persona-Aligned JDs (only after stabilizing internal trust)",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 3,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Data-Driven Ambassador Selection (only after stabilizing internal trust)",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "review_status": "reviewed",
+      "sector_category": "LOGISTICS_FREIGHT",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_LOGISTICS"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_APPLICATION_DROPOFF",
+          "evidence": "stated",
+          "quote": "58% mobile career site bounce rate"
+        },
+        {
+          "signal": "MOBILE_PORTAL_FRICTION",
+          "evidence": "inferred",
+          "quote": "58% mobile career site bounce rate"
+        },
+        {
+          "signal": "HIGH_TIME_TO_HIRE",
+          "evidence": "stated",
+          "quote": "52-day Time-to-Hire"
+        },
+        {
+          "signal": "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "evidence": "stated",
+          "quote": "heavy spend on temporary staffing agencies"
+        },
+        {
+          "signal": "GENERIC_BOILERPLATE_JDS",
+          "evidence": "stated",
+          "quote": "Job ads used generic corporate phrasing"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_OPERATIONAL_ASSETS_HEALTHY",
+          "evidence": "stated",
+          "quote": "reliable on-time driver pay and modern truck fleet"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit across hubs",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Driver Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "MOBILE_FAST_APPLY_FLOW",
+          "action_title": "60-second Mobile-First Fast-Apply flow",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned the EVP around payment reliability and fleet quality",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Published driver-persona-aligned Job Descriptions",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        2,
+        7
+      ]
+    },
+    {
+      "case_id": "CASE_07_GAMMA_RETAIL",
+      "case_name": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "review_status": "reviewed",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_RETAIL"
+      ],
+      "problem_signals": [
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "high 6-month store staff turnover"
+        },
+        {
+          "signal": "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "evidence": "stated",
+          "quote": "unpredictable weekend shift burnout"
+        },
+        {
+          "signal": "WORKLOAD_BURNOUT",
+          "evidence": "stated",
+          "quote": "unpredictable weekend shift burnout"
+        },
+        {
+          "signal": "WEAK_MIDDLE_MANAGEMENT",
+          "evidence": "stated",
+          "quote": "weak store-manager support"
+        },
+        {
+          "signal": "MOBILE_PORTAL_FRICTION",
+          "evidence": "stated",
+          "quote": "mobile application friction on its career site"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360 Internal Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Retail Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "RETAIL_SHIFT_ROTATION",
+          "action_title": "Predictable Retail Store Weekend Shift Rotation",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Store Manager Coaching",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "MOBILE_FAST_APPLY_FLOW",
+          "action_title": "Mobile-First Fast-Apply",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Scaled Persona-Aligned JDs",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 3,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Scaled Employee Advocacy",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        10,
+        2,
+        7
+      ]
+    },
+    {
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "review_status": "reviewed",
+      "sector_category": "HEALTHCARE_CLINICAL",
+      "workforce_archetypes": [
+        "MULTISITE_CLINICAL_HEALTHCARE",
+        "EARLY_CAREER_GEN_Z"
+      ],
+      "problem_signals": [
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "consumed 120+ HR hours/year"
+        },
+        {
+          "signal": "UNMONITORED_LOCAL_REVIEWS",
+          "evidence": "stated",
+          "quote": "Managing reputation across 38 local care facilities manually in spreadsheets"
+        },
+        {
+          "signal": "MULTISITE_REPUTATION_VARIANCE",
+          "evidence": "stated",
+          "quote": "obscured local EVP differences"
+        },
+        {
+          "signal": "LOW_CORPORATE_SOCIAL_ENGAGEMENT",
+          "evidence": "stated",
+          "quote": "corporate channels struggled to reach clinical professionals and Gen-Z healthcare graduates organically"
+        },
+        {
+          "signal": "MISSING_CANDIDATE_PERSONA_FIT",
+          "evidence": "inferred",
+          "quote": "calibrated Clinical/Gen-Z Personas"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Centralized Multi-Channel Reputation Audit across all regional facilities",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Calibrated Clinical/Gen-Z Personas",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned EVP",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board Financial & ESG Dashboard",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Selected facility ambassadors",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 3,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Automated Ambassador Content Tracking",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        3,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "review_status": "reviewed",
+      "sector_category": "BANKING_FINANCIAL_SERVICES",
+      "workforce_archetypes": [
+        "EARLY_CAREER_GEN_Z"
+      ],
+      "problem_signals": [
+        {
+          "signal": "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "evidence": "stated",
+          "quote": "needed structured post-interview candidate feedback"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "auditable Earned Media Value for governance reporting"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+          "action_title": "Post-Interview & Career Day Gen-Z Surveys",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Candidate Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Structured Data-Driven Ambassador Selection",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Automated Ambassador Content Tracking",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board EMV reporting",
+          "phase_bucket": 2
+        }
+      ],
+      "snippets": [
+        9,
+        3,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_10_BELLAMODA",
+      "case_name": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "review_status": "reviewed",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_RETAIL"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_APPLICATION_DROPOFF",
+          "evidence": "stated",
+          "quote": "High mobile candidate drop-off on the career portal"
+        },
+        {
+          "signal": "MOBILE_PORTAL_FRICTION",
+          "evidence": "inferred",
+          "quote": "High mobile candidate drop-off on the career portal"
+        },
+        {
+          "signal": "UNPREDICTABLE_SHIFT_SCHEDULING",
+          "evidence": "stated",
+          "quote": "store-level scheduling fatigue"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "lack of quantitative HR ROI metrics for executive leadership"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360 Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "MOBILE_FAST_APPLY_FLOW",
+          "action_title": "Mobile-First Fast-Apply",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "RETAIL_SHIFT_ROTATION",
+          "action_title": "Retail Store Shift Rotation",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board Risk/ROI Dashboard",
+          "phase_bucket": 2
+        }
+      ],
+      "snippets": [
+        2,
+        10,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "review_status": "reviewed",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "workforce_archetypes": [
+        "MIXED_DISTRIBUTED",
+        "EARLY_CAREER_GEN_Z"
+      ],
+      "problem_signals": [
+        {
+          "signal": "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "evidence": "stated",
+          "quote": "candidate feedback across university Career Days and interviews was fragmented"
+        },
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "employee ambassador sharing was tracked manually"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "without standardized EMV metrics"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_INTERNAL_CULTURE_HEALTHY",
+          "evidence": "stated",
+          "quote": "internal B-Corp pride was high"
+        },
+        {
+          "signal": "ACTIVE_ORGANIC_AMBASSADORS_PRESENT",
+          "evidence": "inferred",
+          "quote": "employee ambassador sharing"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+          "action_title": "Digitized Post-Interview & Career Day Gen-Z Surveys",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned multi-country EVP",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 2,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Scaled Automated Ambassador Content Tracking",
+          "phase_bucket": 2
+        }
+      ],
+      "snippets": [
+        9,
+        3
+      ]
+    },
+    {
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "review_status": "reviewed",
+      "sector_category": "B2B_TECH_SAAS",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "21.4% first-year attrition among relocating software engineers"
+        },
+        {
+          "signal": "LOW_PUBLIC_RATING",
+          "evidence": "stated",
+          "quote": "3.31/5 overall rating"
+        },
+        {
+          "signal": "UNMONITORED_LOCAL_REVIEWS",
+          "evidence": "stated",
+          "quote": "0% employer reply rate"
+        },
+        {
+          "signal": "CAREER_PATH_OPACITY",
+          "evidence": "stated",
+          "quote": "opaque engineering leveling"
+        },
+        {
+          "signal": "SAY_DO_GAP",
+          "evidence": "inferred",
+          "quote": "unrealistic role expectations during recruiting"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360-Degree Internal Feedback Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "Transparent Career Progression & Engineering Leveling Framework",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Manager Coaching",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Published Persona-Aligned JDs with realistic technical role previews",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        4,
+        1
+      ]
+    },
+    {
+      "case_id": "CASE_13_QUANTEX_MARKETS",
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "review_status": "reviewed",
+      "sector_category": "FINTECH_PAYMENTS",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "problem_signals": [
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "17.8% voluntary first-year engineering turnover"
+        },
+        {
+          "signal": "WEAK_MIDDLE_MANAGEMENT",
+          "evidence": "stated",
+          "quote": "uncoached team leads (3.12/5 management rating)"
+        },
+        {
+          "signal": "HIGH_FINANCIAL_TURNOVER_RISK",
+          "evidence": "stated",
+          "quote": "€920k annual risk exposure"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "COMPETITIVE_COMPENSATION_HEALTHY",
+          "evidence": "stated",
+          "quote": "top-quartile compensation (4.18/5 pay rating)"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "Deployed continuous 360-Degree Internal Feedback Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Implemented bottom-up Manager Coaching Programs",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "transparent Career Progression Frameworks",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Deferred external ambassador campaigns",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        4,
+        5
+      ]
+    },
+    {
+      "case_id": "CASE_14_NORDICTRUST_BANK",
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "review_status": "reviewed",
+      "sector_category": "BANKING_FINANCIAL_SERVICES",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST",
+        "EARLY_CAREER_GEN_Z"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_APPLICATION_DROPOFF",
+          "evidence": "stated",
+          "quote": "54.6% application form drop-off rate"
+        },
+        {
+          "signal": "HIGH_TIME_TO_HIRE",
+          "evidence": "stated",
+          "quote": "46-day Time-to-Hire"
+        },
+        {
+          "signal": "GENERIC_BOILERPLATE_JDS",
+          "evidence": "stated",
+          "quote": "static job descriptions lacked day-in-the-life role transparency"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "HIGH_COHORT_RETENTION_HEALTHY",
+          "evidence": "stated",
+          "quote": "high employee stability (9.8% first-year attrition, 4.04/5 rating)"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Conducted a Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Candidate Persona Calibration for digital banking and risk cohorts",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned EVP role messaging with realistic day-in-the-life team previews and streamlined the application flow",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Deployed Persona-Aligned Job Descriptions",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        6
+      ]
+    },
+    {
+      "case_id": "CASE_15_HELVETIAINSURE_GROUP",
+      "case_name": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "review_status": "reviewed",
+      "sector_category": "BANKING_FINANCIAL_SERVICES",
+      "workforce_archetypes": [
+        "CORPORATE_HQ_ADMIN"
+      ],
+      "problem_signals": [
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "HR lost 14 hours/month tracking employee posts in spreadsheets"
+        },
+        {
+          "signal": "LOW_CORPORATE_SOCIAL_ENGAGEMENT",
+          "evidence": "stated",
+          "quote": "corporate LinkedIn engagement was stagnant (1.12%)"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "stated",
+          "quote": "the CFO required auditable Earned Media Value (EMV) before approving budget"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_INTERNAL_CULTURE_HEALTHY",
+          "evidence": "stated",
+          "quote": "stable internal culture (4.18/5 rating, 9.4% attrition)"
+        },
+        {
+          "signal": "ACTIVE_ORGANIC_AMBASSADORS_PRESENT",
+          "evidence": "stated",
+          "quote": "45 specialists already sharing posts organically"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Conducted a Multi-Channel Reputation Audit to verify cross-office EVP readiness",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Executed Data-Driven Ambassador Selection across the 12 regional offices",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 3,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Deployed Automated Ambassador Content Tracking",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 4,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "CFO Earned Media Value & ROI Dashboard",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        3,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "review_status": "reviewed",
+      "sector_category": "LOGISTICS_FREIGHT",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_LOGISTICS"
+      ],
+      "problem_signals": [
+        {
+          "signal": "HIGH_APPLICATION_DROPOFF",
+          "evidence": "stated",
+          "quote": "61.4% mobile application drop-off rate"
+        },
+        {
+          "signal": "MOBILE_PORTAL_FRICTION",
+          "evidence": "inferred",
+          "quote": "84% of candidates browsing on smartphones"
+        },
+        {
+          "signal": "HIGH_TIME_TO_HIRE",
+          "evidence": "stated",
+          "quote": "Time-to-Hire to 48 days"
+        },
+        {
+          "signal": "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "evidence": "stated",
+          "quote": "41.5% agency reliance"
+        },
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "early frontline turnover to 24.6%"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Frontline Driver/Warehouse Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "MOBILE_FAST_APPLY_FLOW",
+          "action_title": "60-second Mobile-First Fast-Apply flow with automated conversational interview scheduling",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Published Persona-Aligned Job Descriptions highlighting pay reliability and shift clarity",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        2,
+        7
+      ]
+    },
+    {
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "review_status": "reviewed",
+      "sector_category": "LOGISTICS_FREIGHT",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_LOGISTICS"
+      ],
+      "problem_signals": [
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "26.8% first-year frontline turnover"
+        },
+        {
+          "signal": "WEAK_MIDDLE_MANAGEMENT",
+          "evidence": "stated",
+          "quote": "uncoached local hub supervisors"
+        },
+        {
+          "signal": "MULTISITE_REPUTATION_VARIANCE",
+          "evidence": "stated",
+          "quote": "severe cross-hub rating variance"
+        },
+        {
+          "signal": "COHORT_OR_SITE_ASYMMETRY",
+          "evidence": "stated",
+          "quote": "4.18 in northern hubs vs 2.86 in southern hubs"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_OPERATIONAL_ASSETS_HEALTHY",
+          "evidence": "stated",
+          "quote": "had already modernized its mobile career portal (low 31.5% drop-off and healthy 3.85% conversion)"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360-Degree Internal Feedback Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit across all 6 hubs",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Frontline Supervisor Coaching Program",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+          "action_title": "structured 90-day onboarding in lagging hubs",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board Financial Turnover Risk Dashboard",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 6,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "peer-led hub advocacy",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        5,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_18_NORDICHOME_LIVING",
+      "case_name": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "review_status": "reviewed",
+      "sector_category": "RETAIL_OMNICHANNEL",
+      "workforce_archetypes": [
+        "DESKLESS_FRONTLINE_RETAIL",
+        "EARLY_CAREER_GEN_Z"
+      ],
+      "problem_signals": [
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "27.4% early store staff turnover"
+        },
+        {
+          "signal": "CAREER_PATH_OPACITY",
+          "evidence": "stated",
+          "quote": "perceived dead-end store roles"
+        },
+        {
+          "signal": "MISSING_CANDIDATE_PERSONA_FIT",
+          "evidence": "inferred",
+          "quote": "transactional CV screening that failed to preview weekend store reality"
+        },
+        {
+          "signal": "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "evidence": "inferred",
+          "quote": "external agency reliance cut by more than half (from 26.4% to 12.5%)"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360 Internal Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "CAREER_PORTAL_UX_AUDIT",
+          "action_title": "Career Portal UX Audit",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Retail Candidate Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 4,
+          "action_category": "RETAIL_SHIFT_ROTATION",
+          "action_title": "Predictable Retail Store Shift Rotation",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "Transparent Store Career Progression Framework",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 6,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Persona-Aligned Job Descriptions",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 7,
+          "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+          "action_title": "Internal mobility pathways",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        10,
+        7
+      ]
+    },
+    {
+      "case_id": "CASE_19_BIONOVA_THERAPEUTICS",
+      "case_name": "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+      "review_status": "reviewed",
+      "sector_category": "HEALTHCARE_CLINICAL",
+      "workforce_archetypes": [
+        "MULTISITE_CLINICAL_HEALTHCARE"
+      ],
+      "problem_signals": [
+        {
+          "signal": "WORKLOAD_BURNOUT",
+          "evidence": "stated",
+          "quote": "severe workload burnout (3.04/5 work-life balance)"
+        },
+        {
+          "signal": "WEAK_MIDDLE_MANAGEMENT",
+          "evidence": "stated",
+          "quote": "hierarchical management friction (3.15/5 management rating)"
+        },
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "18.2% first-year scientist/clinical turnover (€1.12M risk)"
+        },
+        {
+          "signal": "LOW_CORPORATE_SOCIAL_ENGAGEMENT",
+          "evidence": "stated",
+          "quote": "corporate LinkedIn posts averaged just 1.18% engagement"
+        },
+        {
+          "signal": "HIGH_FINANCIAL_TURNOVER_RISK",
+          "evidence": "stated",
+          "quote": "€1.12M risk"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "Deployed 360-Degree Internal Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit across labs and clinical sites",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Implemented a Manager Coaching Program (autonomous scientific leadership)",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "transparent Career Progression Framework",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+          "action_title": "launched technical/scientific LinkedIn storytelling",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 6,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Ambassador Selection",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        4,
+        5
+      ]
+    },
+    {
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "review_status": "reviewed",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "workforce_archetypes": [
+        "EARLY_CAREER_GEN_Z",
+        "MIXED_DISTRIBUTED"
+      ],
+      "problem_signals": [
+        {
+          "signal": "MANUAL_HR_SPREADSHEET_DRAG",
+          "evidence": "stated",
+          "quote": "HR spent 11.5 hours/month manually tracking ambassador posts"
+        },
+        {
+          "signal": "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "evidence": "stated",
+          "quote": "university Career Day candidate surveys had a 17.2% response rate on paper forms"
+        },
+        {
+          "signal": "MULTISITE_REPUTATION_VARIANCE",
+          "evidence": "stated",
+          "quote": "employer ratings varied widely across 4 foreign subsidiaries (0.49 star std dev)"
+        },
+        {
+          "signal": "MISSING_CFO_ROI_EMV_VISIBILITY",
+          "evidence": "inferred",
+          "quote": "deployed a Board ESG & EMV Dashboard"
+        }
+      ],
+      "healthy_signals": [
+        {
+          "signal": "STRONG_INTERNAL_CULTURE_HEALTHY",
+          "evidence": "stated",
+          "quote": "B-Corp culture was strong in the headquarters lab"
+        }
+      ],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit across all 5 countries",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+          "action_title": "Digitized Post-Interview & Career Day Gen-Z Surveys",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "EVP_REALIGNMENT",
+          "action_title": "Realigned the multi-country B-Corp EVP with realistic lab previews",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 4,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Deployed a Board ESG & EMV Dashboard",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+          "action_title": "Scaled Data-Driven Ambassador Selection",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 6,
+          "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+          "action_title": "Automated Ambassador Content Tracking",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        9,
+        3,
+        8
+      ]
+    },
+    {
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "review_status": "reviewed",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "workforce_archetypes": [
+        "DESK_BASED_TECH_SPECIALIST",
+        "MIXED_DISTRIBUTED"
+      ],
+      "problem_signals": [
+        {
+          "signal": "CAREER_PATH_OPACITY",
+          "evidence": "stated",
+          "quote": "opaque career progression"
+        },
+        {
+          "signal": "EARLY_FIRST_YEAR_ATTRITION",
+          "evidence": "stated",
+          "quote": "16.9% early turnover"
+        },
+        {
+          "signal": "HIGH_FINANCIAL_TURNOVER_RISK",
+          "evidence": "stated",
+          "quote": "€1.18M risk exposure"
+        },
+        {
+          "signal": "GENERIC_BOILERPLATE_JDS",
+          "evidence": "stated",
+          "quote": "generic corporate job ads"
+        },
+        {
+          "signal": "HIGH_TIME_TO_HIRE",
+          "evidence": "stated",
+          "quote": "45-day Time-to-Hire"
+        }
+      ],
+      "healthy_signals": [],
+      "steps": [
+        {
+          "step_order": 1,
+          "action_category": "INTERNAL_360_LISTENING",
+          "action_title": "360-Degree Internal Feedback Listening",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 2,
+          "action_category": "REPUTATION_AUDIT",
+          "action_title": "Multi-Channel Reputation Audit across the 6 hubs",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 3,
+          "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+          "action_title": "Technical Persona Calibration",
+          "phase_bucket": 1
+        },
+        {
+          "step_order": 4,
+          "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+          "action_title": "Transparent Engineering Career Progression & Reskilling Framework",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 5,
+          "action_category": "MANAGER_COACHING_AND_LEVELING",
+          "action_title": "Manager Coaching",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 6,
+          "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+          "action_title": "Board Financial Turnover Risk Dashboard",
+          "phase_bucket": 2
+        },
+        {
+          "step_order": 7,
+          "action_category": "PERSONA_ALIGNED_JDS",
+          "action_title": "Rewrote Persona-Aligned Job Descriptions",
+          "phase_bucket": 3
+        },
+        {
+          "step_order": 8,
+          "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+          "action_title": "Activated Technical Engineering Storytelling on LinkedIn",
+          "phase_bucket": 3
+        }
+      ],
+      "snippets": [
+        4,
+        6
+      ]
+    }
+  ]
+}

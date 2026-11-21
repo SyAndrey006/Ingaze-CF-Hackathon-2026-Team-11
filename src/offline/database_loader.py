@@ -4,22 +4,22 @@ Stage: Offline / Data Loading
 Execution Type: Formula
 
 Description:
-    Deterministically loads and validates `data/normalized/normalized_rules.json`
-    and `data/normalized/normalized_cases.json` into strongly typed Pydantic
+    Deterministically loads and validates `database/normalized/normalized_rules.json`
+    and `database/normalized/normalized_cases.json` into strongly typed Pydantic
     objects (`NormalizedRulesDB`, `NormalizedCasesDB`). Also loads active client
     scenarios paired 1:1 with their optional T0 telemetry snapshots into
     `RawScenarioBundle` objects for the online pipeline.
 
 Input:
-    - rules_path (Path): Path to `data/normalized/normalized_rules.json`.
-    - cases_path (Path): Path to `data/normalized/normalized_cases.json`.
-    - sandbox_dataset_path (Path): Path to `data/ingaze_sandbox_dataset.json`.
-    - snapshots_dataset_path (Optional[Path]): Path to `data/ingaze_synthetic_analytics_snapshots.json`.
+    - rules_path (Path): Path to `database/normalized/normalized_rules.json`.
+    - cases_path (Path): Path to `database/normalized/normalized_cases.json`.
+    - sandbox_dataset_path (Path): Path to `database/ingaze_sandbox_dataset.json`.
+    - snapshots_dataset_path (Optional[Path]): Path to `database/ingaze_synthetic_analytics_snapshots.json`.
     - extra_scenario_path (Optional[Path]): Optional extra/blind judge scenario JSON path.
 
 Output:
     - rules_db (NormalizedRulesDB): Validated universal HR rules consumed by Steps 2, 3, 4, 5.
-    - cases_db (NormalizedCasesDB): Validated 11 normalized historical cases consumed by Step 3.
+    - cases_db (NormalizedCasesDB): Validated normalized historical cases (all raw narratives) consumed by Step 3.
     - scenario_bundles (List[RawScenarioBundle]): Raw client scenarios + T0 snapshots consumed by Step 1.
 
 TODO:
@@ -55,10 +55,24 @@ def load_normalized_cases(cases_path: Path) -> NormalizedCasesDB:
     """
     Load and validate `normalized_cases.json` into a typed `NormalizedCasesDB`.
     """
-    # TODO: 1. Check file existence and parse JSON via `NormalizedCasesDB.model_validate_json(...)`.
-    # TODO: 2. Validate that historical cases are populated and have unique `case_id` / `case_name`.
-    # TODO: 3. Return the validated `NormalizedCasesDB` instance.
-    raise NotImplementedError("TODO: Implement load_normalized_cases")
+    cases_path = Path(cases_path)
+    if not cases_path.exists():
+        raise FileNotFoundError(
+            f"Normalized cases DB not found: {cases_path}. "
+            "Build it with `python -m src.offline.case_normalizer`."
+        )
+    db = NormalizedCasesDB.model_validate_json(cases_path.read_text(encoding="utf-8"))
+    if not db.cases:
+        raise ValueError(
+            f"{cases_path} contains no cases (still a placeholder?). "
+            "Build it with `python -m src.offline.case_normalizer`."
+        )
+    for field in ("case_id", "case_name"):
+        values = [getattr(case, field) for case in db.cases]
+        duplicates = sorted({v for v in values if values.count(v) > 1})
+        if duplicates:
+            raise ValueError(f"{cases_path}: duplicate {field} values: {duplicates}")
+    return db
 
 
 def load_normalized_databases(

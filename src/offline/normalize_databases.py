@@ -5,20 +5,20 @@ Execution Type: AI
 
 Description:
     Reads raw HR domain materials (4 pillars, 6 cross-pillar field notes, 10
-    empirical research studies, telemetry dictionary) and 11 historical B2B case
-    studies (+ T0/T1 analytics snapshots) from `data/`, then invokes a structured
+    empirical research studies, telemetry dictionary) and all historical B2B case
+    studies (+ T0/T1 analytics snapshots) from `database/`, then invokes a structured
     LLM normalizer (`llm_client.py`) to build two separate local JSON databases:
-    `data/normalized/normalized_rules.json` and `data/normalized/normalized_cases.json`.
+    `database/normalized/normalized_rules.json` and `database/normalized/normalized_cases.json`.
 
 Input:
-    - sandbox_dataset_path (Path): Path to `data/ingaze_sandbox_dataset.json`.
-    - snapshots_dataset_path (Optional[Path]): Path to `data/ingaze_synthetic_analytics_snapshots.json`.
+    - sandbox_dataset_path (Path): Path to `database/ingaze_sandbox_dataset.json`.
+    - snapshots_dataset_path (Optional[Path]): Path to `database/ingaze_synthetic_analytics_snapshots.json`.
     - llm_client (StructuredLLMClient): Thin structured LLM wrapper (`temperature=0`).
 
 Output:
-    - normalized_rules (NormalizedRulesDB): Written to `data/normalized/normalized_rules.json`
+    - normalized_rules (NormalizedRulesDB): Written to `database/normalized/normalized_rules.json`
       and loaded by Steps 2, 3, 4, and 5.
-    - normalized_cases (NormalizedCasesDB): Written to `data/normalized/normalized_cases.json`
+    - normalized_cases (NormalizedCasesDB): Written to `database/normalized/normalized_cases.json`
       and loaded by Step 3 for candidate ideas and Top-3 precedent matching.
 
 TODO:
@@ -26,7 +26,7 @@ TODO:
        `raw_empirical_research_snippets` into universal symptom-to-root-cause rules,
        metric thresholds, scoring conditions/weights, guardrail rules, and phase
        sequencing rules (`NormalizedRulesDB`).
-    2. Join each of the 11 `raw_case_study_narratives` 1:1 via `case_name` with its
+    2. Join each of the `raw_case_study_narratives` 1:1 via `case_name` with its
        `case_study_analytics_snapshots` record (`sector_peer_benchmarks`, `t0_before_intervention`,
        `t1_after_12_months`) and normalize into `NormalizedCasesDB`.
     3. Anti-hardcoding check: NEVER read `company_scenarios_to_diagnose` or
@@ -36,6 +36,7 @@ TODO:
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
@@ -62,17 +63,30 @@ def build_normalized_rules(
 def build_normalized_cases(
     raw_sandbox_data: Dict[str, Any],
     raw_snapshots_data: Optional[Dict[str, Any]],
-    llm_client: StructuredLLMClient,
+    llm_client: Optional[StructuredLLMClient] = None,
+    curation_path: Optional[Path] = None,
 ) -> NormalizedCasesDB:
     """
-    Join the 11 historical B2B case study narratives with their optional T0->T1
+    Join all historical B2B case study narratives with their optional T0->T1
     analytics snapshots via exact `case_name` join key and normalize into `NormalizedCasesDB`.
+
+    Delegates to `src.offline.case_normalizer.build_cases_db` using the human-reviewed
+    curation file `database/curation/case_curation.json`.
+
+    `llm_client` is intentionally unused: the LLM was used once offline to draft the
+    curation (enum mapping + verbatim source quotes), which humans then reviewed. At
+    runtime the case store is built deterministically from that curation, so results
+    are reproducible, auditable (every quote is checked verbatim) and need no API key.
+    The parameter is kept so the signature stays symmetric with `build_normalized_rules`.
     """
-    # TODO: 1. Iterate over `raw_sandbox_data["raw_case_study_narratives"]` (11 completed cases).
-    # TODO: 2. Join 1:1 on `case_name` against `raw_snapshots_data["case_study_analytics_snapshots"]`.
-    # TODO: 3. Use `llm_client.generate_structured(...)` to map each case's challenge, sequence,
-    #          workforce fit, and T0->T1 ROI deltas into `NormalizedCaseStudy` entries.
-    raise NotImplementedError("TODO: Implement AI normalization for normalized_cases.json")
+    # Imported lazily so `python -m src.offline.case_normalizer` does not pre-import itself
+    # via `src.offline.__init__` (avoids a runpy RuntimeWarning).
+    from src.offline.case_normalizer import DEFAULT_CURATION, build_cases_db
+
+    del llm_client  # see docstring: deterministic build on top of reviewed curation
+    with (curation_path or DEFAULT_CURATION).open(encoding="utf-8") as fh:
+        curation = json.load(fh)
+    return build_cases_db(raw_sandbox_data, raw_snapshots_data, curation)
 
 
 def run_offline_normalization(
@@ -85,7 +99,7 @@ def run_offline_normalization(
 ) -> Tuple[NormalizedRulesDB, NormalizedCasesDB]:
     """
     Orchestrate one-time offline indexing and persist `normalized_rules.json` and
-    `normalized_cases.json` atomically to `data/normalized/`.
+    `normalized_cases.json` atomically to `database/normalized/`.
     """
     # TODO: 1. Read raw JSON inputs (without modifying starter files).
     # TODO: 2. Call `build_normalized_rules(...)` and `build_normalized_cases(...)`.

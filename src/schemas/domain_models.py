@@ -12,8 +12,8 @@ Description:
 
 Input:
     - Raw domain knowledge and analytics snapshot structures from
-      `data/ingaze_sandbox_dataset.json`,
-      `data/ingaze_synthetic_analytics_snapshots.json`, and
+      `database/ingaze_sandbox_dataset.json`,
+      `database/ingaze_synthetic_analytics_snapshots.json`, and
       `docs/ANALYTICS_TELEMETRY_DICTIONARY.md`.
 
 Output:
@@ -419,7 +419,7 @@ class PhaseSequencingRule(BaseModel):
 
 
 class NormalizedRulesDB(BaseModel):
-    """Top-level schema for `data/normalized/normalized_rules.json`."""
+    """Top-level schema for `database/normalized/normalized_rules.json`."""
 
     schema_version: str = Field(default="1.0.0")
     source_dataset_version: str = Field(default="")
@@ -460,6 +460,10 @@ class NormalizedCaseStudy(BaseModel):
 
     case_id: str = Field(..., description="Canonical slug ID (e.g., 'CASE_01_LOGINEXT').")
     case_name: str = Field(..., description="Exact `case_name` join key matching sandbox dataset.")
+    curation_review_status: Literal["reviewed", "llm_draft"] = Field(
+        default="reviewed",
+        description="'llm_draft' = tags drafted by the LLM curation drafter and not yet human-reviewed.",
+    )
     sector_category: SectorCategory = Field(...)
     sector_benchmark_group: Optional[str] = Field(default=None)
     workforce_archetypes: List[WorkforceArchetype] = Field(default_factory=list)
@@ -483,7 +487,7 @@ class NormalizedCaseStudy(BaseModel):
 
 
 class NormalizedCasesDB(BaseModel):
-    """Top-level schema for `data/normalized/normalized_cases.json`."""
+    """Top-level schema for `database/normalized/normalized_cases.json`."""
 
     schema_version: str = Field(default="1.0.0")
     source_dataset_version: str = Field(default="")
