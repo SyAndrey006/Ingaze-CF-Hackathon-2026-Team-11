@@ -36,6 +36,7 @@ TODO:
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
@@ -62,17 +63,22 @@ def build_normalized_rules(
 def build_normalized_cases(
     raw_sandbox_data: Dict[str, Any],
     raw_snapshots_data: Optional[Dict[str, Any]],
-    llm_client: StructuredLLMClient,
+    llm_client: Optional[StructuredLLMClient] = None,
+    curation_path: Optional[Path] = None,
 ) -> NormalizedCasesDB:
     """
-    Join the 11 historical B2B case study narratives with their optional T0->T1
-    analytics snapshots via exact `case_name` join key and normalize into `NormalizedCasesDB`.
+    Join curated historical B2B case study narratives with optional T0->T1 analytics
+    snapshots via exact `case_name` join key and normalize into `NormalizedCasesDB`.
+
+    LLM-assisted mappings are maintained separately in `database/curation/`; this
+    build step is deterministic and verifies the curation before producing records.
     """
-    # TODO: 1. Iterate over `raw_sandbox_data["raw_case_study_narratives"]` (11 completed cases).
-    # TODO: 2. Join 1:1 on `case_name` against `raw_snapshots_data["case_study_analytics_snapshots"]`.
-    # TODO: 3. Use `llm_client.generate_structured(...)` to map each case's challenge, sequence,
-    #          workforce fit, and T0->T1 ROI deltas into `NormalizedCaseStudy` entries.
-    raise NotImplementedError("TODO: Implement AI normalization for normalized_cases.json")
+    from src.offline.case_normalizer import DEFAULT_CURATION, build_cases_db
+
+    del llm_client  # LLM drafting is offline; reviewed curation is deterministic at build time.
+    curation_file = Path(curation_path) if curation_path else DEFAULT_CURATION
+    curation = json.loads(curation_file.read_text(encoding="utf-8"))
+    return build_cases_db(raw_sandbox_data, raw_snapshots_data, curation)
 
 
 def run_offline_normalization(

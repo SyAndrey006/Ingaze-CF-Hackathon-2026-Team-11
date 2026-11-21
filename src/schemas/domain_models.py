@@ -456,10 +456,14 @@ class QuantifiedROIDelta(BaseModel):
 
 
 class NormalizedCaseStudy(BaseModel):
-    """Normalized representation of 1 historical B2B case study (11 total in sandbox)."""
+    """Normalized representation of one curated historical B2B case study."""
 
     case_id: str = Field(..., description="Canonical slug ID (e.g., 'CASE_01_LOGINEXT').")
     case_name: str = Field(..., description="Exact `case_name` join key matching sandbox dataset.")
+    curation_review_status: Literal["reviewed", "llm_draft"] = Field(
+        default="reviewed",
+        description="Whether the case mapping has passed human review.",
+    )
     sector_category: SectorCategory = Field(...)
     sector_benchmark_group: Optional[str] = Field(default=None)
     workforce_archetypes: List[WorkforceArchetype] = Field(default_factory=list)

@@ -2,8 +2,9 @@ import json
 import unittest
 from copy import deepcopy
 
-from src.reasoning.hr_intake import load_analytics, normalize_intake, normalize_reviewed
-from src.reasoning.hr_knowledge_graph import diagnose, load_graph
+from src.pipeline.step2_root_cause_analysis import (
+    diagnose, load_analytics, load_graph, normalize_intake, normalize_reviewed,
+)
 from recommendation_engine import DEFAULT_DATA, case_matches, plan
 
 

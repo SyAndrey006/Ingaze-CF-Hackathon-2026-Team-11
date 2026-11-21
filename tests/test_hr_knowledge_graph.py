@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from src.reasoning.hr_knowledge_graph import diagnose, graph_export, load_graph
+from src.pipeline.step2_root_cause_analysis import diagnose, graph_export, load_graph
 from recommendation_engine import DEFAULT_DATA, plan
 
 

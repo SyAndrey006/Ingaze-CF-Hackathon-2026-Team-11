@@ -3,8 +3,7 @@ import unittest
 from copy import deepcopy
 
 from scripts.evaluate_historical_replay import replay
-from src.reasoning.hr_intake import load_analytics
-from src.reasoning.hr_knowledge_graph import load_graph
+from src.pipeline.step2_root_cause_analysis import load_analytics, load_graph
 from recommendation_engine import DEFAULT_DATA, plan
 
 
