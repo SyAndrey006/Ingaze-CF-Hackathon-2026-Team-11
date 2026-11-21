@@ -1,0 +1,3623 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "family": "promise_alignment",
+      "role": "indicator",
+      "meaning": "A documented mismatch between an employer promise and reported work experience.",
+      "metrics": [
+        "public_reputation.external_claims_gap_stars_5"
+      ],
+      "id": "signals:expectation_gap",
+      "type": "signals"
+    },
+    {
+      "family": "promise_alignment",
+      "role": "indicator",
+      "meaning": "Brand messaging diverges from observed employee experience.",
+      "metrics": [
+        "public_reputation.brand_alignment_index_100"
+      ],
+      "id": "signals:brand_misalignment",
+      "type": "signals"
+    },
+    {
+      "family": "promise_alignment",
+      "role": "direct",
+      "meaning": "A dated recruiting claim and a specific contrary practice are verified for the same cohort.",
+      "id": "signals:documented_broken_promise",
+      "type": "signals"
+    },
+    {
+      "family": "promise_alignment",
+      "role": "direct",
+      "meaning": "Comparable hires report that specific recruiting promises are being met.",
+      "id": "signals:expectations_met",
+      "type": "signals"
+    },
+    {
+      "family": "manager_experience",
+      "role": "indicator",
+      "meaning": "Employees report insufficient coaching, support or authority.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.management"
+      ],
+      "id": "signals:manager_support",
+      "type": "signals"
+    },
+    {
+      "family": "manager_experience",
+      "role": "direct",
+      "meaning": "Interviews or records verify a management practice such as restricted decision rights or missing coaching.",
+      "id": "signals:manager_practice_verified",
+      "type": "signals"
+    },
+    {
+      "family": "role_growth",
+      "role": "indicator",
+      "meaning": "Employees report unclear growth or advancement expectations.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.career_growth"
+      ],
+      "id": "signals:career_clarity",
+      "type": "signals"
+    },
+    {
+      "family": "role_growth",
+      "role": "direct",
+      "meaning": "A review verifies inconsistent onboarding responsibilities, role expectations or progression criteria.",
+      "id": "signals:role_clarity_failure",
+      "type": "signals"
+    },
+    {
+      "family": "employee_exits",
+      "role": "outcome",
+      "meaning": "Early exits rise for a defined entry cohort and follow-up window.",
+      "metrics": [
+        "hiring_and_retention_kpis.early_first_year_attrition_pct",
+        "hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct"
+      ],
+      "id": "signals:early_attrition",
+      "type": "signals"
+    },
+    {
+      "family": "compensation",
+      "role": "direct",
+      "meaning": "Matched role and location records show a meaningful internal or external pay discrepancy.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.compensation",
+        "hiring_and_retention_kpis.compensation_market_percentile_100"
+      ],
+      "id": "signals:pay_gap_verified",
+      "type": "signals"
+    },
+    {
+      "family": "exhaustion",
+      "role": "indicator",
+      "meaning": "A cohort reports sustained work-related exhaustion or strain.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.work_life_balance"
+      ],
+      "id": "signals:burnout",
+      "type": "signals"
+    },
+    {
+      "family": "job_demands",
+      "role": "direct",
+      "meaning": "Overtime, staffing or workload records show sustained excess demand in the same cohort.",
+      "id": "signals:workload_verified",
+      "type": "signals"
+    },
+    {
+      "family": "job_demands",
+      "role": "direct",
+      "meaning": "Comparable workload records show adequate capacity over the disputed window.",
+      "id": "signals:adequate_workload",
+      "type": "signals"
+    },
+    {
+      "family": "schedule",
+      "role": "direct",
+      "meaning": "Roster records show short-notice changes or inconsistent hours in a shift-based cohort.",
+      "id": "signals:schedule_instability",
+      "type": "signals"
+    },
+    {
+      "family": "work_design",
+      "role": "context",
+      "meaning": "The cohort works shifts that can vary within and across weeks.",
+      "id": "signals:shift_based_work",
+      "type": "signals"
+    },
+    {
+      "family": "device_exposure",
+      "role": "context",
+      "meaning": "The target candidates predominantly encounter the mobile experience.",
+      "metrics": [
+        "career_portal_and_funnel.smartphone_traffic_pct"
+      ],
+      "intake_pattern": "smartphone(?:s| traffic)|mobile[- ]first workforce",
+      "id": "signals:mobile_exposure",
+      "type": "signals"
+    },
+    {
+      "family": "application_step",
+      "role": "indicator",
+      "meaning": "Intake reports a hard-to-use form, account wall or upload difficulty.",
+      "metrics": [
+        "career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+        "career_portal_and_funnel.portal_component_scores_100.technical_speed_100"
+      ],
+      "id": "signals:mobile_friction",
+      "type": "signals"
+    },
+    {
+      "family": "application_step",
+      "role": "direct",
+      "meaning": "A candidate walkthrough or step events reproduce a blocking form obstacle.",
+      "id": "signals:form_obstacle_verified",
+      "type": "signals"
+    },
+    {
+      "family": "form_exit",
+      "role": "outcome",
+      "meaning": "Candidates who start the application abandon it before submission.",
+      "metrics": [
+        "career_portal_and_funnel.application_form_dropoff_pct"
+      ],
+      "intake_pattern": "drop[- ]?off before complet|abandon[^.;]{0,40}application|application[^.;]{0,35}drop[- ]?off",
+      "id": "signals:application_abandonment",
+      "type": "signals"
+    },
+    {
+      "family": "form_exit",
+      "role": "direct",
+      "meaning": "Eligible target candidates complete the instrumented form without unusual loss.",
+      "id": "signals:form_completes",
+      "type": "signals"
+    },
+    {
+      "family": "entry_conversion",
+      "role": "outcome",
+      "meaning": "Fewer portal visits convert to submitted applications for the target role.",
+      "metrics": [
+        "career_portal_and_funnel.applicant_conversion_rate_pct"
+      ],
+      "intake_pattern": "applications are down|low qualified applicant conversion|weak applicant conversion",
+      "id": "signals:application_loss",
+      "type": "signals"
+    },
+    {
+      "family": "handoff_interval",
+      "role": "indicator",
+      "meaning": "The intake identifies slow recruiter response after application or interview.",
+      "intake_pattern": "slow candidate response|slow local[^.;]{0,50}interview handoffs|handoff delays|recruiter response delays",
+      "id": "signals:handoff_delay_reported",
+      "type": "signals"
+    },
+    {
+      "family": "handoff_interval",
+      "role": "direct",
+      "meaning": "Application system timestamps locate the delay between distinct post-submission events.",
+      "id": "signals:handoff_delay_verified",
+      "type": "signals"
+    },
+    {
+      "family": "hire_latency",
+      "role": "outcome",
+      "meaning": "The target cohort has protracted time from requisition to accepted offer.",
+      "metrics": [
+        "hiring_and_retention_kpis.avg_time_to_hire_days",
+        "hiring_and_retention_kpis.hq_admin_time_to_hire_days"
+      ],
+      "intake_pattern": "time.to.hire has (?:reached|increased|ballooned)|slow hiring|long hiring delays",
+      "id": "signals:hiring_delay",
+      "type": "signals"
+    },
+    {
+      "family": "external_staffing",
+      "role": "outcome",
+      "meaning": "The target role relies heavily on external staffing or agencies.",
+      "metrics": [
+        "hiring_and_retention_kpis.agency_filled_roles_pct"
+      ],
+      "id": "signals:agency_spend",
+      "type": "signals"
+    },
+    {
+      "family": "external_staffing",
+      "role": "direct",
+      "meaning": "Invoices or placement records document agency reliance for the affected roles.",
+      "id": "signals:agency_dependency_verified",
+      "type": "signals"
+    },
+    {
+      "family": "role_information",
+      "role": "indicator",
+      "meaning": "Job information omits relevant role details.",
+      "metrics": [
+        "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+        "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+        "career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100"
+      ],
+      "id": "signals:generic_ads",
+      "type": "signals"
+    },
+    {
+      "family": "role_information",
+      "role": "direct",
+      "meaning": "An ad audit verifies that requirements or valued job conditions are missing.",
+      "id": "signals:role_info_gap_verified",
+      "type": "signals"
+    },
+    {
+      "family": "audience_reach",
+      "role": "indicator",
+      "meaning": "The channel has poor reach or discoverability for the target audience.",
+      "metrics": [
+        "career_portal_and_funnel.monthly_visits",
+        "career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+        "social_and_employee_voice.quarterly_organic_impressions"
+      ],
+      "intake_pattern": "near.zero reach|low organic reach|low passive candidate awareness",
+      "id": "signals:weak_reach",
+      "type": "signals"
+    },
+    {
+      "family": "engagement",
+      "role": "indicator",
+      "meaning": "Corporate posts receive comparatively weak engagement.",
+      "metrics": [
+        "social_and_employee_voice.corporate_linkedin_er_pct",
+        "social_and_employee_voice.er_by_post_format_pct",
+        "social_and_employee_voice.er_by_post_format_pct.*"
+      ],
+      "intake_pattern": "weak (?:organic |linkedin )?engagement|low (?:corporate |linkedin )?engagement",
+      "id": "signals:corporate_engagement_weak",
+      "type": "signals"
+    },
+    {
+      "family": "review_distribution",
+      "role": "indicator",
+      "meaning": "Ratings vary across comparable sites, or site-level evidence is uneven.",
+      "metrics": [
+        "public_reputation.cross_location_rating_std_dev_5",
+        "public_reputation.segment_or_site_breakdown",
+        "public_reputation.segment_or_site_breakdown.*.rating_5"
+      ],
+      "id": "signals:local_reputation",
+      "type": "signals"
+    },
+    {
+      "family": "review_sample",
+      "role": "context",
+      "meaning": "Review volume, site counts and coverage affect the reliability of the reputation signal.",
+      "metrics": [
+        "public_reputation.reviews_analyzed",
+        "public_reputation.segment_or_site_breakdown.*.reviews"
+      ],
+      "id": "signals:review_coverage",
+      "type": "signals"
+    },
+    {
+      "family": "local_operations",
+      "role": "direct",
+      "meaning": "Site records or scoped listening verify a local employment or candidate experience issue.",
+      "id": "signals:local_issue_verified",
+      "type": "signals"
+    },
+    {
+      "family": "employer_sentiment",
+      "role": "indicator",
+      "meaning": "Public reviews show weak perception of the employer.",
+      "metrics": [
+        "public_reputation.overall_review_rating_5",
+        "public_reputation.recommend_to_friend_pct"
+      ],
+      "id": "signals:employer_reputation_weak",
+      "type": "signals"
+    },
+    {
+      "family": "review_operations",
+      "role": "indicator",
+      "meaning": "Review monitoring or responses are handled manually or inconsistently.",
+      "metrics": [
+        "public_reputation.employer_review_reply_rate_pct"
+      ],
+      "id": "signals:review_tracking",
+      "type": "signals"
+    },
+    {
+      "family": "feedback_process",
+      "role": "indicator",
+      "meaning": "Candidate feedback is collected in disconnected formats or systems.",
+      "id": "signals:feedback_fragmentation",
+      "type": "signals"
+    },
+    {
+      "family": "feedback_process",
+      "role": "direct",
+      "meaning": "A workflow audit verifies inconsistent invitations, capture, or ownership.",
+      "id": "signals:feedback_workflow_verified",
+      "type": "signals"
+    },
+    {
+      "family": "feedback_coverage",
+      "role": "outcome",
+      "meaning": "A small share of eligible candidates complete the feedback survey.",
+      "metrics": [
+        "career_portal_and_funnel.candidate_survey_completion_rate_pct"
+      ],
+      "intake_pattern": "low (?:survey )?response rate|low survey completion|poor feedback response",
+      "id": "signals:low_survey_coverage",
+      "type": "signals"
+    },
+    {
+      "family": "tracking_process",
+      "role": "indicator",
+      "meaning": "HR reports manual recording of employee posts or campaign results.",
+      "id": "signals:post_tracking",
+      "type": "signals"
+    },
+    {
+      "family": "tracking_process",
+      "role": "direct",
+      "meaning": "A workflow audit identifies manual steps, duplicates or missing attribution.",
+      "id": "signals:tracking_workflow_verified",
+      "type": "signals"
+    },
+    {
+      "family": "staff_time",
+      "role": "outcome",
+      "meaning": "HR spends time on manual review or post tracking.",
+      "metrics": [
+        "social_and_employee_voice.manual_hr_tracking_hours_month"
+      ],
+      "intake_pattern": "(?:hours?/(?:week|year|month)|hours? per (?:week|year|month))[^.;]{0,140}(?:manually|spreadsheet|screenshots)|hours/year manually",
+      "id": "signals:manual_tracking_load",
+      "type": "signals"
+    },
+    {
+      "family": "organic_participation",
+      "role": "indicator",
+      "meaning": "Employees already post voluntarily, regardless of formal program status.",
+      "metrics": [
+        "social_and_employee_voice.spontaneous_employee_mentions_quarter",
+        "social_and_employee_voice.active_organic_ambassadors_headcount"
+      ],
+      "id": "signals:existing_advocates",
+      "type": "signals"
+    },
+    {
+      "family": "organic_participation",
+      "role": "direct",
+      "meaning": "Opt-in and relevant participation are verified for the target cohort.",
+      "id": "signals:volunteers_verified",
+      "type": "signals"
+    },
+    {
+      "family": "trust",
+      "role": "indicator",
+      "meaning": "Scoped evidence supports credible internal experience and willingness to participate.",
+      "metrics": [
+        "public_reputation.sub_ratings_5.culture_and_values",
+        "social_and_employee_voice.positive_mention_share_pct"
+      ],
+      "id": "signals:culture_ready",
+      "type": "signals"
+    },
+    {
+      "family": "employee_post_engagement",
+      "role": "context",
+      "meaning": "Peer benchmark for employee-post engagement. It is not observed client engagement.",
+      "metrics": [
+        "social_and_employee_voice.organic_employee_post_er_pct"
+      ],
+      "id": "signals:employee_engagement_reference",
+      "type": "signals"
+    },
+    {
+      "family": "finance_requirements",
+      "role": "context",
+      "meaning": "Finance requires an attributable and auditable measure of the employer-brand program.",
+      "id": "signals:emv",
+      "type": "signals"
+    },
+    {
+      "family": "modeled_cost",
+      "role": "outcome",
+      "meaning": "Estimated cost of attrition. Expected exposure and realized savings are separate.",
+      "metrics": [
+        "hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur"
+      ],
+      "id": "signals:attrition_exposure",
+      "type": "signals"
+    },
+    {
+      "family": "healthy_retention",
+      "role": "context",
+      "meaning": "A reported healthy retention baseline for a specific cohort.",
+      "metrics": [
+        "hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+        "hiring_and_retention_kpis.rd_labs_annual_retention_pct"
+      ],
+      "id": "signals:protected_retention",
+      "type": "signals"
+    },
+    {
+      "family": "eligible_pool",
+      "role": "direct",
+      "meaning": "A role and location audit finds too few eligible applicants despite comparable distribution and a working apply flow.",
+      "metrics": [
+        "career_portal_and_funnel.qualified_applicants_per_requisition"
+      ],
+      "id": "signals:qualified_supply_verified",
+      "type": "signals"
+    },
+    {
+      "family": "eligible_pool",
+      "role": "indicator",
+      "meaning": "Intake reports too few suitably qualified applicants.",
+      "intake_pattern": "(?:too few|scarce|shortage of|few) (?:suitably )?qualified (?:applicants|candidates)|qualified applicant supply is limited",
+      "id": "signals:qualified_supply_reported",
+      "type": "signals"
+    },
+    {
+      "family": "eligible_pool",
+      "role": "direct",
+      "meaning": "The relevant requisitions have a sufficient number of applicants meeting validated essential criteria.",
+      "id": "signals:qualified_supply_adequate",
+      "type": "signals"
+    },
+    {
+      "family": "requisition_approval",
+      "role": "direct",
+      "meaning": "Workflow timestamps show elapsed time between a documented hiring request and approval or release.",
+      "metrics": [
+        "hiring_and_retention_kpis.request_to_requisition_approval_days"
+      ],
+      "id": "signals:approval_queue_verified",
+      "type": "signals"
+    },
+    {
+      "family": "requisition_approval",
+      "role": "indicator",
+      "meaning": "Intake reports vacancies waiting for budget or requisition sign-off.",
+      "intake_pattern": "requisitions? (?:are )?(?:stuck|waiting|held).{0,45}(?:approval|sign.off)|(?:delayed|slow) (?:requisition|headcount) approvals?",
+      "id": "signals:approval_queue_reported",
+      "type": "signals"
+    },
+    {
+      "family": "requisition_approval",
+      "role": "direct",
+      "meaning": "Comparable hiring requests are approved or deliberately closed within the agreed local interval.",
+      "id": "signals:approval_on_time",
+      "type": "signals"
+    },
+    {
+      "family": "hire_latency",
+      "role": "outcome",
+      "meaning": "A workforce need remains open longer than expected from request through hire.",
+      "metrics": [
+        "hiring_and_retention_kpis.request_to_fill_days"
+      ],
+      "intake_pattern": "(?:long|extended) request.to.fill|(?:vacancies|roles) remain unfilled",
+      "id": "signals:vacancy_delay",
+      "type": "signals"
+    },
+    {
+      "family": "interview_queue",
+      "role": "direct",
+      "meaning": "Scheduling records verify that eligible screened candidates wait for interview slots or panel capacity.",
+      "metrics": [
+        "career_portal_and_funnel.screen_to_interview_days"
+      ],
+      "id": "signals:interview_capacity_verified",
+      "type": "signals"
+    },
+    {
+      "family": "interview_queue",
+      "role": "indicator",
+      "meaning": "Intake reports difficulty booking an interview or assembling a panel after screening.",
+      "intake_pattern": "interview (?:slots?|panels?) (?:are )?(?:fully booked|unavailable|overbooked)|(?:wait|waiting) for (?:panel availability|an interview slot)",
+      "id": "signals:interview_capacity_reported",
+      "type": "signals"
+    },
+    {
+      "family": "interview_queue",
+      "role": "direct",
+      "meaning": "Comparable eligible candidates receive feasible interview slots without a material queue.",
+      "id": "signals:interviews_on_time",
+      "type": "signals"
+    },
+    {
+      "family": "offer_progression",
+      "role": "outcome",
+      "meaning": "A high share of extended offers are declined for the target cohort.",
+      "metrics": [
+        "hiring_and_retention_kpis.offer_decline_pct"
+      ],
+      "intake_pattern": "high offer (?:decline|rejection) rate|(?:offers|job offers) (?:are )?frequently declined",
+      "id": "signals:offer_decline_rate",
+      "type": "signals"
+    },
+    {
+      "family": "offer_fit",
+      "role": "direct",
+      "meaning": "Exit or decline records identify specific offer conditions that diverge from candidate requirements.",
+      "id": "signals:offer_terms_mismatch_verified",
+      "type": "signals"
+    },
+    {
+      "family": "offer_fit",
+      "role": "indicator",
+      "meaning": "Candidates reportedly cite terms, working conditions or timing when declining offers.",
+      "intake_pattern": "candidates? (?:decline|declined|reject|rejected).{0,50}(?:offer terms|working conditions|offer timing|pay expectations)",
+      "id": "signals:offer_terms_mismatch_reported",
+      "type": "signals"
+    },
+    {
+      "family": "offer_fit",
+      "role": "direct",
+      "meaning": "Comparable candidates report that the offer terms meet their needs.",
+      "id": "signals:offer_terms_accepted",
+      "type": "signals"
+    },
+    {
+      "family": "screening_progression",
+      "role": "outcome",
+      "meaning": "Qualified applicants are lost between application and screening progression.",
+      "metrics": [
+        "career_portal_and_funnel.qualified_screen_rejection_pct"
+      ],
+      "id": "signals:qualified_screen_loss",
+      "type": "signals"
+    },
+    {
+      "family": "selection_design",
+      "role": "direct",
+      "meaning": "An audit identifies screen criteria or questions that do not reflect validated essential role requirements.",
+      "id": "signals:screening_criteria_mismatch_verified",
+      "type": "signals"
+    },
+    {
+      "family": "selection_design",
+      "role": "indicator",
+      "meaning": "Intake reports a mismatch between screening and actual role requirements.",
+      "intake_pattern": "(?:screening|screen) criteria.{0,36}(?:unrelated|do not match|not aligned with) (?:the )?(?:role|job)",
+      "id": "signals:screening_criteria_mismatch_reported",
+      "type": "signals"
+    },
+    {
+      "family": "selection_design",
+      "role": "direct",
+      "meaning": "Independent review confirms the criteria reflect essential job requirements.",
+      "id": "signals:screening_criteria_validated",
+      "type": "signals"
+    },
+    {
+      "family": "targeting",
+      "role": "direct",
+      "meaning": "Attribution and audience data show that the channel reaches a different population from the intended job cohort.",
+      "id": "signals:channel_target_mismatch_verified",
+      "type": "signals"
+    },
+    {
+      "family": "targeting",
+      "role": "indicator",
+      "meaning": "The intake distinguishes a channel's current audience from the target candidates.",
+      "intake_pattern": "channel reaches (?:the )?wrong audience|(?:channel|campaign) misses (?:the )?target (?:audience|workers)",
+      "id": "signals:channel_target_mismatch_reported",
+      "type": "signals"
+    },
+    {
+      "family": "targeting",
+      "role": "direct",
+      "meaning": "The current channel gives the intended cohort sufficient opportunity to see the posting.",
+      "id": "signals:channel_target_reached",
+      "type": "signals"
+    },
+    {
+      "family": "pre_entry_progression",
+      "role": "outcome",
+      "meaning": "A material share of accepted offers fail to become starts.",
+      "metrics": [
+        "hiring_and_retention_kpis.accepted_offer_nonstart_pct"
+      ],
+      "intake_pattern": "accepted offers? (?:do|did) not (?:turn into|become) starts|(?:pre.start|first.day) no.shows",
+      "id": "signals:prestart_loss",
+      "type": "signals"
+    },
+    {
+      "family": "pre_entry_process",
+      "role": "direct",
+      "meaning": "Accepted offers and pre-start contact records identify missed or conflicting steps preceding scheduled starts.",
+      "id": "signals:prestart_gap_verified",
+      "type": "signals"
+    },
+    {
+      "family": "pre_entry_process",
+      "role": "indicator",
+      "meaning": "Intake reports broken follow-up between offer acceptance and start.",
+      "intake_pattern": "(?:no|missing|inconsistent) (?:contact|updates|instructions) (?:after acceptance|before (?:the )?start)",
+      "id": "signals:prestart_gap_reported",
+      "type": "signals"
+    },
+    {
+      "family": "pre_entry_process",
+      "role": "direct",
+      "meaning": "Accepted candidates received and confirmed their required pre-start information.",
+      "id": "signals:prestart_steps_completed",
+      "type": "signals"
+    },
+    {
+      "family": "internal_mobility",
+      "role": "direct",
+      "meaning": "A review finds qualified staff unable to discover or pursue available internal roles.",
+      "id": "signals:internal_mobility_barrier_verified",
+      "type": "signals"
+    },
+    {
+      "family": "internal_mobility",
+      "role": "indicator",
+      "meaning": "Employees report limited access to internal openings or transfers.",
+      "intake_pattern": "(?:internal vacancies|internal jobs) (?:are )?(?:not posted|hidden)|(?:blocked|prevented) from applying internally",
+      "id": "signals:internal_mobility_barrier_reported",
+      "type": "signals"
+    },
+    {
+      "family": "internal_mobility",
+      "role": "direct",
+      "meaning": "Eligible employees can discover and apply for the relevant internal roles.",
+      "id": "signals:internal_mobility_accessible",
+      "type": "signals"
+    },
+    {
+      "family": "employee_exits",
+      "role": "outcome",
+      "meaning": "Voluntary exits increased in a defined workforce and observation period.",
+      "metrics": [
+        "hiring_and_retention_kpis.voluntary_attrition_pct"
+      ],
+      "intake_pattern": "voluntary (?:attrition|exits|turnover) (?:has |have )?(?:risen|increased|accelerated)",
+      "id": "signals:voluntary_exit_increase",
+      "type": "signals"
+    },
+    {
+      "family": "location_flexibility",
+      "role": "direct",
+      "meaning": "Employees in the cohort identify a specific commuting or work-location constraint and the timing is verified.",
+      "id": "signals:flexibility_barrier_verified",
+      "type": "signals"
+    },
+    {
+      "family": "location_flexibility",
+      "role": "indicator",
+      "meaning": "Employees cite commuting or location requirements when considering leaving.",
+      "intake_pattern": "(?:commut(?:e|ing)|return.to.office).{0,40}(?:reason for leaving|cited in exits)",
+      "id": "signals:flexibility_barrier_reported",
+      "type": "signals"
+    },
+    {
+      "family": "role_location_feasibility",
+      "role": "context",
+      "meaning": "Work design, customer coverage and access requirements permit a local hybrid-work trial.",
+      "id": "signals:flexibility_feasible",
+      "type": "signals"
+    },
+    {
+      "family": "role_location_feasibility",
+      "role": "context",
+      "meaning": "The role's essential work or access requirements prevent the proposed hybrid arrangement.",
+      "id": "signals:flexibility_infeasible",
+      "type": "signals"
+    },
+    {
+      "family": "speak_up",
+      "role": "direct",
+      "meaning": "Independent confidential channels corroborate fear of speaking up or retaliation for raising concerns.",
+      "id": "signals:speak_up_barrier_verified",
+      "type": "signals"
+    },
+    {
+      "family": "speak_up",
+      "role": "indicator",
+      "meaning": "Employees report fear of speaking up about problems.",
+      "intake_pattern": "(?:fear of|afraid to) speak(?:ing)? up|fear of retaliation",
+      "id": "signals:speak_up_barrier_reported",
+      "type": "signals"
+    },
+    {
+      "family": "issue_reporting",
+      "role": "outcome",
+      "meaning": "Two-way reporting shows low issue-raising or follow-up coverage despite a defined opportunity to report.",
+      "id": "signals:low_speak_up_participation",
+      "type": "signals"
+    },
+    {
+      "family": "speak_up",
+      "role": "direct",
+      "meaning": "Multiple confidential sources corroborate practical access to a safe channel for raising concerns.",
+      "id": "signals:safe_voice_corroborated",
+      "type": "signals"
+    },
+    {
+      "family": "review_selection",
+      "role": "direct",
+      "meaning": "Review composition, platform mix or collection coverage changed in the relevant comparison period.",
+      "id": "signals:review_sample_shift_verified",
+      "type": "signals"
+    },
+    {
+      "family": "review_selection",
+      "role": "indicator",
+      "meaning": "Intake reports a change in the mix of reviewers or review platforms.",
+      "intake_pattern": "(?:reviewer mix|review platform mix|review coverage) (?:changed|shifted|fell)",
+      "id": "signals:review_sample_shift_reported",
+      "type": "signals"
+    },
+    {
+      "family": "review_selection",
+      "role": "direct",
+      "meaning": "Platform and cohort breakdowns show stable coverage over comparable periods.",
+      "id": "signals:review_collection_stable",
+      "type": "signals"
+    },
+    {
+      "family": "attribution_integrity",
+      "role": "direct",
+      "meaning": "A reconciliation finds duplicate, unmatched or missing source IDs in campaign-to-outcome records.",
+      "id": "signals:tracking_attribution_gap_verified",
+      "type": "signals"
+    },
+    {
+      "family": "attribution_integrity",
+      "role": "indicator",
+      "meaning": "The intake reports missing attribution or duplicate tracking records.",
+      "intake_pattern": "(?:missing|incomplete) campaign attribution|duplicate (?:campaign|tracking) records",
+      "id": "signals:tracking_attribution_gap_reported",
+      "type": "signals"
+    },
+    {
+      "family": "outcome_observability",
+      "role": "outcome",
+      "meaning": "Eligible reach or downstream hiring outcomes are unavailable or cannot be reconciled.",
+      "id": "signals:campaign_outcomes_unmeasured",
+      "type": "signals"
+    },
+    {
+      "family": "attribution_integrity",
+      "role": "direct",
+      "meaning": "A source-to-outcome reconciliation confirms the relevant records and definitions reconcile.",
+      "id": "signals:attribution_reconciled",
+      "type": "signals"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
+      "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
+      "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
+      "id": "sources:earnest_2011",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2007.00087.x",
+      "finding": "Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover.",
+      "limitation": "Verify why employees left and test alternative contributors.",
+      "id": "sources:zhao_2007",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17484552/",
+      "finding": "Newcomer adjustment includes role clarity, which was related to downstream work outcomes.",
+      "limitation": "Does not quantify the impact of a promotion framework on a given cohort.",
+      "id": "sources:bauer_2007",
+      "type": "sources"
+    },
+    {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2020.3905",
+      "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
+      "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+      "id": "sources:friebel_2021",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11419809/",
+      "finding": "Job demands and resources measured across occupational groups relate to different burnout dimensions.",
+      "limitation": "A reported workload problem is not a clinical diagnosis or proof of turnover causation.",
+      "id": "sources:demerouti_2001",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1007/s00420-023-02009-z",
+      "finding": "Controlled studies found a small pooled reduction in exhaustion after organizational interventions, with very low certainty.",
+      "limitation": "Do not transfer the pooled effect to a client or infer impact on actual exits.",
+      "id": "sources:bes_2023",
+      "type": "sources"
+    },
+    {
+      "kind": "design_guidance",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "finding": "Accessible forms use necessary inputs, clear labels and recoverable errors.",
+      "limitation": "Design guidance, with no universal completion-time target or effect size.",
+      "id": "sources:w3c_forms",
+      "type": "sources"
+    },
+    {
+      "kind": "vendor_observation",
+      "url": "https://www.appcast.io/high-volume-recruiting-strategy/",
+      "finding": "Observed apply completion varied with application length.",
+      "limitation": "Vendor observations can help design a test. They do not identify a causal effect for a new applicant funnel.",
+      "id": "sources:appcast",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+      "finding": "Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions.",
+      "limitation": "Does not establish a universal callback SLA or a conversion uplift.",
+      "id": "sources:hausknecht_2004",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1002/hrm.20379",
+      "finding": "Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms.",
+      "limitation": "Perceptions from this sample do not establish a site-specific applicant conversion effect.",
+      "id": "sources:williamson_2010",
+      "type": "sources"
+    },
+    {
+      "kind": "systematic_review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10687884/",
+      "finding": "Shorter questionnaires and selected reminders can improve response in some settings.",
+      "limitation": "Response and representativeness are distinct; local candidate effects are unknown.",
+      "id": "sources:edwards_2023",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://marinescu.eu/publication/marinescu-incentives-2021/",
+      "finding": "Voluntary employer reviews can overrepresent extreme opinions.",
+      "limitation": "Ratings and review volume cannot establish a local operational cause by themselves.",
+      "id": "sources:marinescu_2021",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1111/ijsa.12128",
+      "finding": "Recruitment word-of-mouth studies found that source and disclosed incentives influenced employer attractiveness.",
+      "limitation": "Does not prove the success or harm of a given advocacy campaign.",
+      "id": "sources:van_hoye_2016",
+      "type": "sources"
+    },
+    {
+      "kind": "industry_standard",
+      "url": "https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf",
+      "finding": "AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value.",
+      "limitation": "An unattributed media cost estimate is not realized ROI.",
+      "id": "sources:amec",
+      "type": "sources"
+    },
+    {
+      "kind": "quasi_experiment",
+      "url": "https://doi.org/10.1257/aer.20160232",
+      "finding": "A retail quasi-experiment linked unequal raises and quit behavior.",
+      "limitation": "Relevant as an alternative to test using comparable roles, with no transferable pay or quit threshold.",
+      "id": "sources:dube_2019",
+      "type": "sources"
+    },
+    {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1287/mnsc.2021.4291",
+      "finding": "An experiment in retail tested a bundle of more responsible scheduling practices and reported store performance effects.",
+      "limitation": "Does not establish a universal retention effect or fit for other shift-based roles.",
+      "id": "sources:kesavan_2022",
+      "type": "sources"
+    },
+    {
+      "kind": "hackathon_policy",
+      "url": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
+      "finding": "The challenge requires readiness gates, workforce fit and a three-phase plan.",
+      "limitation": "Policy constraint, not a published causal estimate.",
+      "id": "sources:ingaze_policy",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1093/QJE/QJT002",
+      "finding": "US establishment data show heterogeneity in vacancies, hiring rates and recruiting intensity.",
+      "limitation": "An aggregate time-to-fill or low qualified count does not establish labor scarcity. Verify exposure, role requirements and competing stages locally.",
+      "id": "sources:davis_2013",
+      "type": "sources"
+    },
+    {
+      "kind": "design_guidance",
+      "url": "https://www.opm.gov/policy-data-oversight/human-capital-management/hiring-reform/reference/end-to-end-hiring-initiative.pdf",
+      "finding": "The federal hiring roadmap separates needs validation, review, interviews and offers into stages.",
+      "limitation": "Use only as a process measurement example. Its deadlines and governance requirements are specific to its setting.",
+      "id": "sources:opm_hiring_roadmap",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16162065/",
+      "finding": "The meta-analysis examined associations of job, organizational and recruitment-process characteristics with applicant attraction, intentions and job choice.",
+      "limitation": "Does not establish why a specific offer was declined or isolate the effect of changing a term.",
+      "id": "sources:chapman_2005",
+      "type": "sources"
+    },
+    {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1111/puar.13324",
+      "finding": "Social media field experiments tested employer messages using clicks as an early indicator of interest.",
+      "limitation": "A click is neither a qualified application nor a hire. The setting was public employers.",
+      "id": "sources:keppeler_papenfuss",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1111/1748-8583.70050",
+      "finding": "The authors studied pre-entry withdrawal after acceptance, including an archival telecommunications sample.",
+      "limitation": "The reported rate belongs to that sample. The source does not prove a specific communication workflow prevents nonstarts.",
+      "id": "sources:pre_entry_withdrawal",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.1177/0001839217736045",
+      "finding": "An analysis of internal hires at one health-services firm compared posting with manager-designated moves and found differing outcomes.",
+      "limitation": "Observational evidence from one firm cannot establish a universal causal retention effect.",
+      "id": "sources:keller_2018",
+      "type": "sources"
+    },
+    {
+      "kind": "field_experiment",
+      "url": "https://doi.org/10.1038/s41586-024-07500-2",
+      "finding": "A randomized trial at a Chinese technology company evaluated a specific hybrid schedule and found lower attrition in the treatment group.",
+      "limitation": "Applies to the studied schedule and role setting. Verify feasibility and measure local outcomes.",
+      "id": "sources:bloom_2024",
+      "type": "sources"
+    },
+    {
+      "kind": "empirical_study",
+      "url": "https://doi.org/10.2307/2666999",
+      "finding": "A study of manufacturing teams found team psychological safety associated with learning behavior.",
+      "limitation": "Low reporting alone cannot diagnose fear or establish a turnover effect. Confidential verification and applicable case procedures are needed.",
+      "id": "sources:edmondson_1999",
+      "type": "sources"
+    },
+    {
+      "kind": "meta_analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28749153/",
+      "finding": "A meta-analysis examined effectiveness and design moderators of leadership training.",
+      "limitation": "Training outcomes do not establish a client's turnover effect. Evaluate management behavior and local retention separately.",
+      "id": "sources:lacerenza_2017",
+      "type": "sources"
+    },
+    {
+      "label": "Expectation drift may contribute to early exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "documented_broken_promise",
+          "expectation_gap",
+          "brand_misalignment"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "earnest_2011",
+        "zhao_2007"
+      ],
+      "diagnostic": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
+      "pilot": "Pilot accurate role previews and correct the verified gap in work practices.",
+      "scale_gate": "Scale when new hires report alignment and comparable early-exit indicators improve.",
+      "counter": [
+        "expectations_met"
+      ],
+      "alternatives": [
+        "management_practice",
+        "onboarding_clarity",
+        "compensation_pressure",
+        "workload_strain",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "expectation_gap",
+        "early_attrition"
+      ],
+      "id": "rules:expectation_drift",
+      "type": "rules"
+    },
+    {
+      "label": "A management practice may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "manager_practice_verified",
+          "manager_support"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "friebel_2021",
+        "lacerenza_2017"
+      ],
+      "diagnostic": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+      "pilot": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+      "scale_gate": "Extend after delegation feedback and comparable early retention improve.",
+      "alternatives": [
+        "expectation_drift",
+        "onboarding_clarity",
+        "compensation_pressure",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "manager_support"
+      ],
+      "id": "rules:management_practice",
+      "type": "rules"
+    },
+    {
+      "label": "Unclear role or progression expectations may contribute to early exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "role_clarity_failure",
+          "career_clarity"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "bauer_2007"
+      ],
+      "diagnostic": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+      "pilot": "Pilot a structured onboarding and role-expectation review with a named owner.",
+      "scale_gate": "Expand after role clarity improves and comparable exit indicators show no deterioration.",
+      "alternatives": [
+        "management_practice",
+        "compensation_pressure",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "track_tags": [
+        "career_clarity"
+      ],
+      "id": "rules:onboarding_clarity",
+      "type": "rules"
+    },
+    {
+      "label": "Excess workload may contribute to employee exhaustion",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "workload_verified"
+        ],
+        [
+          "burnout"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "demerouti_2001",
+        "bes_2023"
+      ],
+      "diagnostic": "Compare staffing, overtime and confidential listening by cohort; check schedule instability and workload changes.",
+      "pilot": "Co-design a capacity or workload change in the affected team.",
+      "scale_gate": "Scale after sustained workload and exhaustion measures improve without shifting the burden to another cohort.",
+      "counter": [
+        "adequate_workload"
+      ],
+      "alternatives": [
+        "schedule_instability"
+      ],
+      "track_tags": [
+        "burnout"
+      ],
+      "id": "rules:workload_strain",
+      "type": "rules"
+    },
+    {
+      "label": "A mobile application obstacle may explain pre-submission loss",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "form_obstacle_verified",
+          "mobile_friction"
+        ],
+        [
+          "application_abandonment"
+        ],
+        [
+          "mobile_exposure"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "w3c_forms",
+        "appcast"
+      ],
+      "diagnostic": "Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.",
+      "pilot": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+      "scale_gate": "Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response.",
+      "counter": [
+        "form_completes"
+      ],
+      "alternatives": [
+        "recruiter_handoff",
+        "role_information",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "mobile_friction"
+      ],
+      "action_tags": [
+        "form_redesign"
+      ],
+      "counter_overlap": true,
+      "id": "rules:application_friction",
+      "type": "rules"
+    },
+    {
+      "label": "A post-submission handoff may explain hiring delays",
+      "kind": "operational",
+      "requires": [
+        [
+          "handoff_delay_verified",
+          "handoff_delay_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
+      "pilot": "Pilot a named recruiter queue and response review for the affected roles.",
+      "scale_gate": "Expand after response times and qualified progression improve without shifting the queue elsewhere.",
+      "alternatives": [
+        "application_friction",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "local_reputation"
+      ],
+      "id": "rules:recruiter_handoff",
+      "type": "rules"
+    },
+    {
+      "label": "Unclear role information may weaken candidate attraction",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "role_info_gap_verified",
+          "generic_ads"
+        ],
+        [
+          "application_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "williamson_2010",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Interview target candidates and review conversion for the same jobs and inbound channels.",
+      "pilot": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+      "scale_gate": "Scale after qualified applications improve while access and eligibility hold.",
+      "alternatives": [
+        "application_friction",
+        "reputation_location"
+      ],
+      "track_tags": [
+        "generic_ads"
+      ],
+      "id": "rules:role_information",
+      "type": "rules"
+    },
+    {
+      "label": "A local operating issue may explain uneven site reputation",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "local_issue_verified"
+        ],
+        [
+          "local_reputation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "marinescu_2021"
+      ],
+      "diagnostic": "Compare themes, sample counts and local operational records for the affected sites.",
+      "pilot": "Pilot local ownership and fix the issue independently verified at those sites.",
+      "scale_gate": "Expand the workflow after coverage and local operational outcomes improve.",
+      "alternatives": [
+        "recruiter_handoff",
+        "review_sample_shift"
+      ],
+      "track_tags": [
+        "local_reputation",
+        "review_tracking"
+      ],
+      "id": "rules:reputation_location",
+      "type": "rules"
+    },
+    {
+      "label": "Fragmented feedback collection may hide candidate experience issues",
+      "kind": "operational",
+      "requires": [
+        [
+          "feedback_workflow_verified",
+          "feedback_fragmentation"
+        ],
+        [
+          "low_survey_coverage"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "edwards_2023",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Reconcile eligible candidates, invitations, responses and timestamps by stage and site.",
+      "pilot": "Pilot a short accessible survey and documented invitations at an affected site.",
+      "scale_gate": "Expand once response coverage improves and nonresponse patterns are checked.",
+      "alternatives": [
+        "recruiter_handoff"
+      ],
+      "track_tags": [
+        "feedback_fragmentation"
+      ],
+      "id": "rules:feedback_coverage",
+      "type": "rules"
+    },
+    {
+      "label": "Manual workflows may limit reporting coverage and consume staff time",
+      "kind": "operational",
+      "requires": [
+        [
+          "tracking_workflow_verified",
+          "post_tracking"
+        ],
+        [
+          "manual_tracking_load"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "amec"
+      ],
+      "diagnostic": "Audit duplicate handling, reporting effort, source coverage, and ownership.",
+      "pilot": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+      "scale_gate": "Expand after completeness, auditability and staff time improve.",
+      "track_tags": [
+        "post_tracking",
+        "review_tracking"
+      ],
+      "alternatives": [
+        "campaign_attribution_gap"
+      ],
+      "id": "rules:manual_measurement",
+      "type": "rules"
+    },
+    {
+      "label": "An existing willing cohort may support a scoped advocacy pilot",
+      "kind": "policy",
+      "requires": [
+        [
+          "volunteers_verified",
+          "existing_advocates"
+        ],
+        [
+          "culture_ready"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "van_hoye_2016",
+        "ingaze_policy"
+      ],
+      "diagnostic": "Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.",
+      "pilot": "Trial opt-in, role-relevant participation with auditable tracking.",
+      "scale_gate": "Expand only with credible internal conditions, consent and measured audience or hiring outcomes.",
+      "counter": [
+        "expectation_gap",
+        "documented_broken_promise",
+        "burnout",
+        "manager_support",
+        "manager_practice_verified"
+      ],
+      "track_tags": [
+        "existing_advocates",
+        "culture_ready"
+      ],
+      "counter_overlap": true,
+      "action_tags": [
+        "external_advocacy"
+      ],
+      "id": "rules:advocacy_pilot",
+      "type": "rules"
+    },
+    {
+      "label": "A delayed hire process may contribute to agency dependence",
+      "kind": "operational",
+      "requires": [
+        [
+          "agency_dependency_verified",
+          "agency_spend"
+        ],
+        [
+          "hiring_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "ingaze_policy"
+      ],
+      "diagnostic": "Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.",
+      "pilot": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+      "scale_gate": "Scale after direct qualified hires improve and Finance verifies changes in agency spend.",
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "qualified_applicant_supply",
+        "requisition_approval",
+        "interview_capacity"
+      ],
+      "track_tags": [
+        "agency_spend"
+      ],
+      "id": "rules:external_staffing_dependency",
+      "type": "rules"
+    },
+    {
+      "label": "A cohort-specific pay gap may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "pay_gap_verified"
+        ],
+        [
+          "early_attrition"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "dube_2019"
+      ],
+      "diagnostic": "Audit comparable pay and exit reasons within the same role, location and tenure window.",
+      "pilot": "If a meaningful discrepancy is verified, pilot a targeted compensation correction with Finance.",
+      "scale_gate": "Review fairness and comparable retention before expanding any pay change.",
+      "alternatives": [
+        "management_practice",
+        "expectation_drift",
+        "workload_strain",
+        "internal_mobility_access",
+        "work_location_flexibility"
+      ],
+      "action_tags": [
+        "compensation"
+      ],
+      "id": "rules:compensation_pressure",
+      "type": "rules"
+    },
+    {
+      "label": "Short-notice or unstable shifts may contribute to work strain",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "schedule_instability"
+        ],
+        [
+          "burnout"
+        ],
+        [
+          "shift_based_work"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "kesavan_2022",
+        "demerouti_2001"
+      ],
+      "diagnostic": "Compare roster notice, coverage and strain; check whether the target workforce actually works shifts.",
+      "pilot": "Pilot more predictable shift assignments with the affected workers and operational owner.",
+      "scale_gate": "Expand if roster stability improves without worse coverage or workload.",
+      "alternatives": [
+        "workload_strain"
+      ],
+      "action_tags": [
+        "schedule_change"
+      ],
+      "id": "rules:schedule_instability",
+      "type": "rules"
+    },
+    {
+      "label": "A limited qualified applicant pool may delay hiring",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "qualified_supply_verified",
+          "qualified_supply_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "davis_2013",
+        "chapman_2005"
+      ],
+      "diagnostic": "Count qualified applicants per approved requisition by role and market. Verify essential criteria, distribution and form completion before calling the pool small.",
+      "pilot": "Test one additional sourcing route for the verified role and region. Track eligible applicants per requisition and keep essential qualifications fixed.",
+      "scale_gate": "Expand if eligible applicants per opening and qualified hires improve without worsening cost or assessment quality.",
+      "counter": [
+        "qualified_supply_adequate"
+      ],
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "requisition_approval",
+        "channel_reach_mismatch",
+        "screening_mismatch"
+      ],
+      "track_tags": [
+        "hiring_delay",
+        "qualified_supply_verified"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:qualified_applicant_supply",
+      "type": "rules"
+    },
+    {
+      "label": "A pre-posting approval queue may delay vacancy fulfillment",
+      "kind": "operational",
+      "requires": [
+        [
+          "approval_queue_verified",
+          "approval_queue_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "opm_hiring_roadmap"
+      ],
+      "diagnostic": "Compare request, sign-off, posting and acceptance timestamps. Verify whether the time-to-hire clock even includes time in approval.",
+      "pilot": "Pilot a standard request checklist and named approver for one role family while retaining existing hiring and budget controls.",
+      "scale_gate": "Expand if the request-to-post interval improves and approval exceptions or hiring-control failures do not increase.",
+      "counter": [
+        "approval_on_time"
+      ],
+      "alternatives": [
+        "application_friction",
+        "recruiter_handoff",
+        "qualified_applicant_supply"
+      ],
+      "track_tags": [
+        "requisition_approval"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:requisition_approval",
+      "type": "rules"
+    },
+    {
+      "label": "Interview slot availability may delay qualified candidates",
+      "kind": "operational",
+      "requires": [
+        [
+          "interview_capacity_verified",
+          "interview_capacity_reported"
+        ],
+        [
+          "hiring_delay",
+          "vacancy_delay"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "opm_hiring_roadmap",
+        "hausknecht_2004"
+      ],
+      "diagnostic": "Measure screens, scheduling attempts and actual interview starts. Separate panel capacity from recruiter contact and candidate availability.",
+      "pilot": "Reserve interview blocks with trained backup interviewers and let eligible candidates choose accessible slots.",
+      "scale_gate": "Expand after verified interview wait times fall and assessment quality and candidate access hold.",
+      "counter": [
+        "interviews_on_time"
+      ],
+      "alternatives": [
+        "recruiter_handoff",
+        "requisition_approval",
+        "offer_acceptance"
+      ],
+      "track_tags": [
+        "interview_capacity"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:interview_capacity",
+      "type": "rules"
+    },
+    {
+      "label": "Offer conditions may explain a late-stage loss of candidates",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "offer_terms_mismatch_verified",
+          "offer_terms_mismatch_reported"
+        ],
+        [
+          "offer_decline_rate"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "chapman_2005"
+      ],
+      "diagnostic": "Reconcile extended, declined and expired offers. Confirm role-level decline reasons and separate terms, approval timing and competing offers.",
+      "pilot": "Test clearer and earlier disclosure of approved offer conditions. Escalate term changes through the relevant decision owners.",
+      "scale_gate": "Expand if offer acceptance and subsequent starts improve while compensation and fairness controls hold.",
+      "counter": [
+        "offer_terms_accepted"
+      ],
+      "alternatives": [
+        "interview_capacity",
+        "prestart_withdrawal",
+        "compensation_pressure"
+      ],
+      "track_tags": [
+        "offer_acceptance"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:offer_acceptance",
+      "type": "rules"
+    },
+    {
+      "label": "Off-target screening criteria may exclude eligible applicants",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "screening_criteria_mismatch_verified",
+          "screening_criteria_mismatch_reported"
+        ],
+        [
+          "qualified_screen_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "hausknecht_2004",
+        "opm_hiring_roadmap"
+      ],
+      "diagnostic": "Manually review de-identified decisions against job-validated essentials and look for structured counterexamples before changing the screen.",
+      "pilot": "Review questioned criteria with HR and role experts and pilot a documented, job-relevant rubric with human review.",
+      "scale_gate": "Expand only after assessment quality and accessible progression improve while required qualifications are preserved.",
+      "counter": [
+        "screening_criteria_validated"
+      ],
+      "alternatives": [
+        "qualified_applicant_supply",
+        "application_friction",
+        "role_information"
+      ],
+      "track_tags": [
+        "screening_mismatch"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:screening_mismatch",
+      "type": "rules"
+    },
+    {
+      "label": "A sourcing channel may be missing the intended workforce",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "channel_target_mismatch_verified",
+          "channel_target_mismatch_reported"
+        ],
+        [
+          "weak_reach"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "keppeler_papenfuss",
+        "davis_2013"
+      ],
+      "diagnostic": "Compare target cohort impressions, qualified visits and application outcomes by channel. Check whether the issue is reach, ad information or the apply flow.",
+      "pilot": "Test one role-appropriate channel with comparable job information and attributable qualified outcomes.",
+      "scale_gate": "Expand if incremental qualified reach and applications justify the cost and there is no reduction in access.",
+      "counter": [
+        "channel_target_reached"
+      ],
+      "alternatives": [
+        "qualified_applicant_supply",
+        "role_information",
+        "application_friction"
+      ],
+      "track_tags": [
+        "channel_reach_mismatch"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:channel_reach_mismatch",
+      "type": "rules"
+    },
+    {
+      "label": "A pre-start communication gap may contribute to nonstarts",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "prestart_gap_verified",
+          "prestart_gap_reported"
+        ],
+        [
+          "prestart_loss"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "pre_entry_withdrawal"
+      ],
+      "diagnostic": "Check accepted offers, scheduled starts, withdrawals and confirmed contact while preserving candidate confidentiality.",
+      "pilot": "Pilot an opt-in contact schedule with confirmed instructions, a named contact and a way to resolve access or scheduling problems.",
+      "scale_gate": "Expand after measured starts improve without intrusive follow-up or worse candidate experience.",
+      "counter": [
+        "prestart_steps_completed"
+      ],
+      "alternatives": [
+        "offer_acceptance",
+        "onboarding_clarity"
+      ],
+      "track_tags": [
+        "prestart_withdrawal"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:prestart_withdrawal",
+      "type": "rules"
+    },
+    {
+      "label": "Restricted access to internal openings may contribute to exits",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "internal_mobility_barrier_verified",
+          "internal_mobility_barrier_reported"
+        ],
+        [
+          "early_attrition",
+          "voluntary_exit_increase"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "keller_2018"
+      ],
+      "diagnostic": "Compare internal posting visibility, applicant access and exit themes by role and tenure. Check actual opportunities apart from clarity about progression.",
+      "pilot": "Pilot transparent access to relevant vacancies and a documented transfer review, preserving eligibility and role requirements.",
+      "scale_gate": "Expand if equitable access and mobility improve while monitoring retention in the same group.",
+      "counter": [
+        "internal_mobility_accessible"
+      ],
+      "alternatives": [
+        "onboarding_clarity",
+        "compensation_pressure",
+        "management_practice"
+      ],
+      "track_tags": [
+        "internal_mobility"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:internal_mobility_access",
+      "type": "rules"
+    },
+    {
+      "label": "A feasible location change may address a reported retention barrier",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "flexibility_barrier_verified",
+          "flexibility_barrier_reported"
+        ],
+        [
+          "early_attrition",
+          "voluntary_exit_increase"
+        ],
+        [
+          "flexibility_feasible"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "bloom_2024"
+      ],
+      "diagnostic": "Verify commute or location concerns in the affected cohort and confirm that service, access and team responsibilities allow a trial.",
+      "pilot": "Test an opt-in, role-compatible schedule for one cohort with coverage and collaboration safeguards.",
+      "scale_gate": "Expand only if the local trial meets coverage, collaboration and retention criteria.",
+      "counter": [
+        "flexibility_infeasible"
+      ],
+      "alternatives": [
+        "schedule_instability",
+        "workload_strain",
+        "compensation_pressure"
+      ],
+      "track_tags": [
+        "work_location_flexibility"
+      ],
+      "requires_verified_pilot": true,
+      "counter_overlap": true,
+      "id": "rules:work_location_flexibility",
+      "type": "rules"
+    },
+    {
+      "label": "Fear of speaking up may limit visibility into workplace problems",
+      "kind": "mechanism",
+      "requires": [
+        [
+          "speak_up_barrier_verified",
+          "speak_up_barrier_reported"
+        ],
+        [
+          "low_speak_up_participation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "edmondson_1999"
+      ],
+      "diagnostic": "Compare confidential reporting access, independently corroborated concerns and follow-up coverage. Refer individual allegations to appropriate safeguarding processes.",
+      "pilot": "Pilot confidential aggregate listening and tracked follow-up with a responsible HR owner. Keep individual case handling outside this workflow.",
+      "scale_gate": "Expand only after safe access and response quality are demonstrated. Assess participation separately from incident prevalence.",
+      "counter": [
+        "safe_voice_corroborated"
+      ],
+      "alternatives": [
+        "management_practice",
+        "workload_strain",
+        "review_sample_shift"
+      ],
+      "track_tags": [
+        "speak_up_barriers"
+      ],
+      "requires_verified_pilot": true,
+      "counter_overlap": true,
+      "id": "rules:speak_up_barriers",
+      "type": "rules"
+    },
+    {
+      "label": "Review collection changes may explain some apparent reputation movement",
+      "kind": "operational",
+      "requires": [
+        [
+          "review_sample_shift_verified",
+          "review_sample_shift_reported"
+        ],
+        [
+          "local_reputation"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "marinescu_2021"
+      ],
+      "diagnostic": "Compare review counts and respondent mix by platform, site and period. Cross-check changes against independent operational and listening records.",
+      "pilot": "Publish a coverage-aware reputation view separating like-for-like trends from composition changes.",
+      "scale_gate": "Expand when independent site evidence is linked and coverage differences are visible in management reports.",
+      "counter": [
+        "review_collection_stable"
+      ],
+      "alternatives": [
+        "reputation_location",
+        "speak_up_barriers"
+      ],
+      "track_tags": [
+        "review_sample_shift"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:review_sample_shift",
+      "type": "rules"
+    },
+    {
+      "label": "Missing attribution limits what can be inferred about hiring impact",
+      "kind": "operational",
+      "requires": [
+        [
+          "tracking_attribution_gap_verified",
+          "tracking_attribution_gap_reported"
+        ],
+        [
+          "campaign_outcomes_unmeasured"
+        ]
+      ],
+      "direct": 0,
+      "sources": [
+        "amec",
+        "keppeler_papenfuss"
+      ],
+      "diagnostic": "Reconcile source identifiers and downstream events. Check whether reach, candidate response or qualified outcomes are genuinely unmeasured.",
+      "pilot": "Pilot an auditable source-to-outcome ledger with deduplicated events and separate reporting for reach, qualified applications and hires.",
+      "scale_gate": "Expand after completeness and reconciliation improve and comparisons use consistent outcome definitions.",
+      "counter": [
+        "attribution_reconciled"
+      ],
+      "alternatives": [
+        "manual_measurement",
+        "channel_reach_mismatch"
+      ],
+      "track_tags": [
+        "campaign_attribution_gap"
+      ],
+      "requires_verified_pilot": true,
+      "id": "rules:campaign_attribution_gap",
+      "type": "rules"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.application_form_dropoff_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.monthly_visits",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.qualified_applicants_per_requisition",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.qualified_screen_rejection_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.screen_to_interview_days",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:career_portal_and_funnel.smartphone_traffic_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.accepted_offer_nonstart_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.compensation_market_percentile_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.hq_admin_time_to_hire_days",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.offer_decline_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.rd_labs_annual_retention_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.request_to_fill_days",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.request_to_requisition_approval_days",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:hiring_and_retention_kpis.voluntary_attrition_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.brand_alignment_index_100",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.cross_location_rating_std_dev_5",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.employer_review_reply_rate_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.external_claims_gap_stars_5",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.overall_review_rating_5",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.recommend_to_friend_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.reviews_analyzed",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.segment_or_site_breakdown",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.segment_or_site_breakdown.*.rating_5",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.segment_or_site_breakdown.*.reviews",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.sub_ratings_5.career_growth",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.sub_ratings_5.compensation",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.sub_ratings_5.culture_and_values",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.sub_ratings_5.management",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:public_reputation.sub_ratings_5.work_life_balance",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.active_organic_ambassadors_headcount",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.corporate_linkedin_er_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.er_by_post_format_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.er_by_post_format_pct.*",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.organic_employee_post_er_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.positive_mention_share_pct",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.quarterly_organic_impressions",
+      "type": "metrics"
+    },
+    {
+      "id": "metrics:social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "type": "metrics"
+    }
+  ],
+  "edges": [
+    {
+      "from": "metrics:public_reputation.external_claims_gap_stars_5",
+      "to": "signals:expectation_gap",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.brand_alignment_index_100",
+      "to": "signals:brand_misalignment",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.sub_ratings_5.management",
+      "to": "signals:manager_support",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.sub_ratings_5.career_growth",
+      "to": "signals:career_clarity",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.early_first_year_attrition_pct",
+      "to": "signals:early_attrition",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.six_month_new_hire_attrition_milan_berlin_pct",
+      "to": "signals:early_attrition",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.sub_ratings_5.compensation",
+      "to": "signals:pay_gap_verified",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.compensation_market_percentile_100",
+      "to": "signals:pay_gap_verified",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.sub_ratings_5.work_life_balance",
+      "to": "signals:burnout",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.smartphone_traffic_pct",
+      "to": "signals:mobile_exposure",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.application_flow_simplicity_100",
+      "to": "signals:mobile_friction",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.technical_speed_100",
+      "to": "signals:mobile_friction",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.application_form_dropoff_pct",
+      "to": "signals:application_abandonment",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.applicant_conversion_rate_pct",
+      "to": "signals:application_loss",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.avg_time_to_hire_days",
+      "to": "signals:hiring_delay",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.hq_admin_time_to_hire_days",
+      "to": "signals:hiring_delay",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.agency_filled_roles_pct",
+      "to": "signals:agency_spend",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
+      "to": "signals:generic_ads",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
+      "to": "signals:generic_ads",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100",
+      "to": "signals:generic_ads",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.monthly_visits",
+      "to": "signals:weak_reach",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.portal_component_scores_100.seo_and_reach_100",
+      "to": "signals:weak_reach",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.quarterly_organic_impressions",
+      "to": "signals:weak_reach",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.corporate_linkedin_er_pct",
+      "to": "signals:corporate_engagement_weak",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.er_by_post_format_pct",
+      "to": "signals:corporate_engagement_weak",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.er_by_post_format_pct.*",
+      "to": "signals:corporate_engagement_weak",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.cross_location_rating_std_dev_5",
+      "to": "signals:local_reputation",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.segment_or_site_breakdown",
+      "to": "signals:local_reputation",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.segment_or_site_breakdown.*.rating_5",
+      "to": "signals:local_reputation",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.reviews_analyzed",
+      "to": "signals:review_coverage",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.segment_or_site_breakdown.*.reviews",
+      "to": "signals:review_coverage",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.overall_review_rating_5",
+      "to": "signals:employer_reputation_weak",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.recommend_to_friend_pct",
+      "to": "signals:employer_reputation_weak",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.employer_review_reply_rate_pct",
+      "to": "signals:review_tracking",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.candidate_survey_completion_rate_pct",
+      "to": "signals:low_survey_coverage",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.manual_hr_tracking_hours_month",
+      "to": "signals:manual_tracking_load",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.spontaneous_employee_mentions_quarter",
+      "to": "signals:existing_advocates",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.active_organic_ambassadors_headcount",
+      "to": "signals:existing_advocates",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:public_reputation.sub_ratings_5.culture_and_values",
+      "to": "signals:culture_ready",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.positive_mention_share_pct",
+      "to": "signals:culture_ready",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:social_and_employee_voice.organic_employee_post_er_pct",
+      "to": "signals:employee_engagement_reference",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.estimated_annual_attrition_exposure_eur",
+      "to": "signals:attrition_exposure",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.tenured_driver_annual_retention_pct",
+      "to": "signals:protected_retention",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.rd_labs_annual_retention_pct",
+      "to": "signals:protected_retention",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.qualified_applicants_per_requisition",
+      "to": "signals:qualified_supply_verified",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.request_to_requisition_approval_days",
+      "to": "signals:approval_queue_verified",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.request_to_fill_days",
+      "to": "signals:vacancy_delay",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.screen_to_interview_days",
+      "to": "signals:interview_capacity_verified",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.offer_decline_pct",
+      "to": "signals:offer_decline_rate",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:career_portal_and_funnel.qualified_screen_rejection_pct",
+      "to": "signals:qualified_screen_loss",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.accepted_offer_nonstart_pct",
+      "to": "signals:prestart_loss",
+      "type": "can_inform"
+    },
+    {
+      "from": "metrics:hiring_and_retention_kpis.voluntary_attrition_pct",
+      "to": "signals:voluntary_exit_increase",
+      "type": "can_inform"
+    },
+    {
+      "from": "signals:documented_broken_promise",
+      "to": "rules:expectation_drift",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:expectation_gap",
+      "to": "rules:expectation_drift",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:brand_misalignment",
+      "to": "rules:expectation_drift",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:expectation_drift",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:expectations_met",
+      "to": "rules:expectation_drift",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:earnest_2011",
+      "to": "rules:expectation_drift",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:zhao_2007",
+      "to": "rules:expectation_drift",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:management_practice",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:onboarding_clarity",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:workload_strain",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:internal_mobility_access",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:work_location_flexibility",
+      "to": "rules:expectation_drift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:manager_practice_verified",
+      "to": "rules:management_practice",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:manager_support",
+      "to": "rules:management_practice",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:management_practice",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:friebel_2021",
+      "to": "rules:management_practice",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:lacerenza_2017",
+      "to": "rules:management_practice",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:expectation_drift",
+      "to": "rules:management_practice",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:onboarding_clarity",
+      "to": "rules:management_practice",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:management_practice",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:internal_mobility_access",
+      "to": "rules:management_practice",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:work_location_flexibility",
+      "to": "rules:management_practice",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:role_clarity_failure",
+      "to": "rules:onboarding_clarity",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:career_clarity",
+      "to": "rules:onboarding_clarity",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:onboarding_clarity",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:bauer_2007",
+      "to": "rules:onboarding_clarity",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:management_practice",
+      "to": "rules:onboarding_clarity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:onboarding_clarity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:internal_mobility_access",
+      "to": "rules:onboarding_clarity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:work_location_flexibility",
+      "to": "rules:onboarding_clarity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:workload_verified",
+      "to": "rules:workload_strain",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:burnout",
+      "to": "rules:workload_strain",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:adequate_workload",
+      "to": "rules:workload_strain",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:demerouti_2001",
+      "to": "rules:workload_strain",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:bes_2023",
+      "to": "rules:workload_strain",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:schedule_instability",
+      "to": "rules:workload_strain",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:form_obstacle_verified",
+      "to": "rules:application_friction",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:mobile_friction",
+      "to": "rules:application_friction",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:application_abandonment",
+      "to": "rules:application_friction",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:mobile_exposure",
+      "to": "rules:application_friction",
+      "type": "requires",
+      "slot": 2,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:form_completes",
+      "to": "rules:application_friction",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:w3c_forms",
+      "to": "rules:application_friction",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:appcast",
+      "to": "rules:application_friction",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:application_friction",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:role_information",
+      "to": "rules:application_friction",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:application_friction",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:requisition_approval",
+      "to": "rules:application_friction",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:interview_capacity",
+      "to": "rules:application_friction",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:handoff_delay_verified",
+      "to": "rules:recruiter_handoff",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:handoff_delay_reported",
+      "to": "rules:recruiter_handoff",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:hiring_delay",
+      "to": "rules:recruiter_handoff",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:vacancy_delay",
+      "to": "rules:recruiter_handoff",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:hausknecht_2004",
+      "to": "rules:recruiter_handoff",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:recruiter_handoff",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:recruiter_handoff",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:requisition_approval",
+      "to": "rules:recruiter_handoff",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:interview_capacity",
+      "to": "rules:recruiter_handoff",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:role_info_gap_verified",
+      "to": "rules:role_information",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:generic_ads",
+      "to": "rules:role_information",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:application_loss",
+      "to": "rules:role_information",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:williamson_2010",
+      "to": "rules:role_information",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:hausknecht_2004",
+      "to": "rules:role_information",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:role_information",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:reputation_location",
+      "to": "rules:role_information",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:local_issue_verified",
+      "to": "rules:reputation_location",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:local_reputation",
+      "to": "rules:reputation_location",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:marinescu_2021",
+      "to": "rules:reputation_location",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:reputation_location",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:review_sample_shift",
+      "to": "rules:reputation_location",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:feedback_workflow_verified",
+      "to": "rules:feedback_coverage",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:feedback_fragmentation",
+      "to": "rules:feedback_coverage",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:low_survey_coverage",
+      "to": "rules:feedback_coverage",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:edwards_2023",
+      "to": "rules:feedback_coverage",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:hausknecht_2004",
+      "to": "rules:feedback_coverage",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:feedback_coverage",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:tracking_workflow_verified",
+      "to": "rules:manual_measurement",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:post_tracking",
+      "to": "rules:manual_measurement",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:manual_tracking_load",
+      "to": "rules:manual_measurement",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:amec",
+      "to": "rules:manual_measurement",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:campaign_attribution_gap",
+      "to": "rules:manual_measurement",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:volunteers_verified",
+      "to": "rules:advocacy_pilot",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:existing_advocates",
+      "to": "rules:advocacy_pilot",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:culture_ready",
+      "to": "rules:advocacy_pilot",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:expectation_gap",
+      "to": "rules:advocacy_pilot",
+      "type": "challenges"
+    },
+    {
+      "from": "signals:documented_broken_promise",
+      "to": "rules:advocacy_pilot",
+      "type": "challenges"
+    },
+    {
+      "from": "signals:burnout",
+      "to": "rules:advocacy_pilot",
+      "type": "challenges"
+    },
+    {
+      "from": "signals:manager_support",
+      "to": "rules:advocacy_pilot",
+      "type": "challenges"
+    },
+    {
+      "from": "signals:manager_practice_verified",
+      "to": "rules:advocacy_pilot",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:van_hoye_2016",
+      "to": "rules:advocacy_pilot",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:ingaze_policy",
+      "to": "rules:advocacy_pilot",
+      "type": "grounds"
+    },
+    {
+      "from": "signals:agency_dependency_verified",
+      "to": "rules:external_staffing_dependency",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:agency_spend",
+      "to": "rules:external_staffing_dependency",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:hiring_delay",
+      "to": "rules:external_staffing_dependency",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:ingaze_policy",
+      "to": "rules:external_staffing_dependency",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:external_staffing_dependency",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:external_staffing_dependency",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:external_staffing_dependency",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:requisition_approval",
+      "to": "rules:external_staffing_dependency",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:interview_capacity",
+      "to": "rules:external_staffing_dependency",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:pay_gap_verified",
+      "to": "rules:compensation_pressure",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:compensation_pressure",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:dube_2019",
+      "to": "rules:compensation_pressure",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:management_practice",
+      "to": "rules:compensation_pressure",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:expectation_drift",
+      "to": "rules:compensation_pressure",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:workload_strain",
+      "to": "rules:compensation_pressure",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:internal_mobility_access",
+      "to": "rules:compensation_pressure",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:work_location_flexibility",
+      "to": "rules:compensation_pressure",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:schedule_instability",
+      "to": "rules:schedule_instability",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:burnout",
+      "to": "rules:schedule_instability",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:shift_based_work",
+      "to": "rules:schedule_instability",
+      "type": "requires",
+      "slot": 2,
+      "direct_slot": false
+    },
+    {
+      "from": "sources:kesavan_2022",
+      "to": "rules:schedule_instability",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:demerouti_2001",
+      "to": "rules:schedule_instability",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:workload_strain",
+      "to": "rules:schedule_instability",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:qualified_supply_verified",
+      "to": "rules:qualified_applicant_supply",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:qualified_supply_reported",
+      "to": "rules:qualified_applicant_supply",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:hiring_delay",
+      "to": "rules:qualified_applicant_supply",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:vacancy_delay",
+      "to": "rules:qualified_applicant_supply",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:qualified_supply_adequate",
+      "to": "rules:qualified_applicant_supply",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:davis_2013",
+      "to": "rules:qualified_applicant_supply",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:chapman_2005",
+      "to": "rules:qualified_applicant_supply",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:qualified_applicant_supply",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:qualified_applicant_supply",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:requisition_approval",
+      "to": "rules:qualified_applicant_supply",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:channel_reach_mismatch",
+      "to": "rules:qualified_applicant_supply",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:screening_mismatch",
+      "to": "rules:qualified_applicant_supply",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:approval_queue_verified",
+      "to": "rules:requisition_approval",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:approval_queue_reported",
+      "to": "rules:requisition_approval",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:hiring_delay",
+      "to": "rules:requisition_approval",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:vacancy_delay",
+      "to": "rules:requisition_approval",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:approval_on_time",
+      "to": "rules:requisition_approval",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:opm_hiring_roadmap",
+      "to": "rules:requisition_approval",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:requisition_approval",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:requisition_approval",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:requisition_approval",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:interview_capacity_verified",
+      "to": "rules:interview_capacity",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:interview_capacity_reported",
+      "to": "rules:interview_capacity",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:hiring_delay",
+      "to": "rules:interview_capacity",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:vacancy_delay",
+      "to": "rules:interview_capacity",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:interviews_on_time",
+      "to": "rules:interview_capacity",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:opm_hiring_roadmap",
+      "to": "rules:interview_capacity",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:hausknecht_2004",
+      "to": "rules:interview_capacity",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:recruiter_handoff",
+      "to": "rules:interview_capacity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:requisition_approval",
+      "to": "rules:interview_capacity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:offer_acceptance",
+      "to": "rules:interview_capacity",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:offer_terms_mismatch_verified",
+      "to": "rules:offer_acceptance",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:offer_terms_mismatch_reported",
+      "to": "rules:offer_acceptance",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:offer_decline_rate",
+      "to": "rules:offer_acceptance",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:offer_terms_accepted",
+      "to": "rules:offer_acceptance",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:chapman_2005",
+      "to": "rules:offer_acceptance",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:interview_capacity",
+      "to": "rules:offer_acceptance",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:prestart_withdrawal",
+      "to": "rules:offer_acceptance",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:offer_acceptance",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:screening_criteria_mismatch_verified",
+      "to": "rules:screening_mismatch",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:screening_criteria_mismatch_reported",
+      "to": "rules:screening_mismatch",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:qualified_screen_loss",
+      "to": "rules:screening_mismatch",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:screening_criteria_validated",
+      "to": "rules:screening_mismatch",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:hausknecht_2004",
+      "to": "rules:screening_mismatch",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:opm_hiring_roadmap",
+      "to": "rules:screening_mismatch",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:screening_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:screening_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:role_information",
+      "to": "rules:screening_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:channel_target_mismatch_verified",
+      "to": "rules:channel_reach_mismatch",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:channel_target_mismatch_reported",
+      "to": "rules:channel_reach_mismatch",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:weak_reach",
+      "to": "rules:channel_reach_mismatch",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:channel_target_reached",
+      "to": "rules:channel_reach_mismatch",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:keppeler_papenfuss",
+      "to": "rules:channel_reach_mismatch",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:davis_2013",
+      "to": "rules:channel_reach_mismatch",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:qualified_applicant_supply",
+      "to": "rules:channel_reach_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:role_information",
+      "to": "rules:channel_reach_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:application_friction",
+      "to": "rules:channel_reach_mismatch",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:prestart_gap_verified",
+      "to": "rules:prestart_withdrawal",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:prestart_gap_reported",
+      "to": "rules:prestart_withdrawal",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:prestart_loss",
+      "to": "rules:prestart_withdrawal",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:prestart_steps_completed",
+      "to": "rules:prestart_withdrawal",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:pre_entry_withdrawal",
+      "to": "rules:prestart_withdrawal",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:offer_acceptance",
+      "to": "rules:prestart_withdrawal",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:onboarding_clarity",
+      "to": "rules:prestart_withdrawal",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:internal_mobility_barrier_verified",
+      "to": "rules:internal_mobility_access",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:internal_mobility_barrier_reported",
+      "to": "rules:internal_mobility_access",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:internal_mobility_access",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:voluntary_exit_increase",
+      "to": "rules:internal_mobility_access",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:internal_mobility_accessible",
+      "to": "rules:internal_mobility_access",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:keller_2018",
+      "to": "rules:internal_mobility_access",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:onboarding_clarity",
+      "to": "rules:internal_mobility_access",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:internal_mobility_access",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:management_practice",
+      "to": "rules:internal_mobility_access",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:flexibility_barrier_verified",
+      "to": "rules:work_location_flexibility",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:flexibility_barrier_reported",
+      "to": "rules:work_location_flexibility",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:early_attrition",
+      "to": "rules:work_location_flexibility",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:voluntary_exit_increase",
+      "to": "rules:work_location_flexibility",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:flexibility_feasible",
+      "to": "rules:work_location_flexibility",
+      "type": "requires",
+      "slot": 2,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:flexibility_infeasible",
+      "to": "rules:work_location_flexibility",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:bloom_2024",
+      "to": "rules:work_location_flexibility",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:schedule_instability",
+      "to": "rules:work_location_flexibility",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:workload_strain",
+      "to": "rules:work_location_flexibility",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:compensation_pressure",
+      "to": "rules:work_location_flexibility",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:speak_up_barrier_verified",
+      "to": "rules:speak_up_barriers",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:speak_up_barrier_reported",
+      "to": "rules:speak_up_barriers",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:low_speak_up_participation",
+      "to": "rules:speak_up_barriers",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:safe_voice_corroborated",
+      "to": "rules:speak_up_barriers",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:edmondson_1999",
+      "to": "rules:speak_up_barriers",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:management_practice",
+      "to": "rules:speak_up_barriers",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:workload_strain",
+      "to": "rules:speak_up_barriers",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:review_sample_shift",
+      "to": "rules:speak_up_barriers",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:review_sample_shift_verified",
+      "to": "rules:review_sample_shift",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:review_sample_shift_reported",
+      "to": "rules:review_sample_shift",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:local_reputation",
+      "to": "rules:review_sample_shift",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:review_collection_stable",
+      "to": "rules:review_sample_shift",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:marinescu_2021",
+      "to": "rules:review_sample_shift",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:reputation_location",
+      "to": "rules:review_sample_shift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:speak_up_barriers",
+      "to": "rules:review_sample_shift",
+      "type": "alternative_to"
+    },
+    {
+      "from": "signals:tracking_attribution_gap_verified",
+      "to": "rules:campaign_attribution_gap",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:tracking_attribution_gap_reported",
+      "to": "rules:campaign_attribution_gap",
+      "type": "requires",
+      "slot": 0,
+      "direct_slot": true
+    },
+    {
+      "from": "signals:campaign_outcomes_unmeasured",
+      "to": "rules:campaign_attribution_gap",
+      "type": "requires",
+      "slot": 1,
+      "direct_slot": false
+    },
+    {
+      "from": "signals:attribution_reconciled",
+      "to": "rules:campaign_attribution_gap",
+      "type": "challenges"
+    },
+    {
+      "from": "sources:amec",
+      "to": "rules:campaign_attribution_gap",
+      "type": "grounds"
+    },
+    {
+      "from": "sources:keppeler_papenfuss",
+      "to": "rules:campaign_attribution_gap",
+      "type": "grounds"
+    },
+    {
+      "from": "rules:manual_measurement",
+      "to": "rules:campaign_attribution_gap",
+      "type": "alternative_to"
+    },
+    {
+      "from": "rules:channel_reach_mismatch",
+      "to": "rules:campaign_attribution_gap",
+      "type": "alternative_to"
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "method": "Fixed-catalog replay using intake narrative and T0 only. Hold out each company and its outcomes from its own precedent search.",
+  "limitation": "Synthetic historical cases and no independently labeled diagnostic answers. This checks retrieval leakage and execution, with no diagnostic accuracy estimate.",
+  "case_count": 21,
+  "results": [
+    {
+      "held_out_case": "LogiNext (International Supply Chain Software Scale-Up)",
+      "precedents": [
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 18
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 4
+    },
+    {
+      "held_out_case": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "precedents": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 4
+      },
+      "pilot_rules": [
+        "manual_measurement"
+      ],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "precedents": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 9
+      },
+      "pilot_rules": [
+        "manual_measurement",
+        "role_information"
+      ],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+      "precedents": [
+        "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 9
+      },
+      "pilot_rules": [
+        "role_information"
+      ],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "precedents": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 27
+      },
+      "pilot_rules": [
+        "expectation_drift",
+        "management_practice",
+        "onboarding_clarity"
+      ],
+      "phase_one_actions": 5
+    },
+    {
+      "held_out_case": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "precedents": [
+        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "NordicTrust Bank (Corporate & Digital Banking Group)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 10
+      },
+      "pilot_rules": [
+        "external_staffing_dependency",
+        "role_information"
+      ],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "Gamma Retail (Omnichannel Apparel & Lifestyle Chain)",
+      "precedents": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 19
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 4
+    },
+    {
+      "held_out_case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "precedents": [
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+        "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "Solaris Tech (CleanTech & Renewable Energy Innovator)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 5,
+        "conflicted": 1
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 1
+    },
+    {
+      "held_out_case": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "precedents": [
+        "NordicTrust Bank (Corporate & Digital Banking Group)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 2,
+        "conflicted": 1
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "BellaModa Retail (Fashion Footwear & Accessories Chain)",
+      "precedents": [
+        "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 10
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "precedents": [
+        "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 4,
+        "conflicted": 1
+      },
+      "pilot_rules": [
+        "feedback_coverage"
+      ],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "precedents": [
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 19
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 5
+    },
+    {
+      "held_out_case": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "precedents": [
+        "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "LogiNext (International Supply Chain Software Scale-Up)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 14
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 1
+    },
+    {
+      "held_out_case": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "precedents": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 9,
+        "conflicted": 1
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 2
+    },
+    {
+      "held_out_case": "HelvetiaInsure Group (European Insurance & Actuarial Services Enterprise)",
+      "precedents": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+        "FlowPay (International FinTech & Digital Payments Scale-Up)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 3
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 1
+    },
+    {
+      "held_out_case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "precedents": [
+        "Beta Logistica (National Freight & Interport Logistics Network)",
+        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 16
+      },
+      "pilot_rules": [
+        "application_friction"
+      ],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "precedents": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 18
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "NordicHome Living (Omnichannel Home Furnishing & Big-Box Retail Network)",
+      "precedents": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 8
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+      "precedents": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 11
+      },
+      "pilot_rules": [],
+      "phase_one_actions": 3
+    },
+    {
+      "held_out_case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "precedents": [
+        "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "BioNova Therapeutics (Multi-Site Clinical Research & Biopharma Group)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 12
+      },
+      "pilot_rules": [
+        "manual_measurement"
+      ],
+      "phase_one_actions": 4
+    },
+    {
+      "held_out_case": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "precedents": [
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+      ],
+      "hypothesis_status_counts": {
+        "plausible": 17
+      },
+      "pilot_rules": [
+        "role_information"
+      ],
+      "phase_one_actions": 4
+    }
+  ]
+}
