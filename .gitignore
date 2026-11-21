@@ -12,6 +12,15 @@ env/
 *.key
 secrets.json
 
+# Local client briefs and generated client outputs
+/data/client_io/*
+!/data/client_io/input.json
+!/data/client_io/.gitkeep
+
+# Generated per-scenario pipeline stage files
+/data/intermediate_steps/*
+!/data/intermediate_steps/.gitkeep
+
 # OS & Editor files
 .DS_Store
 Thumbs.db
