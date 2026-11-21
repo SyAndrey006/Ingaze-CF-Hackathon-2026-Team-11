@@ -643,7 +643,7 @@
           },
           "spontaneous_employee_mentions_quarter": 46,
           "positive_mention_share_pct": 71.7,
-          "manual_hr_tracking_hours_month": 4.0
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 25.4,
@@ -703,7 +703,7 @@
           "quarterly_organic_impressions": 149650,
           "spontaneous_employee_mentions_quarter": 49,
           "positive_mention_share_pct": 73.5,
-          "manual_hr_tracking_hours_month": 3.5,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.19,
             "generic_job_posts": 1.08,
@@ -817,7 +817,7 @@
           },
           "spontaneous_employee_mentions_quarter": 19,
           "positive_mention_share_pct": 52.6,
-          "manual_hr_tracking_hours_month": 5.0
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 19.0,
@@ -877,7 +877,7 @@
           "quarterly_organic_impressions": 107840,
           "spontaneous_employee_mentions_quarter": 49,
           "positive_mention_share_pct": 81.6,
-          "manual_hr_tracking_hours_month": 2.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 0.91,
             "generic_job_posts": 1.15,
@@ -991,7 +991,7 @@
           },
           "spontaneous_employee_mentions_quarter": 13,
           "positive_mention_share_pct": 76.9,
-          "manual_hr_tracking_hours_month": 6.5
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 17.4,
@@ -1051,7 +1051,7 @@
           "quarterly_organic_impressions": 37890,
           "spontaneous_employee_mentions_quarter": 18,
           "positive_mention_share_pct": 77.8,
-          "manual_hr_tracking_hours_month": 2.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.11,
             "generic_job_posts": 1.02,
@@ -1165,7 +1165,7 @@
           },
           "spontaneous_employee_mentions_quarter": 21,
           "positive_mention_share_pct": 57.1,
-          "manual_hr_tracking_hours_month": 5.0
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 29.8,
@@ -1225,7 +1225,7 @@
           "quarterly_organic_impressions": 74180,
           "spontaneous_employee_mentions_quarter": 44,
           "positive_mention_share_pct": 79.5,
-          "manual_hr_tracking_hours_month": 1.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.08,
             "generic_job_posts": 1.23,
@@ -1505,7 +1505,7 @@
           },
           "spontaneous_employee_mentions_quarter": 73,
           "positive_mention_share_pct": 82.2,
-          "manual_hr_tracking_hours_month": 11.0
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 10.4,
@@ -1565,7 +1565,7 @@
           "quarterly_organic_impressions": 244760,
           "spontaneous_employee_mentions_quarter": 162,
           "positive_mention_share_pct": 87.7,
-          "manual_hr_tracking_hours_month": 0.5,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 0.95,
             "generic_job_posts": 1.43,
@@ -1679,7 +1679,7 @@
           },
           "spontaneous_employee_mentions_quarter": 15,
           "positive_mention_share_pct": 66.7,
-          "manual_hr_tracking_hours_month": 4.5
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 25.2,
@@ -1739,7 +1739,7 @@
           "quarterly_organic_impressions": 34920,
           "spontaneous_employee_mentions_quarter": 23,
           "positive_mention_share_pct": 73.9,
-          "manual_hr_tracking_hours_month": 1.5,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.12,
             "generic_job_posts": 1.04,
@@ -2027,7 +2027,7 @@
           },
           "spontaneous_employee_mentions_quarter": 28,
           "positive_mention_share_pct": 57.1,
-          "manual_hr_tracking_hours_month": 5.5
+          "manual_hr_tracking_hours_month": 8.5
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 21.4,
@@ -2087,7 +2087,7 @@
           "quarterly_organic_impressions": 108460,
           "spontaneous_employee_mentions_quarter": 46,
           "positive_mention_share_pct": 78.3,
-          "manual_hr_tracking_hours_month": 2.0,
+          "manual_hr_tracking_hours_month": 6.0,
           "er_by_post_format_pct": {
             "institutional_updates": 0.91,
             "generic_job_posts": 1.12,
@@ -2201,7 +2201,7 @@
           },
           "spontaneous_employee_mentions_quarter": 34,
           "positive_mention_share_pct": 67.6,
-          "manual_hr_tracking_hours_month": 4.5
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 17.8,
@@ -2261,7 +2261,7 @@
           "quarterly_organic_impressions": 104320,
           "spontaneous_employee_mentions_quarter": 52,
           "positive_mention_share_pct": 84.6,
-          "manual_hr_tracking_hours_month": 2.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.18,
             "generic_job_posts": 1.29,
@@ -2379,7 +2379,7 @@
           },
           "spontaneous_employee_mentions_quarter": 44,
           "positive_mention_share_pct": 81.8,
-          "manual_hr_tracking_hours_month": 3.5
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 9.8,
@@ -2443,7 +2443,7 @@
           "quarterly_organic_impressions": 108640,
           "spontaneous_employee_mentions_quarter": 51,
           "positive_mention_share_pct": 84.3,
-          "manual_hr_tracking_hours_month": 3.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.14,
             "generic_job_posts": 1.07,
@@ -2731,7 +2731,7 @@
           },
           "spontaneous_employee_mentions_quarter": 18,
           "positive_mention_share_pct": 66.7,
-          "manual_hr_tracking_hours_month": 5.0
+          "manual_hr_tracking_hours_month": 9.5
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 24.6,
@@ -2791,7 +2791,7 @@
           "quarterly_organic_impressions": 64180,
           "spontaneous_employee_mentions_quarter": 29,
           "positive_mention_share_pct": 75.9,
-          "manual_hr_tracking_hours_month": 2.5,
+          "manual_hr_tracking_hours_month": 4.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.02,
             "generic_job_posts": 0.98,
@@ -2905,7 +2905,7 @@
           },
           "spontaneous_employee_mentions_quarter": 16,
           "positive_mention_share_pct": 56.3,
-          "manual_hr_tracking_hours_month": 6.0
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 26.8,
@@ -2965,7 +2965,7 @@
           "quarterly_organic_impressions": 89450,
           "spontaneous_employee_mentions_quarter": 48,
           "positive_mention_share_pct": 83.3,
-          "manual_hr_tracking_hours_month": 1.5,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.03,
             "generic_job_posts": 1.01,
@@ -3079,7 +3079,7 @@
           },
           "spontaneous_employee_mentions_quarter": 36,
           "positive_mention_share_pct": 69.4,
-          "manual_hr_tracking_hours_month": 4.5
+          "manual_hr_tracking_hours_month": 0.0
         },
         "hiring_and_retention_kpis": {
           "early_first_year_attrition_pct": 27.4,
@@ -3139,7 +3139,7 @@
           "quarterly_organic_impressions": 128940,
           "spontaneous_employee_mentions_quarter": 58,
           "positive_mention_share_pct": 81.0,
-          "manual_hr_tracking_hours_month": 2.0,
+          "manual_hr_tracking_hours_month": 0.0,
           "er_by_post_format_pct": {
             "institutional_updates": 1.14,
             "generic_job_posts": 1.04,

@@ -64,7 +64,7 @@ def load_sandbox_and_scenarios(
         if not extra_scenario_path.exists():
             raise FileNotFoundError(f"Extra scenario file not found at: {extra_scenario_path}")
         extra_raw = json.loads(extra_scenario_path.read_text(encoding="utf-8"))
-        extra_obj = extra_raw.get("blind_judge_scenario", extra_raw)
+        extra_obj = extra_raw.get("blind_judge_scenario", extra_raw.get("client_intake_case", extra_raw))
         if "scenario_code" not in extra_obj:
             raise ValueError("Extra scenario JSON must contain 'scenario_code'.")
         existing_codes = {s.get("scenario_code") for s in scenarios}
@@ -100,11 +100,24 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
         cs_snaps = len(snap_data.get("case_study_analytics_snapshots", []))
         sc_snaps = len(snap_data.get("active_scenario_analytics_snapshots", []))
         print(f"  - Optional Analytics Snapshots: {cs_snaps} case T0->T1 + {sc_snaps} scenario T0 tables ({snapshots_path.name})")
+    messy_path = BASE_DIR / "data" / "ingaze_real_world_messy_intake.json"
+    if messy_path.exists():
+        messy_data = json.loads(messy_path.read_text(encoding="utf-8")).get("client_intake_case", {})
+        print(
+            f"  - Real-World Messy Intake:      {messy_data.get('scenario_code')} — {messy_data.get('company_name')} "
+            f"[Calls + Archetype/Cost Surveys + Noisy Telemetry] ({messy_path.name})"
+        )
     print(f"  - Company Scenarios Loaded:     {len(scenarios)}")
     for sc in scenarios:
         has_dual = "ingaze_platform_signals" in sc and "client_internal_context" in sc
-        dual_tag = " [Outside-In Signals + Inside-Out Client Context]" if has_dual else ""
-        print(f"      * {sc.get('scenario_code')} — {sc.get('company_name')} ({sc.get('industry')}){dual_tag}")
+        has_messy = "raw_discovery_call_notes" in sc and "ingaze_onboarding_surveys_raw" in sc
+        dual_tag = (
+            " [Outside-In Signals + Inside-Out Client Context]"
+            if has_dual
+            else (" [Raw Discovery Calls + Archetype/Cost Surveys + Noisy Telemetry]" if has_messy else "")
+        )
+        ind = sc.get("industry") or sc.get("basic_company_facts", {}).get("industry", "Unknown")
+        print(f"      * {sc.get('scenario_code')} — {sc.get('company_name')} ({ind}){dual_tag}")
     print("=" * 78)
 
 

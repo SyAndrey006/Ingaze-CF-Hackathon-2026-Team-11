@@ -1,10 +1,11 @@
-# Data Guide & Dictionary — Understanding Both JSON Datasets ("What Is What")
+# Data Guide & Dictionary — Understanding the Sandbox & Real-World JSON Datasets ("What Is What")
 
 > **Files documented in this guide:**
-> 1. **[`data/ingaze_sandbox_dataset.json`](../data/ingaze_sandbox_dataset.json)** *(Core Sandbox Dataset)* — HR domain context, empirical research snippets, 21 completed historical case studies, 3 active incoming client scenarios to diagnose, and the output template.
-> 2. **[`data/ingaze_synthetic_analytics_snapshots.json`](../data/ingaze_synthetic_analytics_snapshots.json)** *(Optional Quantitative Companion)* — Aggregated synthetic multi-channel telemetry and sector peer benchmarks (`T0 -> T1` for the 21 historical cases + `T0` intake snapshot for the 3 active client scenarios).
+> 1. **[`data/ingaze_sandbox_dataset.json`](../data/ingaze_sandbox_dataset.json)** *(Core Sandbox Dataset)* — HR domain context, empirical research snippets, 21 completed historical case studies, 3 clean benchmark client scenarios (`A, B, C`), and the output template.
+> 2. **[`data/ingaze_synthetic_analytics_snapshots.json`](../data/ingaze_synthetic_analytics_snapshots.json)** *(Optional Quantitative Companion)* — Aggregated synthetic multi-channel telemetry and sector peer benchmarks (`T0 -> T1` for the 21 historical cases + `T0` intake snapshot for the 3 benchmark scenarios).
+> 3. **[`data/ingaze_real_world_messy_intake.json`](../data/ingaze_real_world_messy_intake.json)** *(Real-World Unfiltered Client Intake — `SCENARIO_REALWORLD_01_VALLEYSYS`)* — Mirrors what actually arrives when a new B2B client onboards: messy discovery call notes, HR's raw answers to the *Employer Archetype* and *Recruiting Cost Review* questionnaires, untracked `null`s, and noisy Outside-In telemetry (**Sunday's live test uses this exact unfiltered intake structure!**).
 >
-> **Architectural freedom:** How you ingest, represent, join, weight, or ignore any section of these two files is **100% up to your team**. Nothing in this guide prescribes a specific data structure or reasoning pipeline.
+> **Architectural freedom:** How you ingest, represent, join, weight, or ignore any section of these files is **100% up to your team**. Nothing in this guide prescribes a specific data structure or reasoning pipeline.
 
 ---
 
@@ -140,3 +141,16 @@ Both `case_study_analytics_snapshots` (`21` records) and `active_scenario_analyt
 | `avg_time_to_hire_days` | Integer (`days`) | **Lower** is better | Average calendar days required to fill an open target role from requisition to accepted offer. |
 | `agency_filled_roles_pct` | **`0.0 – 100.0%`** | **Lower** is better | Share of annual hires filled via paid external staffing or headhunting agencies (`%`) due to insufficient direct applicant flow. |
 | *(Scenario-specific context keys)* | `%` or `days` or `0–100` | Context-specific | Additional cohort facts reported in intake (e.g., `six_month_new_hire_attrition_milan_berlin_pct`, `compensation_market_percentile_100`, `tenured_driver_annual_retention_pct`, `hq_admin_time_to_hire_days`, `rd_labs_annual_retention_pct`). |
+
+---
+
+## Part 3 — Guide to `data/ingaze_real_world_messy_intake.json` (Unfiltered Client Onboarding)
+
+In real B2B consulting, a new client **never** hands you a pre-digested summary like Scenarios `A, B, C` where root-cause clues or spreadsheet hours are neatly labeled. At initial onboarding, you only have **4 raw, unaligned sources** inside `client_intake_case` (**and Sunday's live test uses this exact structure**):
+
+| Block in `client_intake_case` | What It Represents in Real Onboarding | Real-World Quirks Your System Should Expect |
+| :--- | :--- | :--- |
+| **`basic_company_facts`** | Basic public facts (`industry`, `footprint_and_headcount`, `open_roles_mentioned_verbally`). | Approximate headcounts and verbal role counts — no pre-tagged traits or diagnoses. |
+| **`raw_discovery_call_notes`** | Rough notes from 2 short kickoff calls (HR + Business/GM/R&D) and forwarded emails. | Stakeholders often disagree, blame external clichés (*"young people only want remote work"*), express real operational constraints (e.g., poaching fears, tiny HR headcount), and drop crucial clues offhand mid-sentence. |
+| **`ingaze_onboarding_surveys_raw`** | 1. **`employer_archetype_survey_response`**: HR's self-reported positioning & perceived pain.<br>2. **`recruiting_cost_review_survey_response`**: HR's bracket estimates on annual hires, job-board spend, recruiter FTEs, weekly CV screening hours, interview rounds, Time-to-Fill, and external agency share/fees.<br>3. **`internal_climate_and_candidate_feedback_notes`**: Status of internal surveys (often `false` / not launched yet!) plus raw exit/suggestion-box snippets. | • HR's self-perception in the Archetype survey often reflects *wishful thinking* rather than root causes.<br>• Metrics HR doesn't track (like exact first-year attrition or turnover exposure in EUR) appear as `"N/A"` or `null`.<br>• Raw exit/plant notes mix real structural issues with trivial workplace noise (vending machines, parking, AC). |
+| **`outside_in_scraped_telemetry`** | Raw multi-channel data collected externally (`public_reputation_telemetry`, `career_website_and_jd_telemetry`, `linkedin_and_content_telemetry`, `sector_peer_benchmarks`). | • Overall review averages can look "fine" while hiding sharp department divergence, coordinated `5.0★` bursts, or `1.0★` Google Maps reviews from external truck drivers / household customers.<br>• Traffic spikes or bounce rates can be confounded by unrelated marketing campaigns, and uninstrumented apply buttons yield `null` conversion rates.<br>• Corporate homepages often score well (`~78–80/100`) while job postings omit the exact benefits/strengths employees praise in reviews. |
