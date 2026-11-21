@@ -1,7 +1,3 @@
-"""
-Module: normalize_databases.py
-Stage: Offline Indexing (Runs Once)
-Execution Type: AI
 
 Description:
     Reads raw HR domain materials (4 pillars, 6 cross-pillar field notes, 10

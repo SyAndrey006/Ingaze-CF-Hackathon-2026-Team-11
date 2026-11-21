@@ -1,0 +1,12 @@
+# Python >= 3.10
+# Install: pip install -r requirements.txt
+# Tested with: pydantic 2.14.4, openai 3.57.0, python-dotenv 1.2.4 (Python 3.10.11)
+
+# Data models for all schemas, pipeline steps and tests
+pydantic>=2.0,<3
+
+# StructuredLLMClient (src/utils/llm_client.py): OpenAI / OpenRouter / Gemini via OpenAI-compatible API
+openai>=1.40
+
+# Loads API keys from .env (see .env_template)
+python-dotenv>=1.0

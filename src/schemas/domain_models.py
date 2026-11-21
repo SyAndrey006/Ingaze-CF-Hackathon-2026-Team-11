@@ -1,7 +1,3 @@
-"""
-Module: domain_models.py
-Stage: Schemas (Shared Domain Ontology & Offline Database Models)
-Execution Type: Schema
 
 Description:
     Defines canonical Enums/Literals (HR pillars, universal signal codes,

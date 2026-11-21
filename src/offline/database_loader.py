@@ -1,7 +1,3 @@
-"""
-Module: database_loader.py
-Stage: Offline / Data Loading
-Execution Type: Formula
 
 Description:
     Deterministically loads and validates `data/normalized/normalized_rules.json`
