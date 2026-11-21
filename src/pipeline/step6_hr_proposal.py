@@ -50,6 +50,65 @@ from src.schemas.submission_models import ScenarioSubmission
 from src.utils.llm_client import StructuredLLMClient
 
 
+def assemble_recommendation(scenario, graph, diagnosis_state, scored_state, guardrail_state, phase_state):
+    """Assemble the final deterministic response from the verified stage outputs."""
+    result = {
+        "scenario_code": scenario["scenario_code"],
+        "diagnosed_root_causes": phase_state["diagnosed_root_causes"],
+        "blocked_traps_and_guardrails": guardrail_state["guards"],
+        "phase_1_actions": phase_state["phase_1_actions"],
+        "phase_2_actions": phase_state["phase_2_actions"],
+        "phase_3_actions": phase_state["phase_3_actions"],
+        "matched_case_studies": scored_state["matched_case_studies"],
+        "supporting_research_snippets": scored_state["supporting_research_snippets"],
+        "strategic_focus_and_do_not_touch": (
+            [phase_state["strengths"]] if phase_state["strengths"] else []
+        ),
+        "cohort_specific_strategies": (
+            [phase_state["cohort"]] if phase_state["cohort"] else []
+        ),
+        "open_questions_and_hypotheses_for_client": (
+            phase_state["open_questions_and_hypotheses_for_client"]
+        ),
+    }
+    trace = {
+        "scenario_code": scenario["scenario_code"],
+        "profile": diagnosis_state["profile"],
+        "excluded_noise": diagnosis_state["intake"]["excluded"],
+        "diagnostic_hypotheses": diagnosis_state["diagnostic_hypotheses"],
+        "diagnostic_observations": diagnosis_state["intake"]["observations"],
+        "normalized_measurements": diagnosis_state["intake"]["measurements"],
+        "action_decisions": guardrail_state["decisions"],
+        "guardrails": guardrail_state["guards"],
+        "protected_scopes": guardrail_state["protected"],
+        "case_ranking": scored_state["matched_case_studies"],
+        "candidate_action_scores": scored_state["ranked_candidates"],
+        "normalized_case_matches": scored_state.get("normalized_case_matches", []),
+        "case_informed_action_candidates": scored_state.get(
+            "case_informed_action_candidates", []
+        ),
+        "mandatory_constraint_source": graph["sources"]["ingaze_policy"]["url"],
+        "protected_baselines": diagnosis_state["intake"]["protected_baselines"],
+        "research": scored_state["supporting_research_snippets"],
+        "advocacy_ready_for_pilot": guardrail_state["advocacy_ready"],
+        "advocacy_blockers": guardrail_state["blockers"],
+        "operational_assumptions": [
+            "Peer-gap margins prioritize review and have no statistical or causal interpretation.",
+            "A conditional pilot requires verification and Phase 3 requires evaluated results.",
+            "Historical ranking weights are retrieval heuristics. T1 is displayed after ranking.",
+        ],
+        "evidence": {
+            signal: [
+                row["source_ref"]
+                for row in guardrail_state["present"]
+                if row["signal"] == signal
+            ]
+            for signal in sorted(guardrail_state["features"])
+        },
+    }
+    return result, trace
+
+
 def generate_hr_proposal(
     client_input: NormalizedClientInput,
     diagnosis: DiagnosisResult,

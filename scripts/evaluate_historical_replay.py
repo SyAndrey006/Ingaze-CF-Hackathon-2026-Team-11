@@ -2,11 +2,15 @@
 
 import argparse
 import json
+import sys
 from collections import Counter
 from pathlib import Path
 
-from src.reasoning.hr_intake import DEFAULT_ANALYTICS, load_analytics
-from src.reasoning.hr_knowledge_graph import load_graph
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.pipeline.step2_root_cause_analysis import DEFAULT_ANALYTICS, load_analytics, load_graph
 from recommendation_engine import DEFAULT_DATA, plan
 
 
@@ -64,3 +68,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

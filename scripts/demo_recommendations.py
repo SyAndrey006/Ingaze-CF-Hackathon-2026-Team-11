@@ -1,9 +1,15 @@
 """Compare the engine with the offline baseline and demonstrate a readiness change."""
 
 import json
+import sys
 from copy import deepcopy
+from pathlib import Path
 
-from src.reasoning.hr_intake import load_analytics
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.pipeline.step2_root_cause_analysis import load_analytics
 from recommendation_engine import DEFAULT_DATA, plan
 from starter_baseline_and_validator import generate_naive_baseline
 

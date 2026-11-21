@@ -1,5 +1,5 @@
 Ingaze dataset CSV export (lossless master + readable section tables)
-Source repository: https://raw.githubusercontent.com/SyAndrey006/Ingaze-CF-Hackathon-2026-Team-11/main/data/ingaze_sandbox_dataset.json
+Source repository: https://raw.githubusercontent.com/SyAndrey006/Ingaze-CF-Hackathon-2026-Team-11/main/database/ingaze_sandbox_dataset.json
 Dataset version: 1.4.0-open-structure-sanitized
 
 00_COMPLETE_JSON_ALL_NODES.csv: EVERY original JSON value and container, including nested arrays, empty objects and nulls, with JSON pointer paths.
