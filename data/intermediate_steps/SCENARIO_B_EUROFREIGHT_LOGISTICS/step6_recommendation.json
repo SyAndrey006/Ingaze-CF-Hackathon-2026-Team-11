@@ -274,7 +274,7 @@
         "case_id": "CASE_06_BETA_LOGISTICA",
         "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.7567,
+        "similarity_score": 0.8404,
         "score_breakdown": {
           "root_cause_overlap_score": 0.6154,
           "workforce_fit_score": 1.0,
@@ -299,7 +299,7 @@
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "Beta Logistica (National Freight & Interport Logistics Network)",
         "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
-        "score": 0.7567,
+        "score": 0.8404,
         "shared_mechanisms": [
           "HIGH_APPLICATION_DROPOFF",
           "MOBILE_PORTAL_FRICTION",
@@ -322,7 +322,7 @@
         "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
         "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.6644,
+        "similarity_score": 0.7865,
         "score_breakdown": {
           "root_cause_overlap_score": 0.4615,
           "workforce_fit_score": 1.0,
@@ -346,7 +346,7 @@
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
-        "score": 0.6644,
+        "score": 0.7865,
         "shared_mechanisms": [
           "HIGH_APPLICATION_DROPOFF",
           "MOBILE_PORTAL_FRICTION",
@@ -365,47 +365,46 @@
         "transfer_scope": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case_id": "CASE_04_GLOBAL_RETAIL",
-        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-        "sector_category": "RETAIL_OMNICHANNEL",
-        "similarity_score": 0.5648,
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.7083,
         "score_breakdown": {
-          "root_cause_overlap_score": 0.5455,
-          "workforce_fit_score": 0.5,
-          "sector_fit_score": 0.5,
+          "root_cause_overlap_score": 0.1667,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
           "roi_evidence_score": 1.0,
-          "cfo_auditability_score": 0.75
+          "cfo_auditability_score": 1.0
         },
         "matched_problem_tags": [
-          "HIGH_APPLICATION_DROPOFF",
-          "MOBILE_PORTAL_FRICTION",
-          "GENERIC_BOILERPLATE_JDS"
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
-        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
         "quantified_roi_highlights": [
-          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
-          "Application form drop-off: 61.8% -> 40.2% (-35%)",
-          "Time-to-Hire: 36 days -> 25 days (-31%)"
+          "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+          "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+          "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
         ],
-        "match_reason": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "match_reason": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
         "curation_review_status": "reviewed",
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
-        "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-        "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
-        "score": 0.5648,
+        "case": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "historical_roi": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+        "score": 0.7083,
         "shared_mechanisms": [
-          "HIGH_APPLICATION_DROPOFF",
-          "MOBILE_PORTAL_FRICTION",
-          "GENERIC_BOILERPLATE_JDS"
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
-        "shared_context": [],
+        "shared_context": [
+          "DESKLESS_FRONTLINE_LOGISTICS",
+          "LOGISTICS_FREIGHT"
+        ],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
-          "headcount": 6.5,
-          "locations_count": 42.4
+          "headcount": 1.219,
+          "locations_count": 1.2
         },
         "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-        "transfer_scope": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas"
+        "transfer_scope": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       }
     ],
     "supporting_research_snippets": [
@@ -5105,7 +5104,7 @@
         "case_id": "CASE_06_BETA_LOGISTICA",
         "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.7567,
+        "similarity_score": 0.8404,
         "score_breakdown": {
           "root_cause_overlap_score": 0.6154,
           "workforce_fit_score": 1.0,
@@ -5130,7 +5129,7 @@
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "Beta Logistica (National Freight & Interport Logistics Network)",
         "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
-        "score": 0.7567,
+        "score": 0.8404,
         "shared_mechanisms": [
           "HIGH_APPLICATION_DROPOFF",
           "MOBILE_PORTAL_FRICTION",
@@ -5153,7 +5152,7 @@
         "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
         "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.6644,
+        "similarity_score": 0.7865,
         "score_breakdown": {
           "root_cause_overlap_score": 0.4615,
           "workforce_fit_score": 1.0,
@@ -5177,7 +5176,7 @@
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
-        "score": 0.6644,
+        "score": 0.7865,
         "shared_mechanisms": [
           "HIGH_APPLICATION_DROPOFF",
           "MOBILE_PORTAL_FRICTION",
@@ -5196,47 +5195,46 @@
         "transfer_scope": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case_id": "CASE_04_GLOBAL_RETAIL",
-        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-        "sector_category": "RETAIL_OMNICHANNEL",
-        "similarity_score": 0.5648,
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.7083,
         "score_breakdown": {
-          "root_cause_overlap_score": 0.5455,
-          "workforce_fit_score": 0.5,
-          "sector_fit_score": 0.5,
+          "root_cause_overlap_score": 0.1667,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
           "roi_evidence_score": 1.0,
-          "cfo_auditability_score": 0.75
+          "cfo_auditability_score": 1.0
         },
         "matched_problem_tags": [
-          "HIGH_APPLICATION_DROPOFF",
-          "MOBILE_PORTAL_FRICTION",
-          "GENERIC_BOILERPLATE_JDS"
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
-        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
         "quantified_roi_highlights": [
-          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
-          "Application form drop-off: 61.8% -> 40.2% (-35%)",
-          "Time-to-Hire: 36 days -> 25 days (-31%)"
+          "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+          "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+          "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
         ],
-        "match_reason": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "match_reason": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
         "curation_review_status": "reviewed",
         "match_input_source": "step2_track_tags_via_case_signal_bridge",
-        "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-        "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
-        "score": 0.5648,
+        "case": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "historical_roi": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+        "score": 0.7083,
         "shared_mechanisms": [
-          "HIGH_APPLICATION_DROPOFF",
-          "MOBILE_PORTAL_FRICTION",
-          "GENERIC_BOILERPLATE_JDS"
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
-        "shared_context": [],
+        "shared_context": [
+          "DESKLESS_FRONTLINE_LOGISTICS",
+          "LOGISTICS_FREIGHT"
+        ],
         "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
-          "headcount": 6.5,
-          "locations_count": 42.4
+          "headcount": 1.219,
+          "locations_count": 1.2
         },
         "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-        "transfer_scope": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas"
+        "transfer_scope": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       }
     ],
     "candidate_action_scores": [
@@ -5269,8 +5267,7 @@
         ],
         "matched_case_names": [
           "Beta Logistica (National Freight & Interport Logistics Network)",
-          "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
-          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+          "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)"
         ],
         "score_rank": 1
       },
@@ -5300,8 +5297,7 @@
           "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
         ],
         "matched_case_names": [
-          "Beta Logistica (National Freight & Interport Logistics Network)",
-          "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+          "Beta Logistica (National Freight & Interport Logistics Network)"
         ],
         "score_rank": 2
       },
@@ -5375,19 +5371,21 @@
         "status": "plausible",
         "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
         "diagnosis_rank": 4,
-        "score": 0.5801,
+        "score": 0.6551,
         "score_breakdown": {
           "status_support": 0.187,
           "evidence_slot_coverage": 0.1062,
           "direct_evidence": 0.1275,
           "reported_evidence": 0.1275,
           "scope_specificity": 0.0319,
-          "historical_case_mechanism_fit": 0.0
+          "historical_case_mechanism_fit": 0.075
         },
         "matched_evidence_ids": [
           "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
         ],
-        "matched_case_names": [],
+        "matched_case_names": [
+          "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+        ],
         "score_rank": 5
       }
     ],
@@ -5396,7 +5394,7 @@
         "case_id": "CASE_06_BETA_LOGISTICA",
         "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.7567,
+        "similarity_score": 0.8404,
         "score_breakdown": {
           "root_cause_overlap_score": 0.6154,
           "workforce_fit_score": 1.0,
@@ -5424,7 +5422,7 @@
         "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
         "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "sector_category": "LOGISTICS_FREIGHT",
-        "similarity_score": 0.6644,
+        "similarity_score": 0.7865,
         "score_breakdown": {
           "root_cause_overlap_score": 0.4615,
           "workforce_fit_score": 1.0,
@@ -5448,29 +5446,27 @@
         "match_input_source": "step2_track_tags_via_case_signal_bridge"
       },
       {
-        "case_id": "CASE_04_GLOBAL_RETAIL",
-        "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-        "sector_category": "RETAIL_OMNICHANNEL",
-        "similarity_score": 0.5648,
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.7083,
         "score_breakdown": {
-          "root_cause_overlap_score": 0.5455,
-          "workforce_fit_score": 0.5,
-          "sector_fit_score": 0.5,
+          "root_cause_overlap_score": 0.1667,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
           "roi_evidence_score": 1.0,
-          "cfo_auditability_score": 0.75
+          "cfo_auditability_score": 1.0
         },
         "matched_problem_tags": [
-          "HIGH_APPLICATION_DROPOFF",
-          "MOBILE_PORTAL_FRICTION",
-          "GENERIC_BOILERPLATE_JDS"
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
-        "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+        "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
         "quantified_roi_highlights": [
-          "Agency-filled roles: 24.3% -> 14.2% (-42%)",
-          "Application form drop-off: 61.8% -> 40.2% (-35%)",
-          "Time-to-Hire: 36 days -> 25 days (-31%)"
+          "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+          "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+          "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
         ],
-        "match_reason": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "match_reason": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
         "curation_review_status": "reviewed",
         "match_input_source": "step2_track_tags_via_case_signal_bridge"
       }
@@ -5769,6 +5765,6 @@
         "ingaze_platform_signals.linkedin_and_content_analytics#1"
       ]
     },
-    "proposal_markdown": "# HR Proposal — EuroFreight Interport S.r.l.\n\n**Scenario:** `SCENARIO_B_EUROFREIGHT_LOGISTICS`  \n**Industry:** Freight Transport & Interport Logistics\n\n## Executive Diagnosis\n\nFor EuroFreight Interport S.r.l., the leading diagnosis is A mobile application obstacle may explain pre-submission loss. Start with Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.; advance to Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. only under its stated prerequisite. Preserve the listed guardrails, including: Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels..\n\n### Root-cause hypotheses\n- A mobile application obstacle may explain pre-submission loss — status: plausible\n- Manual workflows may limit reporting coverage and consume staff time — status: plausible\n- Unclear role information may weaken candidate attraction — status: plausible; scope: cohort: frontline_workforce\n- A post-submission handoff may explain hiring delays — status: plausible; scope: site: bologna+naples; tenure: applicant\n- A delayed hire process may contribute to agency dependence — status: plausible\n\n### Observed surface signals and evidence\n- local_reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.\n- handoff_delay_reported (site: bologna+naples; tenure: applicant): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).\n- review_tracking: Local hub reviews are tracked manually in spreadsheets.\n- mobile_friction: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- form_obstacle_verified: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- mobile_exposure: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- application_abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- generic_ads (cohort: frontline_workforce): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.\n\n## Guardrails & “Do Not Touch”\n\n### Blocked traps and guardrails\n- Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.\n- Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Deferred requests and decisions\n- No Step 4 decisions were marked deferred.\n\n### Leadership requests captured at intake\n\n- The Marketing Director proposes launching a B2B technical LinkedIn blog series to attract drivers, while Regional Hub Directors demand deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning before running any portal UX or driver persona audits.\n\n### Healthy baselines to preserve\n- 99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.\n\n### Cohort and site asymmetries\n\n- HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n\n## Three-Phase Action Roadmap\n\n### Phase 1 — Diagnostics\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: frontline_workforce\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort. — scope: site: bologna+naples; tenure: applicant\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots\n- Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; pilot design: At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Test verified role details in job ads and compare qualified completions for similar traffic. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; scope: cohort: frontline_workforce; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Pilot a named recruiter queue and response review for the affected roles. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; scope: site: bologna+naples; tenure: applicant; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Pilot targeted recruiter capacity for roles with verified avoidable external spend. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n\n### Phase 3 — Scaling Gates\n- Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n- Expand after completeness, auditability and staff time improve. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n- Scale after qualified applications improve while access and eligibility hold. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.; scope: cohort: frontline_workforce\n- Expand after response times and qualified progression improve without shifting the queue elsewhere. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.; scope: site: bologna+naples; tenure: applicant\n- Scale after direct qualified hires improve and Finance verifies changes in agency spend. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n\n## Evidence & Precedents\n\n### Historical case precedents\n- **Beta Logistica (National Freight & Interport Logistics Network)** (match score: 0.7567)\n  - Historical outcome: Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.\n  - Transfer note: 4/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas\n- **TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)** (match score: 0.6644)\n  - Historical outcome: Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).\n  - Transfer note: 3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas\n- **Global Retail Group (Mass Distribution & Fashion Retail Enterprise)** (match score: 0.5648)\n  - Historical outcome: +22% Career Website application conversion rate and -35% mobile application abandonment.\n  - Transfer note: 3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas\n\n### Supporting research\n- **amec:** AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **appcast:** Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **hausknecht_2004:** Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **ingaze_policy:** The challenge requires readiness gates, workforce fit and a three-phase plan. ([source](https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md))\n- **w3c_forms:** Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **williamson_2010:** Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Corporate Career Portal UX & Conversion Study:** When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.\n- **B2B Employee Advocacy & Earned Media Study:** Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n\n### Open client verification questions\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. — dependent families: application_step, device_exposure\n- Audit duplicate handling, reporting effort, source coverage, and ownership. — dependent families: staff_time\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: frontline_workforce; missing families: entry_conversion\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort. — scope: site: bologna+naples; tenure: applicant; missing families: hire_latency\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles. — missing families: hire_latency\n\n---\nThis proposal reports deterministic pipeline decisions. Historical outcomes are precedents, not forecasts; scale only after the stated measures and guardrails are verified.\n"
+    "proposal_markdown": "# HR Proposal — EuroFreight Interport S.r.l.\n\n**Scenario:** `SCENARIO_B_EUROFREIGHT_LOGISTICS`  \n**Industry:** Freight Transport & Interport Logistics\n\n## Executive Diagnosis\n\nFor EuroFreight Interport S.r.l., the leading diagnosis is A mobile application obstacle may explain pre-submission loss. Start with Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.; advance to Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. only under its stated prerequisite. Preserve the listed guardrails, including: Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels..\n\n### Root-cause hypotheses\n- A mobile application obstacle may explain pre-submission loss — status: plausible\n- Manual workflows may limit reporting coverage and consume staff time — status: plausible\n- Unclear role information may weaken candidate attraction — status: plausible; scope: cohort: frontline_workforce\n- A post-submission handoff may explain hiring delays — status: plausible; scope: site: bologna+naples; tenure: applicant\n- A delayed hire process may contribute to agency dependence — status: plausible\n\n### Observed surface signals and evidence\n- local_reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.\n- handoff_delay_reported (site: bologna+naples; tenure: applicant): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).\n- review_tracking: Local hub reviews are tracked manually in spreadsheets.\n- mobile_friction: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- form_obstacle_verified: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- mobile_exposure: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- application_abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- generic_ads (cohort: frontline_workforce): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.\n\n## Guardrails & “Do Not Touch”\n\n### Blocked traps and guardrails\n- Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.\n- Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Deferred requests and decisions\n- No Step 4 decisions were marked deferred.\n\n### Leadership requests captured at intake\n\n- The Marketing Director proposes launching a B2B technical LinkedIn blog series to attract drivers, while Regional Hub Directors demand deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning before running any portal UX or driver persona audits.\n\n### Healthy baselines to preserve\n- 99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.\n\n### Cohort and site asymmetries\n\n- HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n\n## Three-Phase Action Roadmap\n\n### Phase 1 — Diagnostics\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: frontline_workforce\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort. — scope: site: bologna+naples; tenure: applicant\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots\n- Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; pilot design: At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Test verified role details in job ads and compare qualified completions for similar traffic. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; scope: cohort: frontline_workforce; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Pilot a named recruiter queue and response review for the affected roles. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; scope: site: bologna+naples; tenure: applicant; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n- Pilot targeted recruiter capacity for roles with verified avoidable external spend. — decision: conditional; prerequisite: Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.; preserve baselines: client_internal_context.healthy_metrics_and_strengths_not_to_break#1\n\n### Phase 3 — Scaling Gates\n- Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n- Expand after completeness, auditability and staff time improve. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n- Scale after qualified applications improve while access and eligibility hold. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.; scope: cohort: frontline_workforce\n- Expand after response times and qualified progression improve without shifting the queue elsewhere. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.; scope: site: bologna+naples; tenure: applicant\n- Scale after direct qualified hires improve and Finance verifies changes in agency spend. — prerequisite: Complete the scoped pilot and verify improvements and guard metrics.\n\n## Evidence & Precedents\n\n### Historical case precedents\n- **Beta Logistica (National Freight & Interport Logistics Network)** (match score: 0.8404)\n  - Historical outcome: Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.\n  - Transfer note: 4/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas\n- **TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)** (match score: 0.7865)\n  - Historical outcome: Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).\n  - Transfer note: 3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas\n- **Meridian Express Logistics (European Parcel & Interport Courier Network)** (match score: 0.7083)\n  - Historical outcome: -38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.\n  - Transfer note: 1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas\n\n### Supporting research\n- **amec:** AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **appcast:** Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **hausknecht_2004:** Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **ingaze_policy:** The challenge requires readiness gates, workforce fit and a three-phase plan. ([source](https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md))\n- **w3c_forms:** Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **williamson_2010:** Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Corporate Career Portal UX & Conversion Study:** When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.\n- **B2B Employee Advocacy & Earned Media Study:** Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n\n### Open client verification questions\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. — dependent families: application_step, device_exposure\n- Audit duplicate handling, reporting effort, source coverage, and ownership. — dependent families: staff_time\n- Interview target candidates and review conversion for the same jobs and inbound channels. — scope: cohort: frontline_workforce; missing families: entry_conversion\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort. — scope: site: bologna+naples; tenure: applicant; missing families: hire_latency\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles. — missing families: hire_latency\n\n---\nThis proposal reports deterministic pipeline decisions. Historical outcomes are precedents, not forecasts; scale only after the stated measures and guardrails are verified.\n"
   }
 }

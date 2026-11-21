@@ -200,7 +200,7 @@
       "case_id": "CASE_08_VITACARE",
       "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
       "sector_category": "HEALTHCARE_CLINICAL",
-      "similarity_score": 0.7,
+      "similarity_score": 0.825,
       "score_breakdown": {
         "root_cause_overlap_score": 0.5,
         "workforce_fit_score": 1.0,
@@ -224,7 +224,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
       "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-      "score": 0.7,
+      "score": 0.825,
       "shared_mechanisms": [
         "MANUAL_HR_SPREADSHEET_DRAG",
         "UNMONITORED_LOCAL_REVIEWS",
@@ -247,7 +247,7 @@
       "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
       "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
       "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
-      "similarity_score": 0.6364,
+      "similarity_score": 0.6296,
       "score_breakdown": {
         "root_cause_overlap_score": 0.7273,
         "workforce_fit_score": 0.5,
@@ -272,7 +272,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
       "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-      "score": 0.6364,
+      "score": 0.6296,
       "shared_mechanisms": [
         "MANUAL_HR_SPREADSHEET_DRAG",
         "FRAGMENTED_CANDIDATE_FEEDBACK",
@@ -294,7 +294,7 @@
       "case_id": "CASE_11_NATURAPURE",
       "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
       "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
-      "similarity_score": 0.5475,
+      "similarity_score": 0.56,
       "score_breakdown": {
         "root_cause_overlap_score": 0.6,
         "workforce_fit_score": 0.5,
@@ -318,7 +318,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
       "historical_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
-      "score": 0.5475,
+      "score": 0.56,
       "shared_mechanisms": [
         "FRAGMENTED_CANDIDATE_FEEDBACK",
         "MANUAL_HR_SPREADSHEET_DRAG",
@@ -341,7 +341,7 @@
       "case_id": "CASE_08_VITACARE",
       "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
       "sector_category": "HEALTHCARE_CLINICAL",
-      "similarity_score": 0.7,
+      "similarity_score": 0.825,
       "score_breakdown": {
         "root_cause_overlap_score": 0.5,
         "workforce_fit_score": 1.0,
@@ -368,7 +368,7 @@
       "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
       "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
       "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
-      "similarity_score": 0.6364,
+      "similarity_score": 0.6296,
       "score_breakdown": {
         "root_cause_overlap_score": 0.7273,
         "workforce_fit_score": 0.5,
@@ -396,7 +396,7 @@
       "case_id": "CASE_11_NATURAPURE",
       "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
       "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
-      "similarity_score": 0.5475,
+      "similarity_score": 0.56,
       "score_breakdown": {
         "root_cause_overlap_score": 0.6,
         "workforce_fit_score": 0.5,

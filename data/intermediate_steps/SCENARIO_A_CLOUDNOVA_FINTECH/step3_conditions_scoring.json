@@ -36,8 +36,8 @@
         "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present"
       ],
       "matched_case_names": [
-        "KronoCart Tech (European E-Commerce & Cloud Platform)",
         "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)",
         "QuantEx Markets (European Financial Technology & Trading Platform)"
       ],
       "score_rank": 1
@@ -99,8 +99,8 @@
         "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
       ],
       "matched_case_names": [
-        "KronoCart Tech (European E-Commerce & Cloud Platform)",
-        "Alfa Group (Enterprise B2B Software & Cloud Engineering)"
+        "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "KronoCart Tech (European E-Commerce & Cloud Platform)"
       ],
       "score_rank": 3
     },
@@ -195,57 +195,10 @@
   ],
   "matched_case_studies": [
     {
-      "case_id": "CASE_12_KRONOCART_TECH",
-      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
-      "sector_category": "B2B_TECH_SAAS",
-      "similarity_score": 0.6803,
-      "score_breakdown": {
-        "root_cause_overlap_score": 0.5714,
-        "workforce_fit_score": 1.0,
-        "sector_fit_score": 0.5,
-        "roi_evidence_score": 1.0,
-        "cfo_auditability_score": 0.75
-      },
-      "matched_problem_tags": [
-        "EARLY_FIRST_YEAR_ATTRITION",
-        "UNMONITORED_LOCAL_REVIEWS",
-        "CAREER_PATH_OPACITY",
-        "SAY_DO_GAP"
-      ],
-      "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
-      "quantified_roi_highlights": [
-        "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
-        "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
-        "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
-      ],
-      "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
-      "curation_review_status": "reviewed",
-      "match_input_source": "step2_track_tags_via_case_signal_bridge",
-      "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
-      "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
-      "score": 0.6803,
-      "shared_mechanisms": [
-        "EARLY_FIRST_YEAR_ATTRITION",
-        "UNMONITORED_LOCAL_REVIEWS",
-        "CAREER_PATH_OPACITY",
-        "SAY_DO_GAP"
-      ],
-      "shared_context": [
-        "DESK_BASED_TECH_SPECIALIST"
-      ],
-      "comparable_t0_metrics": [],
-      "case_to_client_scale_ratios": {
-        "headcount": 1.276,
-        "locations_count": 1.0
-      },
-      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-      "transfer_scope": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
-    },
-    {
       "case_id": "CASE_05_ALFA",
       "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
       "sector_category": "B2B_TECH_SAAS",
-      "similarity_score": 0.67,
+      "similarity_score": 0.7617,
       "score_breakdown": {
         "root_cause_overlap_score": 0.5333,
         "workforce_fit_score": 1.0,
@@ -270,7 +223,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
       "historical_roi": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
-      "score": 0.67,
+      "score": 0.7617,
       "shared_mechanisms": [
         "WEAK_MIDDLE_MANAGEMENT",
         "CAREER_PATH_OPACITY",
@@ -289,10 +242,57 @@
       "transfer_scope": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
     },
     {
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "sector_category": "B2B_TECH_SAAS",
+      "similarity_score": 0.75,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.5714,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 0.5,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "CAREER_PATH_OPACITY",
+        "SAY_DO_GAP"
+      ],
+      "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+      "quantified_roi_highlights": [
+        "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
+        "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
+        "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
+      ],
+      "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge",
+      "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+      "score": 0.75,
+      "shared_mechanisms": [
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "CAREER_PATH_OPACITY",
+        "SAY_DO_GAP"
+      ],
+      "shared_context": [
+        "DESK_BASED_TECH_SPECIALIST"
+      ],
+      "comparable_t0_metrics": [],
+      "case_to_client_scale_ratios": {
+        "headcount": 1.276,
+        "locations_count": 1.0
+      },
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
+    },
+    {
       "case_id": "CASE_13_QUANTEX_MARKETS",
       "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
       "sector_category": "FINTECH_PAYMENTS",
-      "similarity_score": 0.5875,
+      "similarity_score": 0.7417,
       "score_breakdown": {
         "root_cause_overlap_score": 0.3333,
         "workforce_fit_score": 1.0,
@@ -315,7 +315,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "QuantEx Markets (European Financial Technology & Trading Platform)",
       "historical_roi": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.",
-      "score": 0.5875,
+      "score": 0.7417,
       "shared_mechanisms": [
         "EARLY_FIRST_YEAR_ATTRITION",
         "WEAK_MIDDLE_MANAGEMENT"
@@ -335,38 +335,10 @@
   ],
   "normalized_case_matches": [
     {
-      "case_id": "CASE_12_KRONOCART_TECH",
-      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
-      "sector_category": "B2B_TECH_SAAS",
-      "similarity_score": 0.6803,
-      "score_breakdown": {
-        "root_cause_overlap_score": 0.5714,
-        "workforce_fit_score": 1.0,
-        "sector_fit_score": 0.5,
-        "roi_evidence_score": 1.0,
-        "cfo_auditability_score": 0.75
-      },
-      "matched_problem_tags": [
-        "EARLY_FIRST_YEAR_ATTRITION",
-        "UNMONITORED_LOCAL_REVIEWS",
-        "CAREER_PATH_OPACITY",
-        "SAY_DO_GAP"
-      ],
-      "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
-      "quantified_roi_highlights": [
-        "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
-        "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
-        "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
-      ],
-      "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
-      "curation_review_status": "reviewed",
-      "match_input_source": "step2_track_tags_via_case_signal_bridge"
-    },
-    {
       "case_id": "CASE_05_ALFA",
       "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
       "sector_category": "B2B_TECH_SAAS",
-      "similarity_score": 0.67,
+      "similarity_score": 0.7617,
       "score_breakdown": {
         "root_cause_overlap_score": 0.5333,
         "workforce_fit_score": 1.0,
@@ -391,10 +363,38 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge"
     },
     {
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "sector_category": "B2B_TECH_SAAS",
+      "similarity_score": 0.75,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.5714,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 0.5,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "EARLY_FIRST_YEAR_ATTRITION",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "CAREER_PATH_OPACITY",
+        "SAY_DO_GAP"
+      ],
+      "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+      "quantified_roi_highlights": [
+        "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
+        "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
+        "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
+      ],
+      "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge"
+    },
+    {
       "case_id": "CASE_13_QUANTEX_MARKETS",
       "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
       "sector_category": "FINTECH_PAYMENTS",
-      "similarity_score": 0.5875,
+      "similarity_score": 0.7417,
       "score_breakdown": {
         "root_cause_overlap_score": 0.3333,
         "workforce_fit_score": 1.0,
@@ -800,6 +800,46 @@
       "source": "Executive HR Budget & CFO Governance Survey",
       "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
       "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
+    },
+    {
+      "id": "friebel-heinz-zubanov-manager-attention",
+      "kind": "randomized field study",
+      "title": "Middle Managers, Personnel Turnover and Performance",
+      "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
+      "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
+      "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
+      "topics": [
+        "manager_support",
+        "early_attrition",
+        "retention",
+        "retail"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "manager_support"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
+    },
+    {
+      "id": "phillips-1998-realistic-job-previews",
+      "kind": "meta-analysis",
+      "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
+      "url": "https://doi.org/10.5465/256964",
+      "finding": "A meta-analysis of 40 studies evaluated realistic job previews in relation to hiring outcomes, expectations, performance and turnover.",
+      "applicability": "Use to inform a realistic role preview. Check whether recruits' expectations and early exits actually change in the local pilot.",
+      "topics": [
+        "expectation_gap",
+        "early_attrition",
+        "recruiting",
+        "onboarding"
+      ],
+      "matched_topics": [
+        "early_attrition",
+        "expectation_gap"
+      ],
+      "score": 8,
+      "evidence_class": "published_reference"
     }
   ],
   "ranked_track_tags": [

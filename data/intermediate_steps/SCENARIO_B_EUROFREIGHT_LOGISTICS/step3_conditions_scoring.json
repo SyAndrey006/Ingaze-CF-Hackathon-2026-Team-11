@@ -39,8 +39,7 @@
       ],
       "matched_case_names": [
         "Beta Logistica (National Freight & Interport Logistics Network)",
-        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
-        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)"
       ],
       "score_rank": 1
     },
@@ -70,8 +69,7 @@
         "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
       ],
       "matched_case_names": [
-        "Beta Logistica (National Freight & Interport Logistics Network)",
-        "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)"
+        "Beta Logistica (National Freight & Interport Logistics Network)"
       ],
       "score_rank": 2
     },
@@ -145,19 +143,21 @@
       "status": "plausible",
       "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
       "diagnosis_rank": 4,
-      "score": 0.5801,
+      "score": 0.6551,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.1062,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0319,
-        "historical_case_mechanism_fit": 0.0
+        "historical_case_mechanism_fit": 0.075
       },
       "matched_evidence_ids": [
         "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
       ],
-      "matched_case_names": [],
+      "matched_case_names": [
+        "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+      ],
       "score_rank": 5
     }
   ],
@@ -166,7 +166,7 @@
       "case_id": "CASE_06_BETA_LOGISTICA",
       "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
       "sector_category": "LOGISTICS_FREIGHT",
-      "similarity_score": 0.7567,
+      "similarity_score": 0.8404,
       "score_breakdown": {
         "root_cause_overlap_score": 0.6154,
         "workforce_fit_score": 1.0,
@@ -191,7 +191,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "Beta Logistica (National Freight & Interport Logistics Network)",
       "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
-      "score": 0.7567,
+      "score": 0.8404,
       "shared_mechanisms": [
         "HIGH_APPLICATION_DROPOFF",
         "MOBILE_PORTAL_FRICTION",
@@ -214,7 +214,7 @@
       "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
       "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
       "sector_category": "LOGISTICS_FREIGHT",
-      "similarity_score": 0.6644,
+      "similarity_score": 0.7865,
       "score_breakdown": {
         "root_cause_overlap_score": 0.4615,
         "workforce_fit_score": 1.0,
@@ -238,7 +238,7 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
       "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
-      "score": 0.6644,
+      "score": 0.7865,
       "shared_mechanisms": [
         "HIGH_APPLICATION_DROPOFF",
         "MOBILE_PORTAL_FRICTION",
@@ -257,47 +257,46 @@
       "transfer_scope": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
     },
     {
-      "case_id": "CASE_04_GLOBAL_RETAIL",
-      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-      "sector_category": "RETAIL_OMNICHANNEL",
-      "similarity_score": 0.5648,
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "sector_category": "LOGISTICS_FREIGHT",
+      "similarity_score": 0.7083,
       "score_breakdown": {
-        "root_cause_overlap_score": 0.5455,
-        "workforce_fit_score": 0.5,
-        "sector_fit_score": 0.5,
+        "root_cause_overlap_score": 0.1667,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 1.0,
         "roi_evidence_score": 1.0,
-        "cfo_auditability_score": 0.75
+        "cfo_auditability_score": 1.0
       },
       "matched_problem_tags": [
-        "HIGH_APPLICATION_DROPOFF",
-        "MOBILE_PORTAL_FRICTION",
-        "GENERIC_BOILERPLATE_JDS"
+        "MULTISITE_REPUTATION_VARIANCE"
       ],
-      "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+      "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
       "quantified_roi_highlights": [
-        "Agency-filled roles: 24.3% -> 14.2% (-42%)",
-        "Application form drop-off: 61.8% -> 40.2% (-35%)",
-        "Time-to-Hire: 36 days -> 25 days (-31%)"
+        "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+        "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+        "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
       ],
-      "match_reason": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas",
+      "match_reason": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
       "curation_review_status": "reviewed",
       "match_input_source": "step2_track_tags_via_case_signal_bridge",
-      "case": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-      "historical_roi": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
-      "score": 0.5648,
+      "case": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "historical_roi": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+      "score": 0.7083,
       "shared_mechanisms": [
-        "HIGH_APPLICATION_DROPOFF",
-        "MOBILE_PORTAL_FRICTION",
-        "GENERIC_BOILERPLATE_JDS"
+        "MULTISITE_REPUTATION_VARIANCE"
       ],
-      "shared_context": [],
+      "shared_context": [
+        "DESKLESS_FRONTLINE_LOGISTICS",
+        "LOGISTICS_FREIGHT"
+      ],
       "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {
-        "headcount": 6.5,
-        "locations_count": 42.4
+        "headcount": 1.219,
+        "locations_count": 1.2
       },
       "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-      "transfer_scope": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas"
+      "transfer_scope": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
     }
   ],
   "normalized_case_matches": [
@@ -305,7 +304,7 @@
       "case_id": "CASE_06_BETA_LOGISTICA",
       "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
       "sector_category": "LOGISTICS_FREIGHT",
-      "similarity_score": 0.7567,
+      "similarity_score": 0.8404,
       "score_breakdown": {
         "root_cause_overlap_score": 0.6154,
         "workforce_fit_score": 1.0,
@@ -333,7 +332,7 @@
       "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
       "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
       "sector_category": "LOGISTICS_FREIGHT",
-      "similarity_score": 0.6644,
+      "similarity_score": 0.7865,
       "score_breakdown": {
         "root_cause_overlap_score": 0.4615,
         "workforce_fit_score": 1.0,
@@ -357,29 +356,27 @@
       "match_input_source": "step2_track_tags_via_case_signal_bridge"
     },
     {
-      "case_id": "CASE_04_GLOBAL_RETAIL",
-      "case_name": "Global Retail Group (Mass Distribution & Fashion Retail Enterprise)",
-      "sector_category": "RETAIL_OMNICHANNEL",
-      "similarity_score": 0.5648,
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "sector_category": "LOGISTICS_FREIGHT",
+      "similarity_score": 0.7083,
       "score_breakdown": {
-        "root_cause_overlap_score": 0.5455,
-        "workforce_fit_score": 0.5,
-        "sector_fit_score": 0.5,
+        "root_cause_overlap_score": 0.1667,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 1.0,
         "roi_evidence_score": 1.0,
-        "cfo_auditability_score": 0.75
+        "cfo_auditability_score": 1.0
       },
       "matched_problem_tags": [
-        "HIGH_APPLICATION_DROPOFF",
-        "MOBILE_PORTAL_FRICTION",
-        "GENERIC_BOILERPLATE_JDS"
+        "MULTISITE_REPUTATION_VARIANCE"
       ],
-      "measured_roi_summary": "+22% Career Website application conversion rate and -35% mobile application abandonment.",
+      "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
       "quantified_roi_highlights": [
-        "Agency-filled roles: 24.3% -> 14.2% (-42%)",
-        "Application form drop-off: 61.8% -> 40.2% (-35%)",
-        "Time-to-Hire: 36 days -> 25 days (-31%)"
+        "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+        "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+        "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
       ],
-      "match_reason": "3/8 root causes match, different workforce, adjacent sector, 14 measured T0->T1 deltas",
+      "match_reason": "1/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
       "curation_review_status": "reviewed",
       "match_input_source": "step2_track_tags_via_case_signal_bridge"
     }

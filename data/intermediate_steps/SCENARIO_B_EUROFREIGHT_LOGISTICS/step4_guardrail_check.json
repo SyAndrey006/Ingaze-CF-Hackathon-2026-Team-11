@@ -3086,14 +3086,14 @@
         "tenure": "applicant",
         "window": "intake"
       },
-      "score": 0.5801,
+      "score": 0.6551,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.1062,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0319,
-        "historical_case_mechanism_fit": 0.0
+        "historical_case_mechanism_fit": 0.075
       },
       "minimum_score": 0.35,
       "passed": true
