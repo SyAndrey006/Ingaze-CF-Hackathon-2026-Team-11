@@ -1,82 +1,823 @@
-"""
-Module: step1_normalize_input.py
-Stage: Step 1 — Input Normalization & Noise Gate
-Execution Type: AI
+"""Step 1: normalize incoming client data and quarantine contaminated signals.
 
-Description:
-    Ingests a raw incoming client scenario (`ingaze_platform_signals`,
-    `client_internal_context`, company metadata, and optional T0 telemetry
-    snapshot) and runs a structured AI extraction + noise-gate pass to strip
-    contaminated/unverified rows, map varied phrasing onto canonical `SignalCode`
-    tags, and extract healthy baselines ("do not touch"), cohort/site asymmetries,
-    and leadership requests.
-
-Input:
-    - raw_bundle (RawScenarioBundle): Raw client scenario dict + optional T0
-      `TelemetrySnapshot` and `SectorPeerBenchmarks` from `database_loader.py`.
-    - llm_client (StructuredLLMClient): Deterministic structured LLM wrapper (`temperature=0`).
-
-Output:
-    - normalized_input (NormalizedClientInput): Clean, noise-filtered canonical
-      client representation passed to Step 2 (`step2_root_cause_analysis.py`),
-      Step 4 (`step4_guardrail_check.py`), and Step 6 (`step6_hr_proposal.py`).
-
-TODO:
-    1. Implement the Noise Gate (`filter_contaminated_signals`) to detect and isolate
-       unverified, cross-industry, or external-pilot rows in raw review exports into
-       `filtered_noise_items` instead of emitting them as active `canonical_signals`.
-    2. Prompt `llm_client.generate_structured(..., response_model=NormalizedClientInput)`
-       to normalize phrasing variations (e.g., "6-month churn" vs. "early first-year
-       turnover") strictly onto canonical `SignalCode`, `SectorCategory`,
-       `WorkforceArchetype`, and `ActionCategory` enums.
-    3. Explicitly preserve `healthy_baselines`, `cohort_site_asymmetries`, and
-       `leadership_requests` (treated as untrusted hypotheses, NOT blind commands),
-       and never branch on company names or scenario codes.
+This module keeps LLM extraction separate from deterministic hygiene. The
+intermediate extraction model includes a noise flag; the public pipeline model
+remains the exact schema defined in ``pipeline_models.py``.
 """
 
 from __future__ import annotations
 
-from typing import List, Tuple
+import argparse
+import json
+import logging
+import re
+from pathlib import Path
+from typing import List, Optional, Sequence, Tuple
 
+from pydantic import BaseModel, Field
+
+from src.schemas.domain_models import (
+    ActionCategory,
+    SectorCategory,
+    SignalCode,
+    TelemetrySnapshot,
+    SectorPeerBenchmarks,
+    WorkforceArchetype,
+)
 from src.schemas.pipeline_models import (
+    CohortSiteAsymmetry,
     ExtractedSignal,
     FilteredNoiseItem,
+    HealthyBaseline,
+    LeadershipRequest,
     NormalizedClientInput,
     RawScenarioBundle,
 )
 from src.utils.llm_client import StructuredLLMClient
 
+LOGGER = logging.getLogger(__name__)
+BASE_DIR = Path(__file__).resolve().parents[2]
+CLIENT_IO_DIR = BASE_DIR / "data" / "client_io"
+INPUT_FILE = CLIENT_IO_DIR / "input.json"
+OUTPUT_DIR = BASE_DIR / "data" / "intermediate_steps"
+
+_UNVERIFIED_MARKERS = re.compile(
+    r"\b(?:unverified|uncorroborated|external\s+(?:merchant\s+)?pilot|"
+    r"imported\s+from\s+(?:an?\s+)?external|third[- ]party\s+pilot)\b",
+    re.IGNORECASE,
+)
+_RETAIL_SHIFT_MARKERS = re.compile(
+    r"\b(?:retail|shop|store|merchant|point[- ]of[- ]sale|pos)\b.{0,80}"
+    r"\b(?:weekend|shift|rotation|schedule|fatigue)\b|"
+    r"\b(?:weekend|shift|rotation|schedule|fatigue)\b.{0,80}"
+    r"\b(?:retail|shop|store|merchant|point[- ]of[- ]sale|pos)\b",
+    re.IGNORECASE,
+)
+_PHYSICAL_RETAIL_POSITIVE = re.compile(
+    r"\bphysical\s+(?:retail\s+)?(?:stores?|shops?|outlets?)\b|"
+    r"\b(?:retail\s+)?(?:store|shop|outlet)\s+"
+    r"(?:associates?|employees|workers|staff|locations?|network)\b|"
+    r"\b(?:operate|operates|operating|run|runs|manage|manages|has|have|with)\s+"
+    r"(?:\d+\s+)?(?:physical\s+)?(?:retail\s+)?(?:stores?|shops?|outlets?)\b|"
+    r"\b(?:retail\s+operations|retail\s+workforce|shop[- ]floor|"
+    r"brick[- ]and[- ]mortar)\b",
+    re.IGNORECASE,
+)
+_PHYSICAL_RETAIL_NEGATIVE = re.compile(
+    r"\b(?:no|not|without|lack(?:s|ing)?\s+of)\s+(?:any\s+)?"
+    r"(?:physical\s+)?(?:retail\s+)?(?:stores?|shops?|outlets?)\b",
+    re.IGNORECASE,
+)
+
+
+class _LLMExtractedSignal(ExtractedSignal):
+    """Step 1-only extraction shape that preserves an LLM noise judgment."""
+
+    is_unverified_or_external_noise: bool = Field(
+        default=False,
+        description="True for unverified, externally imported, or out-of-scope evidence.",
+    )
+
+
+class _LLMNormalizedClientInput(BaseModel):
+    """LLM payload with the Step 1 public fields plus a private noise flag."""
+
+    scenario_code: str
+    company_name: str
+    industry_raw: str
+    sector_category: SectorCategory
+    workforce_archetypes: List[WorkforceArchetype] = Field(default_factory=list)
+    headcount: Optional[int] = Field(default=None, ge=1)
+    locations_count: Optional[int] = Field(default=None, ge=1)
+    workforce_target_summary: str = ""
+    declared_evp: str = ""
+    canonical_signals: List[_LLMExtractedSignal] = Field(default_factory=list)
+    healthy_baselines: List[HealthyBaseline] = Field(default_factory=list)
+    cohort_site_asymmetries: List[CohortSiteAsymmetry] = Field(default_factory=list)
+    leadership_requests: List[LeadershipRequest] = Field(default_factory=list)
+    budget_and_cfo_constraints: List[str] = Field(default_factory=list)
+
+
+def load_standalone_input(input_path: Path) -> List[RawScenarioBundle]:
+    """Load one client brief or a list of client records from a JSON/TXT file."""
+    path = Path(input_path)
+    suffix = path.suffix.casefold()
+    if suffix == ".txt":
+        brief = path.read_text(encoding="utf-8-sig").strip()
+        if not brief:
+            raise ValueError(f"Standalone text input is empty: {path}")
+        rows = [
+            {
+                "scenario_code": "STANDALONE_001",
+                "company_name": path.stem or "Standalone Client",
+                "industry": "Unspecified",
+                "client_internal_context": brief,
+                "ingaze_platform_signals": {},
+            }
+        ]
+    elif suffix == ".json":
+        with path.open("r", encoding="utf-8-sig") as handle:
+            document = json.load(handle)
+        if isinstance(document, list):
+            rows = document
+        elif isinstance(document, dict):
+            rows = None
+            for key in (
+                "clients",
+                "scenarios",
+                "company_scenarios_to_diagnose",
+                "client_scenarios",
+                "company_scenarios",
+                "companies",
+            ):
+                if isinstance(document.get(key), list):
+                    rows = document[key]
+                    break
+            if rows is None:
+                rows = next(
+                    (
+                        value
+                        for value in document.values()
+                        if isinstance(value, list)
+                        and all(isinstance(item, dict) for item in value)
+                    ),
+                    None,
+                )
+            if rows is None:
+                rows = [document]
+        else:
+            raise ValueError("Standalone JSON input must contain an object or a list of objects.")
+        if not isinstance(rows, list):
+            raise ValueError("The standalone JSON scenario collection must be a list.")
+        if not rows:
+            raise ValueError(f"Standalone JSON file contains no client objects: {path}")
+    else:
+        raise ValueError(
+            f"Unsupported standalone input type {path.suffix or '(no extension)'!r}; "
+            "use a .json or .txt file."
+        )
+
+    bundles: List[RawScenarioBundle] = []
+    for index, row in enumerate(rows, start=1):
+        if not isinstance(row, dict):
+            raise ValueError(f"Standalone JSON client #{index} must be an object.")
+
+        raw_candidate = row.get("raw_scenario", row)
+        if not isinstance(raw_candidate, dict):
+            raise ValueError(f"Standalone JSON client #{index} has an invalid raw_scenario object.")
+        raw_scenario = dict(raw_candidate)
+        derived_code = path.stem if len(rows) == 1 else f"{path.stem}_{index:03d}"
+        scenario_code = str(
+            row.get("scenario_code")
+            or row.get("scenario_id")
+            or raw_scenario.get("scenario_code")
+            or raw_scenario.get("scenario_id")
+            or derived_code
+        )
+        raw_scenario.setdefault("scenario_code", scenario_code)
+
+        t0_raw = (
+            row.get("t0_telemetry")
+            or row.get("t0_snapshot")
+            or row.get("t0_current_snapshot")
+            or raw_scenario.get("t0_telemetry")
+            or raw_scenario.get("t0_snapshot")
+            or raw_scenario.get("t0_current_snapshot")
+        )
+        if isinstance(t0_raw, dict) and isinstance(t0_raw.get("t0_current_snapshot"), dict):
+            t0_raw = t0_raw["t0_current_snapshot"]
+        benchmark_raw = (
+            row.get("sector_benchmarks")
+            or row.get("sector_peer_benchmarks")
+            or raw_scenario.get("sector_benchmarks")
+            or raw_scenario.get("sector_peer_benchmarks")
+        )
+        bundles.append(
+            RawScenarioBundle(
+                scenario_code=scenario_code,
+                raw_scenario=raw_scenario,
+                t0_telemetry=TelemetrySnapshot.model_validate(t0_raw) if t0_raw else None,
+                sector_benchmarks=(
+                    SectorPeerBenchmarks.model_validate(benchmark_raw)
+                    if benchmark_raw
+                    else None
+                ),
+            )
+        )
+    return bundles
+
 
 def filter_contaminated_signals(
     raw_bundle: RawScenarioBundle,
     extracted_signals: List[ExtractedSignal],
-    llm_client: StructuredLLMClient,
+    llm_client: Optional[StructuredLLMClient] = None,
 ) -> Tuple[List[ExtractedSignal], List[FilteredNoiseItem]]:
+    """Quarantine unverified/impossible signals, then merge duplicate signal codes.
+
+    ``llm_client`` remains an optional compatibility parameter. Filtering is
+    deterministic and does not make an LLM call.
     """
-    Noise Gate: separate valid client-scoped signals from contaminated, unverified,
-    or cross-industry export artifacts (e.g., external merchant pilot rows in a
-    digital workplace export).
-    """
-    # TODO: 1. Inspect `raw_bundle.raw_scenario["ingaze_platform_signals"]` for unverified /
-    #          out-of-scope / cross-sector mentions inconsistent with client industry & workforce.
-    # TODO: 2. Move noisy items into `FilteredNoiseItem` with explicit `reason_filtered`.
-    # TODO: 3. Return `(clean_signals, filtered_noise_items)` so Step 2 never sees noise
-    #          while Step 4/Step 6 can still report the blocked trap transparently.
-    raise NotImplementedError("TODO: Implement Step 1 Noise Gate (filter_contaminated_signals)")
+    del llm_client
+    clean: List[ExtractedSignal] = []
+    noise: List[FilteredNoiseItem] = []
+    seen_noise: set[tuple[str, str]] = set()
+
+    for signal in extracted_signals:
+        quote = signal.evidence_quote.strip()
+        flagged_unverified = bool(
+            getattr(signal, "is_unverified_or_external_noise", False)
+        ) or bool(_UNVERIFIED_MARKERS.search(quote))
+        physically_impossible = _is_impossible_retail_shift(raw_bundle, quote)
+        quote_is_grounded = _is_quote_grounded(raw_bundle, quote)
+        if not quote_is_grounded:
+            LOGGER.info(
+                "Signal quote has weak source overlap but is retained for review: %s | %s",
+                signal.signal_code.value,
+                quote,
+            )
+
+        if flagged_unverified or physically_impossible:
+            if flagged_unverified:
+                reason = (
+                    "The source marks this evidence as unverified or imported from an "
+                    "external pilot, so it is not accepted as client-verified evidence."
+                )
+            elif physically_impossible:
+                reason = (
+                    "Retail/store shift evidence is incompatible with the client's "
+                    "documented industry and workforce; the company has no identified "
+                    "physical retail operation."
+                )
+            _append_noise(
+                noise,
+                seen_noise,
+                FilteredNoiseItem(
+                    raw_excerpt=quote or "(empty evidence quote)",
+                    inferred_mismatched_action_or_topic=signal.signal_code.value,
+                    reason_filtered=reason,
+                ),
+            )
+            continue
+        clean.append(signal)
+
+    # Catch clearly marked unverified platform-feed artifacts even if a model
+    # misses the artifact during extraction. This makes suspicious input visible
+    # instead of silently discarding it.
+    for raw_excerpt in _find_unverified_feed_excerpts(raw_bundle.raw_scenario):
+        if any(
+            signal.evidence_quote.strip().lower() in raw_excerpt.lower()
+            for signal in extracted_signals
+            if signal.evidence_quote.strip()
+        ):
+            continue
+        _append_noise(
+            noise,
+            seen_noise,
+            FilteredNoiseItem(
+                raw_excerpt=raw_excerpt,
+                inferred_mismatched_action_or_topic=(
+                    "Unverified externally imported evidence"
+                ),
+                reason_filtered=(
+                    "The raw platform feed explicitly labels this material as "
+                    "unverified and imported from an external pilot."
+                ),
+            ),
+        )
+
+    deduplicated = _deduplicate_signals(clean)
+    for item in noise:
+        LOGGER.info(
+            "Step 1 quarantined signal/topic %s: %s | evidence: %s",
+            item.inferred_mismatched_action_or_topic,
+            item.reason_filtered,
+            item.raw_excerpt,
+        )
+    return deduplicated, noise
+
+
+def _append_noise(
+    noise: List[FilteredNoiseItem],
+    seen: set[tuple[str, str]],
+    item: FilteredNoiseItem,
+) -> None:
+    key = (item.inferred_mismatched_action_or_topic.casefold(), item.raw_excerpt.casefold())
+    if key not in seen:
+        noise.append(item)
+        seen.add(key)
+
+
+def _find_unverified_feed_excerpts(raw_scenario: dict) -> List[str]:
+    platform = raw_scenario.get("ingaze_platform_signals", {})
+    if not isinstance(platform, dict):
+        return []
+    excerpts: List[str] = []
+    for value in platform.values():
+        if not isinstance(value, str):
+            continue
+        match = _UNVERIFIED_MARKERS.search(value)
+        if not match:
+            continue
+        # Keep a concise, verbatim window around the marker for the report.
+        start = max(0, match.start() - 90)
+        end = min(len(value), match.end() + 120)
+        excerpt = value[start:end].strip(" ,.;\n\t")
+        if excerpt and excerpt not in excerpts:
+            excerpts.append(excerpt)
+    return excerpts
+
+
+def _is_quote_grounded(raw_bundle: RawScenarioBundle, evidence_quote: str) -> bool:
+    """Check exact, metric key/value, then 70% content-token overlap grounding."""
+    quote = _normalize_grounding_text(evidence_quote.strip().strip("\"'"))
+    if not quote:
+        return False
+
+    source_documents = [raw_bundle.raw_scenario]
+    if raw_bundle.t0_telemetry is not None:
+        source_documents.append(raw_bundle.t0_telemetry.model_dump(mode="json"))
+    if raw_bundle.sector_benchmarks is not None:
+        source_documents.append(raw_bundle.sector_benchmarks.model_dump(mode="json"))
+
+    source_texts: List[str] = []
+    for document in source_documents:
+        candidates = [json.dumps(document, ensure_ascii=False)]
+        candidates.extend(_flatten_source_values(document))
+        for candidate in candidates:
+            source_texts.append(candidate)
+            if quote and quote in _normalize_grounding_text(candidate):
+                return True
+
+    if _has_matching_metric_pair(evidence_quote, source_documents):
+        return True
+
+    quote_tokens = set(_content_tokens(evidence_quote))
+    if not quote_tokens:
+        return False
+    source_tokens = {
+        token
+        for source_text in source_texts
+        for token in _content_tokens(source_text)
+    }
+    return len(quote_tokens & source_tokens) / len(quote_tokens) >= 0.70
+
+
+_CONTENT_TOKEN_RE = re.compile(
+    r"\d+(?:[.,]\d+)?%?|[^\W\d_]+(?:['’][^\W\d_]+)*",
+    re.UNICODE,
+)
+_GROUNDING_STOP_WORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "been", "being", "by",
+    "for", "from", "had", "has", "have", "in", "into", "is", "it", "of",
+    "on", "or", "the", "their", "then", "there", "these", "this", "those",
+    "to", "was", "were", "with", "within",
+}
+_METRIC_PAIR_RE = re.compile(
+    r"[\"']?(?P<key>[a-zA-Z_][\w .-]*?)[\"']?\s*[:=]\s*"
+    r"(?P<value>-?\d+(?:[.,]\d+)?%?)",
+    re.IGNORECASE,
+)
+
+
+def _normalize_grounding_text(value: str) -> str:
+    """Normalize case, quotes, punctuation, and spacing to meaningful tokens."""
+    return " ".join(_content_tokens(value))
+
+
+def _content_tokens(value: str) -> List[str]:
+    return [
+        token.casefold().replace("’", "'")
+        for token in _CONTENT_TOKEN_RE.findall(value)
+        if token.casefold() not in _GROUNDING_STOP_WORDS
+    ]
+
+
+def _has_matching_metric_pair(quote: str, source_documents: Sequence[object]) -> bool:
+    quote_pairs = list(_METRIC_PAIR_RE.finditer(quote))
+    if not quote_pairs:
+        return False
+
+    source_pairs = [
+        (key, value)
+        for document in source_documents
+        for key, value in _iter_numeric_key_values(document)
+    ]
+    for quote_pair in quote_pairs:
+        quoted_key = _normalize_metric_key(quote_pair.group("key"))
+        quoted_value = _normalize_metric_value(quote_pair.group("value"))
+        if quoted_value is None:
+            continue
+        for source_key, source_value in source_pairs:
+            if _normalize_metric_key(source_key) != quoted_key:
+                continue
+            if _normalize_metric_value(str(source_value)) == quoted_value:
+                return True
+    return False
+
+
+def _iter_numeric_key_values(value: object) -> List[Tuple[str, object]]:
+    if isinstance(value, dict):
+        pairs: List[Tuple[str, object]] = []
+        for key, item in value.items():
+            if isinstance(item, (int, float)) and not isinstance(item, bool):
+                pairs.append((str(key), item))
+            else:
+                pairs.extend(_iter_numeric_key_values(item))
+        return pairs
+    if isinstance(value, (list, tuple)):
+        pairs = []
+        for item in value:
+            pairs.extend(_iter_numeric_key_values(item))
+        return pairs
+    return []
+
+
+def _normalize_metric_key(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", value.casefold())
+
+
+def _normalize_metric_value(value: str) -> Optional[float]:
+    cleaned = value.strip().rstrip("%").replace(",", ".")
+    try:
+        return float(cleaned)
+    except ValueError:
+        return None
+
+
+def _flatten_source_values(value: object) -> List[str]:
+    if isinstance(value, dict):
+        flattened: List[str] = []
+        for key, item in value.items():
+            flattened.append(str(key))
+            flattened.extend(_flatten_source_values(item))
+        return flattened
+    if isinstance(value, (list, tuple)):
+        flattened = []
+        for item in value:
+            flattened.extend(_flatten_source_values(item))
+        return flattened
+    if value is None:
+        return []
+    return [str(value)]
+
+
+def _is_impossible_retail_shift(raw_bundle: RawScenarioBundle, evidence_quote: str) -> bool:
+    if not evidence_quote or not _RETAIL_SHIFT_MARKERS.search(evidence_quote):
+        return False
+    if raw_bundle.raw_scenario.get("sector_category") == SectorCategory.RETAIL_OMNICHANNEL.value:
+        return False
+
+    archetype_values = {
+        item.value if isinstance(item, WorkforceArchetype) else str(item)
+        for item in raw_bundle.raw_scenario.get("workforce_archetypes", [])
+    }
+    if WorkforceArchetype.DESKLESS_FRONTLINE_RETAIL.value in archetype_values:
+        return False
+
+    raw = raw_bundle.raw_scenario
+    factual_context = " ".join(
+        str(raw.get(key, ""))
+        for key in (
+            "industry",
+            "workforce_target",
+            "headcount_and_footprint",
+            "organizational_context",
+            "client_internal_context",
+        )
+    )
+    if _PHYSICAL_RETAIL_NEGATIVE.search(factual_context):
+        return True
+    industry = str(raw.get("industry", ""))
+    if re.search(r"\bretail\b", industry, re.IGNORECASE):
+        return False
+    if _PHYSICAL_RETAIL_POSITIVE.search(industry):
+        return False
+    if _PHYSICAL_RETAIL_POSITIVE.search(raw.get("workforce_target", "")):
+        return False
+    if _PHYSICAL_RETAIL_POSITIVE.search(
+        " ".join(
+            str(raw.get(key, ""))
+            for key in ("headcount_and_footprint", "organizational_context", "client_internal_context")
+        )
+    ):
+        return False
+    return True
+
+
+def _deduplicate_signals(signals: Sequence[ExtractedSignal]) -> List[ExtractedSignal]:
+    """Merge evidence and cohorts for repeated canonical signal codes."""
+    merged: dict[SignalCode, ExtractedSignal] = {}
+    severity_rank = {"LOW": 0, "MEDIUM": 1, "HIGH": 2, "CRITICAL": 3}
+    for signal in signals:
+        current = merged.get(signal.signal_code)
+        if current is None:
+            merged[signal.signal_code] = signal.model_copy(deep=True)
+            continue
+
+        quotes: List[str] = []
+        for quote in (current.evidence_quote, signal.evidence_quote):
+            for part in quote.split(" | "):
+                cleaned = part.strip()
+                if cleaned and cleaned not in quotes:
+                    quotes.append(cleaned)
+        cohorts: List[str] = []
+        for cohort in (*current.affected_cohorts, *signal.affected_cohorts):
+            cleaned = cohort.strip()
+            if cleaned and cleaned not in cohorts:
+                cohorts.append(cleaned)
+        current.evidence_quote = " | ".join(quotes)
+        current.affected_cohorts = cohorts
+        if severity_rank[signal.severity] > severity_rank[current.severity]:
+            current.severity = signal.severity
+    return list(merged.values())
 
 
 def normalize_client_input(
     raw_bundle: RawScenarioBundle,
     llm_client: StructuredLLMClient,
 ) -> NormalizedClientInput:
-    """
-    Step 1 entrypoint: convert raw client scenario + optional T0 telemetry into
-    a noise-filtered, canonically tagged `NormalizedClientInput`.
-    """
-    # TODO: 1. Build structured system + user prompts providing all canonical Enum vocabularies
-    #          (`SignalCode`, `SectorCategory`, `WorkforceArchetype`, `ActionCategory`).
-    # TODO: 2. Extract company profile, outside-in signals, inside-out healthy baselines,
-    #          cohort/site asymmetries, CFO constraints, and leadership requests.
-    # TODO: 3. Run `filter_contaminated_signals(...)` and attach `raw_bundle.t0_telemetry`
-    #          and `raw_bundle.sector_benchmarks` onto the returned `NormalizedClientInput`.
-    raise NotImplementedError("TODO: Implement Step 1 (normalize_client_input)")
+    """Run fact-only LLM extraction followed by deterministic Python hygiene."""
+    system_prompt = _build_system_prompt()
+    user_prompt = json.dumps(
+        {
+            "scenario_code": raw_bundle.scenario_code,
+            "raw_scenario": raw_bundle.raw_scenario,
+            "t0_telemetry": (
+                raw_bundle.t0_telemetry.model_dump(mode="json")
+                if raw_bundle.t0_telemetry
+                else None
+            ),
+            "sector_benchmarks": (
+                raw_bundle.sector_benchmarks.model_dump(mode="json")
+                if raw_bundle.sector_benchmarks
+                else None
+            ),
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
+    extraction = llm_client.generate_structured(
+        system_prompt=system_prompt,
+        user_prompt=user_prompt,
+        response_model=_LLMNormalizedClientInput,
+    )
+
+    canonical_signals, filtered_noise = filter_contaminated_signals(
+        raw_bundle,
+        list(extraction.canonical_signals),
+    )
+    raw = raw_bundle.raw_scenario
+    return NormalizedClientInput(
+        scenario_code=raw_bundle.scenario_code,
+        company_name=str(raw.get("company_name") or extraction.company_name),
+        industry_raw=str(raw.get("industry") or extraction.industry_raw),
+        sector_category=extraction.sector_category,
+        workforce_archetypes=extraction.workforce_archetypes,
+        headcount=extraction.headcount,
+        locations_count=extraction.locations_count,
+        workforce_target_summary=extraction.workforce_target_summary,
+        declared_evp=extraction.declared_evp,
+        canonical_signals=canonical_signals,
+        filtered_noise_items=filtered_noise,
+        healthy_baselines=extraction.healthy_baselines,
+        cohort_site_asymmetries=extraction.cohort_site_asymmetries,
+        leadership_requests=extraction.leadership_requests,
+        budget_and_cfo_constraints=extraction.budget_and_cfo_constraints,
+        t0_telemetry=raw_bundle.t0_telemetry,
+        sector_benchmarks=raw_bundle.sector_benchmarks,
+    )
+
+
+def _build_system_prompt() -> str:
+    signals = [item.value for item in SignalCode]
+    sectors = [item.value for item in SectorCategory]
+    workforces = [item.value for item in WorkforceArchetype]
+    actions = [item.value for item in ActionCategory]
+    return (
+        "You perform factual client-data normalization for a human-resources "
+        "analytics pipeline. Extract facts only. Do not diagnose root causes, "
+        "recommend actions, propose advice, or answer the scenario's key questions. "
+        "Do not invent unsupported facts. Preserve short verbatim evidence quotes "
+        "for every extracted signal. Map signals only to the supplied canonical "
+        "SignalCode values. Separate verified healthy baselines, cohort/site "
+        "asymmetries, leadership requests, and budget/CFO constraints into their "
+        "matching fields. Keep leadership proposals as requests, not endorsed "
+        "recommendations. Mark any unverified, imported, external-pilot, or "
+        "physically out-of-scope feed evidence with "
+        "is_unverified_or_external_noise=true; do not silently omit it. "
+        "Extract SAY_DO_GAP whenever external recruiting/EVP promises conflict with "
+        "employee or candidate reviews, even if the wording is qualitative. A T0 "
+        "external_claims_gap_stars_5 value greater than 1.1 is strong quantitative "
+        "evidence for SAY_DO_GAP. Use a verbatim quote that captures the claim/review "
+        "contradiction. "
+        "Map early turnover at six months or during the first year to "
+        "EARLY_FIRST_YEAR_ATTRITION. Keep direct metrics and T0 telemetry grounded "
+        "in the supplied values. Use null for unknown numeric profile fields.\n\n"
+        f"SignalCode values: {', '.join(signals)}\n"
+        f"SectorCategory values: {', '.join(sectors)}\n"
+        f"WorkforceArchetype values: {', '.join(workforces)}\n"
+        f"ActionCategory values: {', '.join(actions)}"
+    )
+
+
+def format_normalization_report(results: Sequence[NormalizedClientInput]) -> str:
+    """Render the same readable text used for the CLI and inspection report."""
+    sections: List[str] = []
+    for result in results:
+        lines = [
+            "=" * 88,
+            f"Scenario: {result.scenario_code}",
+            f"Company: {result.company_name}",
+            f"Industry: {result.industry_raw} | Canonical sector: {result.sector_category.value}",
+            "Workforce archetypes: "
+            + (_join_or_none(item.value for item in result.workforce_archetypes)),
+            f"Workforce target: {result.workforce_target_summary or '(not specified)' }",
+            f"Headcount / locations: {result.headcount or 'unknown'} / {result.locations_count or 'unknown'}",
+            f"Declared EVP: {result.declared_evp or '(not specified)' }",
+            "",
+            "Active Normalized Signals:",
+        ]
+        if result.canonical_signals:
+            for signal in result.canonical_signals:
+                cohorts = _join_or_none(signal.affected_cohorts)
+                lines.extend(
+                    [
+                        f"  - {signal.signal_code.value} [{signal.severity}] | affected: {cohorts}",
+                        f"    Evidence: \"{signal.evidence_quote}\"",
+                    ]
+                )
+        else:
+            lines.append("  - None identified")
+
+        lines.extend(["", 'Healthy Baselines ("Do Not Touch"):'])
+        if result.healthy_baselines:
+            for baseline in result.healthy_baselines:
+                lines.append(
+                    f"  - {baseline.asset_or_cohort_name} [{baseline.related_signal.value}]"
+                )
+                lines.append(f"    Evidence: {baseline.evidence}")
+                lines.append(f"    Preserve: {baseline.do_not_touch_scope}")
+        else:
+            lines.append("  - None identified")
+
+        lines.extend(["", "Cohort/Site Asymmetries:"])
+        if result.cohort_site_asymmetries:
+            for asymmetry in result.cohort_site_asymmetries:
+                lines.append(
+                    f"  - Struggling: {asymmetry.struggling_segment} — "
+                    f"{asymmetry.struggling_evidence}"
+                )
+                lines.append(
+                    f"    Comparison: {asymmetry.healthy_comparison_segment} — "
+                    f"{asymmetry.healthy_evidence}"
+                )
+        else:
+            lines.append("  - None identified")
+
+        lines.extend(["", "Leadership Requests:"])
+        if result.leadership_requests:
+            for request in result.leadership_requests:
+                lines.append(
+                    f"  - {request.stakeholder_role}: {request.requested_action_text}"
+                )
+                lines.append(
+                    f"    Action category: {request.inferred_action_category.value} | "
+                    f"urgency: {request.requested_urgency} | scope: {request.target_scope}"
+                )
+        else:
+            lines.append("  - None identified")
+
+        lines.extend(["", "Filtered / Quarantined Noise:"])
+        if result.filtered_noise_items:
+            for item in result.filtered_noise_items:
+                lines.append(
+                    f"  - Topic: {item.inferred_mismatched_action_or_topic}"
+                )
+                lines.append(f"    Evidence: \"{item.raw_excerpt}\"")
+                lines.append(f"    Why filtered: {item.reason_filtered}")
+        else:
+            lines.append("  - None identified")
+
+        lines.extend(["", "Budget and CFO Constraints:"])
+        if result.budget_and_cfo_constraints:
+            lines.extend(f"  - {item}" for item in result.budget_and_cfo_constraints)
+        else:
+            lines.append("  - None identified")
+        sections.append("\n".join(lines))
+    return "\n\n".join(sections).rstrip() + "\n"
+
+
+def run_normalization_cli(
+    scenario_code: Optional[str] = None,
+    llm_client: Optional[StructuredLLMClient] = None,
+    output_dir: Path = OUTPUT_DIR,
+    file_path: Optional[Path] = None,
+    input_path: Optional[Path] = None,
+) -> List[NormalizedClientInput]:
+    """Normalize one client JSON file into a matching intermediate-step file."""
+    if input_path is not None:
+        if file_path is not None:
+            raise ValueError("Pass only one of file_path or the legacy input_path argument.")
+        file_path = input_path
+    source_path = Path(file_path) if file_path is not None else INPUT_FILE
+    if source_path.suffix.casefold() != ".json":
+        raise ValueError("--file accepts a .json file.")
+    if not source_path.is_file():
+        print(
+            f"No client JSON file found at {source_path}. "
+            f"Add client data to {INPUT_FILE} or pass --file <path>."
+        )
+        return []
+
+    bundles = load_standalone_input(source_path)
+    bundles = [bundle for bundle in bundles if _has_client_content(bundle.raw_scenario)]
+    if not bundles:
+        print(
+            f"No client details found in {source_path}. "
+            f"Add client data to {INPUT_FILE} or pass --file <path>."
+        )
+        return []
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    client = llm_client or StructuredLLMClient()
+    if scenario_code:
+        bundles = [
+            bundle
+            for bundle in bundles
+            if bundle.scenario_code.casefold() == scenario_code.casefold()
+        ]
+        if not bundles:
+            raise ValueError(
+                f"Scenario {scenario_code!r} was not found in {source_path.name}."
+            )
+
+    results: List[NormalizedClientInput] = []
+    for bundle in bundles:
+        print(f"Processing {source_path.name}...")
+        results.append(normalize_client_input(bundle, client))
+
+    serialized: object
+    if len(results) == 1:
+        serialized = results[0].model_dump(mode="json")
+    else:
+        serialized = [result.model_dump(mode="json") for result in results]
+    normalized_path = output_dir / f"{source_path.stem}_normalized.json"
+    normalized_path.write_text(
+        json.dumps(serialized, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    signal_count = sum(len(result.canonical_signals) for result in results)
+    noise_count = sum(len(result.filtered_noise_items) for result in results)
+    print(
+        f"Normalization complete: {len(results)} client(s), "
+        f"{signal_count} active signal(s), {noise_count} quarantined item(s)."
+    )
+    print(f"Wrote normalized JSON: {normalized_path}")
+    return results
+
+
+def _has_client_content(raw_scenario: dict) -> bool:
+    """Avoid attempting LLM normalization for an empty input.json placeholder."""
+    return any(
+        key not in {"scenario_code", "scenario_id"}
+        and value not in (None, "", [], {})
+        for key, value in raw_scenario.items()
+    )
+
+
+def _join_or_none(values: Sequence[str]) -> str:
+    return ", ".join(values) if values else "company-wide / unspecified"
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Normalize data/client_io/input.json into data/intermediate_steps/."
+    )
+    parser.add_argument(
+        "--scenario",
+        help="Normalize one exact scenario_code; omit to process all scenarios.",
+    )
+    parser.add_argument(
+        "--file",
+        "--input",
+        dest="file_path",
+        type=Path,
+        help=f"Client JSON file to normalize (default: {INPUT_FILE}).",
+    )
+    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    args = parser.parse_args(argv)
+    logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
+    try:
+        run_normalization_cli(
+            scenario_code=args.scenario,
+            file_path=args.file_path,
+            output_dir=args.output_dir,
+        )
+    except (RuntimeError, ValueError, OSError, json.JSONDecodeError) as exc:
+        parser.exit(status=2, message=f"Step 1 normalization failed: {exc}\n")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -14,8 +14,8 @@ Description:
 Input:
     - CLI arguments (`--dataset`, `--snapshots`, `--extra-scenario`, `--rules-db`,
       `--cases-db`, `--rebuild-offline`, `--out`, `--trace-out`, `--provider`, `--model`).
-    - Raw sandbox JSONs (`data/ingaze_sandbox_dataset.json`,
-      `data/ingaze_synthetic_analytics_snapshots.json`).
+    - Raw sandbox JSONs (`database/ingaze_sandbox_dataset.json`,
+      `database/ingaze_synthetic_analytics_snapshots.json`).
 
 Output:
     - submission (SubmissionPayload): Written as JSON to `submission.json` (ready for
@@ -63,11 +63,11 @@ from src.utils.llm_client import LLMConfig, StructuredLLMClient
 from src.utils.verifier import verify_scenario_submission
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DEFAULT_DATASET_PATH = BASE_DIR / "data" / "ingaze_sandbox_dataset.json"
-DEFAULT_SNAPSHOTS_PATH = BASE_DIR / "data" / "ingaze_synthetic_analytics_snapshots.json"
+DEFAULT_DATASET_PATH = BASE_DIR / "database" / "ingaze_sandbox_dataset.json"
+DEFAULT_SNAPSHOTS_PATH = BASE_DIR / "database" / "ingaze_synthetic_analytics_snapshots.json"
 DEFAULT_TELEMETRY_DOC_PATH = BASE_DIR / "docs" / "ANALYTICS_TELEMETRY_DICTIONARY.md"
-DEFAULT_RULES_PATH = BASE_DIR / "data" / "normalized" / "normalized_rules.json"
-DEFAULT_CASES_PATH = BASE_DIR / "data" / "normalized" / "normalized_cases.json"
+DEFAULT_RULES_PATH = BASE_DIR / "database" / "normalized" / "normalized_rules.json"
+DEFAULT_CASES_PATH = BASE_DIR / "database" / "normalized" / "normalized_cases.json"
 DEFAULT_SUBMISSION_PATH = BASE_DIR / "submission.json"
 
 TEAM_NAME = "Team 11 — Ingaze Hybrid Strategy Engine"

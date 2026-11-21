@@ -1,0 +1,649 @@
+[
+  {
+    "scenario_code": "SCENARIO_A_CLOUDNOVA_FINTECH",
+    "company_name": "CloudNova Pay S.p.A.",
+    "industry_raw": "FinTech & B2B Cloud Payments",
+    "sector_category": "FINTECH_PAYMENTS",
+    "workforce_archetypes": [
+      "DESK_BASED_TECH_SPECIALIST"
+    ],
+    "headcount": 1450,
+    "locations_count": 3,
+    "workforce_target_summary": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
+    "declared_evp": "Fast-paced digital disruption, unlimited growth, and cutting-edge cloud autonomy.",
+    "canonical_signals": [
+      {
+        "signal_code": "LOW_PUBLIC_RATING",
+        "evidence_quote": "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub)",
+        "source_stream": "outside_in_platform",
+        "severity": "MEDIUM",
+        "affected_cohorts": [
+          "Milan_Product_Squads",
+          "Berlin_Product_Squads"
+        ]
+      },
+      {
+        "signal_code": "HIGH_APPLICATION_DROPOFF",
+        "evidence_quote": "Inbound qualified senior engineering applications are down 38% YoY; job descriptions use generic corporate boilerplate ('dynamic fast-paced team player')",
+        "source_stream": "outside_in_platform",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "EARLY_FIRST_YEAR_ATTRITION",
+        "evidence_quote": "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months",
+        "source_stream": "outside_in_platform",
+        "severity": "HIGH",
+        "affected_cohorts": [
+          "Milan_Product_Squads",
+          "Berlin_Product_Squads"
+        ]
+      },
+      {
+        "signal_code": "MANUAL_HR_SPREADSHEET_DRAG",
+        "evidence_quote": "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets",
+        "source_stream": "inside_out_client",
+        "severity": "MEDIUM",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "WEAK_MIDDLE_MANAGEMENT",
+        "evidence_quote": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k)",
+        "source_stream": "inside_out_client",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "GENERIC_BOILERPLATE_JDS",
+        "evidence_quote": "Job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling",
+        "source_stream": "outside_in_platform",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      }
+    ],
+    "filtered_noise_items": [
+      {
+        "raw_excerpt": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Career Path Opacity (€450k)",
+        "inferred_mismatched_action_or_topic": "CAREER_PATH_OPACITY",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Workload Burnout (€300k)",
+        "inferred_mismatched_action_or_topic": "WORKLOAD_BURNOUT",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "ject micromanagement and unclear promotion criteria'. Raw CSV review feed also contains 3 unverified rows mentioning 'weekend shop shift rotation' imported from an external merchant POS pilot",
+        "inferred_mismatched_action_or_topic": "Unverified externally imported evidence",
+        "reason_filtered": "The raw platform feed explicitly labels this material as unverified and imported from an external pilot."
+      }
+    ],
+    "healthy_baselines": [
+      {
+        "asset_or_cohort_name": "Base compensation and equity packages",
+        "evidence": "Base compensation and equity packages are benchmarked at the 82nd percentile for European FinTech (0% offer rejections due to base pay)",
+        "related_signal": "COMPETITIVE_COMPENSATION_HEALTHY",
+        "do_not_touch_scope": "Compensation packages"
+      }
+    ],
+    "cohort_site_asymmetries": [
+      {
+        "struggling_segment": "Milan and Berlin product squads",
+        "struggling_evidence": "16% of newly hired Senior Software Engineers and PMs leave within their first 6 months",
+        "healthy_comparison_segment": "Amsterdam Core Platform / SRE division",
+        "healthy_evidence": "maintains 94% annual retention with high technical pride"
+      }
+    ],
+    "leadership_requests": [
+      {
+        "stakeholder_role": "CEO",
+        "requested_action_text": "launch an external Employee Ambassador campaign on LinkedIn next week across all hubs to boost inbound applications",
+        "inferred_action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "requested_urgency": "IMMEDIATE_PHASE_1",
+        "target_scope": "all hubs"
+      },
+      {
+        "stakeholder_role": "VP of Engineering",
+        "requested_action_text": "whether rewriting salary bands or copying retail-style shift schedules from the raw review export would fix retention",
+        "inferred_action_category": "COMPENSATION_BAND_OVERHAUL",
+        "requested_urgency": "UNSPECIFIED",
+        "target_scope": "Milan and Berlin product squads"
+      }
+    ],
+    "budget_and_cfo_constraints": [
+      "The CFO has frozen discretionary employer brand ad spend until HR presents a quantified risk-mitigation and ROI dashboard."
+    ],
+    "t0_telemetry": {
+      "public_reputation": {
+        "reviews_analyzed": 218,
+        "overall_review_rating_5": 3.46,
+        "recommend_to_friend_pct": 53.7,
+        "employer_review_reply_rate_pct": 0.0,
+        "cross_location_rating_std_dev_5": 0.52,
+        "brand_alignment_index_100": 46.8,
+        "external_claims_gap_stars_5": 1.3,
+        "sub_ratings_5": {
+          "management": 2.64,
+          "career_growth": 2.52,
+          "work_life_balance": 3.36,
+          "compensation": 4.18,
+          "culture_and_values": 3.09
+        },
+        "segment_or_site_breakdown": {
+          "Milan_Product_Squads": {
+            "reviews": 94,
+            "rating_5": 3.16
+          },
+          "Berlin_Product_Squads": {
+            "reviews": 73,
+            "rating_5": 3.24
+          },
+          "Amsterdam_Core_Platform_SRE": {
+            "reviews": 51,
+            "rating_5": 4.31
+          }
+        }
+      },
+      "career_portal_and_funnel": {
+        "monthly_visits": 9420,
+        "smartphone_traffic_pct": 25.7,
+        "application_form_dropoff_pct": 33.4,
+        "applicant_conversion_rate_pct": 2.38,
+        "candidate_survey_completion_rate_pct": 23.6,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 85.9,
+          "technical_speed_100": 88.7,
+          "job_ad_clarity_100": 41.8,
+          "role_benefits_transparency_100": 35.2,
+          "application_flow_simplicity_100": 74.6,
+          "authentic_team_social_proof_100": 32.8
+        }
+      },
+      "social_and_employee_voice": {
+        "corporate_linkedin_er_pct": 0.9,
+        "quarterly_organic_impressions": 46180,
+        "er_by_post_format_pct": {
+          "institutional_updates": 0.58,
+          "generic_job_posts": 0.79,
+          "authentic_team_and_domain_stories": 5.14
+        },
+        "spontaneous_employee_mentions_quarter": 23,
+        "positive_mention_share_pct": 56.5,
+        "active_organic_ambassadors_headcount": null,
+        "manual_hr_tracking_hours_month": 16.0
+      },
+      "hiring_and_retention_kpis": {
+        "early_first_year_attrition_pct": 18.4,
+        "estimated_annual_attrition_exposure_eur": 1800000,
+        "avg_time_to_hire_days": 51,
+        "agency_filled_roles_pct": 33.8,
+        "six_month_new_hire_attrition_milan_berlin_pct": 16.0,
+        "compensation_market_percentile_100": 82
+      }
+    },
+    "sector_benchmarks": {
+      "sector_benchmark_group": null,
+      "overall_review_rating_5": 3.72,
+      "recommend_to_friend_pct": 65.2,
+      "employer_review_reply_rate_pct": 0.0,
+      "cross_location_rating_std_dev_5": 0.22,
+      "brand_alignment_index_100": 62.1,
+      "external_claims_gap_stars_5": 0.44,
+      "sub_ratings_5": {
+        "management": 3.34,
+        "career_growth": 3.21,
+        "work_life_balance": 3.42,
+        "compensation": 3.68,
+        "culture_and_values": 3.66
+      },
+      "portal_funnel": {
+        "smartphone_traffic_pct": 26.8,
+        "application_form_dropoff_pct": 32.4,
+        "applicant_conversion_rate_pct": 3.98,
+        "candidate_survey_completion_rate_pct": 28.9,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 79.8,
+          "technical_speed_100": 84.2,
+          "job_ad_clarity_100": 74.8,
+          "role_benefits_transparency_100": 65.7,
+          "application_flow_simplicity_100": 72.9,
+          "authentic_team_social_proof_100": 55.9
+        }
+      },
+      "social_and_advocacy": {
+        "corporate_linkedin_er_pct": 1.89,
+        "organic_employee_post_er_pct": 6.48
+      },
+      "hiring_and_retention": {
+        "early_first_year_attrition_pct": 12.8,
+        "avg_time_to_hire_days": 39,
+        "agency_filled_roles_pct": 23.4
+      }
+    }
+  },
+  {
+    "scenario_code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
+    "company_name": "EuroFreight Interport S.r.l.",
+    "industry_raw": "Freight Transport & Interport Logistics",
+    "sector_category": "LOGISTICS_FREIGHT",
+    "workforce_archetypes": [
+      "DESKLESS_FRONTLINE_LOGISTICS"
+    ],
+    "headcount": 1600,
+    "locations_count": 5,
+    "workforce_target_summary": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
+    "declared_evp": "National leader in integrated freight transport.",
+    "canonical_signals": [
+      {
+        "signal_code": "HIGH_APPLICATION_DROPOFF",
+        "evidence_quote": "63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.",
+        "source_stream": "t0_telemetry",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "HIGH_TIME_TO_HIRE",
+        "evidence_quote": "average Time-to-Hire has reached 43 days.",
+        "source_stream": "t0_telemetry",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "MULTISITE_REPUTATION_VARIANCE",
+        "evidence_quote": "high rating variance across locations (Verona/Milan at 4.3/5 vs. Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).",
+        "source_stream": "t0_telemetry",
+        "severity": "MEDIUM",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "GENERIC_BOILERPLATE_JDS",
+        "evidence_quote": "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.",
+        "source_stream": "inside_out_client",
+        "severity": "MEDIUM",
+        "affected_cohorts": []
+      }
+    ],
+    "filtered_noise_items": [
+      {
+        "raw_excerpt": "the 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel.",
+        "inferred_mismatched_action_or_topic": "MANUAL_HR_SPREADSHEET_DRAG",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "overall_review_rating_5: 3.83",
+        "inferred_mismatched_action_or_topic": "LOW_PUBLIC_RATING",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "early_first_year_attrition_pct: 14.6",
+        "inferred_mismatched_action_or_topic": "EARLY_FIRST_YEAR_ATTRITION",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      }
+    ],
+    "healthy_baselines": [
+      {
+        "asset_or_cohort_name": "on-time payroll accuracy",
+        "evidence": "99.4% on-time payroll accuracy",
+        "related_signal": "HEALTHY_AUTHENTIC_EVP",
+        "do_not_touch_scope": "Payroll processes and accuracy metrics."
+      },
+      {
+        "asset_or_cohort_name": "modern Euro-6 fleet",
+        "evidence": "modern Euro-6 fleet (<2.5 years average vehicle age)",
+        "related_signal": "STRONG_OPERATIONAL_ASSETS_HEALTHY",
+        "do_not_touch_scope": "Fleet management and vehicle age."
+      },
+      {
+        "asset_or_cohort_name": "annual retention among tenured drivers",
+        "evidence": "91% annual retention among tenured (>2 years) long-haul C-CQC drivers",
+        "related_signal": "HIGH_COHORT_RETENTION_HEALTHY",
+        "do_not_touch_scope": "Retention strategies for tenured drivers."
+      }
+    ],
+    "cohort_site_asymmetries": [
+      {
+        "struggling_segment": "Bologna and Naples",
+        "struggling_evidence": "average Time-to-Hire has reached 43 days.",
+        "healthy_comparison_segment": "HQ commercial/admin roles in Verona",
+        "healthy_evidence": "hire smoothly in 24 days via LinkedIn."
+      }
+    ],
+    "leadership_requests": [
+      {
+        "stakeholder_role": "Marketing Director",
+        "requested_action_text": "launching a B2B technical LinkedIn blog series to attract drivers",
+        "inferred_action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+        "requested_urgency": "STANDARD",
+        "target_scope": "drivers"
+      },
+      {
+        "stakeholder_role": "Regional Hub Directors",
+        "requested_action_text": "deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning",
+        "inferred_action_category": "MOBILE_FAST_APPLY_FLOW",
+        "requested_urgency": "IMMEDIATE_PHASE_1",
+        "target_scope": "frontline C-CQC drivers and warehouse operators"
+      }
+    ],
+    "budget_and_cfo_constraints": [
+      "Operations is burning €190k/quarter on emergency temporary staffing agencies."
+    ],
+    "t0_telemetry": {
+      "public_reputation": {
+        "reviews_analyzed": 197,
+        "overall_review_rating_5": 3.83,
+        "recommend_to_friend_pct": 68.5,
+        "employer_review_reply_rate_pct": 0.0,
+        "cross_location_rating_std_dev_5": 0.54,
+        "brand_alignment_index_100": 52.9,
+        "external_claims_gap_stars_5": 0.31,
+        "sub_ratings_5": {
+          "management": 3.44,
+          "career_growth": 3.06,
+          "work_life_balance": 3.39,
+          "compensation": 4.7,
+          "culture_and_values": 3.68
+        },
+        "segment_or_site_breakdown": {
+          "Verona_HQ_and_Hub": {
+            "reviews": 58,
+            "rating_5": 4.31
+          },
+          "Milan_Interport_Hub": {
+            "reviews": 49,
+            "rating_5": 4.28
+          },
+          "Rome_Interport_Hub": {
+            "reviews": 33,
+            "rating_5": 3.58
+          },
+          "Bologna_Interport_Hub": {
+            "reviews": 31,
+            "rating_5": 3.12
+          },
+          "Naples_Interport_Hub": {
+            "reviews": 26,
+            "rating_5": 3.08
+          }
+        }
+      },
+      "career_portal_and_funnel": {
+        "monthly_visits": 14000,
+        "smartphone_traffic_pct": 82.0,
+        "application_form_dropoff_pct": 63.0,
+        "applicant_conversion_rate_pct": 1.89,
+        "candidate_survey_completion_rate_pct": 16.8,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 84.8,
+          "technical_speed_100": 71.2,
+          "job_ad_clarity_100": 40.9,
+          "role_benefits_transparency_100": 29.8,
+          "application_flow_simplicity_100": 26.4,
+          "authentic_team_social_proof_100": 33.9
+        }
+      },
+      "social_and_employee_voice": {
+        "corporate_linkedin_er_pct": 1.62,
+        "quarterly_organic_impressions": 36140,
+        "er_by_post_format_pct": {
+          "institutional_updates": 1.38,
+          "generic_job_posts": 1.12,
+          "authentic_team_and_domain_stories": 3.84
+        },
+        "spontaneous_employee_mentions_quarter": 14,
+        "positive_mention_share_pct": 78.6,
+        "active_organic_ambassadors_headcount": null,
+        "manual_hr_tracking_hours_month": 9.2
+      },
+      "hiring_and_retention_kpis": {
+        "early_first_year_attrition_pct": 14.6,
+        "estimated_annual_attrition_exposure_eur": 762000,
+        "avg_time_to_hire_days": 43,
+        "agency_filled_roles_pct": 37.9,
+        "tenured_driver_annual_retention_pct": 91.0,
+        "hq_admin_time_to_hire_days": 24
+      }
+    },
+    "sector_benchmarks": {
+      "sector_benchmark_group": null,
+      "overall_review_rating_5": 3.42,
+      "recommend_to_friend_pct": 56.8,
+      "employer_review_reply_rate_pct": 0.0,
+      "cross_location_rating_std_dev_5": 0.27,
+      "brand_alignment_index_100": 55.8,
+      "external_claims_gap_stars_5": 0.49,
+      "sub_ratings_5": {
+        "management": 3.16,
+        "career_growth": 2.89,
+        "work_life_balance": 3.18,
+        "compensation": 3.31,
+        "culture_and_values": 3.38
+      },
+      "portal_funnel": {
+        "smartphone_traffic_pct": 78.6,
+        "application_form_dropoff_pct": 41.2,
+        "applicant_conversion_rate_pct": 3.58,
+        "candidate_survey_completion_rate_pct": 20.8,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 73.9,
+          "technical_speed_100": 71.8,
+          "job_ad_clarity_100": 65.8,
+          "role_benefits_transparency_100": 59.6,
+          "application_flow_simplicity_100": 63.8,
+          "authentic_team_social_proof_100": 47.9
+        }
+      },
+      "social_and_advocacy": {
+        "corporate_linkedin_er_pct": 1.38,
+        "organic_employee_post_er_pct": 4.46
+      },
+      "hiring_and_retention": {
+        "early_first_year_attrition_pct": 18.8,
+        "avg_time_to_hire_days": 31,
+        "agency_filled_roles_pct": 19.4
+      }
+    }
+  },
+  {
+    "scenario_code": "SCENARIO_C_VERDECARE_BCORP",
+    "company_name": "VerdeCare & Formulation Group (Certified B Corp)",
+    "industry_raw": "Multi-Site Healthcare, Wellness & B-Corp Formulation",
+    "sector_category": "HEALTHCARE_CLINICAL",
+    "workforce_archetypes": [
+      "MULTISITE_CLINICAL_HEALTHCARE",
+      "EARLY_CAREER_GEN_Z"
+    ],
+    "headcount": 2100,
+    "locations_count": 52,
+    "workforce_target_summary": "Clinical Healthcare Professionals (Nurses, Therapists) and Gen-Z Early-Career Lab/Clinical Specialists",
+    "declared_evp": "Sustainable human care, clinical excellence, and certified B Corp social impact.",
+    "canonical_signals": [
+      {
+        "signal_code": "UNMONITORED_LOCAL_REVIEWS",
+        "evidence_quote": "18 regional clinics with outdated or unaddressed local profiles.",
+        "source_stream": "inside_out_client",
+        "severity": "MEDIUM",
+        "affected_cohorts": [
+          "Regional Clinics"
+        ]
+      },
+      {
+        "signal_code": "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "evidence_quote": "feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate)",
+        "source_stream": "inside_out_client",
+        "severity": "MEDIUM",
+        "affected_cohorts": []
+      },
+      {
+        "signal_code": "MANUAL_HR_SPREADSHEET_DRAG",
+        "evidence_quote": "The 4-person central People team loses 150+ hours/year on manual spreadsheet tracking of facility reviews and ambassador screenshots.",
+        "source_stream": "inside_out_client",
+        "severity": "HIGH",
+        "affected_cohorts": []
+      }
+    ],
+    "filtered_noise_items": [
+      {
+        "raw_excerpt": "application_form_dropoff_pct: 31.2",
+        "inferred_mismatched_action_or_topic": "HIGH_APPLICATION_DROPOFF",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "early_first_year_attrition_pct: 10.8",
+        "inferred_mismatched_action_or_topic": "EARLY_FIRST_YEAR_ATTRITION",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      },
+      {
+        "raw_excerpt": "The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists.",
+        "inferred_mismatched_action_or_topic": "COHORT_OR_SITE_ASYMMETRY",
+        "reason_filtered": "The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks."
+      }
+    ],
+    "healthy_baselines": [
+      {
+        "asset_or_cohort_name": "Internal employee satisfaction",
+        "evidence": "88% B-Corp pride score",
+        "related_signal": "HEALTHY_AUTHENTIC_EVP",
+        "do_not_touch_scope": "Internal employee satisfaction metrics."
+      },
+      {
+        "asset_or_cohort_name": "Annual retention in R&D formulation labs",
+        "evidence": "93% retention",
+        "related_signal": "HIGH_COHORT_RETENTION_HEALTHY",
+        "do_not_touch_scope": "Retention metrics for R&D formulation labs."
+      }
+    ],
+    "cohort_site_asymmetries": [
+      {
+        "struggling_segment": "18 regional senior care centers",
+        "struggling_evidence": "lack local passive candidate awareness among nurses and therapists",
+        "healthy_comparison_segment": "2 central R&D formulation labs",
+        "healthy_evidence": "enjoy high applicant flow"
+      }
+    ],
+    "leadership_requests": [
+      {
+        "stakeholder_role": "Talent Director",
+        "requested_action_text": "turn on automated ambassador tracking across all 50 facilities tomorrow",
+        "inferred_action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "requested_urgency": "IMMEDIATE_PHASE_1",
+        "target_scope": "all 50 facilities"
+      },
+      {
+        "stakeholder_role": "External Branding Agency",
+        "requested_action_text": "a 6-month corporate EVP overhaul from scratch",
+        "inferred_action_category": "EVP_OVERHAUL_FROM_SCRATCH",
+        "requested_urgency": "UNSPECIFIED",
+        "target_scope": "corporate EVP"
+      }
+    ],
+    "budget_and_cfo_constraints": [
+      "The CFO requires certified Earned Media Value (EMV in EUR) and auditable B-Corp candidate experience metrics before approving the next annual HR budget."
+    ],
+    "t0_telemetry": {
+      "public_reputation": {
+        "reviews_analyzed": 248,
+        "overall_review_rating_5": 4.39,
+        "recommend_to_friend_pct": 86.7,
+        "employer_review_reply_rate_pct": 0.0,
+        "cross_location_rating_std_dev_5": 0.45,
+        "brand_alignment_index_100": 81.8,
+        "external_claims_gap_stars_5": 0.08,
+        "sub_ratings_5": {
+          "management": 4.04,
+          "career_growth": 3.82,
+          "work_life_balance": 4.09,
+          "compensation": 3.68,
+          "culture_and_values": 4.68
+        },
+        "segment_or_site_breakdown": {
+          "Central_RnD_Formulation_Labs_2_Sites": {
+            "reviews": 47,
+            "rating_5": 4.62
+          },
+          "Monitored_Core_Care_Centers_32_Sites": {
+            "reviews": 149,
+            "rating_5": 4.58
+          },
+          "Outdated_Profile_Regional_Clinics_18_Sites": {
+            "reviews": 52,
+            "rating_5": 3.64
+          }
+        }
+      },
+      "career_portal_and_funnel": {
+        "monthly_visits": 11840,
+        "smartphone_traffic_pct": 53.8,
+        "application_form_dropoff_pct": 31.2,
+        "applicant_conversion_rate_pct": 3.79,
+        "candidate_survey_completion_rate_pct": 17.4,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 78.9,
+          "technical_speed_100": 83.8,
+          "job_ad_clarity_100": 82.9,
+          "role_benefits_transparency_100": 77.8,
+          "application_flow_simplicity_100": 73.9,
+          "authentic_team_social_proof_100": 35.8
+        }
+      },
+      "social_and_employee_voice": {
+        "corporate_linkedin_er_pct": 1.32,
+        "quarterly_organic_impressions": 44190,
+        "er_by_post_format_pct": {
+          "institutional_updates": 0.89,
+          "generic_job_posts": 1.02,
+          "authentic_team_and_domain_stories": 7.82
+        },
+        "spontaneous_employee_mentions_quarter": 84,
+        "positive_mention_share_pct": 89.3,
+        "active_organic_ambassadors_headcount": 35,
+        "manual_hr_tracking_hours_month": 12.5
+      },
+      "hiring_and_retention_kpis": {
+        "early_first_year_attrition_pct": 10.8,
+        "estimated_annual_attrition_exposure_eur": 618000,
+        "avg_time_to_hire_days": 42,
+        "agency_filled_roles_pct": 21.8,
+        "rd_labs_annual_retention_pct": 93.0
+      }
+    },
+    "sector_benchmarks": {
+      "sector_benchmark_group": null,
+      "overall_review_rating_5": 3.52,
+      "recommend_to_friend_pct": 62.8,
+      "employer_review_reply_rate_pct": 2.1,
+      "cross_location_rating_std_dev_5": 0.27,
+      "brand_alignment_index_100": 60.8,
+      "external_claims_gap_stars_5": 0.41,
+      "sub_ratings_5": {
+        "management": 3.29,
+        "career_growth": 3.17,
+        "work_life_balance": 3.34,
+        "compensation": 3.38,
+        "culture_and_values": 3.76
+      },
+      "portal_funnel": {
+        "smartphone_traffic_pct": 54.2,
+        "application_form_dropoff_pct": 35.4,
+        "applicant_conversion_rate_pct": 3.88,
+        "candidate_survey_completion_rate_pct": 30.8,
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 75.8,
+          "technical_speed_100": 78.9,
+          "job_ad_clarity_100": 76.8,
+          "role_benefits_transparency_100": 67.6,
+          "application_flow_simplicity_100": 70.8,
+          "authentic_team_social_proof_100": 53.6
+        }
+      },
+      "social_and_advocacy": {
+        "corporate_linkedin_er_pct": 1.68,
+        "organic_employee_post_er_pct": 6.18
+      },
+      "hiring_and_retention": {
+        "early_first_year_attrition_pct": 16.6,
+        "avg_time_to_hire_days": 41,
+        "agency_filled_roles_pct": 21.4
+      }
+    }
+  }
+]

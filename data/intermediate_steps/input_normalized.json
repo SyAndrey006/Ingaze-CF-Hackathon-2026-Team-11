@@ -1,0 +1,128 @@
+{
+  "scenario_code": "CLIENT_INTAKE_GAMMA_RETAIL",
+  "company_name": "Gamma Retail S.p.A.",
+  "industry_raw": "Omnichannel Apparel & Lifestyle Retail",
+  "sector_category": "RETAIL_OMNICHANNEL",
+  "workforce_archetypes": [
+    "DESKLESS_FRONTLINE_RETAIL"
+  ],
+  "headcount": 840,
+  "locations_count": 90,
+  "workforce_target_summary": "In-Store Sales Associates and Assistant Store Managers (~110 urgent openings ahead of the seasonal peak)",
+  "declared_evp": "A vibrant, people-first fashion community where creativity and work-life balance thrive.",
+  "canonical_signals": [
+    {
+      "signal_code": "LOW_PUBLIC_RATING",
+      "evidence_quote": "Overall public rating sits at 3.4/5 across Glassdoor and Indeed, but it hides a huge split: HQ reviews average 4.2/5 while suburban mall stores sit at 2.9/5.",
+      "source_stream": "outside_in_platform",
+      "severity": "MEDIUM",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "HIGH_APPLICATION_DROPOFF",
+      "evidence_quote": "61% abandon the application halfway through.",
+      "source_stream": "outside_in_platform",
+      "severity": "HIGH",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "GENERIC_BOILERPLATE_JDS",
+      "evidence_quote": "Store job ads are copy-pasted from old HQ templates ('synergistic brand ambassador with omnichannel KPI mindset') and never mention shift rules or store perks.",
+      "source_stream": "outside_in_platform",
+      "severity": "MEDIUM",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "UNPREDICTABLE_SHIFT_SCHEDULING",
+      "evidence_quote": "Recent store-staff reviews repeatedly complain about unpredictable last-minute weekend shift changes.",
+      "source_stream": "outside_in_platform",
+      "severity": "HIGH",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "WORKLOAD_BURNOUT",
+      "evidence_quote": "Recent store-staff reviews repeatedly complain about burnout during holiday peaks.",
+      "source_stream": "outside_in_platform",
+      "severity": "HIGH",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "EARLY_FIRST_YEAR_ATTRITION",
+      "evidence_quote": "24% of newly hired sales associates quit within their first 6 months.",
+      "source_stream": "inside_out_client",
+      "severity": "HIGH",
+      "affected_cohorts": []
+    },
+    {
+      "signal_code": "COHORT_OR_SITE_ASYMMETRY",
+      "evidence_quote": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term. The real bleeding is concentrated in the 78 suburban mall stores.",
+      "source_stream": "inside_out_client",
+      "severity": "MEDIUM",
+      "affected_cohorts": []
+    }
+  ],
+  "filtered_noise_items": [
+    {
+      "raw_excerpt": "ive feedback or scheduling notice. Note: our raw review export also accidentally pulled 2 unverified rows from an external third-party warehouse pilot complaining about 'overnight forklift charging bays'",
+      "inferred_mismatched_action_or_topic": "Unverified externally imported evidence",
+      "reason_filtered": "The raw platform feed explicitly labels this material as unverified and imported from an external pilot."
+    }
+  ],
+  "healthy_baselines": [
+    {
+      "asset_or_cohort_name": "Base hourly pay for sales associates",
+      "evidence": "Base hourly pay for sales associates is actually 10% above the regional retail average.",
+      "related_signal": "COMPETITIVE_COMPENSATION_HEALTHY",
+      "do_not_touch_scope": "Base hourly pay for sales associates"
+    },
+    {
+      "asset_or_cohort_name": "Staff product discount",
+      "evidence": "employees love the 40% staff product discount.",
+      "related_signal": "HEALTHY_AUTHENTIC_EVP",
+      "do_not_touch_scope": "Staff product discount"
+    },
+    {
+      "asset_or_cohort_name": "Turin HQ design/merchandising teams retention",
+      "evidence": "our Turin HQ design/merchandising teams maintain 92% annual retention.",
+      "related_signal": "HIGH_COHORT_RETENTION_HEALTHY",
+      "do_not_touch_scope": "Turin HQ design/merchandising teams"
+    }
+  ],
+  "cohort_site_asymmetries": [
+    {
+      "struggling_segment": "78 suburban mall stores",
+      "struggling_evidence": "24% of newly hired sales associates quit within their first 6 months.",
+      "healthy_comparison_segment": "HQ and our 12 city-center flagship stores",
+      "healthy_evidence": "HQ and our 12 city-center flagship stores hire smoothly and keep staff long-term."
+    }
+  ],
+  "leadership_requests": [
+    {
+      "stakeholder_role": "VP of Retail",
+      "requested_action_text": "launch an Employee Ambassador campaign on Instagram and TikTok next month asking mall store staff to film 'Day in the Life' videos to fix our applicant shortage.",
+      "inferred_action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "requested_urgency": "IMMEDIATE_PHASE_1",
+      "target_scope": "mall store staff"
+    },
+    {
+      "stakeholder_role": "Head of Marketing",
+      "requested_action_text": "a weekly B2B LinkedIn thought-leadership blog series to attract store associates.",
+      "inferred_action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+      "requested_urgency": "STANDARD",
+      "target_scope": "store associates"
+    },
+    {
+      "stakeholder_role": "Finance",
+      "requested_action_text": "cut the 40% staff discount to fund recruiting ads.",
+      "inferred_action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "requested_urgency": "UNSPECIFIED",
+      "target_scope": "recruiting ads"
+    }
+  ],
+  "budget_and_cfo_constraints": [
+    "The CFO has put a freeze on extra job-board ad spend until HR can show hard numbers on turnover risk and conversion ROI instead of social media likes.",
+    "Store turnover and emergency weekend temp coverage are costing us an estimated €420k/year in replacement and lost-sales drag."
+  ],
+  "t0_telemetry": null,
+  "sector_benchmarks": null
+}

@@ -1,0 +1,154 @@
+========================================================================================
+Scenario: SCENARIO_A_CLOUDNOVA_FINTECH
+Company: CloudNova Pay S.p.A.
+Industry: FinTech & B2B Cloud Payments | Canonical sector: FINTECH_PAYMENTS
+Workforce archetypes: DESK_BASED_TECH_SPECIALIST
+Workforce target: Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)
+Headcount / locations: 1450 / 3
+Declared EVP: Fast-paced digital disruption, unlimited growth, and cutting-edge cloud autonomy.
+
+Active Normalized Signals:
+  - LOW_PUBLIC_RATING [MEDIUM] | affected: Milan_Product_Squads, Berlin_Product_Squads
+    Evidence: "Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub)"
+  - HIGH_APPLICATION_DROPOFF [HIGH] | affected: company-wide / unspecified
+    Evidence: "Inbound qualified senior engineering applications are down 38% YoY; job descriptions use generic corporate boilerplate ('dynamic fast-paced team player')"
+  - EARLY_FIRST_YEAR_ATTRITION [HIGH] | affected: Milan_Product_Squads, Berlin_Product_Squads
+    Evidence: "16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months"
+  - MANUAL_HR_SPREADSHEET_DRAG [MEDIUM] | affected: company-wide / unspecified
+    Evidence: "HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets"
+  - WEAK_MIDDLE_MANAGEMENT [HIGH] | affected: company-wide / unspecified
+    Evidence: "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k)"
+  - GENERIC_BOILERPLATE_JDS [HIGH] | affected: company-wide / unspecified
+    Evidence: "Job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling"
+
+Healthy Baselines ("Do Not Touch"):
+  - Base compensation and equity packages [COMPETITIVE_COMPENSATION_HEALTHY]
+    Evidence: Base compensation and equity packages are benchmarked at the 82nd percentile for European FinTech (0% offer rejections due to base pay)
+    Preserve: Compensation packages
+
+Cohort/Site Asymmetries:
+  - Struggling: Milan and Berlin product squads — 16% of newly hired Senior Software Engineers and PMs leave within their first 6 months
+    Comparison: Amsterdam Core Platform / SRE division — maintains 94% annual retention with high technical pride
+
+Leadership Requests:
+  - CEO: launch an external Employee Ambassador campaign on LinkedIn next week across all hubs to boost inbound applications
+    Action category: AMBASSADOR_SELECTION_ENABLEMENT | urgency: IMMEDIATE_PHASE_1 | scope: all hubs
+  - VP of Engineering: whether rewriting salary bands or copying retail-style shift schedules from the raw review export would fix retention
+    Action category: COMPENSATION_BAND_OVERHAUL | urgency: UNSPECIFIED | scope: Milan and Berlin product squads
+
+Filtered / Quarantined Noise:
+  - Topic: CAREER_PATH_OPACITY
+    Evidence: "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Career Path Opacity (€450k)"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: WORKLOAD_BURNOUT
+    Evidence: "Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Workload Burnout (€300k)"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: Unverified externally imported evidence
+    Evidence: "ject micromanagement and unclear promotion criteria'. Raw CSV review feed also contains 3 unverified rows mentioning 'weekend shop shift rotation' imported from an external merchant POS pilot"
+    Why filtered: The raw platform feed explicitly labels this material as unverified and imported from an external pilot.
+
+Budget and CFO Constraints:
+  - The CFO has frozen discretionary employer brand ad spend until HR presents a quantified risk-mitigation and ROI dashboard.
+
+========================================================================================
+Scenario: SCENARIO_B_EUROFREIGHT_LOGISTICS
+Company: EuroFreight Interport S.r.l.
+Industry: Freight Transport & Interport Logistics | Canonical sector: LOGISTICS_FREIGHT
+Workforce archetypes: DESKLESS_FRONTLINE_LOGISTICS
+Workforce target: Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)
+Headcount / locations: 1600 / 5
+Declared EVP: National leader in integrated freight transport.
+
+Active Normalized Signals:
+  - HIGH_APPLICATION_DROPOFF [HIGH] | affected: company-wide / unspecified
+    Evidence: "63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload."
+  - HIGH_TIME_TO_HIRE [HIGH] | affected: company-wide / unspecified
+    Evidence: "average Time-to-Hire has reached 43 days."
+  - MULTISITE_REPUTATION_VARIANCE [MEDIUM] | affected: company-wide / unspecified
+    Evidence: "high rating variance across locations (Verona/Milan at 4.3/5 vs. Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction)."
+  - GENERIC_BOILERPLATE_JDS [MEDIUM] | affected: company-wide / unspecified
+    Evidence: "Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs."
+
+Healthy Baselines ("Do Not Touch"):
+  - on-time payroll accuracy [HEALTHY_AUTHENTIC_EVP]
+    Evidence: 99.4% on-time payroll accuracy
+    Preserve: Payroll processes and accuracy metrics.
+  - modern Euro-6 fleet [STRONG_OPERATIONAL_ASSETS_HEALTHY]
+    Evidence: modern Euro-6 fleet (<2.5 years average vehicle age)
+    Preserve: Fleet management and vehicle age.
+  - annual retention among tenured drivers [HIGH_COHORT_RETENTION_HEALTHY]
+    Evidence: 91% annual retention among tenured (>2 years) long-haul C-CQC drivers
+    Preserve: Retention strategies for tenured drivers.
+
+Cohort/Site Asymmetries:
+  - Struggling: Bologna and Naples — average Time-to-Hire has reached 43 days.
+    Comparison: HQ commercial/admin roles in Verona — hire smoothly in 24 days via LinkedIn.
+
+Leadership Requests:
+  - Marketing Director: launching a B2B technical LinkedIn blog series to attract drivers
+    Action category: TECHNICAL_LINKEDIN_STORYTELLING | urgency: STANDARD | scope: drivers
+  - Regional Hub Directors: deploying a new mobile fast-apply widget and rewriting job ads tomorrow morning
+    Action category: MOBILE_FAST_APPLY_FLOW | urgency: IMMEDIATE_PHASE_1 | scope: frontline C-CQC drivers and warehouse operators
+
+Filtered / Quarantined Noise:
+  - Topic: MANUAL_HR_SPREADSHEET_DRAG
+    Evidence: "the 3-person central HR team wastes over 110 hours/year manually copying hub reviews into Excel."
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: LOW_PUBLIC_RATING
+    Evidence: "overall_review_rating_5: 3.83"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: EARLY_FIRST_YEAR_ATTRITION
+    Evidence: "early_first_year_attrition_pct: 14.6"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+
+Budget and CFO Constraints:
+  - Operations is burning €190k/quarter on emergency temporary staffing agencies.
+
+========================================================================================
+Scenario: SCENARIO_C_VERDECARE_BCORP
+Company: VerdeCare & Formulation Group (Certified B Corp)
+Industry: Multi-Site Healthcare, Wellness & B-Corp Formulation | Canonical sector: HEALTHCARE_CLINICAL
+Workforce archetypes: MULTISITE_CLINICAL_HEALTHCARE, EARLY_CAREER_GEN_Z
+Workforce target: Clinical Healthcare Professionals (Nurses, Therapists) and Gen-Z Early-Career Lab/Clinical Specialists
+Headcount / locations: 2100 / 52
+Declared EVP: Sustainable human care, clinical excellence, and certified B Corp social impact.
+
+Active Normalized Signals:
+  - UNMONITORED_LOCAL_REVIEWS [MEDIUM] | affected: Regional Clinics
+    Evidence: "18 regional clinics with outdated or unaddressed local profiles."
+  - FRAGMENTED_CANDIDATE_FEEDBACK [MEDIUM] | affected: company-wide / unspecified
+    Evidence: "feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate)"
+  - MANUAL_HR_SPREADSHEET_DRAG [HIGH] | affected: company-wide / unspecified
+    Evidence: "The 4-person central People team loses 150+ hours/year on manual spreadsheet tracking of facility reviews and ambassador screenshots."
+
+Healthy Baselines ("Do Not Touch"):
+  - Internal employee satisfaction [HEALTHY_AUTHENTIC_EVP]
+    Evidence: 88% B-Corp pride score
+    Preserve: Internal employee satisfaction metrics.
+  - Annual retention in R&D formulation labs [HIGH_COHORT_RETENTION_HEALTHY]
+    Evidence: 93% retention
+    Preserve: Retention metrics for R&D formulation labs.
+
+Cohort/Site Asymmetries:
+  - Struggling: 18 regional senior care centers — lack local passive candidate awareness among nurses and therapists
+    Comparison: 2 central R&D formulation labs — enjoy high applicant flow
+
+Leadership Requests:
+  - Talent Director: turn on automated ambassador tracking across all 50 facilities tomorrow
+    Action category: AUTOMATED_AMBASSADOR_TRACKING | urgency: IMMEDIATE_PHASE_1 | scope: all 50 facilities
+  - External Branding Agency: a 6-month corporate EVP overhaul from scratch
+    Action category: EVP_OVERHAUL_FROM_SCRATCH | urgency: UNSPECIFIED | scope: corporate EVP
+
+Filtered / Quarantined Noise:
+  - Topic: HIGH_APPLICATION_DROPOFF
+    Evidence: "application_form_dropoff_pct: 31.2"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: EARLY_FIRST_YEAR_ATTRITION
+    Evidence: "early_first_year_attrition_pct: 10.8"
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+  - Topic: COHORT_OR_SITE_ASYMMETRY
+    Evidence: "The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists."
+    Why filtered: The evidence quote could not be verified verbatim in the raw scenario, T0 telemetry, or sector benchmarks.
+
+Budget and CFO Constraints:
+  - The CFO requires certified Earned Media Value (EMV in EUR) and auditable B-Corp candidate experience metrics before approving the next annual HR budget.

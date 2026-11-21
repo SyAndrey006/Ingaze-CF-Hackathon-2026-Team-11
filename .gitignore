@@ -8,6 +8,7 @@ env/
 # Secrets & API Keys (NEVER commit keys!)
 .env
 .env.*
+!.env_template
 *.key
 secrets.json
 
