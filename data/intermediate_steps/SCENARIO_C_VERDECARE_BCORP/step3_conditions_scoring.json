@@ -37,7 +37,8 @@
       ],
       "matched_case_names": [
         "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
       ],
       "score_rank": 1
     },
@@ -53,14 +54,14 @@
       "status": "plausible",
       "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
       "diagnosis_rank": 2,
-      "score": 0.8151,
+      "score": 0.7651,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.1
       },
       "matched_evidence_ids": [
         "text:client_internal_context.budget_and_capacity_constraints#1:manual_tracking_load:present",
@@ -72,41 +73,10 @@
       ],
       "matched_case_names": [
         "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-        "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
-        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
-      ],
-      "score_rank": 2
-    },
-    {
-      "candidate_id": "advocacy_pilot:4",
-      "rule": "advocacy_pilot",
-      "scope": {
-        "cohort": null,
-        "site": null,
-        "tenure": null,
-        "window": "intake"
-      },
-      "status": "plausible",
-      "action_title": "Trial opt-in, role-relevant participation with auditable tracking.",
-      "diagnosis_rank": 4,
-      "score": 0.8151,
-      "score_breakdown": {
-        "status_support": 0.187,
-        "evidence_slot_coverage": 0.2125,
-        "direct_evidence": 0.1275,
-        "reported_evidence": 0.1275,
-        "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
-      },
-      "matched_evidence_ids": [
-        "text:ingaze_platform_signals.linkedin_and_content_analytics#1:existing_advocates:present",
-        "text:ingaze_platform_signals.reputation_and_reviews#1:culture_ready:present"
-      ],
-      "matched_case_names": [
-        "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
         "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
       ],
-      "score_rank": 3
+      "score_rank": 2
     },
     {
       "candidate_id": "feedback_coverage:3",
@@ -134,9 +104,10 @@
         "text:ingaze_platform_signals.recruiting_and_jds#1:feedback_workflow_verified:present"
       ],
       "matched_case_names": [
+        "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
         "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
       ],
-      "score_rank": 4
+      "score_rank": 3
     },
     {
       "candidate_id": "recruiter_handoff:5",
@@ -166,6 +137,34 @@
         "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
         "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
       ],
+      "score_rank": 4
+    },
+    {
+      "candidate_id": "advocacy_pilot:4",
+      "rule": "advocacy_pilot",
+      "scope": {
+        "cohort": null,
+        "site": null,
+        "tenure": null,
+        "window": "intake"
+      },
+      "status": "plausible",
+      "action_title": "Trial opt-in, role-relevant participation with auditable tracking.",
+      "diagnosis_rank": 4,
+      "score": 0.6651,
+      "score_breakdown": {
+        "status_support": 0.187,
+        "evidence_slot_coverage": 0.2125,
+        "direct_evidence": 0.1275,
+        "reported_evidence": 0.1275,
+        "scope_specificity": 0.0106,
+        "historical_case_mechanism_fit": 0.0
+      },
+      "matched_evidence_ids": [
+        "text:ingaze_platform_signals.linkedin_and_content_analytics#1:existing_advocates:present",
+        "text:ingaze_platform_signals.reputation_and_reviews#1:culture_ready:present"
+      ],
+      "matched_case_names": [],
       "score_rank": 5
     },
     {
@@ -198,246 +197,379 @@
   ],
   "matched_case_studies": [
     {
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "sector_category": "HEALTHCARE_CLINICAL",
+      "similarity_score": 0.7,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.5,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
+      },
+      "matched_problem_tags": [
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "MULTISITE_REPUTATION_VARIANCE"
+      ],
+      "measured_roi_summary": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 34,120 -> 97,240 (+185%)",
+        "Corporate LinkedIn engagement rate: 1.21% -> 2.39% (+98%)",
+        "Manual HR tracking: 10.5 h/month -> 0.5 h/month (-95%)"
+      ],
+      "match_reason": "3/7 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
       "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-      "score": 16.5,
+      "score": 0.7,
       "shared_mechanisms": [
-        "existing_advocates",
-        "local_reputation",
-        "post_tracking",
-        "review_tracking"
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "MULTISITE_REPUTATION_VARIANCE"
       ],
       "shared_context": [
-        "care",
-        "distributed",
-        "sustainability"
+        "EARLY_CAREER_GEN_Z",
+        "MULTISITE_CLINICAL_HEALTHCARE",
+        "HEALTHCARE_CLINICAL"
       ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "family": "review_distribution",
-          "unit": "stars",
-          "client_peer_gap": 0.18,
-          "case_t0_peer_gap": 0.19,
-          "direction": "adverse is positive"
-        }
-      ],
+      "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {
         "headcount": 1.333,
         "locations_count": 0.731
       },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "unit": "stars",
-          "t0": 0.46,
-          "t1": 0.21
-        }
-      ]
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "3/7 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
     },
     {
-      "case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
-      "historical_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
-      "score": 14.371,
-      "shared_mechanisms": [
-        "culture_ready",
-        "existing_advocates",
-        "feedback_fragmentation",
-        "post_tracking"
-      ],
-      "shared_context": [
-        "distributed",
-        "sustainability"
-      ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-          "family": "trust",
-          "unit": "stars",
-          "client_peer_gap": 0.92,
-          "case_t0_peer_gap": 0.61,
-          "direction": "favorable is positive"
-        }
-      ],
-      "case_to_client_scale_ratios": {
-        "headcount": 0.438,
-        "locations_count": 0.096
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "similarity_score": 0.6364,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.7273,
+        "workforce_fit_score": 0.5,
+        "sector_fit_score": 0.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
       },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-          "unit": "stars",
-          "t0": 4.59,
-          "t1": 4.62
-        }
-      ]
-    },
-    {
+      "matched_problem_tags": [
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MULTISITE_REPUTATION_VARIANCE",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "measured_roi_summary": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 58,125 -> 186,000 (+220%)",
+        "Candidate survey completion: 17.2% -> 54.6% (+217%)",
+        "Manual HR tracking: 11.5 h/month -> 1.5 h/month (-87%)"
+      ],
+      "match_reason": "4/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
       "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-      "score": 13.015,
+      "score": 0.6364,
       "shared_mechanisms": [
-        "local_reputation",
-        "post_tracking",
-        "review_tracking"
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MULTISITE_REPUTATION_VARIANCE",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
       ],
       "shared_context": [
-        "distributed",
-        "early_career",
-        "sustainability"
+        "EARLY_CAREER_GEN_Z"
       ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "family": "review_distribution",
-          "unit": "stars",
-          "client_peer_gap": 0.18,
-          "case_t0_peer_gap": 0.28,
-          "direction": "adverse is positive"
-        }
-      ],
+      "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {
         "headcount": 0.643,
         "locations_count": 0.096
       },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "unit": "stars",
-          "t0": 0.49,
-          "t1": 0.3
-        }
-      ]
-    }
-  ],
-  "normalized_case_matches": [],
-  "case_informed_action_candidates": [],
-  "legacy_case_rankings": [
-    {
-      "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
-      "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-      "score": 16.5,
-      "shared_mechanisms": [
-        "existing_advocates",
-        "local_reputation",
-        "post_tracking",
-        "review_tracking"
-      ],
-      "shared_context": [
-        "care",
-        "distributed",
-        "sustainability"
-      ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "family": "review_distribution",
-          "unit": "stars",
-          "client_peer_gap": 0.18,
-          "case_t0_peer_gap": 0.19,
-          "direction": "adverse is positive"
-        }
-      ],
-      "case_to_client_scale_ratios": {
-        "headcount": 1.333,
-        "locations_count": 0.731
-      },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "unit": "stars",
-          "t0": 0.46,
-          "t1": 0.21
-        }
-      ]
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "4/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas"
     },
     {
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "similarity_score": 0.5475,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.6,
+        "workforce_fit_score": 0.5,
+        "sector_fit_score": 0.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "measured_roi_summary": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 41,800 -> 146,300 (+250%)",
+        "Candidate survey completion: 15.9% -> 43.4% (+173%)",
+        "Manual HR tracking: 9 h/month -> 0.5 h/month (-94%)"
+      ],
+      "match_reason": "3/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge",
       "case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
       "historical_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
-      "score": 14.371,
+      "score": 0.5475,
       "shared_mechanisms": [
-        "culture_ready",
-        "existing_advocates",
-        "feedback_fragmentation",
-        "post_tracking"
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
       ],
       "shared_context": [
-        "distributed",
-        "sustainability"
+        "EARLY_CAREER_GEN_Z"
       ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-          "family": "trust",
-          "unit": "stars",
-          "client_peer_gap": 0.92,
-          "case_t0_peer_gap": 0.61,
-          "direction": "favorable is positive"
-        }
-      ],
+      "comparable_t0_metrics": [],
       "case_to_client_scale_ratios": {
         "headcount": 0.438,
         "locations_count": 0.096
       },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-          "unit": "stars",
-          "t0": 4.59,
-          "t1": 4.62
-        }
-      ]
-    },
-    {
-      "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-      "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-      "score": 13.015,
-      "shared_mechanisms": [
-        "local_reputation",
-        "post_tracking",
-        "review_tracking"
-      ],
-      "shared_context": [
-        "distributed",
-        "early_career",
-        "sustainability"
-      ],
-      "comparable_t0_metrics": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "family": "review_distribution",
-          "unit": "stars",
-          "client_peer_gap": 0.18,
-          "case_t0_peer_gap": 0.28,
-          "direction": "adverse is positive"
-        }
-      ],
-      "case_to_client_scale_ratios": {
-        "headcount": 0.643,
-        "locations_count": 0.096
-      },
-      "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-      "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-      "observed_t0_t1": [
-        {
-          "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-          "unit": "stars",
-          "t0": 0.49,
-          "t1": 0.3
-        }
-      ]
+      "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+      "transfer_scope": "3/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas"
     }
   ],
+  "normalized_case_matches": [
+    {
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "sector_category": "HEALTHCARE_CLINICAL",
+      "similarity_score": 0.7,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.5,
+        "workforce_fit_score": 1.0,
+        "sector_fit_score": 1.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
+      },
+      "matched_problem_tags": [
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "UNMONITORED_LOCAL_REVIEWS",
+        "MULTISITE_REPUTATION_VARIANCE"
+      ],
+      "measured_roi_summary": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 34,120 -> 97,240 (+185%)",
+        "Corporate LinkedIn engagement rate: 1.21% -> 2.39% (+98%)",
+        "Manual HR tracking: 10.5 h/month -> 0.5 h/month (-95%)"
+      ],
+      "match_reason": "3/7 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge"
+    },
+    {
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "similarity_score": 0.6364,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.7273,
+        "workforce_fit_score": 0.5,
+        "sector_fit_score": 0.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 1.0
+      },
+      "matched_problem_tags": [
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MULTISITE_REPUTATION_VARIANCE",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "measured_roi_summary": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 58,125 -> 186,000 (+220%)",
+        "Candidate survey completion: 17.2% -> 54.6% (+217%)",
+        "Manual HR tracking: 11.5 h/month -> 1.5 h/month (-87%)"
+      ],
+      "match_reason": "4/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge"
+    },
+    {
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+      "similarity_score": 0.5475,
+      "score_breakdown": {
+        "root_cause_overlap_score": 0.6,
+        "workforce_fit_score": 0.5,
+        "sector_fit_score": 0.0,
+        "roi_evidence_score": 1.0,
+        "cfo_auditability_score": 0.75
+      },
+      "matched_problem_tags": [
+        "FRAGMENTED_CANDIDATE_FEEDBACK",
+        "MANUAL_HR_SPREADSHEET_DRAG",
+        "MISSING_CFO_ROI_EMV_VISIBILITY"
+      ],
+      "measured_roi_summary": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
+      "quantified_roi_highlights": [
+        "Quarterly organic impressions: 41,800 -> 146,300 (+250%)",
+        "Candidate survey completion: 15.9% -> 43.4% (+173%)",
+        "Manual HR tracking: 9 h/month -> 0.5 h/month (-94%)"
+      ],
+      "match_reason": "3/7 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+      "curation_review_status": "reviewed",
+      "match_input_source": "step2_track_tags_via_case_signal_bridge"
+    }
+  ],
+  "case_informed_action_candidates": [
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    }
+  ],
+  "legacy_case_rankings": [],
   "supporting_research_snippets": [
     {
       "source_id": "amec",

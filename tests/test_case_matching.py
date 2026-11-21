@@ -112,6 +112,15 @@ class TestCaseMatching(unittest.TestCase):
             self.assertIn("planned actions have precedent", r.reason)
             self.assertTrue(set(r.match.matched_problem_tags) <= set(FRONTLINE_LOGISTICS["client_signals"]))
 
+    def test_precedent_must_share_a_root_cause(self):
+        # Same sector + workforce alone must not make a case a precedent.
+        for profile in (DESK_FINTECH, FRONTLINE_LOGISTICS):
+            for r in rank_top_cases(self.db, weights=self.weights, k=50, **profile):
+                self.assertTrue(r.match.matched_problem_tags, r.match.case_id)
+        no_overlap = dict(FRONTLINE_LOGISTICS, client_signals=[SignalCode.ACTIVE_ORGANIC_AMBASSADORS_PRESENT])
+        self.assertEqual(rank_top_cases(self.db, weights=self.weights, **no_overlap), [])
+        self.assertTrue(rank_top_cases(self.db, weights=self.weights, min_shared_root_causes=0, **no_overlap))
+
     def test_ranking_is_deterministic(self):
         a = rank_top_cases(self.db, weights=self.weights, **DESK_FINTECH)
         b = rank_top_cases(self.db, weights=self.weights, **DESK_FINTECH)

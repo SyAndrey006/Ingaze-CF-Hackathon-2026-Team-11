@@ -16,11 +16,10 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from src.pipeline.step2_root_cause_analysis import (
-    CASE_TAGS, FEATURES, PEER_SIGNALS, PROFILE, TRACKS, load_graph, normalize_metrics,
+    FEATURES, PEER_SIGNALS, PROFILE, TRACKS, load_graph, normalize_metrics,
     normalize_narrative, profile_for,
 )
 
-from src.schemas.domain_models import NormalizedCasesDB
 from src.schemas.pipeline_models import NormalizedClientInput
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -88,7 +87,7 @@ def case_matches(cases, features, profile, *, graph=None, active=None, case_anal
         snapshot = case_analytics.get(case["case_name"], {})
         tags = case.get("mechanism_tags")
         if tags is None:
-            tags = set(CASE_TAGS.get(name, "").split()) or precedent_signals(case, graph, snapshot)
+            tags = precedent_signals(case, graph, snapshot)
         elif not isinstance(tags, list) or any(not isinstance(tag, str) for tag in tags):
             raise ValueError(f"{name}: mechanism_tags must be a list of strings")
         mechanisms = features.intersection(tags)
@@ -229,65 +228,82 @@ def score_diagnostic_candidates(
         if hypothesis["status"] != "conflicted":
             ranked_tags.update(rule.get("track_tags", []))
 
+    from src.offline.case_matching import (
+        candidate_actions_from_cases,
+        load_scoring_weights,
+        rank_top_cases,
+    )
+    from src.offline.case_signal_bridge import client_match_profile, signals_for_track_tags
+    from src.offline.database_loader import load_normalized_cases
+
+    # Client profile for precedent matching: Step 1 canonical signals when present,
+    # otherwise a concept-level translation of the deterministic Step 2 diagnosis.
+    client_input = (
+        NormalizedClientInput.model_validate(normalized_client_input)
+        if normalized_client_input is not None else None
+    )
+    if client_input is not None and client_input.canonical_signals:
+        client_signals = [signal.signal_code for signal in client_input.canonical_signals]
+        client_workforce = list(client_input.workforce_archetypes)
+        client_sector = client_input.sector_category
+        case_match_input_source = "step1_canonical_signals"
+    else:
+        client_signals, client_workforce, client_sector = client_match_profile(ranked_tags, profile)
+        case_match_input_source = "step2_track_tags_via_case_signal_bridge"
+
     normalized_case_matches = []
     normalized_case_candidate_actions = []
-    normalized_case_db = None
-    if normalized_client_input is not None:
-        client_input = NormalizedClientInput.model_validate(normalized_client_input)
-        if client_input.canonical_signals:
-            from src.offline.case_matching import (
-                candidate_actions_from_cases,
-                load_scoring_weights,
-                rank_top_cases,
+    cases_by_id = {}
+    if client_signals:
+        cases_db = load_normalized_cases(DEFAULT_NORMALIZED_CASES)
+        reviewed_cases = [
+            case for case in cases_db.cases
+            if case.curation_review_status == "reviewed"
+        ]
+        if not reviewed_cases:
+            raise ValueError(
+                f"{DEFAULT_NORMALIZED_CASES} has no human-reviewed cases; "
+                "Step 3 will not use unreviewed case drafts as precedents."
             )
-            from src.offline.database_loader import load_normalized_cases
-
-            cases_db = load_normalized_cases(DEFAULT_NORMALIZED_CASES)
-            reviewed_cases = [
-                case for case in cases_db.cases
-                if case.curation_review_status == "reviewed"
-            ]
-            if not reviewed_cases:
-                raise ValueError(
-                    f"{DEFAULT_NORMALIZED_CASES} has no human-reviewed cases; "
-                    "Step 3 will not use unreviewed case drafts as precedents."
-                )
-            cases_db = cases_db.model_copy(update={"cases": reviewed_cases})
-            normalized_case_db = cases_db
-            weights = load_scoring_weights(DEFAULT_NORMALIZED_RULES)
-            client_signals = [signal.signal_code for signal in client_input.canonical_signals]
-            ranked_normalized = rank_top_cases(
-                cases_db,
-                client_signals=client_signals,
-                workforce=client_input.workforce_archetypes,
-                sector=client_input.sector_category,
-                weights=weights,
-            )
-            case_by_id = {case.case_id: case for case in reviewed_cases}
-            normalized_case_matches = [
-                {
-                    **ranked.match.model_dump(mode="json"),
-                    "match_reason": ranked.reason,
-                    "curation_review_status": case_by_id[ranked.match.case_id].curation_review_status,
-                }
-                for ranked in ranked_normalized
-            ]
-            action_candidates = candidate_actions_from_cases(
-                cases_db,
-                client_signals=client_signals,
-                workforce=client_input.workforce_archetypes,
-                sector=client_input.sector_category,
-            )
-            normalized_case_candidate_actions = [
-                {
-                    "action_category": action.value,
-                    "case_id": case_id,
-                    "case_name": case_by_id[case_id].case_name,
-                    "phase_bucket": int(phase),
-                    "use": "precedent_idea_for_review",
-                }
-                for action, case_id, phase in action_candidates
-            ]
+        # The supplied dataset decides which precedents are available (e.g. the
+        # historical replay withholds the company under test and its outcomes).
+        available_names = {case["case_name"] for case in dataset.get("raw_case_study_narratives", [])}
+        reviewed_cases = [case for case in reviewed_cases if case.case_name in available_names]
+        cases_db = cases_db.model_copy(update={"cases": reviewed_cases})
+        cases_by_id = {case.case_id: case for case in reviewed_cases}
+        weights = load_scoring_weights(DEFAULT_NORMALIZED_RULES)
+        ranked_normalized = rank_top_cases(
+            cases_db,
+            client_signals=client_signals,
+            workforce=client_workforce,
+            sector=client_sector,
+            weights=weights,
+        )
+        normalized_case_matches = [
+            {
+                **ranked.match.model_dump(mode="json"),
+                "match_reason": ranked.reason,
+                "curation_review_status": cases_by_id[ranked.match.case_id].curation_review_status,
+                "match_input_source": case_match_input_source,
+            }
+            for ranked in ranked_normalized
+        ]
+        action_candidates = candidate_actions_from_cases(
+            cases_db,
+            client_signals=client_signals,
+            workforce=client_workforce,
+            sector=client_sector,
+        )
+        normalized_case_candidate_actions = [
+            {
+                "action_category": action.value,
+                "case_id": case_id,
+                "case_name": cases_by_id[case_id].case_name,
+                "phase_bucket": int(phase),
+                "use": "precedent_idea_for_review",
+            }
+            for action, case_id, phase in action_candidates
+        ]
 
     legacy_cases, research = score_cases_and_research(
         dataset,
@@ -303,16 +319,28 @@ def score_diagnostic_candidates(
     recommendation_case_rows = legacy_cases
     if normalized_case_matches:
         recommendation_case_rows = []
+        client_snapshot = intake.get("snapshot") or {}
         for match_record in normalized_case_matches:
+            case = cases_by_id[match_record["case_id"]]
+            shared_context = sorted(
+                {w.value for w in case.workforce_archetypes} & {getattr(w, "value", w) for w in client_workforce}
+            )
+            if client_sector is not None and case.sector_category == client_sector:
+                shared_context.append(case.sector_category.value)
+            scale = {}
+            for field in ("headcount", "locations_count"):
+                actual, historical = client_snapshot.get(field), getattr(case, field)
+                if type(actual) in (int, float) and type(historical) in (int, float) and actual > 0 and historical > 0:
+                    scale[field] = round(historical / actual, 3)
             compatibility_row = dict(match_record)
             compatibility_row.update({
                 "case": match_record["case_name"],
                 "historical_roi": match_record["measured_roi_summary"],
                 "score": match_record["similarity_score"],
                 "shared_mechanisms": match_record["matched_problem_tags"],
-                "shared_context": [],
+                "shared_context": shared_context,
                 "comparable_t0_metrics": [],
-                "case_to_client_scale_ratios": {},
+                "case_to_client_scale_ratios": scale,
                 "outcome_use": (
                     "Historical sandbox outcome for context; this is a precedent, "
                     "not a causal guarantee."
@@ -326,11 +354,18 @@ def score_diagnostic_candidates(
         rule = graph["rules"][candidate["rule"]]
         track_tags = set(rule.get("track_tags", []))
         if normalized_case_matches:
+            # Same semantics as the legacy branch, on canonical signals: the share of
+            # this candidate's mechanisms that a top precedent actually faced.
+            candidate_signals = signals_for_track_tags(track_tags)
             precedent_fit = max((
-                match["score_breakdown"]["root_cause_overlap_score"]
+                len(candidate_signals.intersection(cases_by_id[match["case_id"]].canonical_problem_tags))
+                / len(candidate_signals)
                 for match in normalized_case_matches
-            ), default=0.0)
-            matched_case_names = [match["case_name"] for match in normalized_case_matches]
+            ), default=0.0) if candidate_signals else 0.0
+            matched_case_names = [
+                match["case_name"] for match in normalized_case_matches
+                if candidate_signals.intersection(cases_by_id[match["case_id"]].canonical_problem_tags)
+            ]
         else:
             precedent_fit = max((
                 len(track_tags.intersection(case.get("shared_mechanisms", []))) / len(track_tags)

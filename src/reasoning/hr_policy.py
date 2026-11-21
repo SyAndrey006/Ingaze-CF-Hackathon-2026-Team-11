@@ -30,21 +30,6 @@ PROFILE = {
     "sustainability": r"b[- ]corp|esg|sustainab",
 }
 
-# Source labels identify historical records only. Tags describe transferable mechanisms.
-CASE_TAGS = {
-    "LogiNext": "expectation_gap review_tracking local_reputation early_attrition",
-    "Solaris Tech": "culture_ready existing_advocates post_tracking emv",
-    "FlowPay": "generic_ads post_tracking",
-    "Global Retail Group": "mobile_friction generic_ads",
-    "Alfa Group": "expectation_gap manager_support career_clarity burnout early_attrition",
-    "Beta Logistica": "mobile_friction generic_ads agency_spend local_reputation",
-    "Gamma Retail": "mobile_friction burnout manager_support early_attrition",
-    "VitaCare Network": "local_reputation review_tracking post_tracking existing_advocates",
-    "Aurea Banca Group": "feedback_fragmentation existing_advocates emv post_tracking",
-    "BellaModa Retail": "mobile_friction burnout",
-    "NaturaPure Group": "culture_ready feedback_fragmentation existing_advocates post_tracking emv",
-}
-
 # A rule supplies diagnosis, diagnostic work, a structural pilot, a rollout gate,
 # and research references. Independent tracks can proceed in parallel.
 TRACKS = {

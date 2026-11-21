@@ -3042,14 +3042,14 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.8151,
+      "score": 0.6651,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3086,14 +3086,14 @@
         "tenure": "applicant",
         "window": "intake"
       },
-      "score": 0.7301,
+      "score": 0.5801,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.1062,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0319,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3121,6 +3121,119 @@
       "passed": true
     }
   ],
-  "precedent_idea_actions": [],
+  "precedent_idea_actions": [
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_06_BETA_LOGISTICA",
+      "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MOBILE_FAST_APPLY_FLOW",
+      "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+      "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+      "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    }
+  ],
   "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
 }

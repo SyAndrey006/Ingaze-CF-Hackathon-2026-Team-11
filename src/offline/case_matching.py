@@ -18,8 +18,9 @@ Scoring (all components in [0, 1], combined with `ScoringWeightsConfig` from
     - root_cause_overlap: Dice overlap between client problem signals and the case's
       canonical problem tags -> 2*|A n B| / (|A| + |B|). Rewards precision and coverage.
     - workforce_fit: share of the client's workforce archetypes present in the case.
-      Hard exclusion first: a desk-based case is never matched to a frontline client
-      and vice versa (unless they share an archetype).
+      Hard exclusions first: a case must share >= 1 root cause with the client,
+      and a desk-based case is never matched to a frontline client and vice versa
+      (unless they share an archetype).
     - sector_fit: 1.0 same sector, 0.5 adjacent sector, 0.0 otherwise.
     - roi_evidence: amount of measured T0->T1 evidence (number of quantified deltas,
       saturating at 6), blended 50/50 with the share of the client's planned actions
@@ -217,12 +218,15 @@ def rank_top_cases(
     planned_actions: Optional[Iterable[ActionLike]] = None,
     weights: Optional[ScoringWeightsConfig] = None,
     k: int = 3,
+    min_shared_root_causes: int = 1,
 ) -> List[RankedCase]:
     """
     Rank historical cases by weighted similarity to the client profile.
 
-    Workforce mismatches (desk-based vs. frontline without shared archetype) are hard
-    excluded before scoring. Ties are broken by `case_id` for determinism.
+    Hard exclusions before scoring: workforce mismatches (desk-based vs. frontline
+    without shared archetype) and cases sharing fewer than `min_shared_root_causes`
+    problem signals with the client (same sector alone is not a precedent).
+    Ties are broken by `case_id` for determinism.
     """
     signals, wf, sec = _signals(client_signals), _workforces(workforce), _sector(sector)
     planned = _actions(planned_actions)
@@ -242,6 +246,8 @@ def rank_top_cases(
             continue
 
         case_tags = set(case.canonical_problem_tags)
+        if len(signals & case_tags) < min_shared_root_causes:
+            continue
         breakdown = ScoreBreakdown(
             root_cause_overlap_score=round(_root_cause_overlap(signals, case_tags), 4),
             workforce_fit_score=round(_workforce_fit(wf, case_wf), 4),

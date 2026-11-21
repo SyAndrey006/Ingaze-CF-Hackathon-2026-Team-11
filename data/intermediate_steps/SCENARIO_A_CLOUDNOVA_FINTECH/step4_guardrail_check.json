@@ -3340,14 +3340,14 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.8257,
+      "score": 0.6757,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0213,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3362,14 +3362,14 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.6651,
+      "score": 0.7151,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.0
+        "historical_case_mechanism_fit": 0.05
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3450,19 +3450,293 @@
         "tenure": "all",
         "window": "intake"
       },
-      "score": 0.6876,
+      "score": 0.5376,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.0,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0
       },
       "minimum_score": 0.35,
       "passed": true
     }
   ],
-  "precedent_idea_actions": [],
+  "precedent_idea_actions": [
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_03_FLOWPAY",
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+      "case_id": "CASE_03_FLOWPAY",
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_03_FLOWPAY",
+      "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_13_QUANTEX_MARKETS",
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_13_QUANTEX_MARKETS",
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_13_QUANTEX_MARKETS",
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_13_QUANTEX_MARKETS",
+      "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_05_ALFA",
+      "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_12_KRONOCART_TECH",
+      "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "INTERNAL_360_LISTENING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "MANAGER_COACHING_AND_LEVELING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+      "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+      "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_01_LOGINEXT",
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_01_LOGINEXT",
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_01_LOGINEXT",
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_01_LOGINEXT",
+      "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_02_SOLARIS",
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_02_SOLARIS",
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_02_SOLARIS",
+      "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CAREER_PORTAL_UX_AUDIT",
+      "case_id": "CASE_14_NORDICTRUST_BANK",
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_14_NORDICTRUST_BANK",
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_14_NORDICTRUST_BANK",
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "PERSONA_ALIGNED_JDS",
+      "case_id": "CASE_14_NORDICTRUST_BANK",
+      "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    }
+  ],
   "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
 }

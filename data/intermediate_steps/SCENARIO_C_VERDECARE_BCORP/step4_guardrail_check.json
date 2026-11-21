@@ -3006,14 +3006,14 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.8151,
+      "score": 0.7651,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.1
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3050,14 +3050,14 @@
         "tenure": null,
         "window": "intake"
       },
-      "score": 0.8151,
+      "score": 0.6651,
       "score_breakdown": {
         "status_support": 0.187,
         "evidence_slot_coverage": 0.2125,
         "direct_evidence": 0.1275,
         "reported_evidence": 0.1275,
         "scope_specificity": 0.0106,
-        "historical_case_mechanism_fit": 0.15
+        "historical_case_mechanism_fit": 0.0
       },
       "minimum_score": 0.35,
       "passed": true
@@ -3107,6 +3107,154 @@
       "passed": false
     }
   ],
-  "precedent_idea_actions": [],
+  "precedent_idea_actions": [
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_08_VITACARE",
+      "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+      "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+      "phase_bucket": 3,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "REPUTATION_AUDIT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "EVP_REALIGNMENT",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_11_NATURAPURE",
+      "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 1,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    },
+    {
+      "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+      "case_id": "CASE_09_AUREA_BANCA",
+      "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+      "phase_bucket": 2,
+      "use": "precedent_idea_for_review"
+    }
+  ],
   "precedent_idea_policy": "Case actions are precedent ideas only; they do not bypass the live diagnosis, score threshold, or deterministic guardrails."
 }
