@@ -166,7 +166,8 @@
     }
   ],
   "outputs": {
-    "official_submission": "submission.json",
+    "official_submission": "submissions/proposal.json",
+    "human_readable_proposal": "submissions/hr_proposal.md",
     "submission_model": "src/schemas/submission_models.py",
     "trace_flag": "--trace-out",
     "graph_export_flag": "--graph-out",

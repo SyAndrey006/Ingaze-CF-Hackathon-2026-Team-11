@@ -33,7 +33,8 @@ DEFAULT_DATA = Path(__file__).resolve().parents[1] / "database" / "ingaze_sandbo
 DEFAULT_CLIENT_INPUT = PROJECT_ROOT / "data" / "client_io" / "input.json"
 DEFAULT_NORMALIZED_CLIENT_OUTPUT = PROJECT_ROOT / "data" / "intermediate_steps"
 DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "output.json"
-DEFAULT_PROPOSAL_OUTPUT = PROJECT_ROOT / "outputs" / "hr_proposal.md"
+DEFAULT_SUBMISSION_OUTPUT = PROJECT_ROOT / "submissions" / "proposal.json"
+DEFAULT_PROPOSAL_OUTPUT = PROJECT_ROOT / "submissions" / "hr_proposal.md"
 DEFAULT_CUSTOM_PROPOSAL_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "proposal.md"
 DEFAULT_INTERMEDIATE_DIR = PROJECT_ROOT / "data" / "intermediate_steps"
 
@@ -480,7 +481,7 @@ def main(argv: Optional[Sequence[str]] = None):
     parser.add_argument(
         "--proposal-out",
         type=Path,
-        help="Write the readable HR proposal Markdown to this path (default: outputs/hr_proposal.md, or data/client_io/proposal.md in client mode).",
+        help="Write the readable HR proposal Markdown here (default: submissions/hr_proposal.md, or data/client_io/proposal.md in client mode).",
     )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument(
@@ -584,13 +585,13 @@ def main(argv: Optional[Sequence[str]] = None):
         "scenarios": [result for result, _ in plans],
     }
     SubmissionPayload.model_validate(payload)
-    output_path = args.out or Path("submission.json")
+    output_path = args.out or DEFAULT_SUBMISSION_OUTPUT
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     errors, warnings = validate_submission(output_path, dataset, scenarios)
     traces = [trace for _, trace in plans]
     proposal_path = args.proposal_out or (
-        args.out.with_suffix(".md") if args.out else DEFAULT_PROPOSAL_OUTPUT
+        args.out.parent / "hr_proposal.md" if args.out else DEFAULT_PROPOSAL_OUTPUT
     )
     proposal_path.parent.mkdir(parents=True, exist_ok=True)
     proposal_path.write_text(

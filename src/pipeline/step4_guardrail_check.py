@@ -8,7 +8,9 @@ Step 5 and the final report.
 
 from __future__ import annotations
 
-from src.pipeline.step2_root_cause_analysis import SCOPE_FIELDS, scope_overlaps
+import re
+
+from src.pipeline.step2_root_cause_analysis import REQUEST_FIELD, SCOPE_FIELDS, scope_overlaps
 BLOCKERS = {"expectation_gap", "manager_support", "burnout"}
 
 
@@ -46,13 +48,58 @@ def action_fit(rule, hypothesis, profile, reported, blockers):
     return None
 
 
+def _request_fragments(value):
+    """Extract readable request text from raw strings or bridged request objects."""
+    if isinstance(value, str):
+        return [value.strip()] if value.strip() else []
+    if isinstance(value, dict):
+        fragments = []
+        for key in ("requested_action_text", "request_text", "request", "text", "summary"):
+            if key in value:
+                fragments.extend(_request_fragments(value[key]))
+        return fragments
+    if isinstance(value, (list, tuple, set)):
+        return [fragment for item in value for fragment in _request_fragments(item)]
+    return []
+
+
+def _collect_request_text(scenario, context):
+    """Prefer the consolidated request; fall back to bridged raw request fields."""
+    consolidated = _request_fragments(context.get(REQUEST_FIELD))
+    if consolidated:
+        return " ".join(consolidated).casefold()
+
+    fragments = []
+    for key in (
+        "requests", "leadership_requests", "leadership_request_text",
+        "survey_requests", "survey_request_text", REQUEST_FIELD,
+    ):
+        fragments.extend(_request_fragments(scenario.get(key)))
+    for source in (context, scenario.get("ingaze_platform_signals", {})):
+        if not isinstance(source, dict):
+            continue
+        for key, value in source.items():
+            normalized_key = str(key).casefold()
+            if "request" in normalized_key and any(word in normalized_key for word in ("leadership", "survey")):
+                fragments.extend(_request_fragments(value))
+    return " ".join(dict.fromkeys(fragments)).casefold()
+
+
+def _requests_higher_job_ad_spend(requests):
+    topic = r"\b(?:sponsored job|job[- ]boards?|recruiting ads?|recruitment ads?|ad spend)\b"
+    intent = r"\b(?:increase\w*|double\w*|raise\w*|boost\w*|expand\w*|more)\b"
+    proximity = re.compile(rf"(?:{intent}.{{0,100}}{topic}|{topic}.{{0,100}}{intent})", re.I)
+    return any(proximity.search(clause) for clause in re.split(r"[.!?;\n]+", requests))
+
+
 def evaluate_guardrails(
     scenario, graph, intake, hypotheses, ranked_hypotheses, profile, scored_state=None
 ):
     """Evaluate scoped hypotheses and return auditable routing and guardrail state."""
     context = scenario.get("client_internal_context", {})
+    context = context if isinstance(context, dict) else {}
     strengths = context.get("healthy_metrics_and_strengths_not_to_break")
-    requests = str(context.get("leadership_perceptions_and_requests", "")).lower()
+    requests = _collect_request_text(scenario, context)
     protected = scenario.get("protected_scopes", [])
     if not isinstance(protected, list) or any(
         not isinstance(entry, dict) or not isinstance(entry.get("scope"), dict)
@@ -179,6 +226,17 @@ def evaluate_guardrails(
             guards.append("Defer salary changes pending verified compensation problems in comparable roles.")
         if "evp overhaul" in requests and "culture_ready" in features:
             guards.append("Preserve the healthy employer proposition. Validate local messaging before considering an overhaul.")
+    if blockers and re.search(r"\b(?:culture|branding|corporate|anniversary)\s+videos?\b", requests):
+        guards.append(
+            "Defer corporate culture or branding videos until internal expectation gaps and management practices are verified and addressed."
+        )
+    if _requests_higher_job_ad_spend(requests) and features & {
+        "tracking_attribution_gap_reported", "tracking_workflow_verified", "manual_tracking_load",
+        "mobile_friction", "application_abandonment",
+    }:
+        guards.append(
+            "Defer increasing sponsored job-board ad spend until funnel tracking, pre-screening filters, and qualified conversion are verified."
+        )
 
     return {
         "context": context,

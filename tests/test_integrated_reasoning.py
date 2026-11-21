@@ -3,8 +3,10 @@ import unittest
 from copy import deepcopy
 
 from src.pipeline.step2_root_cause_analysis import (
-    diagnose, load_analytics, load_graph, normalize_intake, normalize_reviewed,
+    diagnose, load_analytics, load_graph, normalize_intake, normalize_narrative, normalize_reviewed,
 )
+from src.pipeline.messy_intake import adapt_messy_intake
+from src.pipeline.step4_guardrail_check import evaluate_guardrails
 from recommendation_engine import DEFAULT_DATA, case_matches, plan
 
 
@@ -130,6 +132,111 @@ class IntegratedReasoningTests(unittest.TestCase):
         policies = " ".join(pilot["action"] for pilot in output["phase_2_actions"])
         self.assertNotIn("retail store", policies)
         self.assertNotIn("LinkedIn", policies)
+
+    def test_manual_cv_and_uninstrumented_funnel_intake_patterns(self):
+        scenario = adapt_messy_intake({
+            "client_intake_case": {
+                "scenario_code": "GENERAL_INTAKE_PATTERN_TEST",
+                "company_name": "Generic Engineering Company",
+                "basic_company_facts": {
+                    "industry": "Industrial engineering",
+                    "footprint_and_headcount": "Engineering workforce across two locations",
+                },
+                "ingaze_onboarding_surveys_raw": {
+                    "employer_archetype_survey_response": {
+                        "q8_initiative_hr_believes_they_need": (
+                            "A corporate culture video and increased sponsored job-board advertising"
+                        ),
+                    },
+                    "recruiting_cost_review_survey_response": {
+                        "q4_screening_note": (
+                            "Recruiters spend 8 hours per week manually opening unqualified CV PDFs in a shared inbox."
+                        ),
+                    },
+                },
+                "outside_in_scraped_telemetry": {
+                    "career_website_and_jd_telemetry": {
+                        "traffic_and_funnel_metrics": {
+                            "tracking_diagnostic_note": (
+                                "The webform is uninstrumented and has zero pre-screening; no conversion pixel is installed."
+                            ),
+                        }
+                    },
+                },
+            },
+        })
+        observations, _ = normalize_narrative(scenario, self.graph)
+        signals = {row["signal"] for row in observations if row["state"] == "present"}
+        self.assertIn("tracking_workflow_verified", signals)
+        self.assertIn("manual_tracking_load", signals)
+        self.assertIn("tracking_attribution_gap_reported", signals)
+        gap_rows = [
+            row for row in observations
+            if row["signal"] == "tracking_attribution_gap_reported"
+        ]
+        self.assertTrue(gap_rows)
+        self.assertEqual({"present"}, {row["state"] for row in gap_rows})
+        diagnoses = diagnose(self.graph, observations)
+        self.assertIn("manual_measurement", {row["rule"] for row in diagnoses})
+        self.assertIn(
+            "increased sponsored job-board advertising",
+            scenario["client_internal_context"]["leadership_perceptions_and_requests"],
+        )
+
+        # The broadened client phrasing must not introduce this signal in the
+        # official scenarios, which remain protected by the output regression check.
+        for official_scenario in self.scenarios:
+            official_observations, _ = normalize_narrative(official_scenario, self.graph)
+            self.assertNotIn(
+                "tracking_attribution_gap_reported",
+                {row["signal"] for row in official_observations},
+                official_scenario["scenario_code"],
+            )
+
+    def test_step4_defers_premature_brand_video_and_job_board_spend(self):
+        scenario = {
+            "scenario_code": "GENERAL_GUARDRAIL_TEST",
+            "client_internal_context": {},
+            "requests": [
+                {"request_text": "Produce a corporate culture video before addressing internal issues."},
+                {"request_text": "Double sponsored job-board ad spend next quarter."},
+            ],
+        }
+        expectation_gap = {
+            "id": "expectation-gap", "signal": "documented_broken_promise",
+            "quality": "reported", "state": "present", "evidence_type": "reported_observation",
+        }
+        funnel_gap = {
+            "id": "funnel-gap", "signal": "tracking_attribution_gap_reported",
+            "quality": "reported", "state": "present", "evidence_type": "reported_observation",
+        }
+
+        def guards_for(observations):
+            state = evaluate_guardrails(
+                scenario, {}, {"observations": observations, "excluded": []}, [], [], set()
+            )
+            return state["guards"]
+
+        guards = guards_for([expectation_gap, funnel_gap])
+        self.assertIn(
+            "Defer corporate culture or branding videos until internal expectation gaps and management practices are verified and addressed.",
+            guards,
+        )
+        self.assertIn(
+            "Defer increasing sponsored job-board ad spend until funnel tracking, pre-screening filters, and qualified conversion are verified.",
+            guards,
+        )
+
+        without_blocker = guards_for([funnel_gap])
+        without_funnel_signal = guards_for([expectation_gap])
+        self.assertNotIn(
+            "Defer corporate culture or branding videos until internal expectation gaps and management practices are verified and addressed.",
+            without_blocker,
+        )
+        self.assertNotIn(
+            "Defer increasing sponsored job-board ad spend until funnel tracking, pre-screening filters, and qualified conversion are verified.",
+            without_funnel_signal,
+        )
 
     def test_burnout_mutation_defers_advocacy_but_keeps_feedback_pilot(self):
         clean = deepcopy(self.scenarios[2])

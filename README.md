@@ -44,10 +44,11 @@ Run from the repository root with Python 3.9 or later.
 
 ```bash
 mkdir -p database/ingaze-knowledge-graph
-python3 recommendation_engine.py --out submission.json \
+python3 recommendation_engine.py --sandbox --out submissions/proposal.json \
+  --proposal-out submissions/hr_proposal.md \
   --trace-out database/ingaze-knowledge-graph/diagnostic_report.json \
   --graph-out database/ingaze-knowledge-graph/graph.json
-python3 starter_baseline_and_validator.py --validate submission.json
+python3 starter_baseline_and_validator.py --validate submissions/proposal.json
 python3 -m scripts.demo_recommendations
 ```
 
@@ -62,9 +63,9 @@ The active knowledge-graph orchestrator lives in `src/main.py` and calls the sta
 | `database/ingaze-knowledge-graph/` | Graph exports, diagnostic traces, and historical replay |
 | `database/ingaze-telemetry-excel/` | Existing telemetry spreadsheet |
 | `database/ingaze_csv_exports/` | Existing CSV inspection exports and source note |
-| `outputs/` | Readable proposal for the official sandbox run |
+| `submissions/` | Official sandbox results: `proposal.json` and `hr_proposal.md` |
 
-The challenge deliverables stay at the root. [Architecture](ARCHITECTURE.md) · [Submission](submission.json)
+The generated sandbox deliverables are grouped in `submissions/`. [Architecture](ARCHITECTURE.md) · [Proposal JSON](submissions/proposal.json) · [HR proposal](submissions/hr_proposal.md)
 
 ---
 
@@ -91,7 +92,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 
 1. **Root-Cause Precision & `100%` Sector-Trap Immunity:** Across all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), distinguish underlying cross-pillar root causes from surface symptoms without false-positive keyword stuffing, and block every wrong-industry trap (e.g., no retail weekend shift rotation for a cloud FinTech; no LinkedIn engineering-blog strategy for commercial truck drivers).
 2. **Prerequisite-Safe 3-Phase Sequencing & ROI Grounding:** Sequence actions strictly across `Phase 1 (Audits & Listening) -> Phase 2 (Core Structural Fixes) -> Phase 3 (Scaling & Advocacy)`—deferring premature advocacy when an internal Say-Do Gap/burnout blocker is active—and match the **Top-3** structurally relevant historical Case Studies with quantified ROI + empirical research citations.
-3. **Reproducible Execution, Schema Validity & Zero Hardcoding:** Export a `submission.json` that passes `python starter_baseline_and_validator.py --validate submission.json` with `0` errors, runs live from general domain logic (zero `if company == "..."` rules), and adapts dynamically if a scenario trait is tweaked live during Sunday Q&A.
+3. **Reproducible Execution, Schema Validity & Zero Hardcoding:** Export `submissions/proposal.json` that passes `python starter_baseline_and_validator.py --validate submissions/proposal.json` with `0` errors, runs live from general domain logic (zero `if company == "..."` rules), and adapts dynamically if a scenario trait is tweaked live during Sunday Q&A.
 
 ---
 
@@ -100,7 +101,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 Everything is self-contained in this repo—**no extra datasets or files to wait for during the weekend!** Before Sunday `09:30`, push to your team's GitHub repo:
 1. **`ARCHITECTURE.md`** (based on `ARCHITECTURE_TEMPLATE.md`) — Formal representation design, context structuring & noise-filtering controls, diagnostic/3-phase sequencing mechanism, and stack justification.
 2. **Working Python PoC + Live Demo** — Ingests `database/ingaze_sandbox_dataset.json`, outperforms the naive baseline on all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), and generalizes cleanly (during Q&A we may tweak a scenario trait live to verify zero hardcoded `if company == ...` rules!).
-3. **Validated `submission.json`** — Committed in your repo root and passing:
+3. **Validated `submissions/proposal.json`** — Passing:
    ```bash
-   python starter_baseline_and_validator.py --validate submission.json
+   python starter_baseline_and_validator.py --validate submissions/proposal.json
    ```

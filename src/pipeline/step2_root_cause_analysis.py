@@ -568,7 +568,8 @@ SIGNAL_PATTERNS = {
     "handoff_delay_reported": r"slow (?:candidate response|local[^.;]{0,45}interview handoffs)|interview handoff delays",
     "role_info_gap_verified": r"(?:job descriptions|job ads).{0,100}(?:omit|zero mention|fail to mention)",
     "feedback_workflow_verified": r"disconnected (?:paper sheets|forms)|ad.hoc forms|fragmented (?:feedback|survey collection)",
-    "tracking_workflow_verified": r"manually (?:exporting|copying|collecting)|manual spreadsheet tracking|chasing post screenshots",
+    "tracking_workflow_verified": r"manually (?:exporting|copying|collecting|opening|screening|reviewing)|shared (?:mailbox|inbox)|manual spreadsheet tracking|chasing post screenshots",
+    "tracking_attribution_gap_reported": r"uninstrumented (?:webform|forms?|funnel)|no conversion (?:pixel|tracking)|zero pre[- ]screening",
     "local_issue_verified": r"unmonitored centrally|outdated or unaddressed local profiles",
     "expectations_met": r"recruiting promises (?:are )?(?:being )?met|job matched (?:the|their) preview",
     "adequate_workload": r"workload (?:is |was )?(?:within capacity|sustainable)",
@@ -730,6 +731,37 @@ def _polarity(pattern, clause):
     return sorted(set(found))
 
 
+def _signal_polarity(signal, pattern, clause):
+    """Interpret absence language according to the meaning of each signal."""
+    if signal != "tracking_attribution_gap_reported":
+        return _polarity(pattern, clause)
+
+    gap_phrase = re.search(
+        r"uninstrumented\s+(?:webform|forms?|funnel)|"
+        r"no\s+conversion\s+(?:pixel|tracking)|"
+        r"zero\s+pre[- ]screening",
+        clause,
+        re.I,
+    )
+    if not gap_phrase:
+        return _polarity(pattern, clause)
+
+    prefix = re.split(r"[.;!?,]", clause[:gap_phrase.start()])[-1]
+    denied = re.search(
+        r"\b(?:not|never|without|no\s+longer|don.t|doesn.t|isn.t|aren.t|wasn.t|weren.t)"
+        r"\s+(?:[\w-]+\s+){0,3}$",
+        prefix,
+        re.I,
+    )
+    explicit_no_gap = re.search(
+        r"\bno\s+(?:(?:reported|known|actual)\s+)?(?:attribution|tracking|funnel)\s+"
+        r"(?:gap|issue|problem)\b",
+        clause,
+        re.I,
+    )
+    return ["absent" if denied or explicit_no_gap else "present"]
+
+
 def _quantities(clause):
     values = []
     for hit in QUANTITY.finditer(clause):
@@ -747,6 +779,13 @@ def _quantities(clause):
 def normalize_narrative(scenario, graph):
     patterns = {**FEATURES, **SIGNAL_PATTERNS}
     patterns.update({key: row["intake_pattern"] for key, row in graph["signals"].items() if "intake_pattern" in row})
+    # Retain the graph's canonical attribution phrases while accepting these
+    # additional general intake phrasings without changing the graph file.
+    if "tracking_attribution_gap_reported" in graph["signals"]:
+        graph_pattern = graph["signals"]["tracking_attribution_gap_reported"].get("intake_pattern")
+        local_pattern = SIGNAL_PATTERNS["tracking_attribution_gap_reported"]
+        if graph_pattern:
+            patterns["tracking_attribution_gap_reported"] = f"(?:{graph_pattern})|(?:{local_pattern})"
     rows, excluded = [], []
     for section in ("ingaze_platform_signals", "client_internal_context"):
         for field, value in scenario.get(section, {}).items():
@@ -761,7 +800,7 @@ def normalize_narrative(scenario, graph):
                 for signal, pattern in patterns.items():
                     if signal not in graph["signals"]:
                         continue
-                    for state in _polarity(pattern, clause):
+                    for state in _signal_polarity(signal, pattern, clause):
                         if field == STRENGTH_FIELD and state == "present" and signal not in {
                             "culture_ready", "existing_advocates", "expectations_met", "adequate_workload",
                         }:

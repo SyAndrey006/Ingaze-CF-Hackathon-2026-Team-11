@@ -159,6 +159,7 @@ def adapt_messy_intake(document):
                 })
 
     surveys = _object(case, "ingaze_onboarding_surveys_raw")
+    employer = _object(surveys, "employer_archetype_survey_response")
     cost_key = "recruiting_cost_review_survey_response"
     cost = _object(surveys, cost_key)
     cost_path = f"{prefix}/ingaze_onboarding_surveys_raw/{cost_key}"
@@ -225,8 +226,24 @@ def adapt_messy_intake(document):
         missing.update({f"{path}/{key}": None for key in keys if key in record and record[key] is None})
     if strengths:
         context["healthy_metrics_and_strengths_not_to_break"] = " ".join(row["text"] for row in strengths)
-    if protected:
-        context["leadership_perceptions_and_requests"] = protected[0]["reason"]
+    request_notes = [
+        context.get("leadership_perceptions_and_requests", ""),
+        protected[0]["reason"] if protected else "",
+        _text(employer, "q8_initiative_hr_believes_they_need"),
+    ]
+    if any(note.strip() for note in request_notes if isinstance(note, str)):
+        context["leadership_perceptions_and_requests"] = " ".join(
+            note.strip() for note in request_notes if isinstance(note, str) and note.strip()
+        )
+
+    workflow_notes = [
+        _text(cost, "q4_screening_note"),
+        _text(funnel, "tracking_diagnostic_note"),
+    ]
+    if any(workflow_notes):
+        context["recruiting_process_diagnostic_notes"] = " ".join(
+            note for note in workflow_notes if note
+        )
 
     return {
         **{key: case[key] for key in ("scenario_code", "scenario_id", "company_name") if key in case},

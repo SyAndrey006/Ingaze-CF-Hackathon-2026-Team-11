@@ -69,13 +69,13 @@ The graph has **92 signals, 26 rules and 26 sources**. The reference data includ
 
 **Alternative designs.** Flat prompts and vector retrieval offer flexible text handling and fast initial retrieval. The graph and policy layer makes source independence and prerequisites explicit. A database-backed graph or rules service would improve indexing and multi-user management while adding infrastructure to the demo. Local files keep the deterministic route inexpensive to run. CFO review can inspect case fit and observed ROI separately from a proposed client outcome.
 
-**Verification at `a8d4fa0`.** The sandbox run reproduced the committed submission byte for byte, with three scenarios and zero organizer validation errors or warnings. All 89 tests passed, including protections, contradictions, duplication and a VerdeCare burnout mutation. VerdeCare’s advocacy pilot still requires a confirmed target cohort. [Tests](tests/) · [Submission](submission.json)
+**Verification at `a8d4fa0`.** The sandbox run reproduced the committed submission byte for byte, with three scenarios and zero organizer validation errors or warnings. All 89 tests passed, including protections, contradictions, duplication and a VerdeCare burnout mutation. VerdeCare’s advocacy pilot still requires a confirmed target cohort. [Tests](tests/) · [Proposal JSON](submissions/proposal.json) · [HR proposal](submissions/hr_proposal.md)
 
 **Live intake limit.** The raw format adapter extracts recognized patterns and preserves source paths. It treats self-reports as provisional, flags untracked metrics, and withholds unfiltered aggregates from diagnosis. New survey fields and unrecognized wording may require additional mappings. [Adapter](src/pipeline/messy_intake.py) · [Organizer’s live intake format](https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/data/ingaze_real_world_messy_intake.json)
 
 ```bash
-python3 recommendation_engine.py --sandbox --out submission.json --trace-out trace.json
-python3 starter_baseline_and_validator.py --validate submission.json
+python3 recommendation_engine.py --sandbox --out submissions/proposal.json --proposal-out submissions/hr_proposal.md --trace-out trace.json
+python3 starter_baseline_and_validator.py --validate submissions/proposal.json
 python3 starter_baseline_and_validator.py --run-naive-baseline --out naive_baseline.json
 python3 -m unittest discover -s tests
 ```
