@@ -20,6 +20,7 @@ Description:
 
 from __future__ import annotations
 
+import re
 from typing import Dict, FrozenSet, Iterable, List, Optional, Set, Tuple
 
 from src.schemas.domain_models import SectorCategory, SignalCode, WorkforceArchetype
@@ -75,6 +76,25 @@ PROFILE_TO_WORKFORCE: Dict[str, WorkforceArchetype] = {
 }
 FALLBACK_DISTRIBUTED_TAG = "distributed"
 
+# Role words in the client's `workforce_target` (who is being hired) -> archetype.
+# Deliberately role nouns only, no sector words ("freight", "retail", "healthcare"):
+# a logistics company hiring software engineers is a desk-based client.
+# Validated against the curated archetypes of the historical cases' "Target talent".
+WORKFORCE_ROLE_PATTERNS: Tuple[Tuple[WorkforceArchetype, str], ...] = (
+    (WorkforceArchetype.DESK_BASED_TECH_SPECIALIST,
+     r"software|engineer|developer|data scien|data analyst|product manager|devops|\bsre\b|\bquant"),
+    (WorkforceArchetype.CORPORATE_HQ_ADMIN,
+     r"\badmin|back.?office|\bhq\b staff|corporate staff|head.?office|finance staff|underwrit|actuar"),
+    (WorkforceArchetype.DESKLESS_FRONTLINE_LOGISTICS,
+     r"driver|warehouse|courier|sortation|forklift|picker|fulfil"),
+    (WorkforceArchetype.DESKLESS_FRONTLINE_RETAIL,
+     r"store staff|store manager|in.?store|cashier|retail associate|sales associate|shop floor"),
+    (WorkforceArchetype.MULTISITE_CLINICAL_HEALTHCARE,
+     r"nurse|therapist|clinic|caregiver|care worker|physician"),
+    (WorkforceArchetype.EARLY_CAREER_GEN_Z,
+     r"gen.?z|graduate|early.?career|\bintern\b|apprentice|trainee|entry.level"),
+)
+
 # Step 2 profile tag -> sector, in priority order (most specific first).
 PROFILE_TO_SECTOR_PRIORITY: Tuple[Tuple[str, SectorCategory], ...] = (
     ("fintech", SectorCategory.FINTECH_PAYMENTS),
@@ -115,6 +135,14 @@ def signals_for_hypothesis_scopes(hypotheses: Iterable[Dict]) -> Set[SignalCode]
     return set()
 
 
+def workforce_from_role_text(text: Optional[str]) -> List[WorkforceArchetype]:
+    """Archetypes named by role words in a `workforce_target` text (empty if none)."""
+    if not text:
+        return []
+    found = {archetype for archetype, pattern in WORKFORCE_ROLE_PATTERNS if re.search(pattern, text, re.I)}
+    return sorted(found, key=lambda w: w.value)
+
+
 def workforce_for_profile(profile: Iterable[str]) -> List[WorkforceArchetype]:
     tags = set(profile)
     workforce = {PROFILE_TO_WORKFORCE[tag] for tag in tags if tag in PROFILE_TO_WORKFORCE}
@@ -132,9 +160,16 @@ def client_match_profile(
     track_tags: Iterable[str],
     profile: Iterable[str],
     hypotheses: Iterable[Dict] = (),
+    workforce_target: Optional[str] = None,
 ) -> Tuple[List[SignalCode], List[WorkforceArchetype], Optional[SectorCategory]]:
-    """`(signals, workforce, sector)` for `rank_top_cases` from Step 2 output."""
+    """
+    `(signals, workforce, sector)` for `rank_top_cases` from Step 2 output.
+
+    Workforce comes from the role words in `workforce_target` when it names any;
+    the mixed sector/workforce profile tags are only the fallback.
+    """
     signals = signals_for_track_tags(track_tags) | signals_for_hypothesis_scopes(hypotheses)
     signals = sorted(signals, key=lambda s: s.value)
     profile = list(profile)
-    return signals, workforce_for_profile(profile), sector_for_profile(profile)
+    workforce = workforce_from_role_text(workforce_target) or workforce_for_profile(profile)
+    return signals, workforce, sector_for_profile(profile)

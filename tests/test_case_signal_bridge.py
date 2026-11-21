@@ -1,9 +1,11 @@
 """Tests for src/offline/case_signal_bridge.py (Step 2 vocabulary -> case-store enums)."""
 
 import ast
+import json
 import unittest
 from pathlib import Path
 
+from src.offline.database_loader import load_normalized_cases
 from src.offline.case_signal_bridge import (
     PROFILE_TO_SECTOR_PRIORITY,
     PROFILE_TO_WORKFORCE,
@@ -14,6 +16,7 @@ from src.offline.case_signal_bridge import (
     signals_for_hypothesis_scopes,
     signals_for_track_tags,
     workforce_for_profile,
+    workforce_from_role_text,
 )
 from src.pipeline.step2_root_cause_analysis import PROFILE, load_graph
 from src.schemas.domain_models import SectorCategory, SignalCode, WorkforceArchetype
@@ -87,6 +90,41 @@ class TestTranslation(unittest.TestCase):
             {"status": "plausible"},
         ):
             self.assertEqual(signals_for_hypothesis_scopes([hyp]), set(), hyp)
+
+    def test_workforce_target_beats_sector_profile(self):
+        # A freight company hiring software engineers is a desk-based client.
+        _, wf, sector = client_match_profile(
+            [], ["freight", "distributed", "tech"],
+            workforce_target="Senior Software Engineers and Data Engineers for the freight platform",
+        )
+        self.assertEqual(wf, [WorkforceArchetype.DESK_BASED_TECH_SPECIALIST])
+        self.assertEqual(sector, SectorCategory.LOGISTICS_FREIGHT)
+        _, wf, _ = client_match_profile(
+            [], ["freight"], workforce_target="Licensed Commercial Truck Drivers and Warehouse Operators"
+        )
+        self.assertEqual(wf, [WorkforceArchetype.DESKLESS_FRONTLINE_LOGISTICS])
+
+    def test_no_role_words_falls_back_to_profile(self):
+        for target in (None, "", "120 urgent openings"):
+            _, wf, _ = client_match_profile([], ["freight"], workforce_target=target)
+            self.assertEqual(wf, [WorkforceArchetype.DESKLESS_FRONTLINE_LOGISTICS], target)
+
+    def test_role_patterns_agree_with_curated_cases(self):
+        # Every historical case that states its target talent must be detected with the
+        # curated archetypes (MIXED_DISTRIBUTED comes from footprint, not from roles).
+        sandbox = json.loads((REPO_ROOT / "database" / "ingaze_sandbox_dataset.json").read_text(encoding="utf-8"))
+        curated = {c.case_name: c for c in load_normalized_cases(
+            REPO_ROOT / "database" / "normalized" / "normalized_cases.json").cases}
+        checked = 0
+        for raw in sandbox["raw_case_study_narratives"]:
+            profile = raw["sector_and_profile"]
+            if "Target talent:" not in profile:
+                continue
+            detected = set(workforce_from_role_text(profile.split("Target talent:", 1)[1]))
+            expected = set(curated[raw["case_name"]].workforce_archetypes) - {WorkforceArchetype.MIXED_DISTRIBUTED}
+            self.assertEqual(detected, expected, raw["case_name"])
+            checked += 1
+        self.assertGreaterEqual(checked, 10)
 
     def test_client_match_profile_is_deterministic(self):
         a = client_match_profile(["post_tracking", "burnout", "emv"], ["tech", "distributed"])

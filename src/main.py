@@ -106,6 +106,7 @@ def plan_from_graph(
     diagnosis_state = {
         "scenario_code": scenario["scenario_code"],
         "profile": sorted(profile),
+        "workforce_target": scenario.get("workforce_target"),
         "intake": intake,
         "diagnostic_hypotheses": hypotheses,
         "prioritized_hypotheses": ranked_hypotheses,

@@ -249,7 +249,7 @@ def score_diagnostic_candidates(
         case_match_input_source = "step1_canonical_signals"
     else:
         client_signals, client_workforce, client_sector = client_match_profile(
-            ranked_tags, profile, ranked_hypotheses
+            ranked_tags, profile, ranked_hypotheses, diagnosis_state.get("workforce_target")
         )
         case_match_input_source = "step2_track_tags_via_case_signal_bridge"
 
