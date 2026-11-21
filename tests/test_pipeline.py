@@ -425,32 +425,55 @@ class TestPipelineBehavior(unittest.TestCase):
         result, trace = self._plan_scenario(0)
         proposal = trace["proposal_markdown"]
         for heading in (
-            "## Executive Diagnosis",
-            "## Guardrails &",
-            "## Three-Phase Action Roadmap",
-            "## Evidence & Precedents",
-            "### Open client verification questions",
+            "## Executive Summary",
+            "## Key Problems",
+            "## What NOT to Do / Strengths to Protect",
+            "## Three-Phase Action Plan",
+            "## Precedents & Next Steps",
         ):
             self.assertIn(heading, proposal)
         self.assertIn("SCENARIO_A_CLOUDNOVA_FINTECH", proposal)
         self.assertIn("Exclude retail store shift rotation", proposal)
         self.assertEqual(result["scenario_code"], "SCENARIO_A_CLOUDNOVA_FINTECH")
-        executive_section = proposal.split("## Executive Diagnosis", 1)[1].split(
-            "### Root-cause hypotheses", 1
+        executive_section = proposal.split("## Executive Summary", 1)[1].split(
+            "## Key Problems", 1
         )[0]
-        self.assertNotIn("prerequisite:", executive_section)
-        baseline_section = proposal.split("### Healthy baselines to preserve", 1)[1].split(
-            "### Cohort and site asymmetries", 1
+        self.assertNotIn("prerequisite", executive_section.casefold())
+        baseline_section = proposal.split("### Strengths to protect", 1)[1].split(
+            "### Cohort and site differences", 1
         )[0]
         self.assertEqual(baseline_section.count("82nd percentile"), 1)
+        self.assertNotIn('{"', proposal)
+        self.assertNotIn("client_internal_context.", proposal)
+        self.assertNotIn("missing families:", proposal.casefold())
+        self.assertNotIn("dependent families:", proposal.casefold())
+        self.assertNotIn("status: plausible", proposal.casefold())
+        self.assertNotIn("decision: conditional", proposal.casefold())
+        self.assertNotIn("### Leadership requests", proposal)
+        self.assertNotIn("{", proposal)
+        self.assertNotIn("root causes match", proposal.casefold())
+        self.assertNotIn("t0->t1", proposal.casefold())
+        lines = proposal.splitlines()
+        for index, line in enumerate(lines):
+            if line.startswith("### "):
+                following = next((item for item in lines[index + 1:] if item.strip()), "")
+                self.assertFalse(following.startswith("#"), f"Empty subsection: {line}")
 
-        class InventiveLLM:
+        class ClearLLM:
             called = False
 
             def generate_structured(self, *, system_prompt, user_prompt, response_model):
                 self.called = True
+                self.assert_grounding_prompt = "Do not invent" in system_prompt
                 return response_model.model_validate(
-                    {"executive_summary": "Launch an unapproved global reorganization immediately."}
+                    {"proposal_markdown": "## Executive Summary\nReview the evidence, then sequence the approved work."}
+                )
+
+        class UngroundedLLM(ClearLLM):
+            def generate_structured(self, *, system_prompt, user_prompt, response_model):
+                self.called = True
+                return response_model.model_validate(
+                    {"proposal_markdown": "## Executive Summary\nSave 93% and invest €999,999 immediately."}
                 )
 
         arguments = (
@@ -463,10 +486,98 @@ class TestPipelineBehavior(unittest.TestCase):
              "phase_3_actions": [{"condition": "Scale only after verified results."}]},
         )
         deterministic = generate_hr_proposal(*arguments)
-        optional_llm = InventiveLLM()
+        optional_llm = ClearLLM()
         polished = generate_hr_proposal(*arguments, llm_client=optional_llm)
         self.assertTrue(optional_llm.called)
-        self.assertEqual(polished, deterministic)
+        self.assertTrue(optional_llm.assert_grounding_prompt)
+        self.assertIn("Review the evidence", polished)
+        self.assertNotEqual(polished, deterministic)
+        self.assertEqual(generate_hr_proposal(*arguments, llm_client=UngroundedLLM()), deterministic)
+
+    def test_step6_proposal_hides_engine_metadata_and_summarizes_shared_gates(self) -> None:
+        scope = {
+            "site": "milan",
+            "cohort": "engineering_workforce",
+            "tenure": "new_or_early_tenure",
+            "window": "intake",
+        }
+        prerequisite = (
+            "Complete the diagnostic and verify the proposed mechanism in this exact scope. "
+            "Confirm missing or dependent observations against independent records."
+        )
+        phase_one_action = "Compare exits and role expectations across comparable teams."
+        proposal = generate_hr_proposal(
+            {
+                "scenario_code": "FORMAT_TEST",
+                "company_name": "Example Works",
+                "industry_raw": "Industrial technology",
+                "healthy_baselines": [{
+                    "asset_or_cohort_name": "Tenured workforce",
+                    "evidence": "Experienced technicians rarely leave.",
+                    "do_not_touch_scope": "Keep the proven retention practices in place.",
+                }],
+                "filtered_noise_items": [{
+                    "inferred_mismatched_action_or_topic": "Promotional traffic",
+                    "raw_excerpt": "/client_intake_case/marketing/offer",
+                    "reason_filtered": "This external campaign claim is unrelated to employee retention.",
+                }],
+                "leadership_requests": [],
+            },
+            {
+                "scenario_code": "FORMAT_TEST",
+                "intake": {"observations": [{
+                    "signal": "early_attrition",
+                    "scope": scope,
+                    "text": "Several recent hires left within their first year.",
+                }]},
+            },
+            {
+                "matched_case_studies": [],
+                "supporting_research_snippets": [{
+                    "source_id": "bauer_2007",
+                    "finding": "Structured onboarding supports role clarity.",
+                }],
+            },
+            {
+                "guards": [],
+                "decisions": [{"rule": "expectation_drift", "scope": scope, "decision": "deferred", "reason": "Wait for cohort-level evidence."}],
+            },
+            {
+                "diagnosed_root_causes": [{
+                    "hypothesis": "Expectation drift may contribute to early exits",
+                    "status": "plausible",
+                    "scope": scope,
+                }],
+                "phase_1_actions": [{"action": phase_one_action, "scope": scope}],
+                "phase_2_actions": [
+                    {"action": "Pilot an accurate role preview.", "scope": scope, "prerequisite": prerequisite, "pilot_design": "Ask new hires to review the draft."},
+                    {"action": "Pilot manager coaching.", "scope": scope, "prerequisite": prerequisite},
+                ],
+                "phase_3_actions": [
+                    {"condition": "Scale when early retention improves.", "scope": scope, "prerequisite": "Complete the scoped pilot and review the agreed measures."},
+                    {"condition": "Expand after role clarity improves.", "scope": scope, "prerequisite": "Complete the scoped pilot and review the agreed measures."},
+                ],
+                "open_questions_and_hypotheses_for_client": [{"verify": phase_one_action, "dependent_families": ["employee_exits"]}],
+                "strengths": "Experienced technicians rarely leave.",
+            },
+        )
+
+        self.assertNotIn('{"', proposal)
+        self.assertNotIn("client_internal_context.", proposal)
+        self.assertNotIn("missing families:", proposal.casefold())
+        self.assertNotIn("dependent families:", proposal.casefold())
+        self.assertNotIn("status: plausible", proposal.casefold())
+        self.assertNotIn("decision: conditional", proposal.casefold())
+        self.assertNotIn("early_attrition", proposal)
+        self.assertNotIn("bauer_2007", proposal)
+        self.assertNotIn("/client_intake_case/", proposal)
+        self.assertIn("(Milan — Engineering, new hires)", proposal)
+        self.assertIn("Promotional Traffic (excluded)", proposal)
+        self.assertIn("Tenured workforce", proposal)
+        self.assertEqual(proposal.count("Complete the diagnostic and verify the proposed mechanism in this exact scope."), 1)
+        self.assertEqual(proposal.count("Complete the scoped pilot and review the agreed measures."), 1)
+        self.assertNotIn("### Questions for HR to confirm", proposal)
+        self.assertNotIn("### Leadership requests", proposal)
 
     def test_verifier_builds_a_serializable_pipeline_trace(self) -> None:
         scenario_code = "VERIFIER_SMOKE_TEST"
