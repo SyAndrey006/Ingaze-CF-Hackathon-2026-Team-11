@@ -204,6 +204,34 @@ def _deterministic_normalized_client(bundle):
     return normalize_client_input_deterministically(bundle)
 
 
+def _normalize_official_scenario(scenario, analytics, output_dir=DEFAULT_INTERMEDIATE_DIR):
+    """Run deterministic Step 1 and persist its audit record for a sandbox case."""
+    from src.schemas.domain_models import SectorPeerBenchmarks, TelemetrySnapshot
+    from src.schemas.pipeline_models import RawScenarioBundle
+
+    scenario_code = scenario["scenario_code"]
+    snapshot = analytics.get("active", {}).get(scenario_code, {})
+    snapshot = snapshot if isinstance(snapshot, dict) else {}
+
+    telemetry_raw = snapshot.get("t0_current_snapshot") or snapshot.get("t0_before_intervention")
+    telemetry = TelemetrySnapshot.model_validate(telemetry_raw) if isinstance(telemetry_raw, dict) else None
+    benchmarks_raw = snapshot.get("sector_peer_benchmarks")
+    benchmarks = (
+        SectorPeerBenchmarks.model_validate(benchmarks_raw)
+        if isinstance(benchmarks_raw, dict) else None
+    )
+
+    bundle = RawScenarioBundle(
+        scenario_code=scenario_code,
+        raw_scenario=scenario,
+        t0_telemetry=telemetry,
+        sector_benchmarks=benchmarks,
+    )
+    normalized = _deterministic_normalized_client(bundle)
+    _persist_stage_result(scenario_code, "step1_normalize_input", normalized, output_dir)
+    return normalized
+
+
 def _adapt_client_for_engine(bundle, normalized, graph):
     """Bridge Step 1's schema to the deterministic engine's intake schema."""
     from src.pipeline.step2_root_cause_analysis import REQUEST_FIELD, STRENGTH_FIELD
@@ -576,7 +604,13 @@ def main(argv: Optional[Sequence[str]] = None):
             ]
         analytics_path = args.analytics or (DEFAULT_ANALYTICS if args.dataset.resolve() == DEFAULT_DATA else None)
         analytics = load_analytics(None if args.no_analytics else analytics_path)
-        plans = [plan(scenario, dataset, evidence_library, graph, analytics) for scenario in scenarios]
+        plans = []
+        for scenario in scenarios:
+            # Official mode runs Step 1 deterministically for an auditable
+            # artifact. Keep the established plan() input unchanged so the
+            # official submission remains byte-for-byte reproducible.
+            _normalize_official_scenario(scenario, analytics)
+            plans.append(plan(scenario, dataset, evidence_library, graph, analytics))
     except (OSError, ValueError) as exc:
         parser.error(str(exc))
     payload = {
