@@ -888,6 +888,15 @@ def normalize_intake(scenario, graph, analytics):
     overrides = scenario.get("diagnostic_observations", [])
     if not isinstance(overrides, list):
         raise ValueError("diagnostic_observations must be a list")
+    reported = []
+    audit = scenario.get("intake_normalization_audit")
+    if audit:
+        for row in scenario["reported_intake_observations"]:
+            observation = normalize_reviewed({**row, "quality": "reported"})
+            observation["evidence_type"] = "reported_observation"
+            reported.append(observation)
+        measurements.extend(audit["measurements"])
+        issues.extend(audit["excluded"])
     healthy = scenario.get("client_internal_context", {}).get(STRENGTH_FIELD, "")
     protected = [
         {"text": clause, "scope": _word_scope(scenario, clause), "quantities": _quantities(clause),
@@ -895,7 +904,7 @@ def normalize_intake(scenario, graph, analytics):
         for index, clause in enumerate(CLAUSE.split(healthy), start=1) if clause.strip()
     ] if isinstance(healthy, str) else []
     return {
-        "observations": narrative + metric_rows + [normalize_reviewed(row) for row in overrides],
+        "observations": narrative + metric_rows + [normalize_reviewed(row) for row in overrides] + reported,
         "measurements": measurements, "excluded": excluded + issues, "snapshot": snapshot or {},
         "protected_baselines": protected,
     }

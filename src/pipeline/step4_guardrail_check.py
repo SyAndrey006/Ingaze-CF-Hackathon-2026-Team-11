@@ -152,7 +152,14 @@ def evaluate_guardrails(
         for row in evaluations
     )
     guards = []
-    if "advoc" in requests or "ambassador" in requests or blockers and "post_tracking" in reported:
+    company_advocacy_veto = any(
+        entry["scope"] == {"cohort": "all"} and "advocacy_pilot" in entry.get("rules", [])
+        and entry.get("source_ref")
+        for entry in protected
+    )
+    if company_advocacy_veto:
+        guards.append("Block public employee advocacy under the client's explicit restriction.")
+    elif "advoc" in requests or "ambassador" in requests or blockers and "post_tracking" in reported:
         if advocacy_ready:
             guards.append("Limit advocacy to an opt-in cohort pilot after readiness and reporting checks. Defer broad automation.")
         else:
