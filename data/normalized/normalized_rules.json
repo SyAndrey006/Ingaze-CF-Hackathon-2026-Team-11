@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "source_dataset_version": "TODO: populated by src/offline/normalize_databases.py",
+  "symptom_to_root_cause_rules": [],
+  "metric_benchmark_thresholds": [],
+  "scoring_weights": {
+    "root_cause_overlap_weight": 0.35,
+    "workforce_fit_weight": 0.25,
+    "sector_fit_weight": 0.15,
+    "roi_evidence_weight": 0.15,
+    "cfo_auditability_weight": 0.10
+  },
+  "scoring_condition_rules": [],
+  "guardrail_rules": [],
+  "phase_sequencing_rules": [],
+  "empirical_research_snippets": [],
+  "_template_entries": {
+    "symptom_to_root_cause_rule": {
+      "rule_id": "RC_EXAMPLE_TEMPLATE",
+      "source_field_note": "Field Note 1",
+      "required_signals": ["SAY_DO_GAP"],
+      "supporting_signals": ["EARLY_FIRST_YEAR_ATTRITION"],
+      "excluded_if_signals": ["HEALTHY_AUTHENTIC_EVP"],
+      "inferred_root_cause": "SAY_DO_GAP",
+      "primary_pillar": "EMPLOYER_BRANDING_REPUTATION",
+      "explained_surface_symptoms": ["EARLY_FIRST_YEAR_ATTRITION", "LOW_INBOUND_QUALIFIED_APPLICANTS"],
+      "plain_english_template": "Company-agnostic diagnostic explanation template",
+      "recommended_action_categories": ["REPUTATION_AUDIT", "EVP_REALIGNMENT"],
+      "supporting_snippet_nos": [1]
+    },
+    "guardrail_rule": {
+      "rule_id": "GR_EXAMPLE_TEMPLATE",
+      "target_action_categories": ["AMBASSADOR_SELECTION_ENABLEMENT"],
+      "route": "PAUSE",
+      "trigger_if_active_signals": ["SAY_DO_GAP", "WORKLOAD_BURNOUT"],
+      "trigger_if_workforce_not_in": [],
+      "trigger_if_sector_not_in": [],
+      "deferred_min_phase": 3,
+      "unlock_condition": "Resolve Say-Do Gap and stabilize internal management trust first.",
+      "reason_template": "External advocacy backfires during an active Say-Do Gap or burnout crisis.",
+      "supporting_snippet_nos": [5]
+    },
+    "phase_sequencing_rule": {
+      "rule_id": "PS_EXAMPLE_TEMPLATE",
+      "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+      "default_phase": 3,
+      "prerequisite_action_categories": ["REPUTATION_AUDIT", "AMBASSADOR_SELECTION_ENABLEMENT"],
+      "accelerate_to_phase_if_signals": {
+        "2": ["HEALTHY_AUTHENTIC_EVP", "ACTIVE_ORGANIC_AMBASSADORS_PRESENT"]
+      },
+      "defer_to_phase_if_signals": {
+        "3": ["SAY_DO_GAP", "WORKLOAD_BURNOUT"]
+      },
+      "rationale": "Automate tracking once ambassadors are vetted; accelerate if internal culture is already healthy."
+    }
+  }
+}

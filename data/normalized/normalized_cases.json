@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "source_dataset_version": "TODO: populated by src/offline/normalize_databases.py (11 historical B2B cases)",
+  "cases": [],
+  "_template_case_entry": {
+    "case_id": "CASE_00_TEMPLATE",
+    "case_name": "Exact case_name join key from raw_case_study_narratives",
+    "sector_category": "B2B_TECH_SAAS",
+    "sector_benchmark_group": "European B2B SaaS & Cloud Scale-Ups",
+    "workforce_archetypes": ["DESK_BASED_TECH_SPECIALIST"],
+    "headcount": 420,
+    "locations_count": 4,
+    "canonical_problem_tags": ["MULTISITE_REPUTATION_VARIANCE", "MISSING_CFO_ROI_EMV_VISIBILITY"],
+    "healthy_starting_conditions": [],
+    "intervention_steps": [
+      {
+        "step_order": 1,
+        "action_category": "REPUTATION_AUDIT",
+        "action_title": "Centralized Multi-Channel Reputation Audit",
+        "phase_bucket": 1
+      }
+    ],
+    "measured_roi_summary": "Verified T0 -> T1 business & HR ROI summary",
+    "quantified_roi_deltas": [
+      {
+        "metric_name": "brand_alignment_index_100",
+        "t0_value": 50.2,
+        "t1_value": 65.0,
+        "delta_display": "+14.8 pts Brand Alignment Index"
+      }
+    ],
+    "applicable_research_snippet_nos": [8],
+    "sector_peer_benchmarks": null,
+    "t0_snapshot": null,
+    "t1_snapshot": null
+  }
+}
