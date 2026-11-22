@@ -104,8 +104,15 @@ def cmd_inspect(dataset: Dict[str, Any], scenarios: List[Dict[str, Any]]) -> Non
     if messy_path.exists():
         messy_data = json.loads(messy_path.read_text(encoding="utf-8")).get("client_intake_case", {})
         print(
-            f"  - Real-World Messy Intake:      {messy_data.get('scenario_code')} — {messy_data.get('company_name')} "
-            f"[Calls + Archetype/Cost Surveys + Noisy Telemetry] ({messy_path.name})"
+            f"  - Real-World Messy Intake #1:   {messy_data.get('scenario_code')} — {messy_data.get('company_name')} "
+            f"({messy_path.name})"
+        )
+    blind_path = BASE_DIR / "data" / "ingaze_sunday_blind_test_meridiana.json"
+    if blind_path.exists():
+        blind_data = json.loads(blind_path.read_text(encoding="utf-8")).get("client_intake_case", {})
+        print(
+            f"  - Sunday Blind Live Test #2:    {blind_data.get('scenario_code')} — {blind_data.get('company_name')} "
+            f"({blind_path.name})"
         )
     print(f"  - Company Scenarios Loaded:     {len(scenarios)}")
     for sc in scenarios:

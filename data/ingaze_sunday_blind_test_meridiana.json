@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "dataset_name": "Ingaze Sunday Live Test — Unseen Real-World Messy Client Intake (Meridiana S.p.A.)",
+    "version": "1.0.0-sunday-blind-live-test",
+    "usage_note": "Sunday Pre-Finals Live Generalizability Test! Uses the exact same variable names and schema as data/ingaze_real_world_messy_intake.json (SCENARIO_REALWORLD_01_VALLEYSYS)."
+  },
+  "client_intake_case": {
+    "scenario_code": "SCENARIO_BLIND_02_MERIDIANA",
+    "company_name": "Meridiana Multi-Service & Energy Grid S.p.A.",
+    "basic_company_facts": {
+      "industry": "Regional Energy Grid Infrastructure, Water/Environmental Field Services & Smart-Metering IT",
+      "footprint_and_headcount": "~1,150 employees across 6 regional operational depots in Northern/Central Italy (~780 field electrical & grid technicians, ~190 Smart-Grid Digital/Data & IT specialists at HQ, ~180 corporate/customer ops)",
+      "open_roles_mentioned_verbally": "~70 open roles: 55 certified Field Electrical & Grid Maintenance Technicians across the 6 depots, plus 15 Data/Cloud & Cybersecurity specialists at HQ"
+    },
+    "raw_discovery_call_notes": [
+      {
+        "source": "Call 1 — Kickoff with Dr.ssa Conti (Newly Appointed CHRO) & Comms Lead, 25 min",
+        "raw_notes": "CHRO joined 3 months ago and says the Chairman wants Meridiana to enter a national 'Top Employer for Youth' ranking this year because 'our headline Glassdoor/Indeed score sits at 3.34 stars and young people think utilities are boring dinosaurs.' She proposes launching a TikTok + LinkedIn Gen-Z Employee Ambassador campaign next month and hiring a creative agency for a 6-month corporate EVP overhaul from scratch. Comms Lead admits nobody in Comms or HR replies to online reviews ('we assumed legal rules forbid answering'), and neither HR nor Comms owns employee social content."
+      },
+      {
+        "source": "Call 2 — Operational Deep-Dive with Ing. Bellini (Grid Operations Director), Sara (TA Lead) & Luca (Digital IT Manager), 30 min",
+        "raw_notes": "Ing. Bellini pushed back hard on the TikTok and EVP overhaul idea: 'Our current workforce isn't unhappy—that 3.34 headline rating is dragged down by former employees who left years ago during a legacy back-office reorganization! Among people actually working here today, ratings are close to 4 stars. My real urgent problem is 55 missing licensed electrical technicians across our 6 depots—we are paying €210k/quarter to temporary staffing agencies to cover grid maintenance shifts! Once technicians actually join us, over 91% stay for years because our collective agreement gives a compressed 4-day summer workweek, 100% paid high-voltage certifications, company van, and rock-solid pay—none of which is written anywhere on our job postings!' Sara (TA Lead, managing 3 recruiters) added that their public-procurement-style ATS portal forces smartphone candidates to register an account with OTP, re-type their entire work history across 5 screens, and upload 4 separate PDF certificates—'most electricians apply on their phones during lunch break and give up halfway, while my 3 recruiters spend 18 hours a week chasing missing PDFs and screening agency CVs.' Meanwhile, Luca (Digital IT Manager) explained a specific dissatisfaction pocket in the 190-person HQ Digital/Data unit: 'We don't have a recruiting problem for juniors—our WLB and sovereign smart-grid projects are great—but the specific group leaving angry reviews on career growth are our mid-level data & cloud engineers at the 24-month mark, because department directors block internal transfers between legacy IT and the Smart-Grid AI team, so people literally have to resign to advance a grade!'"
+      }
+    ],
+    "ingaze_onboarding_surveys_raw": {
+      "employer_archetype_survey_response": {
+        "completed_by": "Dr.ssa Conti (CHRO)",
+        "q1_selected_company_archetype": "Essential Public-Interest Infrastructure & Sustainability Transition Player",
+        "q2_biggest_perceived_obstacle": "Headline 3.34-star online rating and outdated 'public utility' stereotype among young talent",
+        "q3_primary_12_month_goal": "Win an employer branding award for the Board while closing our 55 field technician and 15 digital roles",
+        "q4_internal_budget_approver": "CFO & Grid Operations Committee (require hard savings on external staffing agency spend before approving discretionary branding)",
+        "q5_current_communication_difficulty": "Corporate LinkedIn posts get solid engagement when showing real grid/sustainability work, but HR and Comms work in separate silos",
+        "q6_what_we_envy_in_competitors": "Big energy multinationals have glossy career hubs and high visibility at universities",
+        "q7_reputation_frustration": "Reviews are mostly written by former employees who already left the company or by one specific frustrated IT cohort, hiding how satisfied our current workforce is",
+        "q8_initiative_hr_believes_they_need": "Gen-Z TikTok/LinkedIn Ambassador launch next month + 6-month corporate EVP overhaul from scratch",
+        "q9_preferred_hiring_channel": "Fast direct applications from regional technical schools/electricians + internal progression for IT",
+        "q10_main_retention_concern": "Mid-tenure Data & Cloud specialists leaving after ~2 years due to blocked internal career moves",
+        "q11_employee_headcount_bracket": "Over 1,000 employees (~1,150)",
+        "q12_annual_turnover_rate_reported": "N/A overall (~6.2% in field depots, ~17.5% among 2-to-4-year HQ Digital/IT specialists)",
+        "q13_single_priority_keyword": "Modernization"
+      },
+      "recruiting_cost_review_survey_response": {
+        "completed_by": "Sara (TA Lead)",
+        "q1_hires_last_12m_bracket": "51 - 100 hires",
+        "q1_rough_exact_hires_note": "68 hires closed last 12m; 55 field technician + 15 digital/IT openings active",
+        "q2_monthly_job_board_spend_bracket": "€500 - €1,500 / month",
+        "q2_rough_spend_note": "~€1,100/month across regional job boards (~€13,200/year)",
+        "q3_dedicated_hr_recruiting_fte_bracket": "2 - 3 dedicated staff",
+        "q3_team_note": "3 full-time recruiters covering all 6 depots and HQ",
+        "q4_manual_cv_screening_hours_per_week_bracket": "11 - 20 hours / week per recruiter",
+        "q4_screening_note": "~18h/week per recruiter checking compliance PDFs and coordinating external staffing agencies",
+        "q5_interviews_per_hire_bracket": "3 - 4 total interviews",
+        "q5_process_note": "HR compliance check -> Depot/IT technical interview -> Practical safety/technical test -> Final offer",
+        "q6_internal_interviewers_per_round_bracket": "2 people (HR + Depot/IT Manager)",
+        "q7_average_time_to_fill_bracket": "2 - 3 months",
+        "q7_rough_days_note": "~71 days for certified field electrical technicians; ~42 days for HQ roles",
+        "q8_external_agency_share_bracket": "21% - 50% of hires",
+        "q8_agency_note": "~48% of urgent field technician shifts/hires currently filled via temporary staffing agencies (€210k/quarter burn)",
+        "q9_agency_fee_pct_of_salary_bracket": "15% - 20% of gross annual salary",
+        "q9_salary_and_fee_note": "~18% average markup/fee on ~€38,000 gross base salary for field technicians (~€46,000 for HQ Digital/IT)",
+        "tracked_first_year_attrition_pct": null,
+        "tracked_annual_turnover_cost_eur": null
+      },
+      "internal_climate_and_candidate_feedback_notes": {
+        "formal_company_wide_survey_launched": false,
+        "note": "No company-wide climate survey launched yet. TA Lead shared 4 recent candidate/exit notes from depots and HQ:",
+        "raw_unfiltered_snippets": [
+          "[Abandoned applicant note — Licensed Electrician, Bologna Depot]: 'Tried applying from my phone in the van, portal asked me to create a password, verify email, and upload 4 separate PDFs under 2MB. Gave up.'",
+          "[Exit interview — Cloud Data Engineer, HQ, 2.5 yrs tenure]: 'Loved the work-life balance, 4-day summer weeks, and smart-grid mission (4.5/5), but my director blocked my internal transfer to the AI Grid Forecasting team twice. Had to leave to grow.'",
+          "[Depot check-in — Senior Lineman, 9 yrs tenure]: 'Best welfare and safety gear in the region, overtime paid to the euro. Nobody outside knows it because our job ads read like 1998 municipal legal notices.'",
+          "[HQ Facilities ticket]: 'Cafeteria salad bar runs out by 13:15 on Wednesdays.'"
+        ]
+      }
+    },
+    "outside_in_scraped_telemetry": {
+      "public_reputation_telemetry": {
+        "total_raw_entries_scraped": 112,
+        "raw_unfiltered_overall_rating_5": 3.34,
+        "cross_group_rating_std_dev_5": 0.79,
+        "recommend_to_friend_raw_pct": 64.8,
+        "employer_review_reply_rate_pct": 0.0,
+        "recent_quarter_raw_anomaly": {
+          "entries_count": 18,
+          "raw_rating_5": 3.94,
+          "scraper_flag": "Current employees (68% of recent reviews) rate Meridiana 3.94 stars; the 3.34 all-time headline score is pulled down by 36 older reviews from former employees (2.14 stars) plus 1-star career-growth scores specifically from departing mid-tenure HQ IT specialists"
+        },
+        "sub_ratings_5": {
+          "management": 3.48,
+          "career_growth": 2.12,
+          "work_life_balance": 4.26,
+          "compensation": 3.72,
+          "culture_and_values": 3.88
+        },
+        "department_and_noise_breakdown": {
+          "Field_Grid_Maintenance_Current_Employees": {
+            "entries": 38,
+            "rating_5": 3.92
+          },
+          "Smart_Grid_Data_and_Digital_IT_Current_and_Recent_Exits": {
+            "entries": 22,
+            "rating_5": 3.68
+          },
+          "Corporate_Finance_Legal_and_Admin_Current_Employees": {
+            "entries": 16,
+            "rating_5": 4.18
+          },
+          "Former_Employees_2022_2024_Historical_Exits": {
+            "entries": 36,
+            "rating_5": 2.14
+          }
+        },
+        "sample_raw_review_excerpts": [
+          {
+            "source": "Glassdoor",
+            "role_tag": "Former Employee — Back-Office Clerk (Left in 2023)",
+            "rating_5": 2.0,
+            "date": "2023-04",
+            "text": "Slow bureaucracy during the 2022–2023 office restructuring, left after my fixed-term contract ended."
+          },
+          {
+            "source": "Indeed",
+            "role_tag": "Current Employee — Grid Maintenance Technician",
+            "rating_5": 4.0,
+            "date": "2026-05",
+            "text": "Great safety standards, paid high-voltage certifications, 4-day summer workweeks, punctual salary. Online application form is stuck in the 1990s."
+          },
+          {
+            "source": "Glassdoor",
+            "role_tag": "Former Employee — Data Engineer (HQ, Left after 2 yrs)",
+            "rating_5": 3.0,
+            "date": "2026-09",
+            "text": "Top work-life balance (4.5/5) and meaningful smart-grid work, but internal mobility between IT departments is frozen by silos—career growth is a 1/5 unless you resign."
+          }
+        ]
+      },
+      "career_website_and_jd_telemetry": {
+        "audited_page_scores_100": {
+          "corporate_homepage_score_100": 77.8,
+          "careers_landing_page_score_100": 56.4,
+          "single_job_posting_score_100": 44.2
+        },
+        "portal_component_scores_100": {
+          "seo_and_reach_100": 84.5,
+          "technical_speed_100": 72.0,
+          "job_ad_clarity_100": 46.8,
+          "role_benefits_transparency_100": 34.2,
+          "application_flow_simplicity_100": 27.5,
+          "authentic_team_social_proof_100": 38.4
+        },
+        "traffic_and_funnel_metrics": {
+          "last_30d_visits": 12640,
+          "historical_12m_avg_monthly_visits": 11950,
+          "last_30d_smartphone_traffic_pct": 79.4,
+          "historical_12m_smartphone_traffic_pct": 78.8,
+          "last_30d_raw_bounce_or_dropoff_pct": 64.2,
+          "historical_12m_form_dropoff_pct": 63.5,
+          "applicant_conversion_rate_pct": 1.82,
+          "candidate_survey_completion_rate_pct": null,
+          "tracking_diagnostic_note": "External legacy public-tender ATS redirect requires desktop-style account registration + 4 mandatory document uploads upfront on mobile (~275s completion time)."
+        },
+        "sample_live_job_ad_text": "NOTICE OF SELECTION REF. 44/B — OPERATIONAL ELECTRICAL GRID OPERATOR. Candidates possessing statutory diploma must register on the Supplier/Applicant Portal, attach scanned copies of all qualifications, and complete sections A–E prior to deadline."
+      },
+      "linkedin_and_content_telemetry": {
+        "official_page_followers": 19400,
+        "structured_ambassador_program_active": false,
+        "manual_hr_tracking_hours_month": 0.0,
+        "corporate_linkedin_er_pct": 2.94,
+        "quarterly_organic_impressions": 92400,
+        "er_by_post_format_pct": {
+          "institutional_updates": 1.45,
+          "generic_job_posts": 1.12,
+          "authentic_team_and_domain_stories": 16.8
+        },
+        "format_note": "Posts showing field grid crews restoring storm lines or smart-grid engineers achieve 16.8% ER, but HR and Comms operate in separate silos with no ambassador structure.",
+        "spontaneous_employee_mentions_quarter": 24,
+        "positive_mention_share_pct": 75.0
+      },
+      "sector_peer_benchmarks": {
+        "sector_benchmark_group": "European Energy Grid, Multi-Utility & Field Infrastructure",
+        "overall_review_rating_5": 3.56,
+        "recommend_to_friend_pct": 61.2,
+        "employer_review_reply_rate_pct": 2.8,
+        "cross_location_rating_std_dev_5": 0.25,
+        "sub_ratings_5": {
+          "management": 3.24,
+          "career_growth": 3.08,
+          "work_life_balance": 3.64,
+          "compensation": 3.52,
+          "culture_and_values": 3.62
+        },
+        "portal_funnel": {
+          "smartphone_traffic_pct": 74.0,
+          "application_form_dropoff_pct": 42.5,
+          "applicant_conversion_rate_pct": 3.65,
+          "portal_component_scores_100": {
+            "seo_and_reach_100": 76.2,
+            "technical_speed_100": 73.4,
+            "job_ad_clarity_100": 68.0,
+            "role_benefits_transparency_100": 58.4,
+            "application_flow_simplicity_100": 64.2,
+            "authentic_team_social_proof_100": 49.5
+          }
+        },
+        "social_and_advocacy": {
+          "corporate_linkedin_er_pct": 1.74,
+          "organic_employee_post_er_pct": 5.9
+        },
+        "hiring_and_retention": {
+          "early_first_year_attrition_pct": 14.2,
+          "avg_time_to_hire_days": 38,
+          "agency_filled_roles_pct": 21.0
+        }
+      }
+    }
+  }
+}
