@@ -39,7 +39,7 @@
           "rule": "expectation_drift",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -53,12 +53,12 @@
           "rule": "management_practice",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
           "evidence_ids": [
-            "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present"
+            "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
           ]
         },
         {
@@ -67,12 +67,12 @@
           "rule": "onboarding_clarity",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
           "evidence_ids": [
-            "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present"
+            "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
           ]
         },
         {
@@ -121,7 +121,7 @@
           "action": "Compare dated promises, observed work practices and reasons for exits over a comparable hire window.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -131,7 +131,7 @@
           "action": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -141,7 +141,7 @@
           "action": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -172,7 +172,14 @@
           "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "applicant_conversion_rate_pct",
+            "baseline": 2.38,
+            "target": 3.34,
+            "peer": 3.98,
+            "text": "Applicant conversion rate 2.4% → ≥ 3.3% (median matched-precedent change +40%, range +6% to +40%; sector peers 4.0%)"
+          }
         },
         {
           "action": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
@@ -188,13 +195,20 @@
           "target_to_verify": "Senior Software Engineers, Data Scientists, and Product Managers (80 open roles this year)",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 16.0,
+            "target": 6.4,
+            "peer": null,
+            "text": "Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60%, range -64% to -56%)"
+          }
         },
         {
           "action": "Pilot accurate role previews and correct the verified gap in work practices.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -204,13 +218,20 @@
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
           ],
-          "pilot_design": "Co-write a realistic engineering role preview with the affected teams. Ask recent hires to verify which decisions they can own and where approvals actually sit."
+          "pilot_design": "Co-write a realistic engineering role preview with the affected teams. Ask recent hires to verify which decisions they can own and where approvals actually sit.",
+          "target_metric": {
+            "metric": "external_claims_gap_stars_5",
+            "baseline": 1.3,
+            "target": 0.34,
+            "peer": 0.44,
+            "text": "Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -74%, range -74% to -65%; sector peers 0.44 stars)"
+          }
         },
         {
           "action": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -219,13 +240,20 @@
           "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "early_first_year_attrition_pct",
+            "baseline": 18.4,
+            "target": 12.73,
+            "peer": 12.8,
+            "text": "First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)"
+          }
         },
         {
           "action": "Pilot a structured onboarding and role-expectation review with a named owner.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -234,7 +262,14 @@
           "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "early_first_year_attrition_pct",
+            "baseline": 18.4,
+            "target": 12.73,
+            "peer": 12.8,
+            "text": "First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)"
+          }
         }
       ],
       "phase_3_actions": [
@@ -247,7 +282,14 @@
             "window": "intake"
           },
           "rule": "role_information",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "applicant_conversion_rate_pct",
+            "baseline": 2.38,
+            "target": 3.34,
+            "peer": 3.98,
+            "text": "Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after completeness, auditability and staff time improve.",
@@ -258,40 +300,68 @@
             "window": "intake"
           },
           "rule": "manual_measurement",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 16.0,
+            "target": 6.4,
+            "peer": null,
+            "text": "Manual HR tracking ≤ 6.4 h/month in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Scale when new hires report alignment and comparable early-exit indicators improve.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
           "rule": "expectation_drift",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "external_claims_gap_stars_5",
+            "baseline": 1.3,
+            "target": 0.34,
+            "peer": 0.44,
+            "text": "Say-Do gap (claims vs reviews) ≤ 0.34 stars in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Extend after delegation feedback and comparable early retention improve.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
           "rule": "management_practice",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "early_first_year_attrition_pct",
+            "baseline": 18.4,
+            "target": 12.73,
+            "peer": 12.8,
+            "text": "First-year attrition ≤ 12.7% in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after role clarity improves and comparable exit indicators show no deterioration.",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
           "rule": "onboarding_clarity",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "early_first_year_attrition_pct",
+            "baseline": 18.4,
+            "target": 12.73,
+            "peer": 12.8,
+            "text": "First-year attrition ≤ 12.7% in the pilot scope, with protected baselines unchanged"
+          }
         }
       ],
       "matched_case_studies": [
@@ -299,9 +369,9 @@
           "case_id": "CASE_05_ALFA",
           "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
           "sector_category": "B2B_TECH_SAAS",
-          "similarity_score": 0.7617,
+          "similarity_score": 0.75,
           "score_breakdown": {
-            "root_cause_overlap_score": 0.5333,
+            "root_cause_overlap_score": 0.5,
             "workforce_fit_score": 1.0,
             "sector_fit_score": 0.5,
             "roi_evidence_score": 1.0,
@@ -319,12 +389,12 @@
             "Corporate LinkedIn engagement rate: 1.19% -> 2.08% (+75%)",
             "Say-Do Gap (claims vs reviews): 1.21 stars -> 0.32 stars (-74%)"
           ],
-          "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+          "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
           "curation_review_status": "reviewed",
           "match_input_source": "step2_track_tags_via_case_signal_bridge",
           "case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
           "historical_roi": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
-          "score": 0.7617,
+          "score": 0.75,
           "shared_mechanisms": [
             "WEAK_MIDDLE_MANAGEMENT",
             "CAREER_PATH_OPACITY",
@@ -340,15 +410,15 @@
             "locations_count": 1.0
           },
           "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-          "transfer_scope": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
+          "transfer_scope": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
         },
         {
           "case_id": "CASE_12_KRONOCART_TECH",
           "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
           "sector_category": "B2B_TECH_SAAS",
-          "similarity_score": 0.75,
+          "similarity_score": 0.7367,
           "score_breakdown": {
-            "root_cause_overlap_score": 0.5714,
+            "root_cause_overlap_score": 0.5333,
             "workforce_fit_score": 1.0,
             "sector_fit_score": 0.5,
             "roi_evidence_score": 1.0,
@@ -366,12 +436,12 @@
             "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
             "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
           ],
-          "match_reason": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+          "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
           "curation_review_status": "reviewed",
           "match_input_source": "step2_track_tags_via_case_signal_bridge",
           "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
           "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
-          "score": 0.75,
+          "score": 0.7367,
           "shared_mechanisms": [
             "EARLY_FIRST_YEAR_ATTRITION",
             "UNMONITORED_LOCAL_REVIEWS",
@@ -387,15 +457,15 @@
             "locations_count": 1.0
           },
           "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-          "transfer_scope": "4/9 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
+          "transfer_scope": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
         },
         {
           "case_id": "CASE_13_QUANTEX_MARKETS",
           "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
           "sector_category": "FINTECH_PAYMENTS",
-          "similarity_score": 0.7417,
+          "similarity_score": 0.7327,
           "score_breakdown": {
-            "root_cause_overlap_score": 0.3333,
+            "root_cause_overlap_score": 0.3077,
             "workforce_fit_score": 1.0,
             "sector_fit_score": 1.0,
             "roi_evidence_score": 1.0,
@@ -411,12 +481,12 @@
             "Say-Do Gap (claims vs reviews): 0.52 stars -> 0.18 stars (-65%)",
             "Manual HR tracking: 4.5 h/month -> 2 h/month (-56%)"
           ],
-          "match_reason": "2/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+          "match_reason": "2/10 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
           "curation_review_status": "reviewed",
           "match_input_source": "step2_track_tags_via_case_signal_bridge",
           "case": "QuantEx Markets (European Financial Technology & Trading Platform)",
           "historical_roi": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.",
-          "score": 0.7417,
+          "score": 0.7327,
           "shared_mechanisms": [
             "EARLY_FIRST_YEAR_ATTRITION",
             "WEAK_MIDDLE_MANAGEMENT"
@@ -431,7 +501,7 @@
             "locations_count": 1.0
           },
           "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
-          "transfer_scope": "2/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
+          "transfer_scope": "2/10 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
         }
       ],
       "supporting_research_snippets": [
@@ -457,14 +527,6 @@
           "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
           "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
           "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
-          "evidence_class": "published_scientific_finding"
-        },
-        {
-          "source_id": "friebel_2021",
-          "kind": "field_experiment",
-          "url": "https://doi.org/10.1287/mnsc.2020.3905",
-          "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
-          "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
           "evidence_class": "published_scientific_finding"
         },
         {
@@ -543,26 +605,6 @@
           "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
         },
         {
-          "id": "friebel-heinz-zubanov-manager-attention",
-          "kind": "randomized field study",
-          "title": "Middle Managers, Personnel Turnover and Performance",
-          "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
-          "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
-          "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
-          "topics": [
-            "manager_support",
-            "early_attrition",
-            "retention",
-            "retail"
-          ],
-          "matched_topics": [
-            "early_attrition",
-            "manager_support"
-          ],
-          "score": 8,
-          "evidence_class": "published_reference"
-        },
-        {
           "id": "phillips-1998-realistic-job-previews",
           "kind": "meta-analysis",
           "title": "Effects of Realistic Job Previews on Multiple Organizational Outcomes",
@@ -624,7 +666,7 @@
           "rule": "expectation_drift",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -639,7 +681,7 @@
           "rule": "management_practice",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -654,7 +696,7 @@
           "rule": "onboarding_clarity",
           "scope": {
             "cohort": "engineering_workforce",
-            "site": null,
+            "site": "berlin+milan",
             "tenure": null,
             "window": "intake"
           },
@@ -679,6 +721,36 @@
             "hire_latency"
           ],
           "counterevidence_ids": []
+        }
+      ],
+      "expected_roi_estimates": [
+        {
+          "lever": "Attrition risk exposure",
+          "baseline": "EUR 1.80M/year (client estimate)",
+          "estimate": "EUR 678k–EUR 802k per year",
+          "low": 677848.1,
+          "high": 802173.91,
+          "unit": "EUR/year",
+          "precedent_reductions": [
+            0.3766,
+            0.3896,
+            0.4457
+          ],
+          "precedent_cases": "Alfa Group, KronoCart Tech, QuantEx Markets"
+        },
+        {
+          "lever": "HR time reclaimed",
+          "baseline": "208 h/year (stated)",
+          "estimate": "116–132 hours per year",
+          "low": 115.56,
+          "high": 132.36,
+          "unit": "hours/year",
+          "precedent_reductions": [
+            0.5556,
+            0.6,
+            0.6364
+          ],
+          "precedent_cases": "Alfa Group, KronoCart Tech, QuantEx Markets"
         }
       ]
     },
@@ -758,7 +830,7 @@
       ],
       "blocked_traps_and_guardrails": [
         "Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.",
-        "Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.",
+        "Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. Confirm the failing step with a short device-funnel check and pilot at the most affected sites. Do not deploy network-wide or rewrite all job ads at once before the pilot reads out.",
         "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
       ],
       "phase_1_actions": [
@@ -824,12 +896,20 @@
           },
           "rule": "application_friction",
           "decision": "conditional",
-          "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+          "prerequisite": "Fast track: start in parallel with Phase 1 once its specific check confirms the mechanism in this scope.",
+          "fast_track": true,
           "target_to_verify": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
           ],
-          "pilot_design": "At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load."
+          "pilot_design": "At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load.",
+          "target_metric": {
+            "metric": "application_form_dropoff_pct",
+            "baseline": 63.0,
+            "target": 32.63,
+            "peer": 41.2,
+            "text": "Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)"
+          }
         },
         {
           "action": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
@@ -845,7 +925,14 @@
           "target_to_verify": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 9.2,
+            "target": 2.83,
+            "peer": null,
+            "text": "Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)"
+          }
         },
         {
           "action": "Test verified role details in job ads and compare qualified completions for similar traffic.",
@@ -857,10 +944,18 @@
           },
           "rule": "role_information",
           "decision": "conditional",
-          "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+          "prerequisite": "Fast track: start in parallel with Phase 1 once its specific check confirms the mechanism in this scope.",
+          "fast_track": true,
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "applicant_conversion_rate_pct",
+            "baseline": 1.89,
+            "target": 3.31,
+            "peer": 3.58,
+            "text": "Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)"
+          }
         },
         {
           "action": "Pilot a named recruiter queue and response review for the affected roles.",
@@ -876,7 +971,14 @@
           "target_to_verify": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "avg_time_to_hire_days",
+            "baseline": 43.0,
+            "target": 29.77,
+            "peer": 31,
+            "text": "Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)"
+          }
         },
         {
           "action": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
@@ -892,7 +994,14 @@
           "target_to_verify": "Licensed Commercial Truck Drivers (C-CQC) and Warehouse Operators (120 urgent openings)",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "agency_filled_roles_pct",
+            "baseline": 37.9,
+            "target": 19.98,
+            "peer": 19.4,
+            "text": "Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)"
+          }
         }
       ],
       "phase_3_actions": [
@@ -905,7 +1014,14 @@
             "window": "intake"
           },
           "rule": "application_friction",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "application_form_dropoff_pct",
+            "baseline": 63.0,
+            "target": 32.63,
+            "peer": 41.2,
+            "text": "Application form drop-off ≤ 32.6% in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after completeness, auditability and staff time improve.",
@@ -916,7 +1032,14 @@
             "window": "intake"
           },
           "rule": "manual_measurement",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 9.2,
+            "target": 2.83,
+            "peer": null,
+            "text": "Manual HR tracking ≤ 2.8 h/month in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Scale after qualified applications improve while access and eligibility hold.",
@@ -927,7 +1050,14 @@
             "window": "intake"
           },
           "rule": "role_information",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "applicant_conversion_rate_pct",
+            "baseline": 1.89,
+            "target": 3.31,
+            "peer": 3.58,
+            "text": "Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after response times and qualified progression improve without shifting the queue elsewhere.",
@@ -938,7 +1068,14 @@
             "window": "intake"
           },
           "rule": "recruiter_handoff",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "avg_time_to_hire_days",
+            "baseline": 43.0,
+            "target": 29.77,
+            "peer": 31,
+            "text": "Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Scale after direct qualified hires improve and Finance verifies changes in agency spend.",
@@ -949,7 +1086,14 @@
             "window": "intake"
           },
           "rule": "external_staffing_dependency",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "agency_filled_roles_pct",
+            "baseline": 37.9,
+            "target": 19.98,
+            "peer": 19.4,
+            "text": "Agency-filled roles ≤ 20.0% in the pilot scope, with protected baselines unchanged"
+          }
         }
       ],
       "matched_case_studies": [
@@ -1246,6 +1390,50 @@
           "dependent_families": [],
           "counterevidence_ids": []
         }
+      ],
+      "expected_roi_estimates": [
+        {
+          "lever": "Attrition risk exposure",
+          "baseline": "EUR 762k/year (client estimate)",
+          "estimate": "EUR 127k–EUR 351k per year",
+          "low": 126601.88,
+          "high": 350848.92,
+          "unit": "EUR/year",
+          "precedent_reductions": [
+            0.1661,
+            0.3185,
+            0.4604
+          ],
+          "precedent_cases": "Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics"
+        },
+        {
+          "lever": "Temporary agency spend",
+          "baseline": "EUR 760k/year (stated €190k/quarter)",
+          "estimate": "EUR 338k–EUR 419k per year",
+          "low": 338394.16,
+          "high": 419373.49,
+          "unit": "EUR/year",
+          "precedent_reductions": [
+            0.4453,
+            0.4729,
+            0.5518
+          ],
+          "precedent_cases": "Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics"
+        },
+        {
+          "lever": "HR time reclaimed",
+          "baseline": "110 h/year (stated)",
+          "estimate": "55–82 hours per year",
+          "low": 55.0,
+          "high": 82.5,
+          "unit": "hours/year",
+          "precedent_reductions": [
+            0.5,
+            0.6923,
+            0.75
+          ],
+          "precedent_cases": "Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics"
+        }
       ]
     },
     {
@@ -1323,7 +1511,7 @@
         }
       ],
       "blocked_traps_and_guardrails": [
-        "Limit advocacy to an opt-in cohort pilot after readiness and reporting checks. Defer broad automation.",
+        "Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort now; defer only network-wide tracking automation until local profiles are audited.",
         "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.",
         "Preserve the healthy employer proposition. Validate local messaging before considering an overhaul."
       ],
@@ -1406,7 +1594,14 @@
           "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "cross_location_rating_std_dev_5",
+            "baseline": 0.45,
+            "target": 0.28,
+            "peer": 0.27,
+            "text": "Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)"
+          }
         },
         {
           "action": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
@@ -1423,7 +1618,14 @@
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
           ],
-          "pilot_design": "Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs."
+          "pilot_design": "Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs.",
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 12.5,
+            "target": 0.69,
+            "peer": null,
+            "text": "Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)"
+          }
         },
         {
           "action": "Pilot a short accessible survey and documented invitations at an affected site.",
@@ -1439,7 +1641,14 @@
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
           ],
-          "pilot_design": "Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting."
+          "pilot_design": "Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting.",
+          "target_metric": {
+            "metric": "candidate_survey_completion_rate_pct",
+            "baseline": 17.4,
+            "target": 47.49,
+            "peer": 30.8,
+            "text": "Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)"
+          }
         },
         {
           "action": "Trial opt-in, role-relevant participation with auditable tracking.",
@@ -1451,11 +1660,20 @@
           },
           "rule": "advocacy_pilot",
           "decision": "conditional",
-          "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
+          "prerequisite": "Fast track: start in parallel with Phase 1 once its specific check confirms the mechanism in this scope.",
+          "fast_track": true,
           "target_to_verify": "Clinical Healthcare Professionals (Nurses, Therapists) and Gen-Z Early-Career Lab/Clinical Specialists",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "pilot_design": "Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger.",
+          "target_metric": {
+            "metric": "quarterly_organic_impressions",
+            "baseline": 44190.0,
+            "target": 141408.0,
+            "peer": null,
+            "text": "Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)"
+          }
         },
         {
           "action": "Pilot a named recruiter queue and response review for the affected roles.",
@@ -1470,7 +1688,14 @@
           "prerequisite": "Complete the diagnostic and verify the proposed mechanism in this exact scope. Confirm missing or dependent observations against independent records. Specify the affected group and preserve the documented healthy baseline.",
           "preserve_baselines": [
             "client_internal_context.healthy_metrics_and_strengths_not_to_break#1"
-          ]
+          ],
+          "target_metric": {
+            "metric": "avg_time_to_hire_days",
+            "baseline": 42.0,
+            "target": 33.41,
+            "peer": 41,
+            "text": "Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)"
+          }
         }
       ],
       "phase_3_actions": [
@@ -1483,7 +1708,14 @@
             "window": "intake"
           },
           "rule": "reputation_location",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "cross_location_rating_std_dev_5",
+            "baseline": 0.45,
+            "target": 0.28,
+            "peer": 0.27,
+            "text": "Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after completeness, auditability and staff time improve.",
@@ -1494,7 +1726,14 @@
             "window": "intake"
           },
           "rule": "manual_measurement",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "manual_hr_tracking_hours_month",
+            "baseline": 12.5,
+            "target": 0.69,
+            "peer": null,
+            "text": "Manual HR tracking ≤ 0.7 h/month in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand once response coverage improves and nonresponse patterns are checked.",
@@ -1505,7 +1744,14 @@
             "window": "intake"
           },
           "rule": "feedback_coverage",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "candidate_survey_completion_rate_pct",
+            "baseline": 17.4,
+            "target": 47.49,
+            "peer": 30.8,
+            "text": "Candidate survey completion ≥ 47.5% in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand only with credible internal conditions, consent and measured audience or hiring outcomes.",
@@ -1516,7 +1762,14 @@
             "window": "intake"
           },
           "rule": "advocacy_pilot",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "quarterly_organic_impressions",
+            "baseline": 44190.0,
+            "target": 141408.0,
+            "peer": null,
+            "text": "Quarterly organic impressions ≥ 141,408 in the pilot scope, with protected baselines unchanged"
+          }
         },
         {
           "condition": "Expand after response times and qualified progression improve without shifting the queue elsewhere.",
@@ -1527,7 +1780,14 @@
             "window": "intake"
           },
           "rule": "recruiter_handoff",
-          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics."
+          "prerequisite": "Complete the scoped pilot and verify improvements and guard metrics.",
+          "target_metric": {
+            "metric": "avg_time_to_hire_days",
+            "baseline": 42.0,
+            "target": 33.41,
+            "peer": 41,
+            "text": "Time-to-hire ≤ 33.4 days in the pilot scope, with protected baselines unchanged"
+          }
         }
       ],
       "matched_case_studies": [
@@ -1849,6 +2109,36 @@
             "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
             "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100"
           ]
+        }
+      ],
+      "expected_roi_estimates": [
+        {
+          "lever": "Attrition risk exposure",
+          "baseline": "EUR 618k/year (client estimate)",
+          "estimate": "EUR 65k–EUR 152k per year",
+          "low": 64825.17,
+          "high": 151670.33,
+          "unit": "EUR/year",
+          "precedent_reductions": [
+            0.1049,
+            0.1436,
+            0.2454
+          ],
+          "precedent_cases": "VitaCare Network, VerdiCraft Botanicals, NaturaPure Group"
+        },
+        {
+          "lever": "HR time reclaimed",
+          "baseline": "150 h/year (stated)",
+          "estimate": "130–143 hours per year",
+          "low": 130.43,
+          "high": 142.86,
+          "unit": "hours/year",
+          "precedent_reductions": [
+            0.8696,
+            0.9444,
+            0.9524
+          ],
+          "precedent_cases": "VitaCare Network, VerdiCraft Botanicals, NaturaPure Group"
         }
       ]
     }

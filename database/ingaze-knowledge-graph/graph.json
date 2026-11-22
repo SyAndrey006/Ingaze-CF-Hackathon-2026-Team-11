@@ -821,6 +821,9 @@
       "url": "https://doi.org/10.1287/mnsc.2020.3905",
       "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
       "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
+      "population_profiles": [
+        "retail"
+      ],
       "id": "sources:friebel_2021",
       "type": "sources"
     },
@@ -909,6 +912,9 @@
       "url": "https://doi.org/10.1257/aer.20160232",
       "finding": "A retail quasi-experiment linked unequal raises and quit behavior.",
       "limitation": "Relevant as an alternative to test using comparable roles, with no transferable pay or quit threshold.",
+      "population_profiles": [
+        "retail"
+      ],
       "id": "sources:dube_2019",
       "type": "sources"
     },
@@ -917,6 +923,9 @@
       "url": "https://doi.org/10.1287/mnsc.2021.4291",
       "finding": "An experiment in retail tested a bundle of more responsible scheduling practices and reported store performance effects.",
       "limitation": "Does not establish a universal retention effect or fit for other shift-based roles.",
+      "population_profiles": [
+        "retail"
+      ],
       "id": "sources:kesavan_2022",
       "type": "sources"
     },

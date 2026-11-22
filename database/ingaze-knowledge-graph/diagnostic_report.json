@@ -478,7 +478,7 @@
         "status": "plausible",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -1236,18 +1236,15 @@
         "status": "plausible",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
         "evidence_ids": [
-          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present"
-        ],
-        "other_matching_ids": [
           "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
         ],
+        "other_matching_ids": [],
         "origin_components": {
-          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present": "origin:narrative_unresolved_lineage",
           "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present": "origin:narrative_unresolved_lineage"
         },
         "counterevidence_ids": [],
@@ -1266,8 +1263,96 @@
               "manager_support"
             ],
             "matching_ids": [
-              "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
               "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "expectation_drift",
+          "onboarding_clarity",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "friebel_2021",
+          "lacerenza_2017"
+        ],
+        "next_check": "Compare exits and reported decision rights or manager practices across comparable teams and tenure.",
+        "competing_hypotheses": [
+          {
+            "rule": "expectation_drift",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "onboarding_clarity",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "management_practice",
+        "label": "A management practice may contribute to exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "manager_experience",
+            "expected_signals": [
+              "manager_practice_verified",
+              "manager_support"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present"
             ],
             "selected_id": "text:client_internal_context.cohort_and_site_asymmetries#2:manager_support:present",
             "direct_slot": true
@@ -1302,7 +1387,7 @@
         "competing_hypotheses": [
           {
             "rule": "expectation_drift",
-            "same_scope_status": "plausible"
+            "same_scope_status": "insufficient_evidence"
           },
           {
             "rule": "onboarding_clarity",
@@ -1807,18 +1892,15 @@
         "status": "plausible",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
         "evidence_ids": [
-          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present"
-        ],
-        "other_matching_ids": [
           "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
         ],
+        "other_matching_ids": [],
         "origin_components": {
-          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present": "origin:narrative_unresolved_lineage",
           "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present": "origin:narrative_unresolved_lineage"
         },
         "counterevidence_ids": [],
@@ -1837,8 +1919,90 @@
               "career_clarity"
             ],
             "matching_ids": [
-              "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
               "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present",
+            "direct_slot": true
+          },
+          {
+            "family": "employee_exits",
+            "expected_signals": [
+              "early_attrition"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "unresolved_scope_or_window",
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "management_practice",
+          "compensation_pressure",
+          "internal_mobility_access",
+          "work_location_flexibility"
+        ],
+        "sources": [
+          "bauer_2007"
+        ],
+        "next_check": "Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "management_practice",
+            "same_scope_status": "plausible"
+          },
+          {
+            "rule": "compensation_pressure",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "internal_mobility_access",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "work_location_flexibility",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "onboarding_clarity",
+        "label": "Unclear role or progression expectations may contribute to early exits",
+        "kind": "mechanism",
+        "status": "plausible",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "employee_exits"
+        ],
+        "missing_families": [
+          "employee_exits"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "role_growth",
+            "expected_signals": [
+              "role_clarity_failure",
+              "career_clarity"
+            ],
+            "matching_ids": [
+              "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present"
             ],
             "selected_id": "text:client_internal_context.cohort_and_site_asymmetries#2:career_clarity:present",
             "direct_slot": true
@@ -2868,7 +3032,7 @@
         ],
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -2901,7 +3065,7 @@
         ],
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -2934,7 +3098,7 @@
         ],
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -2966,7 +3130,7 @@
         ],
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -5219,7 +5383,7 @@
         "rule": "expectation_drift",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -5230,7 +5394,7 @@
         "rule": "management_practice",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -5241,7 +5405,7 @@
         "rule": "onboarding_clarity",
         "scope": {
           "cohort": "engineering_workforce",
-          "site": null,
+          "site": "berlin+milan",
           "tenure": null,
           "window": "intake"
         },
@@ -5269,291 +5433,683 @@
     "protected_scopes": [],
     "case_ranking": [
       {
-        "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
-        "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
-        "score": 23.405,
-        "shared_mechanisms": [
-          "agency_spend",
-          "career_clarity",
-          "early_attrition",
-          "expectation_gap",
-          "generic_ads",
-          "manager_support"
-        ],
-        "shared_context": [
-          "distributed",
-          "tech"
-        ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "family": "external_staffing",
-            "unit": "%",
-            "client_peer_gap": 10.4,
-            "case_t0_peer_gap": 8.1,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "family": "role_growth",
-            "unit": "stars",
-            "client_peer_gap": 0.69,
-            "case_t0_peer_gap": 0.38,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "family": "employee_exits",
-            "unit": "%",
-            "client_peer_gap": 5.6,
-            "case_t0_peer_gap": 8.0,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "family": "promise_alignment",
-            "unit": "stars",
-            "client_peer_gap": 0.86,
-            "case_t0_peer_gap": 0.7,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
-            "family": "role_information",
-            "unit": "index_100",
-            "client_peer_gap": 33.0,
-            "case_t0_peer_gap": 20.0,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.management",
-            "family": "manager_experience",
-            "unit": "stars",
-            "client_peer_gap": 0.7,
-            "case_t0_peer_gap": 0.29,
-            "direction": "adverse is positive"
-          }
-        ],
-        "case_to_client_scale_ratios": {
-          "headcount": 1.276,
-          "locations_count": 1.0
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "sector_category": "B2B_TECH_SAAS",
+        "similarity_score": 0.75,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 0.5,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "unit": "%",
-            "t0": 29.4,
-            "t1": 19.6
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "unit": "stars",
-            "t0": 2.86,
-            "t1": 3.72
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "unit": "%",
-            "t0": 21.4,
-            "t1": 14.8
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "unit": "stars",
-            "t0": 1.08,
-            "t1": 0.28
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
-            "unit": "index_100",
-            "t0": 53.6,
-            "t1": 81.4
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.management",
-            "unit": "stars",
-            "t0": 3.09,
-            "t1": 3.64
-          }
-        ]
-      },
-      {
+        "matched_problem_tags": [
+          "WEAK_MIDDLE_MANAGEMENT",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP",
+          "EARLY_FIRST_YEAR_ATTRITION"
+        ],
+        "measured_roi_summary": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 53,760 -> 107,840 (+101%)",
+          "Corporate LinkedIn engagement rate: 1.19% -> 2.08% (+75%)",
+          "Say-Do Gap (claims vs reviews): 1.21 stars -> 0.32 stars (-74%)"
+        ],
+        "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
         "historical_roi": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
-        "score": 19.422,
+        "score": 0.75,
         "shared_mechanisms": [
-          "career_clarity",
-          "early_attrition",
-          "expectation_gap",
-          "manager_support"
+          "WEAK_MIDDLE_MANAGEMENT",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP",
+          "EARLY_FIRST_YEAR_ATTRITION"
         ],
         "shared_context": [
-          "tech"
+          "DESK_BASED_TECH_SPECIALIST"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "family": "role_growth",
-            "unit": "stars",
-            "client_peer_gap": 0.69,
-            "case_t0_peer_gap": 0.72,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "family": "employee_exits",
-            "unit": "%",
-            "client_peer_gap": 5.6,
-            "case_t0_peer_gap": 6.1,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "family": "promise_alignment",
-            "unit": "stars",
-            "client_peer_gap": 0.86,
-            "case_t0_peer_gap": 0.8,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.management",
-            "family": "manager_experience",
-            "unit": "stars",
-            "client_peer_gap": 0.7,
-            "case_t0_peer_gap": 0.78,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
           "headcount": 0.655,
           "locations_count": 1.0
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "unit": "stars",
-            "t0": 2.47,
-            "t1": 3.54
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "unit": "%",
-            "t0": 19.0,
-            "t1": 14.8
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "unit": "stars",
-            "t0": 1.21,
-            "t1": 0.32
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.management",
-            "unit": "stars",
-            "t0": 2.58,
-            "t1": 3.48
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
-        "historical_roi": "-24% reduction in early engineering turnover (from 16.9% to 12.8%, saving €390k/year in turnover exposure), career growth rating lifted from 2.88 to 3.79, and Time-to-Hire shortened by 24% (from 45 to 34 days).",
-        "score": 18.524,
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "sector_category": "B2B_TECH_SAAS",
+        "similarity_score": 0.7367,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5333,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 0.5,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP"
+        ],
+        "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+        "quantified_roi_highlights": [
+          "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
+          "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
+          "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
+        ],
+        "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
+        "case": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "historical_roi": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+        "score": 0.7367,
         "shared_mechanisms": [
-          "agency_spend",
-          "career_clarity",
-          "early_attrition",
-          "expectation_gap",
-          "generic_ads"
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP"
         ],
         "shared_context": [
-          "distributed",
-          "tech"
+          "DESK_BASED_TECH_SPECIALIST"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "family": "external_staffing",
-            "unit": "%",
-            "client_peer_gap": 10.4,
-            "case_t0_peer_gap": 5.8,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "family": "role_growth",
-            "unit": "stars",
-            "client_peer_gap": 0.69,
-            "case_t0_peer_gap": 0.41,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "family": "employee_exits",
-            "unit": "%",
-            "client_peer_gap": 5.6,
-            "case_t0_peer_gap": 5.3,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "family": "promise_alignment",
-            "unit": "stars",
-            "client_peer_gap": 0.86,
-            "case_t0_peer_gap": 0.39,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "family": "role_information",
-            "unit": "index_100",
-            "client_peer_gap": 30.5,
-            "case_t0_peer_gap": 18.3,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
-          "headcount": 1.517,
-          "locations_count": 2.0
+          "headcount": 1.276,
+          "locations_count": 1.0
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "unit": "%",
-            "t0": 27.6,
-            "t1": 16.2
-          },
-          {
-            "metric_path": "public_reputation.sub_ratings_5.career_growth",
-            "unit": "stars",
-            "t0": 2.88,
-            "t1": 3.79
-          },
-          {
-            "metric_path": "hiring_and_retention_kpis.early_first_year_attrition_pct",
-            "unit": "%",
-            "t0": 16.9,
-            "t1": 12.8
-          },
-          {
-            "metric_path": "public_reputation.external_claims_gap_stars_5",
-            "unit": "stars",
-            "t0": 0.74,
-            "t1": 0.22
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "unit": "index_100",
-            "t0": 49.2,
-            "t1": 79.8
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas"
+      },
+      {
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "sector_category": "FINTECH_PAYMENTS",
+        "similarity_score": 0.7327,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3077,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "WEAK_MIDDLE_MANAGEMENT"
+        ],
+        "measured_roi_summary": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.",
+        "quantified_roi_highlights": [
+          "Cross-site rating variance (std dev): 0.4 stars -> 0.13 stars (-68%)",
+          "Say-Do Gap (claims vs reviews): 0.52 stars -> 0.18 stars (-65%)",
+          "Manual HR tracking: 4.5 h/month -> 2 h/month (-56%)"
+        ],
+        "match_reason": "2/10 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
+        "case": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "historical_roi": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.",
+        "score": 0.7327,
+        "shared_mechanisms": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "WEAK_MIDDLE_MANAGEMENT"
+        ],
+        "shared_context": [
+          "DESK_BASED_TECH_SPECIALIST",
+          "FINTECH_PAYMENTS"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {
+          "headcount": 0.828,
+          "locations_count": 1.0
+        },
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "2/10 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
+      }
+    ],
+    "candidate_action_scores": [
+      {
+        "candidate_id": "expectation_drift:3",
+        "rule": "expectation_drift",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": "berlin+milan",
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot accurate role previews and correct the verified gap in work practices.",
+        "diagnosis_rank": 3,
+        "score": 0.7301,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:documented_broken_promise:present",
+          "text:ingaze_platform_signals.reputation_and_reviews#1:expectation_gap:present"
+        ],
+        "matched_case_names": [
+          "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+          "KronoCart Tech (European E-Commerce & Cloud Platform)",
+          "QuantEx Markets (European Financial Technology & Trading Platform)"
+        ],
+        "score_rank": 1
+      },
+      {
+        "candidate_id": "management_practice:4",
+        "rule": "management_practice",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": "berlin+milan",
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot manager coaching and an explicit agreement on delegation in affected teams.",
+        "diagnosis_rank": 4,
+        "score": 0.7301,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:manager_support:present"
+        ],
+        "matched_case_names": [
+          "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+          "QuantEx Markets (European Financial Technology & Trading Platform)"
+        ],
+        "score_rank": 2
+      },
+      {
+        "candidate_id": "onboarding_clarity:5",
+        "rule": "onboarding_clarity",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": "berlin+milan",
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot a structured onboarding and role-expectation review with a named owner.",
+        "diagnosis_rank": 5,
+        "score": 0.7301,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#1:career_clarity:present"
+        ],
+        "matched_case_names": [
+          "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+          "KronoCart Tech (European E-Commerce & Cloud Platform)"
+        ],
+        "score_rank": 3
+      },
+      {
+        "candidate_id": "manual_measurement:2",
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "diagnosis_rank": 2,
+        "score": 0.7151,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.05
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:manual_tracking_load:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:post_tracking:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#2:tracking_workflow_verified:present"
+        ],
+        "matched_case_names": [
+          "KronoCart Tech (European E-Commerce & Cloud Platform)"
+        ],
+        "score_rank": 4
+      },
+      {
+        "candidate_id": "role_information:1",
+        "rule": "role_information",
+        "scope": {
+          "cohort": "engineering_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "diagnosis_rank": 1,
+        "score": 0.6757,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.0
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_loss:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+        ],
+        "matched_case_names": [],
+        "score_rank": 5
+      },
+      {
+        "candidate_id": "external_staffing_dependency:6",
+        "rule": "external_staffing_dependency",
+        "scope": {
+          "cohort": "all",
+          "site": "all",
+          "tenure": "all",
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+        "diagnosis_rank": 6,
+        "score": 0.5376,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.0
+        },
+        "matched_evidence_ids": [
+          "metric:agency_spend:hiring_and_retention_kpis.agency_filled_roles_pct",
+          "metric:hiring_delay:hiring_and_retention_kpis.avg_time_to_hire_days"
+        ],
+        "matched_case_names": [],
+        "score_rank": 6
+      }
+    ],
+    "normalized_case_matches": [
+      {
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "sector_category": "B2B_TECH_SAAS",
+        "similarity_score": 0.75,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 0.5,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "WEAK_MIDDLE_MANAGEMENT",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP",
+          "EARLY_FIRST_YEAR_ATTRITION"
+        ],
+        "measured_roi_summary": "Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 53,760 -> 107,840 (+101%)",
+          "Corporate LinkedIn engagement rate: 1.19% -> 2.08% (+75%)",
+          "Say-Do Gap (claims vs reviews): 1.21 stars -> 0.32 stars (-74%)"
+        ],
+        "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "sector_category": "B2B_TECH_SAAS",
+        "similarity_score": 0.7367,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5333,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 0.5,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "CAREER_PATH_OPACITY",
+          "SAY_DO_GAP"
+        ],
+        "measured_roi_summary": "-31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.",
+        "quantified_roi_highlights": [
+          "Say-Do Gap (claims vs reviews): 1.08 stars -> 0.28 stars (-74%)",
+          "Cross-site rating variance (std dev): 0.43 stars -> 0.15 stars (-65%)",
+          "Manual HR tracking: 5.5 h/month -> 2 h/month (-64%)"
+        ],
+        "match_reason": "4/10 root causes match, same workforce, adjacent sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "sector_category": "FINTECH_PAYMENTS",
+        "similarity_score": 0.7327,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3077,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "EARLY_FIRST_YEAR_ATTRITION",
+          "WEAK_MIDDLE_MANAGEMENT"
+        ],
+        "measured_roi_summary": "Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.",
+        "quantified_roi_highlights": [
+          "Cross-site rating variance (std dev): 0.4 stars -> 0.13 stars (-68%)",
+          "Say-Do Gap (claims vs reviews): 0.52 stars -> 0.18 stars (-65%)",
+          "Manual HR tracking: 4.5 h/month -> 2 h/month (-56%)"
+        ],
+        "match_reason": "2/10 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      }
+    ],
+    "case_informed_action_candidates": [
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_03_FLOWPAY",
+        "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+        "case_id": "CASE_03_FLOWPAY",
+        "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_03_FLOWPAY",
+        "case_name": "FlowPay (International FinTech & Digital Payments Scale-Up)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_13_QUANTEX_MARKETS",
+        "case_name": "QuantEx Markets (European Financial Technology & Trading Platform)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_05_ALFA",
+        "case_name": "Alfa Group (Enterprise B2B Software & Cloud Engineering)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_12_KRONOCART_TECH",
+        "case_name": "KronoCart Tech (European E-Commerce & Cloud Platform)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PROGRESSION_FRAMEWORK",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "TECHNICAL_LINKEDIN_STORYTELLING",
+        "case_id": "CASE_21_VOLTGRID_RENEWABLES",
+        "case_name": "VoltGrid Renewables (European Smart-Grid & CleanTech Engineering Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_01_LOGINEXT",
+        "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_01_LOGINEXT",
+        "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_01_LOGINEXT",
+        "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_01_LOGINEXT",
+        "case_name": "LogiNext (International Supply Chain Software Scale-Up)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_02_SOLARIS",
+        "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_02_SOLARIS",
+        "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_02_SOLARIS",
+        "case_name": "Solaris Tech (CleanTech & Renewable Energy Innovator)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_14_NORDICTRUST_BANK",
+        "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_14_NORDICTRUST_BANK",
+        "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_14_NORDICTRUST_BANK",
+        "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_14_NORDICTRUST_BANK",
+        "case_name": "NordicTrust Bank (Corporate & Digital Banking Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
       }
     ],
     "mandatory_constraint_source": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
@@ -5606,14 +6162,6 @@
         "url": "https://doi.org/10.1111/j.1744-6570.2011.01230.x",
         "finding": "Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis.",
         "limitation": "Supports an expectations mechanism. It does not identify a client-specific effect or a star-gap threshold.",
-        "evidence_class": "published_scientific_finding"
-      },
-      {
-        "source_id": "friebel_2021",
-        "kind": "field_experiment",
-        "url": "https://doi.org/10.1287/mnsc.2020.3905",
-        "finding": "A field experiment gave retail managers explicit retention goals and measured quits.",
-        "limitation": "A retail management intervention provides a directional precedent, with different context and intervention from coaching elsewhere.",
         "evidence_class": "published_scientific_finding"
       },
       {
@@ -5690,26 +6238,6 @@
         "source": "Executive HR Budget & CFO Governance Survey",
         "finding": "78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).",
         "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently."
-      },
-      {
-        "id": "friebel-heinz-zubanov-manager-attention",
-        "kind": "randomized field study",
-        "title": "Middle Managers, Personnel Turnover and Performance",
-        "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
-        "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
-        "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
-        "topics": [
-          "manager_support",
-          "early_attrition",
-          "retention",
-          "retail"
-        ],
-        "matched_topics": [
-          "early_attrition",
-          "manager_support"
-        ],
-        "score": 8,
-        "evidence_class": "published_reference"
       },
       {
         "id": "phillips-1998-realistic-job-previews",
@@ -5816,7 +6344,8 @@
       "tracking_workflow_verified": [
         "ingaze_platform_signals.linkedin_and_content_analytics#2"
       ]
-    }
+    },
+    "proposal_markdown": "# HR Proposal — CloudNova Pay S.p.A.\n\n**Scenario:** `SCENARIO_A_CLOUDNOVA_FINTECH`\n**Industry:** FinTech & B2B Cloud Payments\n\n## Executive Summary\n\nThe leading hypothesis is that unclear role information may weaken candidate attraction (Engineering). Begin with this diagnostic: Interview target candidates and review conversion for the same jobs and inbound channels (Engineering). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- Unclear role information may weaken candidate attraction (Engineering)\n- Manual workflows may limit reporting coverage and consume staff time\n- Expectation drift may contribute to early exits (Berlin & Milan — Engineering)\n- A management practice may contribute to exits (Berlin & Milan — Engineering)\n- Unclear role or progression expectations may contribute to early exits (Berlin & Milan — Engineering)\n- A delayed hire process may contribute to agency dependence\n\n### Reported signals\n\n- Expectation Gap, Manager Support, Career Clarity, Documented Broken Promise (Berlin & Milan — Engineering): Glassdoor/Indeed rating dropped to 3.2/5 in the Milan and Berlin product hubs (vs. 4.3/5 in the Amsterdam core infrastructure hub), with a 1.3-star gap between external recruiting claims ('cloud autonomy') and recent engineering reviews citing 'rigid project micromanagement and unclear promotion criteria'.\n- Application Loss (Engineering): Inbound qualified senior engineering applications are down 38% YoY\n- Generic Ads, Role Info Gap Verified (Engineering): job descriptions use generic corporate boilerplate ('dynamic fast-paced team player') with zero mention of distributed systems architecture, tech stack autonomy, or engineering leveling.\n- Post Tracking, Tracking Workflow Verified, Manual Tracking Load: HR currently spends 4 hours/week manually exporting LinkedIn post and employee sharing statistics into spreadsheets.\n- Early Attrition (Berlin & Milan — Engineering, new hires): 16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months.\n- Manager Support, Career Clarity (Engineering): Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.\n- Manager Support, Career Clarity, Burnout: Internal pulse notes estimate €1.8M in annual financial turnover risk driven by Weak Middle Management (€700k), Career Path Opacity (€450k), and Workload Burnout (€300k).\n- Employer Reputation Weak\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Defer external advocacy until target-cohort readiness, participation and trust are verified.\n- Exclude retail store shift rotation for this non-retail workforce.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n- Defer salary changes pending verified compensation problems in comparable roles.\n\n### Deferred requests\n\n- **External Staffing Dependency:** More scoped evidence is required before proposing this intervention.\n\n### Strengths to protect\n\n- Base compensation and equity packages are benchmarked at the 82nd percentile for European FinTech (0% offer rejections due to base pay), and the Amsterdam Core Platform / SRE division (320 engineers) maintains 94% annual retention with high technical pride.\n\n### Cohort and site differences\n\n- 16% of newly hired Senior Software Engineers and PMs in the Milan and Berlin product squads leave within their first 6 months. Newly promoted engineering leads in those two hubs were elevated from individual contributor roles during rapid scale-up without management coaching or a standardized career progression framework.\n\n### Excluded input\n\n- **Not used as evidence:** “Raw CSV review feed also contains 3 unverified rows mentioning 'weekend shop shift rotation' imported from an external merchant POS pilot.” — unverified or off-profile input; it does not drive any diagnosis or action.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Interview target candidates and review conversion for the same jobs and inbound channels (Engineering).\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Compare dated promises, observed work practices and reasons for exits over a comparable hire window (Berlin & Milan — Engineering).\n- Compare exits and reported decision rights or manager practices across comparable teams and tenure (Berlin & Milan — Engineering).\n- Review onboarding responsibilities, leveling criteria and exit reasons by role and cohort (Berlin & Milan — Engineering).\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- Test verified role details in job ads and compare qualified completions for similar traffic (Engineering). *Target:* Applicant conversion rate 2.4% → ≥ 3.3% (median matched-precedent change +40%, range +6% to +40%; sector peers 4.0%)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60%, range -64% to -56%)\n- Pilot accurate role previews and correct the verified gap in work practices (Berlin & Milan — Engineering). *Pilot design:* Co-write a realistic engineering role preview with the affected teams. Ask recent hires to verify which decisions they can own and where approvals actually sit. *Target:* Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -74%, range -74% to -65%; sector peers 0.44 stars)\n- Pilot manager coaching and an explicit agreement on delegation in affected teams (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)\n- Pilot a structured onboarding and role-expectation review with a named owner (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Scale after qualified applications improve while access and eligibility hold (Engineering). *Scale when:* Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 6.4 h/month in the pilot scope, with protected baselines unchanged\n- Scale when new hires report alignment and comparable early-exit indicators improve (Berlin & Milan — Engineering). *Scale when:* Say-Do gap (claims vs reviews) ≤ 0.34 stars in the pilot scope, with protected baselines unchanged\n- Extend after delegation feedback and comparable early retention improve (Berlin & Milan — Engineering). *Scale when:* First-year attrition ≤ 12.7% in the pilot scope, with protected baselines unchanged\n- Expand after role clarity improves and comparable exit indicators show no deterioration (Berlin & Milan — Engineering). *Scale when:* First-year attrition ≤ 12.7% in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 1.80M/year (client estimate) × precedent reduction 38%–45% (Alfa Group, KronoCart Tech, QuantEx Markets) → **EUR 678k–EUR 802k per year**\n- **HR time reclaimed:** baseline 208 h/year (stated) × precedent reduction 56%–64% (Alfa Group, KronoCart Tech, QuantEx Markets) → **116–132 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **Alfa Group (Enterprise B2B Software & Cloud Engineering)** — Identified and mitigated €1.35M in turnover risk exposure, reduced first-year engineering turnover by 22%, and lifted Glassdoor rating from 3.2 to 3.8.\n- **KronoCart Tech (European E-Commerce & Cloud Platform)** — 31% reduction in first-year software engineering attrition (from 21.4% to 14.8%), public review reply rate lifted to 84%, and overall employer rating increased from 3.31 to 3.89.\n- **QuantEx Markets (European Financial Technology & Trading Platform)** — Cut first-year engineering attrition by 44% (from 17.8% to 9.9%, well below the FinTech benchmark), lifted management rating from 3.12 to 3.94, and mitigated €410k in annual turnover exposure.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Bauer 2007**: Newcomer adjustment includes role clarity, which was related to downstream work outcomes. ([source](https://pubmed.ncbi.nlm.nih.gov/17484552/))\n- **Earnest 2011**: Realistic job previews were linked to voluntary turnover through perceived organizational honesty in a meta-analytic path analysis. ([source](https://doi.org/10.1111/j.1744-6570.2011.01230.x))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **Lacerenza 2017**: A meta-analysis examined effectiveness and design moderators of leadership training. ([source](https://pubmed.ncbi.nlm.nih.gov/28749153/))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Zhao 2007**: Psychological contract breach was related to work attitudes and turnover intentions; the meta-analysis did not find a reliable association with actual turnover. ([source](https://doi.org/10.1111/j.1744-6570.2007.00087.x))\n- **European Enterprise Talent & Retention Study**: Organizations with a severe 'Say-Do Gap' (where external recruiting claims diverge from Glassdoor/Indeed employee reviews by >1.1 stars) experience 2.4x higher first-year voluntary turnover and a 34% drop in senior offer acceptance rates.\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
   },
   {
     "scenario_code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
@@ -10350,196 +10879,497 @@
     ],
     "guardrails": [
       "Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.",
-      "Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.",
+      "Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. Confirm the failing step with a short device-funnel check and pilot at the most affected sites. Do not deploy network-wide or rewrite all job ads at once before the pilot reads out.",
       "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout."
     ],
     "protected_scopes": [],
     "case_ranking": [
       {
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.825,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5714,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "GENERIC_BOILERPLATE_JDS"
+        ],
+        "measured_roi_summary": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
+        "quantified_roi_highlights": [
+          "Applicant conversion rate: 2.1% -> 3.7% (+76%)",
+          "Manual HR tracking: 6.5 h/month -> 2 h/month (-69%)",
+          "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+        ],
+        "match_reason": "4/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "Beta Logistica (National Freight & Interport Logistics Network)",
         "historical_roi": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
-        "score": 16.005,
+        "score": 0.825,
         "shared_mechanisms": [
-          "agency_spend",
-          "generic_ads",
-          "local_reputation",
-          "mobile_friction"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "GENERIC_BOILERPLATE_JDS"
         ],
         "shared_context": [
-          "distributed",
-          "freight"
+          "DESKLESS_FRONTLINE_LOGISTICS",
+          "LOGISTICS_FREIGHT"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "family": "external_staffing",
-            "unit": "%",
-            "client_peer_gap": 18.5,
-            "case_t0_peer_gap": 19.3,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
-            "family": "role_information",
-            "unit": "index_100",
-            "client_peer_gap": 24.9,
-            "case_t0_peer_gap": 22.1,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "family": "review_distribution",
-            "unit": "stars",
-            "client_peer_gap": 0.27,
-            "case_t0_peer_gap": 0.14,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
           "headcount": 0.688,
           "locations_count": 0.8
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "unit": "%",
-            "t0": 38.7,
-            "t1": 20.4
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.job_ad_clarity_100",
-            "unit": "index_100",
-            "t0": 43.7,
-            "t1": 82.8
-          },
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "unit": "stars",
-            "t0": 0.41,
-            "t1": 0.18
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       },
       {
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.775,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4286,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY"
+        ],
+        "measured_roi_summary": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
+        "quantified_roi_highlights": [
+          "Candidate survey completion: 16.4% -> 34.8% (+112%)",
+          "Applicant conversion rate: 2.24% -> 3.92% (+75%)",
+          "Say-Do Gap (claims vs reviews): 0.56 stars -> 0.24 stars (-57%)"
+        ],
+        "match_reason": "3/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
         "historical_roi": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
-        "score": 12.985,
+        "score": 0.775,
         "shared_mechanisms": [
-          "agency_spend",
-          "generic_ads",
-          "mobile_friction"
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY"
         ],
         "shared_context": [
-          "distributed",
-          "freight"
+          "DESKLESS_FRONTLINE_LOGISTICS",
+          "LOGISTICS_FREIGHT"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "family": "external_staffing",
-            "unit": "%",
-            "client_peer_gap": 18.5,
-            "case_t0_peer_gap": 22.1,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "family": "role_information",
-            "unit": "index_100",
-            "client_peer_gap": 29.8,
-            "case_t0_peer_gap": 21.0,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
           "headcount": 1.5,
           "locations_count": 1.4
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "unit": "%",
-            "t0": 41.5,
-            "t1": 18.6
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "unit": "index_100",
-            "t0": 38.6,
-            "t1": 82.8
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "3/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
-        "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-        "score": 11.762,
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.7577,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3077,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "MULTISITE_REPUTATION_VARIANCE",
+          "COHORT_OR_SITE_ASYMMETRY"
+        ],
+        "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+          "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+          "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
+        ],
+        "match_reason": "2/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
+        "case": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "historical_roi": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+        "score": 0.7577,
         "shared_mechanisms": [
-          "agency_spend",
-          "generic_ads",
-          "local_reputation",
-          "post_tracking",
-          "review_tracking"
+          "MULTISITE_REPUTATION_VARIANCE",
+          "COHORT_OR_SITE_ASYMMETRY"
         ],
         "shared_context": [
-          "distributed"
+          "DESKLESS_FRONTLINE_LOGISTICS",
+          "LOGISTICS_FREIGHT"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "family": "external_staffing",
-            "unit": "%",
-            "client_peer_gap": 18.5,
-            "case_t0_peer_gap": 3.5,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "family": "role_information",
-            "unit": "index_100",
-            "client_peer_gap": 29.8,
-            "case_t0_peer_gap": 8.4,
-            "direction": "adverse is positive"
-          },
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "family": "review_distribution",
-            "unit": "stars",
-            "client_peer_gap": 0.27,
-            "case_t0_peer_gap": 0.28,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
-          "headcount": 0.844,
-          "locations_count": 1.0
+          "headcount": 1.219,
+          "locations_count": 1.2
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "hiring_and_retention_kpis.agency_filled_roles_pct",
-            "unit": "%",
-            "t0": 21.6,
-            "t1": 13.4
-          },
-          {
-            "metric_path": "career_portal_and_funnel.portal_component_scores_100.role_benefits_transparency_100",
-            "unit": "index_100",
-            "t0": 61.4,
-            "t1": 81.6
-          },
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "unit": "stars",
-            "t0": 0.49,
-            "t1": 0.3
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "2/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
+      }
+    ],
+    "candidate_action_scores": [
+      {
+        "candidate_id": "application_friction:1",
+        "rule": "application_friction",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot an accessible form that keeps eligibility questions and removes a verified obstacle.",
+        "diagnosis_rank": 1,
+        "score": 0.8151,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:application_abandonment:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:form_obstacle_verified:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_exposure:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:mobile_friction:present"
+        ],
+        "matched_case_names": [
+          "Beta Logistica (National Freight & Interport Logistics Network)",
+          "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)"
+        ],
+        "score_rank": 1
+      },
+      {
+        "candidate_id": "role_information:3",
+        "rule": "role_information",
+        "scope": {
+          "cohort": "frontline_workforce",
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "diagnosis_rank": 3,
+        "score": 0.7195,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0213,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#2:generic_ads:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#2:role_info_gap_verified:present"
+        ],
+        "matched_case_names": [
+          "Beta Logistica (National Freight & Interport Logistics Network)"
+        ],
+        "score_rank": 2
+      },
+      {
+        "candidate_id": "external_staffing_dependency:5",
+        "rule": "external_staffing_dependency",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot targeted recruiter capacity for roles with verified avoidable external spend.",
+        "diagnosis_rank": 5,
+        "score": 0.7089,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#1:agency_spend:present"
+        ],
+        "matched_case_names": [
+          "Beta Logistica (National Freight & Interport Logistics Network)",
+          "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)"
+        ],
+        "score_rank": 3
+      },
+      {
+        "candidate_id": "manual_measurement:2",
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "diagnosis_rank": 2,
+        "score": 0.6651,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.0
+        },
+        "matched_evidence_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#2:manual_tracking_load:present",
+          "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present"
+        ],
+        "matched_case_names": [],
+        "score_rank": 4
+      },
+      {
+        "candidate_id": "recruiter_handoff:4",
+        "rule": "recruiter_handoff",
+        "scope": {
+          "cohort": null,
+          "site": "bologna+naples",
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
+        "diagnosis_rank": 4,
+        "score": 0.6551,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.075
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+        ],
+        "matched_case_names": [
+          "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+        ],
+        "score_rank": 5
+      }
+    ],
+    "normalized_case_matches": [
+      {
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.825,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5714,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+          "GENERIC_BOILERPLATE_JDS"
+        ],
+        "measured_roi_summary": "Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.",
+        "quantified_roi_highlights": [
+          "Applicant conversion rate: 2.1% -> 3.7% (+76%)",
+          "Manual HR tracking: 6.5 h/month -> 2 h/month (-69%)",
+          "Cross-site rating variance (std dev): 0.41 stars -> 0.18 stars (-56%)"
+        ],
+        "match_reason": "4/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.775,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4286,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "HIGH_APPLICATION_DROPOFF",
+          "MOBILE_PORTAL_FRICTION",
+          "HIGH_EXTERNAL_AGENCY_DEPENDENCY"
+        ],
+        "measured_roi_summary": "Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).",
+        "quantified_roi_highlights": [
+          "Candidate survey completion: 16.4% -> 34.8% (+112%)",
+          "Applicant conversion rate: 2.24% -> 3.92% (+75%)",
+          "Say-Do Gap (claims vs reviews): 0.56 stars -> 0.24 stars (-57%)"
+        ],
+        "match_reason": "3/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "sector_category": "LOGISTICS_FREIGHT",
+        "similarity_score": 0.7577,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.3077,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "MULTISITE_REPUTATION_VARIANCE",
+          "COHORT_OR_SITE_ASYMMETRY"
+        ],
+        "measured_roi_summary": "-38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 41,280 -> 89,450 (+117%)",
+          "Say-Do Gap (claims vs reviews): 0.94 stars -> 0.22 stars (-77%)",
+          "Manual HR tracking: 6 h/month -> 1.5 h/month (-75%)"
+        ],
+        "match_reason": "2/9 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      }
+    ],
+    "case_informed_action_candidates": [
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MOBILE_FAST_APPLY_FLOW",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_06_BETA_LOGISTICA",
+        "case_name": "Beta Logistica (National Freight & Interport Logistics Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CAREER_PORTAL_UX_AUDIT",
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MOBILE_FAST_APPLY_FLOW",
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "PERSONA_ALIGNED_JDS",
+        "case_id": "CASE_16_TRANSEUROPA_SUPPLY_CHAIN",
+        "case_name": "TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "INTERNAL_360_LISTENING",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "MANAGER_COACHING_AND_LEVELING",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "COHORT_TARGETED_ORIGINAL_ACTION",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_17_MERIDIAN_EXPRESS_LOGISTI",
+        "case_name": "Meridian Express Logistics (European Parcel & Interport Courier Network)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
       }
     ],
     "mandatory_constraint_source": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
@@ -10721,7 +11551,8 @@
       "weak_reach": [
         "ingaze_platform_signals.linkedin_and_content_analytics#1"
       ]
-    }
+    },
+    "proposal_markdown": "# HR Proposal — EuroFreight Interport S.r.l.\n\n**Scenario:** `SCENARIO_B_EUROFREIGHT_LOGISTICS`\n**Industry:** Freight Transport & Interport Logistics\n\n## Executive Summary\n\nThe leading hypothesis is that a mobile application obstacle may explain pre-submission loss. Begin with this diagnostic: Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A mobile application obstacle may explain pre-submission loss\n- Manual workflows may limit reporting coverage and consume staff time\n- Unclear role information may weaken candidate attraction (Frontline)\n- A post-submission handoff may explain hiring delays (Bologna & Naples — applicants)\n- A delayed hire process may contribute to agency dependence\n\n### Reported signals\n\n- Local Reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.\n- Handoff Delay Reported (Bologna & Naples — applicants): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).\n- Review Tracking: Local hub reviews are tracked manually in spreadsheets.\n- Mobile Friction, Form Obstacle Verified, Mobile Exposure, Application Abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- Generic Ads, Role Info Gap Verified (Frontline): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.\n- Weak Reach (Frontline): Corporate LinkedIn page reaches white-collar freight clients and HQ analysts well, but has near-zero reach among licensed C-CQC drivers and interport warehouse operators.\n- Hiring Delay (Bologna & Naples — Frontline): The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n- Agency Spend: Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.\n- Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. Confirm the failing step with a short device-funnel check and pilot at the most affected sites. Do not deploy network-wide or rewrite all job ads at once before the pilot reads out.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Strengths to protect\n\n- 99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.\n\n### Cohort and site differences\n\n- HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Interview target candidates and review conversion for the same jobs and inbound channels (Frontline).\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Bologna & Naples — applicants).\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)\n- **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)\n- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)\n- Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. *Scale when:* Application form drop-off ≤ 32.6% in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 2.8 h/month in the pilot scope, with protected baselines unchanged\n- Scale after qualified applications improve while access and eligibility hold (Frontline). *Scale when:* Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Bologna & Naples — applicants). *Scale when:* Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged\n- Scale after direct qualified hires improve and Finance verifies changes in agency spend. *Scale when:* Agency-filled roles ≤ 20.0% in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 762k/year (client estimate) × precedent reduction 17%–46% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 127k–EUR 351k per year**\n- **Temporary agency spend:** baseline EUR 760k/year (stated €190k/quarter) × precedent reduction 45%–55% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 338k–EUR 419k per year**\n- **HR time reclaimed:** baseline 110 h/year (stated) × precedent reduction 50%–75% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **55–82 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **Beta Logistica (National Freight & Interport Logistics Network)** — Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.\n- **TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)** — Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).\n- **Meridian Express Logistics (European Parcel & Interport Courier Network)** — 38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Appcast**: Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **W3C Forms**: Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Corporate Career Portal UX & Conversion Study**: When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
   },
   {
     "scenario_code": "SCENARIO_C_VERDECARE_BCORP",
@@ -14199,129 +15030,569 @@
       }
     ],
     "guardrails": [
-      "Limit advocacy to an opt-in cohort pilot after readiness and reporting checks. Defer broad automation.",
+      "Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort now; defer only network-wide tracking automation until local profiles are audited.",
       "Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.",
       "Preserve the healthy employer proposition. Validate local messaging before considering an overhaul."
     ],
     "protected_scopes": [],
     "case_ranking": [
       {
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "sector_category": "HEALTHCARE_CLINICAL",
+        "similarity_score": 0.8115,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4615,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "MULTISITE_REPUTATION_VARIANCE"
+        ],
+        "measured_roi_summary": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 34,120 -> 97,240 (+185%)",
+          "Corporate LinkedIn engagement rate: 1.21% -> 2.39% (+98%)",
+          "Manual HR tracking: 10.5 h/month -> 0.5 h/month (-95%)"
+        ],
+        "match_reason": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
         "historical_roi": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
-        "score": 16.5,
+        "score": 0.8115,
         "shared_mechanisms": [
-          "existing_advocates",
-          "local_reputation",
-          "post_tracking",
-          "review_tracking"
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "MULTISITE_REPUTATION_VARIANCE"
         ],
         "shared_context": [
-          "care",
-          "distributed",
-          "sustainability"
+          "EARLY_CAREER_GEN_Z",
+          "MULTISITE_CLINICAL_HEALTHCARE",
+          "HEALTHCARE_CLINICAL"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "family": "review_distribution",
-            "unit": "stars",
-            "client_peer_gap": 0.18,
-            "case_t0_peer_gap": 0.19,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
           "headcount": 1.333,
           "locations_count": 0.731
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "unit": "stars",
-            "t0": 0.46,
-            "t1": 0.21
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas"
       },
       {
-        "case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
-        "historical_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
-        "score": 14.371,
-        "shared_mechanisms": [
-          "culture_ready",
-          "existing_advocates",
-          "feedback_fragmentation",
-          "post_tracking"
-        ],
-        "shared_context": [
-          "distributed",
-          "sustainability"
-        ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-            "family": "trust",
-            "unit": "stars",
-            "client_peer_gap": 0.92,
-            "case_t0_peer_gap": 0.61,
-            "direction": "favorable is positive"
-          }
-        ],
-        "case_to_client_scale_ratios": {
-          "headcount": 0.438,
-          "locations_count": 0.096
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+        "similarity_score": 0.6083,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.6667,
+          "workforce_fit_score": 0.5,
+          "sector_fit_score": 0.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "public_reputation.sub_ratings_5.culture_and_values",
-            "unit": "stars",
-            "t0": 4.59,
-            "t1": 4.62
-          }
-        ]
-      },
-      {
+        "matched_problem_tags": [
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MULTISITE_REPUTATION_VARIANCE",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 58,125 -> 186,000 (+220%)",
+          "Candidate survey completion: 17.2% -> 54.6% (+217%)",
+          "Manual HR tracking: 11.5 h/month -> 1.5 h/month (-87%)"
+        ],
+        "match_reason": "4/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
         "case": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
         "historical_roi": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
-        "score": 13.015,
+        "score": 0.6083,
         "shared_mechanisms": [
-          "local_reputation",
-          "post_tracking",
-          "review_tracking"
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MULTISITE_REPUTATION_VARIANCE",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
         ],
         "shared_context": [
-          "distributed",
-          "early_career",
-          "sustainability"
+          "EARLY_CAREER_GEN_Z"
         ],
-        "comparable_t0_metrics": [
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "family": "review_distribution",
-            "unit": "stars",
-            "client_peer_gap": 0.18,
-            "case_t0_peer_gap": 0.28,
-            "direction": "adverse is positive"
-          }
-        ],
+        "comparable_t0_metrics": [],
         "case_to_client_scale_ratios": {
           "headcount": 0.643,
           "locations_count": 0.096
         },
-        "outcome_use": "Historical sandbox outcome for context. Challenge telemetry is synthetic and this score is a retrieval heuristic.",
-        "transfer_scope": "Transfer the shared mechanisms. Check workforce and site fit before adapting interventions.",
-        "observed_t0_t1": [
-          {
-            "metric_path": "public_reputation.cross_location_rating_std_dev_5",
-            "unit": "stars",
-            "t0": 0.49,
-            "t1": 0.3
-          }
-        ]
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "4/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas"
+      },
+      {
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+        "similarity_score": 0.5409,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5455,
+          "workforce_fit_score": 0.5,
+          "sector_fit_score": 0.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 41,800 -> 146,300 (+250%)",
+          "Candidate survey completion: 15.9% -> 43.4% (+173%)",
+          "Manual HR tracking: 9 h/month -> 0.5 h/month (-94%)"
+        ],
+        "match_reason": "3/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge",
+        "case": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "historical_roi": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
+        "score": 0.5409,
+        "shared_mechanisms": [
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "shared_context": [
+          "EARLY_CAREER_GEN_Z"
+        ],
+        "comparable_t0_metrics": [],
+        "case_to_client_scale_ratios": {
+          "headcount": 0.438,
+          "locations_count": 0.096
+        },
+        "outcome_use": "Historical sandbox outcome for context; this is a precedent, not a causal guarantee.",
+        "transfer_scope": "3/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas"
+      }
+    ],
+    "candidate_action_scores": [
+      {
+        "candidate_id": "reputation_location:1",
+        "rule": "reputation_location",
+        "scope": {
+          "cohort": "regional_clinical_workforce",
+          "site": "regional clinics",
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot local ownership and fix the issue independently verified at those sites.",
+        "diagnosis_rank": 1,
+        "score": 0.8364,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#2:local_issue_verified:present",
+          "text:ingaze_platform_signals.reputation_and_reviews#2:local_reputation:present"
+        ],
+        "matched_case_names": [
+          "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+          "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
+        ],
+        "score_rank": 1
+      },
+      {
+        "candidate_id": "manual_measurement:2",
+        "rule": "manual_measurement",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Instrument verified tracking steps with source IDs and document staff time and conversion separately.",
+        "diagnosis_rank": 2,
+        "score": 0.7651,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.1
+        },
+        "matched_evidence_ids": [
+          "text:client_internal_context.budget_and_capacity_constraints#1:manual_tracking_load:present",
+          "text:client_internal_context.budget_and_capacity_constraints#1:post_tracking:present",
+          "text:client_internal_context.budget_and_capacity_constraints#1:tracking_workflow_verified:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#1:manual_tracking_load:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#1:post_tracking:present",
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#1:tracking_workflow_verified:present"
+        ],
+        "matched_case_names": [
+          "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+          "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
+        ],
+        "score_rank": 2
+      },
+      {
+        "candidate_id": "feedback_coverage:3",
+        "rule": "feedback_coverage",
+        "scope": {
+          "cohort": "regional_clinical_workforce",
+          "site": "regional clinics",
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot a short accessible survey and documented invitations at an affected site.",
+        "diagnosis_rank": 3,
+        "score": 0.7408,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0425,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.recruiting_and_jds#1:feedback_fragmentation:present",
+          "text:ingaze_platform_signals.recruiting_and_jds#1:feedback_workflow_verified:present"
+        ],
+        "matched_case_names": [
+          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+          "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)"
+        ],
+        "score_rank": 3
+      },
+      {
+        "candidate_id": "recruiter_handoff:5",
+        "rule": "recruiter_handoff",
+        "scope": {
+          "cohort": "regional_clinical_workforce",
+          "site": null,
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
+        "diagnosis_rank": 5,
+        "score": 0.7301,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0319,
+          "historical_case_mechanism_fit": 0.15
+        },
+        "matched_evidence_ids": [
+          "text:client_internal_context.cohort_and_site_asymmetries#1:handoff_delay_reported:present"
+        ],
+        "matched_case_names": [
+          "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+          "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)"
+        ],
+        "score_rank": 4
+      },
+      {
+        "candidate_id": "advocacy_pilot:4",
+        "rule": "advocacy_pilot",
+        "scope": {
+          "cohort": null,
+          "site": null,
+          "tenure": null,
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Trial opt-in, role-relevant participation with auditable tracking.",
+        "diagnosis_rank": 4,
+        "score": 0.6651,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.2125,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.0
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.linkedin_and_content_analytics#1:existing_advocates:present",
+          "text:ingaze_platform_signals.reputation_and_reviews#1:culture_ready:present"
+        ],
+        "matched_case_names": [],
+        "score_rank": 5
+      },
+      {
+        "candidate_id": "role_information:6",
+        "rule": "role_information",
+        "scope": {
+          "cohort": "all",
+          "site": "all",
+          "tenure": "all",
+          "window": "intake"
+        },
+        "status": "conflicted",
+        "action_title": "Test verified role details in job ads and compare qualified completions for similar traffic.",
+        "diagnosis_rank": 6,
+        "score": 0.2444,
+        "score_breakdown": {
+          "status_support": 0.0,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.0,
+          "scope_specificity": 0.0106,
+          "historical_case_mechanism_fit": 0.0
+        },
+        "matched_evidence_ids": [
+          "metric:generic_ads:career_portal_and_funnel.portal_component_scores_100.authentic_team_social_proof_100"
+        ],
+        "matched_case_names": [],
+        "score_rank": 6
+      }
+    ],
+    "normalized_case_matches": [
+      {
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "sector_category": "HEALTHCARE_CLINICAL",
+        "similarity_score": 0.8115,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.4615,
+          "workforce_fit_score": 1.0,
+          "sector_fit_score": 1.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "UNMONITORED_LOCAL_REVIEWS",
+          "MULTISITE_REPUTATION_VARIANCE"
+        ],
+        "measured_roi_summary": "Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 34,120 -> 97,240 (+185%)",
+          "Corporate LinkedIn engagement rate: 1.21% -> 2.39% (+98%)",
+          "Manual HR tracking: 10.5 h/month -> 0.5 h/month (-95%)"
+        ],
+        "match_reason": "3/8 root causes match, same workforce, same sector, 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+        "similarity_score": 0.6083,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.6667,
+          "workforce_fit_score": 0.5,
+          "sector_fit_score": 0.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 1.0
+        },
+        "matched_problem_tags": [
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MULTISITE_REPUTATION_VARIANCE",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": "Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 58,125 -> 186,000 (+220%)",
+          "Candidate survey completion: 17.2% -> 54.6% (+217%)",
+          "Manual HR tracking: 11.5 h/month -> 1.5 h/month (-87%)"
+        ],
+        "match_reason": "4/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      },
+      {
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "sector_category": "CLEANTECH_SUSTAINABILITY_BCORP",
+        "similarity_score": 0.5409,
+        "score_breakdown": {
+          "root_cause_overlap_score": 0.5455,
+          "workforce_fit_score": 0.5,
+          "sector_fit_score": 0.0,
+          "roi_evidence_score": 1.0,
+          "cfo_auditability_score": 0.75
+        },
+        "matched_problem_tags": [
+          "FRAGMENTED_CANDIDATE_FEEDBACK",
+          "MANUAL_HR_SPREADSHEET_DRAG",
+          "MISSING_CFO_ROI_EMV_VISIBILITY"
+        ],
+        "measured_roi_summary": ">40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.",
+        "quantified_roi_highlights": [
+          "Quarterly organic impressions: 41,800 -> 146,300 (+250%)",
+          "Candidate survey completion: 15.9% -> 43.4% (+173%)",
+          "Manual HR tracking: 9 h/month -> 0.5 h/month (-94%)"
+        ],
+        "match_reason": "3/8 root causes match, partial workforce overlap (1/2), 14 measured T0->T1 deltas",
+        "curation_review_status": "reviewed",
+        "match_input_source": "step2_track_tags_via_case_signal_bridge"
+      }
+    ],
+    "case_informed_action_candidates": [
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_08_VITACARE",
+        "case_name": "VitaCare Network (Multi-Site Healthcare & Senior Care Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_20_VERDICRAFT_BOTANICALS",
+        "case_name": "VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)",
+        "phase_bucket": 3,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "REPUTATION_AUDIT",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "EVP_REALIGNMENT",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_11_NATURAPURE",
+        "case_name": "NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "POST_INTERVIEW_SURVEY_DIGITIZATION",
+        "case_id": "CASE_09_AUREA_BANCA",
+        "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CANDIDATE_PERSONA_CALIBRATION",
+        "case_id": "CASE_09_AUREA_BANCA",
+        "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "phase_bucket": 1,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AMBASSADOR_SELECTION_ENABLEMENT",
+        "case_id": "CASE_09_AUREA_BANCA",
+        "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "AUTOMATED_AMBASSADOR_TRACKING",
+        "case_id": "CASE_09_AUREA_BANCA",
+        "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
+      },
+      {
+        "action_category": "CFO_RISK_AND_EMV_DASHBOARD",
+        "case_id": "CASE_09_AUREA_BANCA",
+        "case_name": "Aurea Banca Group (Banking & Wealth Management Enterprise)",
+        "phase_bucket": 2,
+        "use": "precedent_idea_for_review"
       }
     ],
     "mandatory_constraint_source": "https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/docs/CHALLENGE_BRIEF.md",
@@ -14494,6 +15765,7 @@
       "weak_reach": [
         "ingaze_platform_signals.linkedin_and_content_analytics#1"
       ]
-    }
+    },
+    "proposal_markdown": "# HR Proposal — VerdeCare & Formulation Group (Certified B Corp)\n\n**Scenario:** `SCENARIO_C_VERDECARE_BCORP`\n**Industry:** Multi-Site Healthcare, Wellness & B-Corp Formulation\n\n## Executive Summary\n\nThe leading hypothesis is that a local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical). Begin with this diagnostic: Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical)\n- Manual workflows may limit reporting coverage and consume staff time\n- Fragmented feedback collection may hide candidate experience issues (Regional Clinics — Regional Clinical, applicants)\n- A post-submission handoff may explain hiring delays (Regional Clinical — applicants)\n- Unclear role information may weaken candidate attraction\n\n### Reported signals\n\n- Culture Ready: Overall employee sentiment is highly positive (4.4/5 average, high EVP authenticity, zero Say-Do Gap or systemic burnout).\n- Local Reputation, Local Issue Verified (Regional Clinics — Regional Clinical): However, across the 50 regional care centers, local Google and Indeed facility reviews are unmonitored centrally, leaving 18 regional clinics with outdated or unaddressed local profiles.\n- Feedback Fragmentation, Feedback Workflow Verified (Regional Clinics — Regional Clinical, applicants): University Career Day and post-interview candidate feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate), hiding interview bottlenecks at regional clinics.\n- Review Tracking, Post Tracking, Existing Advocates, Tracking Workflow Verified, Weak Reach, Manual Tracking Load: 35 enthusiastic clinicians and lab researchers already share authentic posts on LinkedIn with high peer trust, but corporate brand channels have low organic reach and HR spends over 150 hours/year manually collecting facility reviews and chasing post screenshots from the 35 ambassadors in spreadsheets.\n- Existing Advocates (Formulation Labs): Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n- Handoff Delay Reported (Regional Clinical — applicants): The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n- Post Tracking, Tracking Workflow Verified, Manual Tracking Load: The 4-person central People team loses 150+ hours/year on manual spreadsheet tracking of facility reviews and ambassador screenshots.\n- EMV (applicants): The CFO requires certified Earned Media Value (EMV in EUR) and auditable B-Corp candidate experience metrics before approving the next annual HR budget.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort now; defer only network-wide tracking automation until local profiles are audited.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n- Preserve the healthy employer proposition. Validate local messaging before considering an overhaul.\n\n### Deferred requests\n\n- **Role Information:** Resolve counterevidence before selecting a pilot.\n\n### Strengths to protect\n\n- Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n\n### Cohort and site differences\n\n- The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical).\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Reconcile eligible candidates, invitations, responses and timestamps by stage and site (Regional Clinics — Regional Clinical, applicants).\n- Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Regional Clinical — applicants).\n- Interview target candidates and review conversion for the same jobs and inbound channels.\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- Pilot local ownership and fix the issue independently verified at those sites (Regional Clinics — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)\n- Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)\n- **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)\n- Pilot a named recruiter queue and response review for the affected roles (Regional Clinical — applicants). *Target:* Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand the workflow after coverage and local operational outcomes improve (Regional Clinics — Regional Clinical). *Scale when:* Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 0.7 h/month in the pilot scope, with protected baselines unchanged\n- Expand once response coverage improves and nonresponse patterns are checked (Regional Clinics — Regional Clinical, applicants). *Scale when:* Candidate survey completion ≥ 47.5% in the pilot scope, with protected baselines unchanged\n- Expand only with credible internal conditions, consent and measured audience or hiring outcomes. *Scale when:* Quarterly organic impressions ≥ 141,408 in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Regional Clinical — applicants). *Scale when:* Time-to-hire ≤ 33.4 days in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 618k/year (client estimate) × precedent reduction 10%–25% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **EUR 65k–EUR 152k per year**\n- **HR time reclaimed:** baseline 150 h/year (stated) × precedent reduction 87%–95% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **130–143 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **VitaCare Network (Multi-Site Healthcare & Senior Care Group)** — Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.\n- **VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)** — Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).\n- **NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)** — >40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Edwards 2023**: Shorter questionnaires and selected reminders can improve response in some settings. ([source](https://pmc.ncbi.nlm.nih.gov/articles/PMC10687884/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **Marinescu 2021**: Voluntary employer reviews can overrepresent extreme opinions. ([source](https://marinescu.eu/publication/marinescu-incentives-2021/))\n- **Van Hoye 2016**: Recruitment word-of-mouth studies found that source and disclosed incentives influenced employer attractiveness. ([source](https://doi.org/10.1111/ijsa.12128))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
   }
 ]
