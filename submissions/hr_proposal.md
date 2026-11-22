@@ -69,11 +69,11 @@ The leading hypothesis is that unclear role information may weaken candidate att
 
 *Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*
 
-- Test verified role details in job ads and compare qualified completions for similar traffic (Engineering). *Target:* Applicant conversion rate 2.4% → ≥ 3.3% (median matched-precedent change +40%, range +6% to +40%; sector peers 4.0%)
-- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60%, range -64% to -56%)
-- Pilot accurate role previews and correct the verified gap in work practices (Berlin & Milan — Engineering). *Pilot design:* Co-write a realistic engineering role preview with the affected teams. Ask recent hires to verify which decisions they can own and where approvals actually sit. *Target:* Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -74%, range -74% to -65%; sector peers 0.44 stars)
-- Pilot manager coaching and an explicit agreement on delegation in affected teams (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)
-- Pilot a structured onboarding and role-expectation review with a named owner (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)
+- Test verified role details in job ads and compare qualified completions for similar traffic (Engineering). *Target:* Applicant conversion rate 2.4% company-wide → ≥ 3.3% (median matched-precedent change +40.1%, range +5.8% to +40.3%; sector peers 4.0%)
+- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60.0%, range -63.6% to -55.6%)
+- Pilot accurate role previews and correct the verified gap in work practices (Berlin & Milan — Engineering). *Pilot design:* Co-write a realistic engineering role preview with the affected teams. Ask recent hires to verify which decisions they can own and where approvals actually sit. *Target:* Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -73.6%, range -74.1% to -65.4%; sector peers 0.44 stars)
+- Pilot manager coaching and an explicit agreement on delegation in affected teams (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% company-wide → ≤ 12.7% (median matched-precedent change -30.8%, range -44.4% to -22.1%; sector peers 12.8%)
+- Pilot a structured onboarding and role-expectation review with a named owner (Berlin & Milan — Engineering). *Target:* First-year attrition 18.4% company-wide → ≤ 12.7% (median matched-precedent change -30.8%, range -44.4% to -22.1%; sector peers 12.8%)
 
 ### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)
 
@@ -87,8 +87,8 @@ The leading hypothesis is that unclear role information may weaken candidate att
 
 ## Expected Value (CFO View)
 
-- **Attrition risk exposure:** baseline EUR 1.80M/year (client estimate) × precedent reduction 38%–45% (Alfa Group, KronoCart Tech, QuantEx Markets) → **EUR 678k–EUR 802k per year**
-- **HR time reclaimed:** baseline 208 h/year (stated) × precedent reduction 56%–64% (Alfa Group, KronoCart Tech, QuantEx Markets) → **116–132 hours per year**
+- **Attrition risk exposure:** baseline EUR 1.80M/year (client estimate) × precedent reduction 37.7%–44.6% (Alfa Group, KronoCart Tech, QuantEx Markets) → **EUR 678k–EUR 802k per year**
+- **HR time reclaimed:** baseline 208 h/year (stated) × precedent reduction 55.6%–63.6% (Alfa Group, KronoCart Tech, QuantEx Markets) → **116–132 hours per year**
 
 *Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.
 
@@ -181,11 +181,11 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 
 *Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*
 
-- **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)
-- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)
-- **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)
-- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — Frontline, applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)
-- Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)
+- **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48.2%, range -50.0% to -2.2%; sector peers 41.2%)
+- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69.2%, range -75.0% to -50.0%)
+- **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% company-wide → ≥ 3.3% (median matched-precedent change +75.0%, range +7.0% to +76.2%; sector peers 3.6%)
+- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — Frontline, applicants). *Target:* Time-to-hire 43 days company-wide → ≤ 29.8 days (median matched-precedent change -30.8%, range -39.6% to -20.6%; sector peers 31 days)
+- Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47.3%, range -55.2% to -44.5%; sector peers 19.4%)
 
 ### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)
 
@@ -199,9 +199,9 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 
 ## Expected Value (CFO View)
 
-- **Attrition risk exposure:** baseline EUR 762k/year (client estimate) × precedent reduction 17%–46% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 127k–EUR 351k per year**
-- **Temporary agency spend:** baseline EUR 760k/year (stated €190k/quarter) × precedent reduction 45%–55% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 338k–EUR 419k per year**
-- **HR time reclaimed:** baseline 110 h/year (stated) × precedent reduction 50%–75% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **55–82 hours per year**
+- **Attrition risk exposure:** baseline EUR 762k/year (client estimate) × precedent reduction 16.6%–46.0% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 127k–EUR 351k per year**
+- **Temporary agency spend:** baseline EUR 760k/year (stated €190k/quarter) × precedent reduction 44.5%–55.2% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 338k–EUR 419k per year**
+- **HR time reclaimed:** baseline 110 h/year (stated) × precedent reduction 50.0%–75.0% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **55–82 hours per year**
 
 *Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.
 
@@ -300,11 +300,11 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 
 *Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*
 
-- Pilot local ownership and fix the issue independently verified at those sites (Regional Care Centers — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)
-- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)
-- Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)
-- **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)
-- Pilot a named recruiter queue and response review for the affected roles (Regional Clinical — applicants). *Target:* Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)
+- Pilot local ownership and fix the issue independently verified at those sites (Regional Care Centers — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -38.8%, range -54.3% to -14.8%; sector peers 0.27 stars)
+- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94.4%, range -95.2% to -87.0%)
+- Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173.0%, range +29.4% to +217.4%; sector peers 30.8%)
+- **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220.0%, range +185.0% to +250.0%)
+- Pilot a named recruiter queue and response review for the affected roles (Regional Clinical — applicants). *Target:* Time-to-hire 42 days company-wide → ≤ 33.4 days (median matched-precedent change -20.5%, range -20.5% to -16.7%; sector peers 41 days)
 
 ### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)
 
@@ -318,8 +318,8 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 
 ## Expected Value (CFO View)
 
-- **Attrition risk exposure:** baseline EUR 618k/year (client estimate) × precedent reduction 10%–25% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **EUR 65k–EUR 152k per year**
-- **HR time reclaimed:** baseline 150 h/year (stated) × precedent reduction 87%–95% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **130–143 hours per year**
+- **Attrition risk exposure:** baseline EUR 618k/year (client estimate) × precedent reduction 10.5%–24.5% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **EUR 65k–EUR 152k per year**
+- **HR time reclaimed:** baseline 150 h/year (stated) × precedent reduction 87.0%–95.2% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **130–143 hours per year**
 
 *Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.
 

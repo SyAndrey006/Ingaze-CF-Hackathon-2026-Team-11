@@ -178,7 +178,7 @@
             "baseline": 2.38,
             "target": 3.34,
             "peer": 3.98,
-            "text": "Applicant conversion rate 2.4% → ≥ 3.3% (median matched-precedent change +40%, range +6% to +40%; sector peers 4.0%)"
+            "text": "Applicant conversion rate 2.4% company-wide → ≥ 3.3% (median matched-precedent change +40.1%, range +5.8% to +40.3%; sector peers 4.0%)"
           }
         },
         {
@@ -201,7 +201,7 @@
             "baseline": 16.0,
             "target": 6.4,
             "peer": null,
-            "text": "Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60%, range -64% to -56%)"
+            "text": "Manual HR tracking 16 h/month → ≤ 6.4 h/month (median matched-precedent change -60.0%, range -63.6% to -55.6%)"
           }
         },
         {
@@ -224,7 +224,7 @@
             "baseline": 1.3,
             "target": 0.34,
             "peer": 0.44,
-            "text": "Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -74%, range -74% to -65%; sector peers 0.44 stars)"
+            "text": "Say-Do gap (claims vs reviews) 1.30 stars → ≤ 0.34 stars (median matched-precedent change -73.6%, range -74.1% to -65.4%; sector peers 0.44 stars)"
           }
         },
         {
@@ -246,7 +246,7 @@
             "baseline": 18.4,
             "target": 12.73,
             "peer": 12.8,
-            "text": "First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)"
+            "text": "First-year attrition 18.4% company-wide → ≤ 12.7% (median matched-precedent change -30.8%, range -44.4% to -22.1%; sector peers 12.8%)"
           }
         },
         {
@@ -268,7 +268,7 @@
             "baseline": 18.4,
             "target": 12.73,
             "peer": 12.8,
-            "text": "First-year attrition 18.4% → ≤ 12.7% (median matched-precedent change -31%, range -44% to -22%; sector peers 12.8%)"
+            "text": "First-year attrition 18.4% company-wide → ≤ 12.7% (median matched-precedent change -30.8%, range -44.4% to -22.1%; sector peers 12.8%)"
           }
         }
       ],
@@ -908,7 +908,7 @@
             "baseline": 63.0,
             "target": 32.63,
             "peer": 41.2,
-            "text": "Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)"
+            "text": "Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48.2%, range -50.0% to -2.2%; sector peers 41.2%)"
           }
         },
         {
@@ -931,7 +931,7 @@
             "baseline": 9.2,
             "target": 2.83,
             "peer": null,
-            "text": "Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)"
+            "text": "Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69.2%, range -75.0% to -50.0%)"
           }
         },
         {
@@ -954,7 +954,7 @@
             "baseline": 1.89,
             "target": 3.31,
             "peer": 3.58,
-            "text": "Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)"
+            "text": "Applicant conversion rate 1.9% company-wide → ≥ 3.3% (median matched-precedent change +75.0%, range +7.0% to +76.2%; sector peers 3.6%)"
           }
         },
         {
@@ -976,7 +976,7 @@
             "baseline": 43.0,
             "target": 29.77,
             "peer": 31,
-            "text": "Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)"
+            "text": "Time-to-hire 43 days company-wide → ≤ 29.8 days (median matched-precedent change -30.8%, range -39.6% to -20.6%; sector peers 31 days)"
           }
         },
         {
@@ -999,7 +999,7 @@
             "baseline": 37.9,
             "target": 19.98,
             "peer": 19.4,
-            "text": "Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)"
+            "text": "Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47.3%, range -55.2% to -44.5%; sector peers 19.4%)"
           }
         }
       ],
@@ -1599,7 +1599,7 @@
             "baseline": 0.45,
             "target": 0.28,
             "peer": 0.27,
-            "text": "Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)"
+            "text": "Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -38.8%, range -54.3% to -14.8%; sector peers 0.27 stars)"
           }
         },
         {
@@ -1623,7 +1623,7 @@
             "baseline": 12.5,
             "target": 0.69,
             "peer": null,
-            "text": "Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)"
+            "text": "Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94.4%, range -95.2% to -87.0%)"
           }
         },
         {
@@ -1646,7 +1646,7 @@
             "baseline": 17.4,
             "target": 47.49,
             "peer": 30.8,
-            "text": "Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)"
+            "text": "Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173.0%, range +29.4% to +217.4%; sector peers 30.8%)"
           }
         },
         {
@@ -1671,7 +1671,7 @@
             "baseline": 44190.0,
             "target": 141408.0,
             "peer": null,
-            "text": "Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)"
+            "text": "Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220.0%, range +185.0% to +250.0%)"
           }
         },
         {
@@ -1693,7 +1693,7 @@
             "baseline": 42.0,
             "target": 33.41,
             "peer": 41,
-            "text": "Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)"
+            "text": "Time-to-hire 42 days company-wide → ≤ 33.4 days (median matched-precedent change -20.5%, range -20.5% to -16.7%; sector peers 41 days)"
           }
         }
       ],

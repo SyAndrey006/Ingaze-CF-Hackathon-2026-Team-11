@@ -61,7 +61,9 @@ RULE_TARGET_METRIC = {
     "advocacy_pilot": "quarterly_organic_impressions",
 }
 
-_PERIOD_FACTOR = {"week": 52, "month": 12, "quarter": 4, "year": 1}
+COMPANY_WIDE_BASELINES = {"early_first_year_attrition_pct", "avg_time_to_hire_days", "applicant_conversion_rate_pct"}
+
+_PERIOD_FACTOR ={"week": 52, "month": 12, "quarter": 4, "year": 1}
 
 
 def _leaf_values(tree, prefix="") -> Dict[str, float]:
@@ -139,9 +141,11 @@ def pilot_target(rule_id: str, client: dict, case_ids: Sequence[str], cases_by_i
     target = baseline * (1 + median)
     label, unit = METRIC_LABELS.get(metric, (metric.replace("_", " "), ""))
     direction = "≤" if metric in LOWER_IS_BETTER else "≥"
-    span_text = f"{span[0]:+.0%}" if len(span) == 1 else f"{span[0]:+.0%} to {span[-1]:+.0%}"
-    text = (f"{label} {_fmt(baseline, unit)} → {direction} {_fmt(target, unit)} "
-            f"(median matched-precedent change {median:+.0%}, range {span_text}"
+    span_text = f"{span[0]:+.1%}" if len(span) == 1 else f"{span[0]:+.1%} to {span[-1]:+.1%}"
+    # Telemetry baselines are company-wide; say so where a pilot is site- or cohort-scoped.
+    baseline_text = f"{_fmt(baseline, unit)} company-wide" if metric in COMPANY_WIDE_BASELINES else _fmt(baseline, unit)
+    text = (f"{label} {baseline_text} → {direction} {_fmt(target, unit)} "
+            f"(median matched-precedent change {median:+.1%}, range {span_text}"
             + (f"; sector peers {_fmt(float(peer), unit)}" if type(peer) in (int, float) else "") + ")")
     gate_text = f"{label} {direction} {_fmt(target, unit)} in the pilot scope, with protected baselines unchanged"
     return {"metric": metric, "baseline": baseline, "target": round(target, 2), "peer": peer,
@@ -185,7 +189,7 @@ def _range_line(name, baseline, baseline_text, changes, money=True):
         "low": round(low, 2), "high": round(high, 2), "unit": "EUR/year" if money else "hours/year",
         "precedent_reductions": [round(r, 4) for r in reductions], "precedent_cases": cases,
         "text": (f"**{name}:** baseline {baseline_text} × precedent reduction "
-                 f"{reductions[0]:.0%}" + (f"–{reductions[-1]:.0%}" if len(reductions) > 1 else "")
+                 f"{reductions[0]:.1%}" + (f"–{reductions[-1]:.1%}" if len(reductions) > 1 else "")
                  + f" ({cases}) → **{value}**"),
     }
 
