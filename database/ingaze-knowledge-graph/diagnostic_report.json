@@ -7617,6 +7617,89 @@
         "scope": {
           "cohort": "frontline_workforce",
           "site": "bologna+naples",
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+        ],
+        "other_matching_ids": [],
+        "origin_components": {
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present": "origin:narrative_unresolved_lineage"
+        },
+        "counterevidence_ids": [],
+        "unmatched_families": [
+          "hire_latency"
+        ],
+        "missing_families": [
+          "hire_latency"
+        ],
+        "dependent_families": [],
+        "evidence_slots": [
+          {
+            "family": "handoff_interval",
+            "expected_signals": [
+              "handoff_delay_verified",
+              "handoff_delay_reported"
+            ],
+            "matching_ids": [
+              "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+            ],
+            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present",
+            "direct_slot": true
+          },
+          {
+            "family": "hire_latency",
+            "expected_signals": [
+              "hiring_delay",
+              "vacancy_delay"
+            ],
+            "matching_ids": [],
+            "selected_id": null,
+            "direct_slot": false
+          }
+        ],
+        "limitations": [
+          "missing_or_dependent_evidence",
+          "verified_direct_evidence_required"
+        ],
+        "alternatives": [
+          "application_friction",
+          "qualified_applicant_supply",
+          "requisition_approval",
+          "interview_capacity"
+        ],
+        "sources": [
+          "hausknecht_2004"
+        ],
+        "next_check": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
+        "competing_hypotheses": [
+          {
+            "rule": "application_friction",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "qualified_applicant_supply",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "requisition_approval",
+            "same_scope_status": "insufficient_evidence"
+          },
+          {
+            "rule": "interview_capacity",
+            "same_scope_status": "insufficient_evidence"
+          }
+        ]
+      },
+      {
+        "rule": "recruiter_handoff",
+        "label": "A post-submission handoff may explain hiring delays",
+        "kind": "operational",
+        "status": "plausible",
+        "scope": {
+          "cohort": "frontline_workforce",
+          "site": "bologna+naples",
           "tenure": null,
           "window": "intake"
         },
@@ -7690,90 +7773,6 @@
           {
             "rule": "interview_capacity",
             "same_scope_status": "plausible"
-          }
-        ]
-      },
-      {
-        "rule": "recruiter_handoff",
-        "label": "A post-submission handoff may explain hiring delays",
-        "kind": "operational",
-        "status": "plausible",
-        "scope": {
-          "cohort": null,
-          "site": "bologna+naples",
-          "tenure": "applicant",
-          "window": "intake"
-        },
-        "evidence_ids": [
-          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
-        ],
-        "other_matching_ids": [],
-        "origin_components": {
-          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present": "origin:narrative_unresolved_lineage"
-        },
-        "counterevidence_ids": [],
-        "unmatched_families": [
-          "hire_latency"
-        ],
-        "missing_families": [
-          "hire_latency"
-        ],
-        "dependent_families": [],
-        "evidence_slots": [
-          {
-            "family": "handoff_interval",
-            "expected_signals": [
-              "handoff_delay_verified",
-              "handoff_delay_reported"
-            ],
-            "matching_ids": [
-              "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
-            ],
-            "selected_id": "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present",
-            "direct_slot": true
-          },
-          {
-            "family": "hire_latency",
-            "expected_signals": [
-              "hiring_delay",
-              "vacancy_delay"
-            ],
-            "matching_ids": [],
-            "selected_id": null,
-            "direct_slot": false
-          }
-        ],
-        "limitations": [
-          "unresolved_scope_or_window",
-          "missing_or_dependent_evidence",
-          "verified_direct_evidence_required"
-        ],
-        "alternatives": [
-          "application_friction",
-          "qualified_applicant_supply",
-          "requisition_approval",
-          "interview_capacity"
-        ],
-        "sources": [
-          "hausknecht_2004"
-        ],
-        "next_check": "Measure elapsed time from submission to first contact and subsequent funnel stages by cohort.",
-        "competing_hypotheses": [
-          {
-            "rule": "application_friction",
-            "same_scope_status": "insufficient_evidence"
-          },
-          {
-            "rule": "qualified_applicant_supply",
-            "same_scope_status": "insufficient_evidence"
-          },
-          {
-            "rule": "requisition_approval",
-            "same_scope_status": "insufficient_evidence"
-          },
-          {
-            "rule": "interview_capacity",
-            "same_scope_status": "insufficient_evidence"
           }
         ]
       },
@@ -8435,7 +8434,7 @@
           "narrative_unresolved_lineage"
         ],
         "scope": {
-          "cohort": null,
+          "cohort": "frontline_workforce",
           "site": "bologna+naples",
           "tenure": "applicant",
           "window": "intake"
@@ -10857,7 +10856,7 @@
       {
         "rule": "recruiter_handoff",
         "scope": {
-          "cohort": null,
+          "cohort": "frontline_workforce",
           "site": "bologna+naples",
           "tenure": "applicant",
           "window": "intake"
@@ -11118,6 +11117,35 @@
         "score_rank": 3
       },
       {
+        "candidate_id": "recruiter_handoff:4",
+        "rule": "recruiter_handoff",
+        "scope": {
+          "cohort": "frontline_workforce",
+          "site": "bologna+naples",
+          "tenure": "applicant",
+          "window": "intake"
+        },
+        "status": "plausible",
+        "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
+        "diagnosis_rank": 4,
+        "score": 0.6657,
+        "score_breakdown": {
+          "status_support": 0.187,
+          "evidence_slot_coverage": 0.1062,
+          "direct_evidence": 0.1275,
+          "reported_evidence": 0.1275,
+          "scope_specificity": 0.0425,
+          "historical_case_mechanism_fit": 0.075
+        },
+        "matched_evidence_ids": [
+          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
+        ],
+        "matched_case_names": [
+          "Meridian Express Logistics (European Parcel & Interport Courier Network)"
+        ],
+        "score_rank": 4
+      },
+      {
         "candidate_id": "manual_measurement:2",
         "rule": "manual_measurement",
         "scope": {
@@ -11143,35 +11171,6 @@
           "text:client_internal_context.budget_and_capacity_constraints#2:tracking_workflow_verified:present"
         ],
         "matched_case_names": [],
-        "score_rank": 4
-      },
-      {
-        "candidate_id": "recruiter_handoff:4",
-        "rule": "recruiter_handoff",
-        "scope": {
-          "cohort": null,
-          "site": "bologna+naples",
-          "tenure": "applicant",
-          "window": "intake"
-        },
-        "status": "plausible",
-        "action_title": "Pilot a named recruiter queue and response review for the affected roles.",
-        "diagnosis_rank": 4,
-        "score": 0.6551,
-        "score_breakdown": {
-          "status_support": 0.187,
-          "evidence_slot_coverage": 0.1062,
-          "direct_evidence": 0.1275,
-          "reported_evidence": 0.1275,
-          "scope_specificity": 0.0319,
-          "historical_case_mechanism_fit": 0.075
-        },
-        "matched_evidence_ids": [
-          "text:ingaze_platform_signals.reputation_and_reviews#2:handoff_delay_reported:present"
-        ],
-        "matched_case_names": [
-          "Meridian Express Logistics (European Parcel & Interport Courier Network)"
-        ],
         "score_rank": 5
       }
     ],
@@ -11552,7 +11551,7 @@
         "ingaze_platform_signals.linkedin_and_content_analytics#1"
       ]
     },
-    "proposal_markdown": "# HR Proposal — EuroFreight Interport S.r.l.\n\n**Scenario:** `SCENARIO_B_EUROFREIGHT_LOGISTICS`\n**Industry:** Freight Transport & Interport Logistics\n\n## Executive Summary\n\nThe leading hypothesis is that a mobile application obstacle may explain pre-submission loss. Begin with this diagnostic: Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A mobile application obstacle may explain pre-submission loss\n- Manual workflows may limit reporting coverage and consume staff time\n- Unclear role information may weaken candidate attraction (Frontline)\n- A post-submission handoff may explain hiring delays (Bologna & Naples — applicants)\n- A delayed hire process may contribute to agency dependence\n\n### Reported signals\n\n- Local Reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.\n- Handoff Delay Reported (Bologna & Naples — applicants): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).\n- Review Tracking: Local hub reviews are tracked manually in spreadsheets.\n- Mobile Friction, Form Obstacle Verified, Mobile Exposure, Application Abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- Generic Ads, Role Info Gap Verified (Frontline): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.\n- Weak Reach (Frontline): Corporate LinkedIn page reaches white-collar freight clients and HQ analysts well, but has near-zero reach among licensed C-CQC drivers and interport warehouse operators.\n- Hiring Delay (Bologna & Naples — Frontline): The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n- Agency Spend: Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.\n- Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. Confirm the failing step with a short device-funnel check and pilot at the most affected sites. Do not deploy network-wide or rewrite all job ads at once before the pilot reads out.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Strengths to protect\n\n- 99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.\n\n### Cohort and site differences\n\n- HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Interview target candidates and review conversion for the same jobs and inbound channels (Frontline).\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Bologna & Naples — applicants).\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)\n- **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)\n- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)\n- Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. *Scale when:* Application form drop-off ≤ 32.6% in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 2.8 h/month in the pilot scope, with protected baselines unchanged\n- Scale after qualified applications improve while access and eligibility hold (Frontline). *Scale when:* Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Bologna & Naples — applicants). *Scale when:* Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged\n- Scale after direct qualified hires improve and Finance verifies changes in agency spend. *Scale when:* Agency-filled roles ≤ 20.0% in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 762k/year (client estimate) × precedent reduction 17%–46% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 127k–EUR 351k per year**\n- **Temporary agency spend:** baseline EUR 760k/year (stated €190k/quarter) × precedent reduction 45%–55% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 338k–EUR 419k per year**\n- **HR time reclaimed:** baseline 110 h/year (stated) × precedent reduction 50%–75% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **55–82 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **Beta Logistica (National Freight & Interport Logistics Network)** — Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.\n- **TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)** — Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).\n- **Meridian Express Logistics (European Parcel & Interport Courier Network)** — 38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Appcast**: Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **W3C Forms**: Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Corporate Career Portal UX & Conversion Study**: When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
+    "proposal_markdown": "# HR Proposal — EuroFreight Interport S.r.l.\n\n**Scenario:** `SCENARIO_B_EUROFREIGHT_LOGISTICS`\n**Industry:** Freight Transport & Interport Logistics\n\n## Executive Summary\n\nThe leading hypothesis is that a mobile application obstacle may explain pre-submission loss. Begin with this diagnostic: Compare starts and submissions by device and role, then reproduce the failure at the suspected form step. Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A mobile application obstacle may explain pre-submission loss\n- Manual workflows may limit reporting coverage and consume staff time\n- Unclear role information may weaken candidate attraction (Frontline)\n- A post-submission handoff may explain hiring delays (Bologna & Naples — Frontline, applicants)\n- A delayed hire process may contribute to agency dependence\n\n### Reported signals\n\n- Local Reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.\n- Handoff Delay Reported (Bologna & Naples — Frontline, applicants): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).\n- Review Tracking: Local hub reviews are tracked manually in spreadsheets.\n- Mobile Friction, Form Obstacle Verified, Mobile Exposure, Application Abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.\n- Generic Ads, Role Info Gap Verified (Frontline): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.\n- Weak Reach (Frontline): Corporate LinkedIn page reaches white-collar freight clients and HQ analysts well, but has near-zero reach among licensed C-CQC drivers and interport warehouse operators.\n- Hiring Delay (Bologna & Naples — Frontline): The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n- Agency Spend: Because of the 43-day Time-to-Hire, Operations is burning €190k/quarter on emergency temporary staffing agencies.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Exclude technical LinkedIn storytelling as the primary driver channel. Preserve proven HQ hiring channels.\n- Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. Confirm the failing step with a short device-funnel check and pilot at the most affected sites. Do not deploy network-wide or rewrite all job ads at once before the pilot reads out.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n\n### Strengths to protect\n\n- 99.4% on-time payroll accuracy, modern Euro-6 fleet (<2.5 years average vehicle age), and 91% annual retention among tenured (>2 years) long-haul C-CQC drivers.\n\n### Cohort and site differences\n\n- HQ commercial/admin roles (140 staff in Verona) hire smoothly in 24 days via LinkedIn. The acute bottleneck is exclusively on the 120 frontline C-CQC driver and warehouse operator openings across the regional hubs—especially Bologna and Naples—where average Time-to-Hire has reached 43 days.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Interview target candidates and review conversion for the same jobs and inbound channels (Frontline).\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Bologna & Naples — Frontline, applicants).\n- Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)\n- **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)\n- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — Frontline, applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)\n- Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. *Scale when:* Application form drop-off ≤ 32.6% in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 2.8 h/month in the pilot scope, with protected baselines unchanged\n- Scale after qualified applications improve while access and eligibility hold (Frontline). *Scale when:* Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Bologna & Naples — Frontline, applicants). *Scale when:* Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged\n- Scale after direct qualified hires improve and Finance verifies changes in agency spend. *Scale when:* Agency-filled roles ≤ 20.0% in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 762k/year (client estimate) × precedent reduction 17%–46% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 127k–EUR 351k per year**\n- **Temporary agency spend:** baseline EUR 760k/year (stated €190k/quarter) × precedent reduction 45%–55% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **EUR 338k–EUR 419k per year**\n- **HR time reclaimed:** baseline 110 h/year (stated) × precedent reduction 50%–75% (Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics) → **55–82 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **Beta Logistica (National Freight & Interport Logistics Network)** — Career site conversion jumped +76% (from 2.1% to 3.7%), application abandonment fell from 58% to 29%, and Time-to-Hire dropped by 31% (from 52 days to 36 days), substantially cutting external agency costs.\n- **TransEuropa Supply Chain (Multi-Hub Contract Logistics & Fulfilment Network)** — Application drop-off fell by 48% (from 61.4% to 31.8%), applicant conversion jumped +75% (from 2.24% to 3.92%), Time-to-Hire dropped by 40% (from 48 to 29 days), and early frontline turnover declined by 28% (from 24.6% to 17.7%).\n- **Meridian Express Logistics (European Parcel & Interport Courier Network)** — 38% reduction in frontline first-year turnover (from 26.8% to 16.6%), overall reputation rating lifted from 3.36 to 4.08 (-56% cross-hub rating std dev, from 0.54 to 0.24), and €640k in annual attrition exposure mitigated.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Appcast**: Observed apply completion varied with application length. ([source](https://www.appcast.io/high-volume-recruiting-strategy/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **W3C Forms**: Accessible forms use necessary inputs, clear labels and recoverable errors. ([source](https://www.w3.org/WAI/tutorials/forms/))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **Corporate Career Portal UX & Conversion Study**: When an application flow requires account creation and more than 4 form screens on mobile devices, abandonment rates among frontline logistics, retail, and healthcare candidates exceed 58%. Switching to a 60-second mobile fast-apply reduces bounce rates by 30-35%.\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
   },
   {
     "scenario_code": "SCENARIO_C_VERDECARE_BCORP",
@@ -12286,7 +12285,7 @@
         "status": "plausible",
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -12435,7 +12434,7 @@
         "status": "plausible",
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -12674,7 +12673,7 @@
         ],
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -12693,7 +12692,7 @@
         ],
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -14966,7 +14965,7 @@
         "rule": "reputation_location",
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -15182,7 +15181,7 @@
         "rule": "reputation_location",
         "scope": {
           "cohort": "regional_clinical_workforce",
-          "site": "regional clinics",
+          "site": "regional care centers",
           "tenure": null,
           "window": "intake"
         },
@@ -15766,6 +15765,6 @@
         "ingaze_platform_signals.linkedin_and_content_analytics#1"
       ]
     },
-    "proposal_markdown": "# HR Proposal — VerdeCare & Formulation Group (Certified B Corp)\n\n**Scenario:** `SCENARIO_C_VERDECARE_BCORP`\n**Industry:** Multi-Site Healthcare, Wellness & B-Corp Formulation\n\n## Executive Summary\n\nThe leading hypothesis is that a local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical). Begin with this diagnostic: Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical)\n- Manual workflows may limit reporting coverage and consume staff time\n- Fragmented feedback collection may hide candidate experience issues (Regional Clinics — Regional Clinical, applicants)\n- A post-submission handoff may explain hiring delays (Regional Clinical — applicants)\n- Unclear role information may weaken candidate attraction\n\n### Reported signals\n\n- Culture Ready: Overall employee sentiment is highly positive (4.4/5 average, high EVP authenticity, zero Say-Do Gap or systemic burnout).\n- Local Reputation, Local Issue Verified (Regional Clinics — Regional Clinical): However, across the 50 regional care centers, local Google and Indeed facility reviews are unmonitored centrally, leaving 18 regional clinics with outdated or unaddressed local profiles.\n- Feedback Fragmentation, Feedback Workflow Verified (Regional Clinics — Regional Clinical, applicants): University Career Day and post-interview candidate feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate), hiding interview bottlenecks at regional clinics.\n- Review Tracking, Post Tracking, Existing Advocates, Tracking Workflow Verified, Weak Reach, Manual Tracking Load: 35 enthusiastic clinicians and lab researchers already share authentic posts on LinkedIn with high peer trust, but corporate brand channels have low organic reach and HR spends over 150 hours/year manually collecting facility reviews and chasing post screenshots from the 35 ambassadors in spreadsheets.\n- Existing Advocates (Formulation Labs): Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n- Handoff Delay Reported (Regional Clinical — applicants): The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n- Post Tracking, Tracking Workflow Verified, Manual Tracking Load: The 4-person central People team loses 150+ hours/year on manual spreadsheet tracking of facility reviews and ambassador screenshots.\n- EMV (applicants): The CFO requires certified Earned Media Value (EMV in EUR) and auditable B-Corp candidate experience metrics before approving the next annual HR budget.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort now; defer only network-wide tracking automation until local profiles are audited.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n- Preserve the healthy employer proposition. Validate local messaging before considering an overhaul.\n\n### Deferred requests\n\n- **Role Information:** Resolve counterevidence before selecting a pilot.\n\n### Strengths to protect\n\n- Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n\n### Cohort and site differences\n\n- The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical).\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Reconcile eligible candidates, invitations, responses and timestamps by stage and site (Regional Clinics — Regional Clinical, applicants).\n- Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Regional Clinical — applicants).\n- Interview target candidates and review conversion for the same jobs and inbound channels.\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- Pilot local ownership and fix the issue independently verified at those sites (Regional Clinics — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)\n- Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)\n- **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)\n- Pilot a named recruiter queue and response review for the affected roles (Regional Clinical — applicants). *Target:* Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand the workflow after coverage and local operational outcomes improve (Regional Clinics — Regional Clinical). *Scale when:* Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 0.7 h/month in the pilot scope, with protected baselines unchanged\n- Expand once response coverage improves and nonresponse patterns are checked (Regional Clinics — Regional Clinical, applicants). *Scale when:* Candidate survey completion ≥ 47.5% in the pilot scope, with protected baselines unchanged\n- Expand only with credible internal conditions, consent and measured audience or hiring outcomes. *Scale when:* Quarterly organic impressions ≥ 141,408 in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Regional Clinical — applicants). *Scale when:* Time-to-hire ≤ 33.4 days in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 618k/year (client estimate) × precedent reduction 10%–25% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **EUR 65k–EUR 152k per year**\n- **HR time reclaimed:** baseline 150 h/year (stated) × precedent reduction 87%–95% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **130–143 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **VitaCare Network (Multi-Site Healthcare & Senior Care Group)** — Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.\n- **VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)** — Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).\n- **NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)** — >40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Edwards 2023**: Shorter questionnaires and selected reminders can improve response in some settings. ([source](https://pmc.ncbi.nlm.nih.gov/articles/PMC10687884/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **Marinescu 2021**: Voluntary employer reviews can overrepresent extreme opinions. ([source](https://marinescu.eu/publication/marinescu-incentives-2021/))\n- **Van Hoye 2016**: Recruitment word-of-mouth studies found that source and disclosed incentives influenced employer attractiveness. ([source](https://doi.org/10.1111/ijsa.12128))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
+    "proposal_markdown": "# HR Proposal — VerdeCare & Formulation Group (Certified B Corp)\n\n**Scenario:** `SCENARIO_C_VERDECARE_BCORP`\n**Industry:** Multi-Site Healthcare, Wellness & B-Corp Formulation\n\n## Executive Summary\n\nThe leading hypothesis is that a local operating issue may explain uneven site reputation (Regional Care Centers — Regional Clinical). Begin with this diagnostic: Compare themes, sample counts and local operational records for the affected sites (Regional Care Centers — Regional Clinical). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.\n\n## Key Problems\n\n### Root-cause hypotheses\n\n- A local operating issue may explain uneven site reputation (Regional Care Centers — Regional Clinical)\n- Manual workflows may limit reporting coverage and consume staff time\n- Fragmented feedback collection may hide candidate experience issues (Regional Clinics — Regional Clinical, applicants)\n- A post-submission handoff may explain hiring delays (Regional Clinical — applicants)\n- Unclear role information may weaken candidate attraction\n\n### Reported signals\n\n- Culture Ready: Overall employee sentiment is highly positive (4.4/5 average, high EVP authenticity, zero Say-Do Gap or systemic burnout).\n- Local Reputation, Local Issue Verified (Regional Care Centers — Regional Clinical): However, across the 50 regional care centers, local Google and Indeed facility reviews are unmonitored centrally, leaving 18 regional clinics with outdated or unaddressed local profiles.\n- Feedback Fragmentation, Feedback Workflow Verified (Regional Clinics — Regional Clinical, applicants): University Career Day and post-interview candidate feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate), hiding interview bottlenecks at regional clinics.\n- Review Tracking, Post Tracking, Existing Advocates, Tracking Workflow Verified, Weak Reach, Manual Tracking Load: 35 enthusiastic clinicians and lab researchers already share authentic posts on LinkedIn with high peer trust, but corporate brand channels have low organic reach and HR spends over 150 hours/year manually collecting facility reviews and chasing post screenshots from the 35 ambassadors in spreadsheets.\n- Existing Advocates (Formulation Labs): Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n- Handoff Delay Reported (Regional Clinical — applicants): The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n- Post Tracking, Tracking Workflow Verified, Manual Tracking Load: The 4-person central People team loses 150+ hours/year on manual spreadsheet tracking of facility reviews and ambassador screenshots.\n- EMV (applicants): The CFO requires certified Earned Media Value (EMV in EUR) and auditable B-Corp candidate experience metrics before approving the next annual HR budget.\n\n## What NOT to Do / Strengths to Protect\n\n### Guardrails\n\n- Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort now; defer only network-wide tracking automation until local profiles are audited.\n- Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.\n- Preserve the healthy employer proposition. Validate local messaging before considering an overhaul.\n\n### Deferred requests\n\n- **Role Information:** Resolve counterevidence before selecting a pilot.\n\n### Strengths to protect\n\n- Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.\n\n### Cohort and site differences\n\n- The 2 central R&D formulation labs enjoy high applicant flow, whereas 18 regional senior care centers lack local passive candidate awareness among nurses and therapists, and Gen-Z university Career Day candidates drop out during slow local facility interview handoffs.\n\n## Three-Phase Action Plan\n\n### Phase 1 — Diagnostics (weeks 1–4)\n\n- Compare themes, sample counts and local operational records for the affected sites (Regional Care Centers — Regional Clinical).\n- Audit duplicate handling, reporting effort, source coverage, and ownership.\n- Reconcile eligible candidates, invitations, responses and timestamps by stage and site (Regional Clinics — Regional Clinical, applicants).\n- Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.\n- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Regional Clinical — applicants).\n- Interview target candidates and review conversion for the same jobs and inbound channels.\n- Agree auditable outcome definitions with Finance. Separate staff time, hiring outcomes and estimated media cost.\n\n### Phase 2 — Scoped Pilots (weeks 5–12)\n\n*Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*\n\n- Pilot local ownership and fix the issue independently verified at those sites (Regional Care Centers — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)\n- Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)\n- Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)\n- **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)\n- Pilot a named recruiter queue and response review for the affected roles (Regional Clinical — applicants). *Target:* Time-to-hire 42 days → ≤ 33.4 days (median matched-precedent change -20%, range -21% to -17%; sector peers 41 days)\n\n### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)\n\n*Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*\n\n- Expand the workflow after coverage and local operational outcomes improve (Regional Care Centers — Regional Clinical). *Scale when:* Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged\n- Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 0.7 h/month in the pilot scope, with protected baselines unchanged\n- Expand once response coverage improves and nonresponse patterns are checked (Regional Clinics — Regional Clinical, applicants). *Scale when:* Candidate survey completion ≥ 47.5% in the pilot scope, with protected baselines unchanged\n- Expand only with credible internal conditions, consent and measured audience or hiring outcomes. *Scale when:* Quarterly organic impressions ≥ 141,408 in the pilot scope, with protected baselines unchanged\n- Expand after response times and qualified progression improve without shifting the queue elsewhere (Regional Clinical — applicants). *Scale when:* Time-to-hire ≤ 33.4 days in the pilot scope, with protected baselines unchanged\n\n## Expected Value (CFO View)\n\n- **Attrition risk exposure:** baseline EUR 618k/year (client estimate) × precedent reduction 10%–25% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **EUR 65k–EUR 152k per year**\n- **HR time reclaimed:** baseline 150 h/year (stated) × precedent reduction 87%–95% (VitaCare Network, VerdiCraft Botanicals, NaturaPure Group) → **130–143 hours per year**\n\n*Method:* Client baseline (current telemetry or an amount stated in the brief) x the smallest and largest measured before/after improvement of the same metric in the matched precedents. Ranges, not forecasts; lines can overlap and are not additive; hours are not converted to EUR because no hourly cost is supplied.\n\n## Precedents & Next Steps\n\n### Historical case precedents\n\n- **VitaCare Network (Multi-Site Healthcare & Senior Care Group)** — Saved 120 hours/year of manual review/spreadsheet work, unified multi-site reputation monitoring, and achieved +185% organic reach among clinical candidates.\n- **VerdiCraft Botanicals (Multi-Country Sustainable Cosmetics & Certified B-Corp Group)** — Candidate survey completion jumped from 17.2% to 54.6%, cross-country rating std dev dropped by 39% (from 0.49 to 0.30), manual HR tracking fell by 87% (from 11.5 to 1.5 hours/month), and organic impressions grew 3.2x (from 58.1k to 186.0k/quarter).\n- **NaturaPure Group (Regenerative Beauty & Certified B-Corp Enterprise)** — >40% candidate feedback response rate, unified B-Corp candidate experience metrics for impact reporting, and 3.5x organic advocacy reach.\n\n### Supporting research\n\n- **Amec**: AMEC calls for outcome and impact measurement and rejects advertising value equivalency as a measure of communication value. ([source](https://amecorg.com/wp-content/uploads/2025/06/Barcelona-Principles-V4.0-Ebook-FINAL-Compressed.pdf))\n- **Edwards 2023**: Shorter questionnaires and selected reminders can improve response in some settings. ([source](https://pmc.ncbi.nlm.nih.gov/articles/PMC10687884/))\n- **Hausknecht 2004**: Favorable applicant reactions related to employer perceptions and reported acceptance and recommendation intentions. ([source](https://doi.org/10.1111/j.1744-6570.2004.00003.x))\n- **Marinescu 2021**: Voluntary employer reviews can overrepresent extreme opinions. ([source](https://marinescu.eu/publication/marinescu-incentives-2021/))\n- **Van Hoye 2016**: Recruitment word-of-mouth studies found that source and disclosed incentives influenced employer attractiveness. ([source](https://doi.org/10.1111/ijsa.12128))\n- **Williamson 2010**: Reputation, job and company information, and site vividness interacted in business students’ perceptions of recruiting firms. ([source](https://doi.org/10.1002/hrm.20379))\n- **B2B Employee Advocacy & Earned Media Study**: Employee ambassador posts generate 5x to 8x higher organic engagement than corporate brand pages, while automated tracking reclaims 8 to 20 hours/month of manual HR spreadsheet work and delivers auditable Earned Media Value (EMV) for CFO budget reviews.\n- **Executive HR Budget & CFO Governance Survey**: 78% of HR budget requests for Employer Branding are rejected or cut because HR presents vanity metrics (likes/reach) instead of Financial Turnover Risk (EUR), Cost-per-Hire savings, and Earned Media Value (EMV).\n\n### Questions for HR to confirm\n\n- Confirm stage-to-stage hiring and interview timing for the targeted roles.\n\n---\nHistorical results are reference points, not forecasts. Consider wider rollout only after reviewing agreed pilot measures.\n"
   }
 ]

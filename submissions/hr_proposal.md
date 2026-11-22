@@ -137,13 +137,13 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 - A mobile application obstacle may explain pre-submission loss
 - Manual workflows may limit reporting coverage and consume staff time
 - Unclear role information may weaken candidate attraction (Frontline)
-- A post-submission handoff may explain hiring delays (Bologna & Naples — applicants)
+- A post-submission handoff may explain hiring delays (Bologna & Naples — Frontline, applicants)
 - A delayed hire process may contribute to agency dependence
 
 ### Reported signals
 
 - Local Reputation: Reviews across the 5 interport hubs show strong scores on payroll reliability (4.7/5) and modern Euro-6 fleet safety (4.5/5), but high rating variance across locations (Verona/Milan at 4.3/5 vs.
-- Handoff Delay Reported (Bologna & Naples — applicants): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).
+- Handoff Delay Reported (Bologna & Naples — Frontline, applicants): Bologna/Naples at 3.1/5 due to slow candidate response and local warehouse onboarding friction).
 - Review Tracking: Local hub reviews are tracked manually in spreadsheets.
 - Mobile Friction, Form Obstacle Verified, Mobile Exposure, Application Abandonment: Career portal receives 14,000 monthly visits (82% from smartphones), but 63% of visitors drop off before completing the application form because it requires desktop-style account registration and a 5-page CV upload.
 - Generic Ads, Role Info Gap Verified (Frontline): Job descriptions use generic corporate HQ templates that omit C-CQC route allowances, home-time predictability, and fleet specs.
@@ -174,7 +174,7 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 - Compare starts and submissions by device and role, then reproduce the failure at the suspected form step.
 - Audit duplicate handling, reporting effort, source coverage, and ownership.
 - Interview target candidates and review conversion for the same jobs and inbound channels (Frontline).
-- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Bologna & Naples — applicants).
+- Measure elapsed time from submission to first contact and subsequent funnel stages by cohort (Bologna & Naples — Frontline, applicants).
 - Reconcile agency invoices and filled requisitions, then identify the funnel stage delaying the same roles.
 
 ### Phase 2 — Scoped Pilots (weeks 5–12)
@@ -184,7 +184,7 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 - **Fast track (can start during Phase 1):** Pilot an accessible form that keeps eligibility questions and removes a verified obstacle. *Pilot design:* At one affected hub, start with a phone-accessible qualification check and offer qualified candidates a callback slot. Track qualified completions and recruiter load. *Target:* Application form drop-off 63.0% → ≤ 32.6% (median matched-precedent change -48%, range -50% to -2%; sector peers 41.2%)
 - Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Target:* Manual HR tracking 9.2 h/month → ≤ 2.8 h/month (median matched-precedent change -69%, range -75% to -50%)
 - **Fast track (can start during Phase 1):** Test verified role details in job ads and compare qualified completions for similar traffic (Frontline). *Target:* Applicant conversion rate 1.9% → ≥ 3.3% (median matched-precedent change +75%, range +7% to +76%; sector peers 3.6%)
-- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)
+- Pilot a named recruiter queue and response review for the affected roles (Bologna & Naples — Frontline, applicants). *Target:* Time-to-hire 43 days → ≤ 29.8 days (median matched-precedent change -31%, range -40% to -21%; sector peers 31 days)
 - Pilot targeted recruiter capacity for roles with verified avoidable external spend. *Target:* Agency-filled roles 37.9% → ≤ 20.0% (median matched-precedent change -47%, range -55% to -45%; sector peers 19.4%)
 
 ### Phase 3 — Scaling Gates (from week 13, after the pilot read-out)
@@ -194,7 +194,7 @@ The leading hypothesis is that a mobile application obstacle may explain pre-sub
 - Expand after qualified submissions improve without worse eligibility, accessibility or recruiter response. *Scale when:* Application form drop-off ≤ 32.6% in the pilot scope, with protected baselines unchanged
 - Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 2.8 h/month in the pilot scope, with protected baselines unchanged
 - Scale after qualified applications improve while access and eligibility hold (Frontline). *Scale when:* Applicant conversion rate ≥ 3.3% in the pilot scope, with protected baselines unchanged
-- Expand after response times and qualified progression improve without shifting the queue elsewhere (Bologna & Naples — applicants). *Scale when:* Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged
+- Expand after response times and qualified progression improve without shifting the queue elsewhere (Bologna & Naples — Frontline, applicants). *Scale when:* Time-to-hire ≤ 29.8 days in the pilot scope, with protected baselines unchanged
 - Scale after direct qualified hires improve and Finance verifies changes in agency spend. *Scale when:* Agency-filled roles ≤ 20.0% in the pilot scope, with protected baselines unchanged
 
 ## Expected Value (CFO View)
@@ -241,13 +241,13 @@ Historical results are reference points, not forecasts. Consider wider rollout o
 
 ## Executive Summary
 
-The leading hypothesis is that a local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical). Begin with this diagnostic: Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.
+The leading hypothesis is that a local operating issue may explain uneven site reputation (Regional Care Centers — Regional Clinical). Begin with this diagnostic: Compare themes, sample counts and local operational records for the affected sites (Regional Care Centers — Regional Clinical). Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed.
 
 ## Key Problems
 
 ### Root-cause hypotheses
 
-- A local operating issue may explain uneven site reputation (Regional Clinics — Regional Clinical)
+- A local operating issue may explain uneven site reputation (Regional Care Centers — Regional Clinical)
 - Manual workflows may limit reporting coverage and consume staff time
 - Fragmented feedback collection may hide candidate experience issues (Regional Clinics — Regional Clinical, applicants)
 - A post-submission handoff may explain hiring delays (Regional Clinical — applicants)
@@ -256,7 +256,7 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 ### Reported signals
 
 - Culture Ready: Overall employee sentiment is highly positive (4.4/5 average, high EVP authenticity, zero Say-Do Gap or systemic burnout).
-- Local Reputation, Local Issue Verified (Regional Clinics — Regional Clinical): However, across the 50 regional care centers, local Google and Indeed facility reviews are unmonitored centrally, leaving 18 regional clinics with outdated or unaddressed local profiles.
+- Local Reputation, Local Issue Verified (Regional Care Centers — Regional Clinical): However, across the 50 regional care centers, local Google and Indeed facility reviews are unmonitored centrally, leaving 18 regional clinics with outdated or unaddressed local profiles.
 - Feedback Fragmentation, Feedback Workflow Verified (Regional Clinics — Regional Clinical, applicants): University Career Day and post-interview candidate feedback for Gen-Z clinical and formulation graduates is collected via disconnected paper sheets and ad-hoc forms (<18% response rate), hiding interview bottlenecks at regional clinics.
 - Review Tracking, Post Tracking, Existing Advocates, Tracking Workflow Verified, Weak Reach, Manual Tracking Load: 35 enthusiastic clinicians and lab researchers already share authentic posts on LinkedIn with high peer trust, but corporate brand channels have low organic reach and HR spends over 150 hours/year manually collecting facility reviews and chasing post screenshots from the 35 ambassadors in spreadsheets.
 - Existing Advocates (Formulation Labs): Internal employee satisfaction (88% B-Corp pride score), EVP authenticity, and annual retention in the R&D formulation labs (93%) are already strong—there is no internal Say-Do Gap or management burnout crisis, and 35 organic ambassadors are already active.
@@ -288,7 +288,7 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 
 ### Phase 1 — Diagnostics (weeks 1–4)
 
-- Compare themes, sample counts and local operational records for the affected sites (Regional Clinics — Regional Clinical).
+- Compare themes, sample counts and local operational records for the affected sites (Regional Care Centers — Regional Clinical).
 - Audit duplicate handling, reporting effort, source coverage, and ownership.
 - Reconcile eligible candidates, invitations, responses and timestamps by stage and site (Regional Clinics — Regional Clinical, applicants).
 - Verify target audience fit, meaningful outcomes, voluntary participation and readiness in the relevant cohort.
@@ -300,7 +300,7 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 
 *Shared gate: Complete the diagnostic and verify the proposed mechanism in this exact scope.*
 
-- Pilot local ownership and fix the issue independently verified at those sites (Regional Clinics — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)
+- Pilot local ownership and fix the issue independently verified at those sites (Regional Care Centers — Regional Clinical). *Target:* Cross-site rating spread (std dev) 0.45 stars → ≤ 0.28 stars (median matched-precedent change -39%, range -54% to -15%; sector peers 0.27 stars)
 - Instrument verified tracking steps with source IDs and document staff time and conversion separately. *Pilot design:* Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs. *Target:* Manual HR tracking 12.5 h/month → ≤ 0.7 h/month (median matched-precedent change -94%, range -95% to -87%)
 - Pilot a short accessible survey and documented invitations at an affected site (Regional Clinics — Regional Clinical, applicants). *Pilot design:* Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting. *Target:* Candidate survey completion 17.4% → ≥ 47.5% (median matched-precedent change +173%, range +29% to +217%; sector peers 30.8%)
 - **Fast track (can start during Phase 1):** Trial opt-in, role-relevant participation with auditable tracking. *Pilot design:* Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger. *Target:* Quarterly organic impressions 44,190 → ≥ 141,408 (median matched-precedent change +220%, range +185% to +250%)
@@ -310,7 +310,7 @@ The leading hypothesis is that a local operating issue may explain uneven site r
 
 *Shared gate: Complete the scoped pilot and verify improvements and guard metrics.*
 
-- Expand the workflow after coverage and local operational outcomes improve (Regional Clinics — Regional Clinical). *Scale when:* Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged
+- Expand the workflow after coverage and local operational outcomes improve (Regional Care Centers — Regional Clinical). *Scale when:* Cross-site rating spread (std dev) ≤ 0.28 stars in the pilot scope, with protected baselines unchanged
 - Expand after completeness, auditability and staff time improve. *Scale when:* Manual HR tracking ≤ 0.7 h/month in the pilot scope, with protected baselines unchanged
 - Expand once response coverage improves and nonresponse patterns are checked (Regional Clinics — Regional Clinical, applicants). *Scale when:* Candidate survey completion ≥ 47.5% in the pilot scope, with protected baselines unchanged
 - Expand only with credible internal conditions, consent and measured audience or hiring outcomes. *Scale when:* Quarterly organic impressions ≥ 141,408 in the pilot scope, with protected baselines unchanged
