@@ -98,6 +98,13 @@ class ProposalValueTests(unittest.TestCase):
         self.assertEqual(scopes["reputation_location"]["site"], "local care homes")
         self.assertIn("Accelerate advocacy", " ".join(result["blocked_traps_and_guardrails"]))
 
+    def test_tech_vocabulary_does_not_trigger_wrong_cohorts(self):
+        scenario = {"headcount_and_footprint": "", "workforce_target": "Senior Product Managers"}
+        self.assertEqual(_word_scope(scenario, "Our data warehouse engineers leave early.")["cohort"],
+                         "engineering_workforce")
+        self.assertIsNone(_word_scope(scenario, "HR uses applicant tracking software.")["cohort"])
+        self.assertIsNone(_word_scope(scenario, "Product launches slipped this quarter.")["cohort"])
+
     def test_hq_mention_without_hq_people_is_not_an_hq_cohort(self):
         scenario = {"headcount_and_footprint": "", "workforce_target": "Warehouse pickers"}
         self.assertIsNone(_word_scope(scenario, "Ads use generic corporate HQ templates.")["cohort"])

@@ -696,11 +696,11 @@ def _number(value, unit, path=""):
 COHORT_PATTERNS = (
     ("frontline_workforce",
      r"frontline|deskless|C-CQC|\bHGV\b|(?:truck|lorry|delivery|van|bus|long.haul|licensed|commercial|fleet)\s+drivers?"
-     r"|\bdrivers?\s+(?:and|&)\s+warehouse|warehouse|logistics (?:associates?|operatives?|workers?)|pickers?"
-     r"|couriers?|forklift|sortation"),
+     r"|(?<!data )warehouse|logistics (?:associates?|operatives?|workers?)|\bpickers?\b"
+     r"|\bcouriers?\b|forklift|sortation"),
     ("engineering_workforce",
-     r"engineer|developers?|software|data scien|product managers?|\bPMs\b|\bSREs?\b|devops"
-     r"|product (?:squads|teams)"),
+     r"engineer|developers?|software (?:engineers?|developers?|teams?)|data scien|product managers?|\bPMs\b"
+     r"|\bSREs?\b|devops|product (?:squads|teams)"),
     ("regional_clinical_workforce",
      r"(?:regional|local) (?:clinics|senior care centers|care (?:centers|centres|homes))|nurses?|therapists?"
      r"|caregivers?|care (?:workers?|homes|staff)|clinical staff"),
@@ -712,6 +712,8 @@ HQ_STAFF = re.compile(
 _TARGET_STOPWORDS = {
     "senior", "junior", "licensed", "commercial", "urgent", "openings", "roles", "professionals",
     "early", "career", "specialists", "this", "year", "open", "staff", "and", "with", "across",
+    "product", "products", "manager", "managers", "team", "teams", "workers", "employees", "people",
+    "operators", "associates", "services", "service",
 }
 
 
