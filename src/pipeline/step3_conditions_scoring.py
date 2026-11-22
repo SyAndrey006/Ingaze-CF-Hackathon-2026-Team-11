@@ -442,6 +442,7 @@ def score_cases_and_research(
     research = [
         {"source_id": key, **graph["sources"][key], "evidence_class": source_class(graph["sources"][key]["kind"])}
         for key in sorted(source_ids)
+        if _population_fits(graph["sources"][key], profile)
     ]
     sandbox_ids = {snippet for tag in retrieval_tags if tag in TRACKS for snippet in TRACKS[tag][4]}
     research.extend({
@@ -449,8 +450,15 @@ def score_cases_and_research(
         "limitation": "Supplied sandbox reference. Verify the magnitude and applicability independently.",
     } for entry in dataset["raw_empirical_research_snippets"] if entry["snippet_no"] in sandbox_ids)
     research.extend({**entry, "evidence_class": "published_reference"}
-                    for entry in search_library(library, topics=retrieval_tags))
+                    for entry in search_library(library, topics=retrieval_tags)
+                    if _population_fits(entry, profile))
     return cases, research
+
+
+def _population_fits(source, profile):
+    """Keep population-specific studies (e.g. retail-only samples) to matching client profiles."""
+    populations = source.get("population_profiles")
+    return not populations or bool(set(populations) & set(profile or ()))
 
 
 # Provenance-checked evidence-library utilities are colocated with case/research scoring.

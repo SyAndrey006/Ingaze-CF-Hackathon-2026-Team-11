@@ -13,6 +13,34 @@ import re
 from src.pipeline.step2_root_cause_analysis import REQUEST_FIELD, SCOPE_FIELDS, scope_overlaps
 BLOCKERS = {"expectation_gap", "manager_support", "burnout"}
 
+# Leadership request wording that targets a rule's pilot. A requested pilot is
+# fast-tracked (scoped, not network-wide) only when the intake already contains
+# direct evidence of the mechanism, or, for advocacy, verified readiness.
+REQUEST_TOPICS = {
+    "application_friction": r"fast[- ]apply|apply widget|application form|mobile apply",
+    "role_information": r"rewrit\w* (?:the )?job (?:ads|descriptions)|job ad rewrite",
+    "advocacy_pilot": r"ambassador|advoca",
+}
+
+
+def _fast_track_rules(evaluations, observations, graph, requests, reported, blockers):
+    """Requested, eligible pilots whose mechanism is already directly evidenced."""
+    fast = set()
+    for row in evaluations:
+        key, hypothesis = row["rule_id"], row["hypothesis"]
+        pattern = REQUEST_TOPICS.get(key)
+        if row["reason"] or not pattern or not re.search(pattern, requests, re.I):
+            continue
+        if key == "advocacy_pilot":
+            if not blockers and {"culture_ready", "existing_advocates"} <= reported:
+                fast.add(key)
+            continue
+        direct = next(slot for slot in hypothesis["evidence_slots"] if slot["direct_slot"])
+        if any(graph["signals"][observations[item]["signal"]]["role"] == "direct"
+               for item in direct["matching_ids"] if item in observations):
+            fast.add(key)
+    return fast
+
 
 def protected_intervention(scope, protected, rule):
     """Treat unresolved target scope as potentially overlapping a protected one."""
@@ -198,6 +226,7 @@ def evaluate_guardrails(
         row["rule_id"] == "advocacy_pilot" and row["reason"] is None
         for row in evaluations
     )
+    fast_track = _fast_track_rules(evaluations, observations, graph, requests, reported, blockers)
     guards = []
     company_advocacy_veto = any(
         entry["scope"] == {"cohort": "all"} and "advocacy_pilot" in entry.get("rules", [])
@@ -207,7 +236,13 @@ def evaluate_guardrails(
     if company_advocacy_veto:
         guards.append("Block public employee advocacy under the client's explicit restriction.")
     elif "advoc" in requests or "ambassador" in requests or blockers and "post_tracking" in reported:
-        if advocacy_ready:
+        if "advocacy_pilot" in fast_track:
+            guards.append(
+                "Accelerate advocacy instead of deferring it: a healthy culture and existing organic advocates are "
+                "documented and no Say-Do gap or burnout blocker is active. Formalize an opt-in ambassador cohort "
+                "now; defer only network-wide tracking automation until local profiles are audited."
+            )
+        elif advocacy_ready:
             guards.append("Limit advocacy to an opt-in cohort pilot after readiness and reporting checks. Defer broad automation.")
         else:
             guards.append("Defer external advocacy until target-cohort readiness, participation and trust are verified.")
@@ -219,7 +254,14 @@ def evaluate_guardrails(
     ):
         guards.append("Exclude retail store shift rotation for this non-retail workforce.")
     if "fast-apply" in requests:
-        guards.append("Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.")
+        if "application_friction" in fast_track:
+            guards.append(
+                "Fast-track, do not defer, a scoped fast-apply pilot: the form obstacle is directly evidenced. "
+                "Confirm the failing step with a short device-funnel check and pilot at the most affected sites. "
+                "Do not deploy network-wide or rewrite all job ads at once before the pilot reads out."
+            )
+        else:
+            guards.append("Defer fast-apply deployment until a scoped form audit and pilot establish the benefit.")
     if strengths:
         guards.append("Preserve documented strengths. Measure pilot outcomes in the affected group before widening rollout.")
         if "salary bands" in requests:
@@ -253,6 +295,7 @@ def evaluate_guardrails(
         "evaluations": evaluations,
         "guards": guards,
         "advocacy_ready": advocacy_ready,
+        "fast_track_rules": sorted(fast_track),
         "ranked_tags": ranked_tags,
         "source_ids": source_ids,
         "target": target,

@@ -16,7 +16,14 @@ def tailor_pilot(key, profile, features):
         return "Pilot a common post-interview survey with a local owner at a regional clinic. Track invitation and response coverage while preserving effective lab recruiting."
     if key == "manual_measurement" and "emv" in features:
         return "Build a source-linked ledger for eligible posts and applicant outcomes. Deduplicate posts and report staff time separately from estimated media costs."
+    if key == "advocacy_pilot" and {"existing_advocates", "culture_ready"} <= set(features):
+        return "Invite the employees who already post organically into a named opt-in ambassador cohort, add volunteers from the sites with the weakest local reach, and give them role-relevant content rather than corporate copy. Track reach and applicant outcomes per post in the source-linked ledger."
     return None
+
+
+FAST_TRACK_PREREQUISITE = (
+    "Fast track: start in parallel with Phase 1 once its specific check confirms the mechanism in this scope."
+)
 
 
 def build_reasoning_phase_plan(scenario, intake, guardrails, profile):
@@ -44,8 +51,11 @@ def build_reasoning_phase_plan(scenario, intake, guardrails, profile):
             continue
 
         prerequisite = evaluation["prerequisite"]
+        fast_track = key in guardrails.get("fast_track_rules", ())
         pilot = {"action": rule["pilot"], "scope": scope, "rule": key, "decision": "conditional",
-                 "prerequisite": prerequisite}
+                 "prerequisite": FAST_TRACK_PREREQUISITE if fast_track else prerequisite}
+        if fast_track:
+            pilot["fast_track"] = True
         if isinstance(target, str) and scope["cohort"] in (None, "all"):
             pilot["target_to_verify"] = target
         if intake["protected_baselines"]:

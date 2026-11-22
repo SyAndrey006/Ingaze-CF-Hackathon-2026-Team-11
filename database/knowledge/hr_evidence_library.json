@@ -15,7 +15,8 @@
     "url": "https://www.econstor.eu/bitstream/10419/226839/1/ECONtribute-039-2020.pdf",
     "finding": "A randomized trial tested what happened when a retail chain gave store managers an explicit goal of reducing employee quits.",
     "applicability": "Use as a precedent for testing a manager-level retention goal. Retail results do not estimate the effect of engineering-manager coaching.",
-    "topics": ["manager_support", "early_attrition", "retention", "retail"]
+    "topics": ["manager_support", "early_attrition", "retention", "retail"],
+    "population_profiles": ["retail"]
   },
   {
     "id": "bloom-han-liang-2024-hybrid-work",

@@ -712,10 +712,18 @@ def _word_scope(scenario, clause):
     tenure = ({"candidate": "applicant", "applicant": "applicant", "tenured": "tenured"}.get(
         career_stage[0].lower().rstrip("s"), "new_or_early_tenure") if career_stage else None)
     site = "+".join(sites) if sites else group[0].casefold() if group else None
-    if re.search(r"\b(?:vs\.?|whereas|compared with)\b", clause, re.I) or (
-        site == "hq" and cohort != "hq"
-    ):
+    comparison = re.search(r"\b(?:vs\.?|whereas|compared with)", clause, re.I)
+    if comparison or (site == "hq" and cohort != "hq"):
         site = None
+    if comparison and comparison[0].casefold() != "whereas":
+        # "X at 3.2 (vs. 4.3 in Y)": the subject precedes the comparator. Keep
+        # the subject's sites only when both sides name known locations.
+        def _named(text):
+            return sorted({city.casefold() for city in locations
+                           if re.search(rf"\b{re.escape(city)}\b", text, re.I)})
+        subject, reference = _named(clause[:comparison.start()]), _named(clause[comparison.end():])
+        if subject and reference and not set(subject) & set(reference):
+            site = "+".join(subject)
     return {
         "cohort": cohort, "site": site,
         "tenure": tenure, "window": "intake",

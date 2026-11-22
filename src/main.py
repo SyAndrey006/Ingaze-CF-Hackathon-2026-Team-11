@@ -26,6 +26,7 @@ from src.pipeline.step4_guardrail_check import (
 )
 from src.pipeline.step5_phase_planner import build_reasoning_phase_plan, tailor_pilot
 from src.pipeline.step6_hr_proposal import assemble_recommendation, generate_hr_proposal
+from src.offline.roi_estimator import attach_targets, estimate_roi
 from src.schemas.submission_models import SubmissionPayload
 from starter_baseline_and_validator import validate_submission
 
@@ -145,6 +146,9 @@ def plan_from_graph(
     )
 
     phase_state = build_reasoning_phase_plan(scenario, intake, guardrail_state, profile)
+    roi_state = estimate_roi(diagnosis_state, scored_state)
+    attach_targets(phase_state, roi_state)
+    phase_state["expected_roi"] = roi_state
     _persist_stage_result(
         scenario["scenario_code"], "step5_phase_planner", phase_state, intermediate_dir
     )

@@ -45,6 +45,13 @@ def assemble_recommendation(scenario, graph, diagnosis_state, scored_state, guar
             phase_state["open_questions_and_hypotheses_for_client"]
         ),
     }
+    roi = phase_state.get("expected_roi") or {}
+    if roi.get("roi_lines"):
+        result["expected_roi_estimates"] = [
+            {key: line[key] for key in ("lever", "baseline", "estimate", "low", "high", "unit",
+                                        "precedent_reductions", "precedent_cases")}
+            for line in roi["roi_lines"]
+        ]
     trace = {
         "scenario_code": scenario["scenario_code"],
         "profile": diagnosis_state["profile"],
@@ -119,15 +126,17 @@ def generate_hr_proposal(
         or _first_list(diagnosis_data, "open_data_hypotheses"), phases["Phase 1 — Diagnostics"]
     )
     leadership = _first_list(client, "leadership_requests")
+    roi = plan_data.get("expected_roi") if isinstance(plan_data.get("expected_roi"), dict) else {}
     approved = {
         "company": company, "industry": industry, "root_causes": roots, "signals": symptoms,
         "guardrails": guards, "deferred_decisions": deferred, "healthy_baselines": baselines,
         "asymmetries": asymmetries, "filtered_noise": noise, "leadership_requests": leadership,
         "phase_actions": phases, "matched_cases": cases, "research": research, "questions": questions,
+        "expected_roi": roi,
     }
     draft = _render_proposal(
         company, scenario_code, industry, roots, symptoms, guards, deferred, baselines,
-        asymmetries, noise, leadership, phases, cases, research, questions,
+        asymmetries, noise, leadership, phases, cases, research, questions, roi,
     )
     if llm_client is None:
         return draft
@@ -164,9 +173,15 @@ def _first_list(data: dict, *keys: str) -> list:
     return []
 
 
+_ACRONYMS = {"emv", "evp", "hr", "hq", "roi", "ux", "jd", "jds", "cfo", "ceo", "w3c"}
+
+
 def _humanize(value: Any) -> str:
     text = str(value or "").replace("_", " ").replace("-", " ")
-    return " ".join(word if word.isupper() else word.capitalize() for word in text.split())
+    return " ".join(
+        word if word.isupper() else word.upper() if word.casefold() in _ACRONYMS else word.capitalize()
+        for word in text.split()
+    )
 
 
 def _clean_text(value: Any) -> str:
@@ -180,6 +195,16 @@ def _clean_text(value: Any) -> str:
     return re.sub(r"\s+([,.;:])", r"\1", re.sub(r"\s{2,}", " ", text)).strip(" ;,-")
 
 
+def _with_scope(text: str, scope: str) -> str:
+    """Attach a scope label inside the sentence: 'Do X (Engineering).'"""
+    if not scope:
+        return text
+    stripped = text.rstrip()
+    if stripped.endswith((".", "!", "?")):
+        return f"{stripped[:-1]} ({scope}){stripped[-1]}"
+    return f"{stripped} ({scope})"
+
+
 def _format_scope(scope: Any) -> str:
     if not isinstance(scope, dict):
         return ""
@@ -190,6 +215,8 @@ def _format_scope(scope: Any) -> str:
             continue
         if key == "tenure":
             value = {"new_or_early_tenure": "new hires", "early_tenure": "new hires", "applicant": "applicants"}.get(str(value).casefold(), _humanize(value))
+        elif key == "site":
+            value = " & ".join(_humanize(part) for part in str(value).split("+") if part)
         else:
             value = _humanize(value)
             if key == "cohort":
@@ -216,7 +243,11 @@ def _format_noise(entry: Any) -> str:
     data = _to_data(entry)
     if not isinstance(data, dict):
         return _clean_text(data)
-    topic = data.get("inferred_mismatched_action_or_topic") or data.get("topic") or data.get("label") or data.get("raw_excerpt") or "Unverified item"
+    topic = data.get("inferred_mismatched_action_or_topic") or data.get("topic") or data.get("label") or data.get("raw_excerpt")
+    if not topic and data.get("text"):
+        return (f"**Not used as evidence:** “{_clean_text(data['text'])}” — unverified or off-profile input; "
+                "it does not drive any diagnosis or action.")
+    topic = topic or "Unverified item"
     reason = data.get("reason_filtered") or data.get("reason") or "Excluded during input review."
     topic = _humanize(topic)
     topic = topic[:1].upper() + topic[1:] if topic else "Unverified item"
@@ -238,9 +269,7 @@ def _format_entry(entry: Any) -> str:
     ) if data.get(key)), None)
     if title is None:
         title = _humanize(data.get("rule")) if data.get("rule") else "Recorded item"
-    text = _clean_text(title)
-    scope = _format_scope(data.get("scope"))
-    return f"{text} ({scope})" if scope else text
+    return _with_scope(_clean_text(title), _format_scope(data.get("scope")))
 
 
 def _format_asymmetry(entry: Any) -> str:
@@ -260,12 +289,14 @@ def _format_action(entry: Any, phase: int) -> str:
     if not isinstance(data, dict):
         return _format_entry(data)
     title = data.get("action") or data.get("condition") or data.get("verify") or data.get("hypothesis")
-    text = _clean_text(title or "Approved action")
-    scope = _format_scope(data.get("scope"))
-    if scope:
-        text += f" ({scope})"
+    text = _with_scope(_clean_text(title or "Approved action"), _format_scope(data.get("scope")))
+    if data.get("fast_track"):
+        text = f"**Fast track (can start during Phase 1):** {text}"
     if phase == 2 and data.get("pilot_design"):
         text += f" *Pilot design:* {_clean_text(data['pilot_design'])}"
+    target = data.get("target_metric")
+    if phase in (2, 3) and isinstance(target, dict) and target.get("text"):
+        text += f" *{'Target' if phase == 2 else 'Scale when'}:* {_clean_text(target['text'])}"
     return text
 
 
@@ -280,24 +311,28 @@ def _format_leadership(entry: Any) -> str:
 
 
 def _surface_symptoms(diagnosis: dict, guardrails: dict) -> list:
+    """One line per quoted source sentence, listing every signal read from it."""
     intake = diagnosis.get("intake", {}) if isinstance(diagnosis.get("intake"), dict) else {}
     observations = intake.get("observations") or diagnosis.get("diagnostic_observations") or guardrails.get("present", [])
-    result, seen = [], set()
+    grouped: Dict[str, dict] = {}
     for item in observations if isinstance(observations, list) else []:
         if not isinstance(item, dict) or item.get("state", "present") != "present" or item.get("quality") == "unverified":
             continue
         label = _humanize(item.get("signal") or item.get("signal_code") or "Reported observation")
-        scope = _format_scope(item.get("scope"))
-        evidence = item.get("text") or item.get("evidence_quote")
-        if scope:
-            label += f" ({scope})"
-        if evidence:
-            label += f": {_clean_text(evidence)}"
-        if label.casefold() not in seen:
-            result.append(label)
-            seen.add(label.casefold())
-        if len(result) == 8:
-            break
+        evidence = _clean_text(item.get("text") or item.get("evidence_quote") or "")
+        key = re.sub(r"\W+", " ", evidence.casefold()).strip() or label.casefold()
+        if key not in grouped:
+            if len(grouped) == 8:
+                continue
+            grouped[key] = {"labels": [], "scope": _format_scope(item.get("scope")), "evidence": evidence}
+        if label not in grouped[key]["labels"]:
+            grouped[key]["labels"].append(label)
+    result = []
+    for row in grouped.values():
+        label = ", ".join(row["labels"])
+        if row["scope"]:
+            label += f" ({row['scope']})"
+        result.append(f"{label}: {row['evidence']}" if row["evidence"] else label)
     if not result:
         result = [_humanize(item) for item in diagnosis.get("surface_symptoms_explained", [])]
     return result
@@ -347,7 +382,7 @@ def _filtered_noise(client: dict, diagnosis: dict, guardrails: dict) -> list:
 
 
 def _verification_questions(questions: list, phase_one: list) -> list:
-    actions = [_format_action(item, 1).casefold() for item in phase_one]
+    actions = [re.sub(r"\W+", " ", _format_action(item, 1).casefold()).strip() for item in phase_one]
     family_prompts = {
         "employee_exits": "Confirm comparable exit records by cohort and tenure.",
         "hire_latency": "Confirm stage-to-stage hiring and interview timing for the targeted roles.",
@@ -394,7 +429,7 @@ def _shared_gate(actions: list) -> str:
     gates = []
     for action in actions:
         data = _to_data(action)
-        if isinstance(data, dict):
+        if isinstance(data, dict) and not data.get("fast_track"):
             gate = data.get("prerequisite") or data.get("unlock_condition")
             if gate:
                 concise = re.split(r"(?<=[.!?])\s+", _clean_text(gate), maxsplit=1)[0]
@@ -404,10 +439,12 @@ def _shared_gate(actions: list) -> str:
 
 
 def _render_proposal(company, scenario_code, industry, roots, symptoms, guards, deferred,
-                     baselines, asymmetries, noise, leadership, phases, cases, research, questions) -> str:
+                     baselines, asymmetries, noise, leadership, phases, cases, research, questions,
+                     roi=None) -> str:
     root = _format_entry(roots[0]) if roots else "the concerns reported by the client"
     audit = _format_action(phases["Phase 1 — Diagnostics"][0], 1) if phases["Phase 1 — Diagnostics"] else "a focused diagnostic review"
     root = root[:1].lower() + root[1:] if root else root
+    root, audit = root.rstrip(" ."), audit.rstrip(" .")
     summary = f"The leading hypothesis is that {root}. Begin with this diagnostic: {audit}. Use the findings to decide whether a scoped pilot is justified; expand only after its agreed measures are reviewed."
     lines = [f"# HR Proposal — {_clean_text(company)}", "", f"**Scenario:** `{_clean_text(scenario_code)}`"]
     if industry:
@@ -444,18 +481,26 @@ def _render_proposal(company, scenario_code, industry, roots, symptoms, guards, 
     _section(lines, "What NOT to Do / Strengths to Protect", protect)
 
     plan = []
+    timing = {1: "weeks 1–4", 2: "weeks 5–12", 3: "from week 13, after the pilot read-out"}
     for number, (heading, actions) in enumerate(phases.items(), start=1):
         if not actions:
             continue
         if plan:
             plan.append("")
-        plan += [f"### {heading}", ""]
+        plan += [f"### {heading} ({timing[number]})", ""]
         if number in (2, 3):
             gate = _shared_gate(actions)
             if gate:
                 plan += [f"*Shared gate: {gate}*", ""]
         plan += [f"- {_format_action(action, number)}" for action in actions]
     _section(lines, "Three-Phase Action Plan", plan)
+
+    roi = roi or {}
+    value = [f"- {line['text']}" for line in roi.get("roi_lines", [])]
+    value += [f"- *Not quantified:* {item}" for item in roi.get("not_quantified", [])]
+    if value and roi.get("method"):
+        value += ["", f"*Method:* {roi['method']}"]
+    _section(lines, "Expected Value (CFO View)", value)
 
     evidence = []
     if cases:
@@ -468,7 +513,8 @@ def _render_proposal(company, scenario_code, industry, roots, symptoms, guards, 
             evidence.append(text)
     if research:
         evidence += (["", "### Supporting research", ""] if evidence else ["### Supporting research", ""])
-        for item in research[:8]:
+        shown = [item for item in research if _as_dict(item).get("kind") != "hackathon_policy"]
+        for item in shown[:8]:
             row = _as_dict(item)
             source = _humanize(row.get("source") or row.get("title") or row.get("source_id") or "Research source")
             finding = row.get("finding") or row.get("summary") or row.get("text")
