@@ -196,20 +196,21 @@
       {
         "code": "SCENARIO_B_EUROFREIGHT_LOGISTICS",
         "phase_action_counts": [5, 5, 5],
-        "verified_behavior": "Exclude technical LinkedIn as the driver channel and scope recruiter handoff to Bologna and Naples",
+        "verified_behavior": "Exclude technical LinkedIn as the driver channel, fast-track a scoped fast-apply pilot on the documented form obstacle and scope recruiter handoff to Bologna and Naples",
         "top_cases": ["Beta Logistica", "TransEuropa Supply Chain", "Meridian Express Logistics"]
       },
       {
         "code": "SCENARIO_C_VERDECARE_BCORP",
         "phase_action_counts": [7, 5, 5],
-        "verified_behavior": "Preserve the healthy employer proposition and defer broad advocacy automation",
+        "verified_behavior": "Preserve the healthy employer proposition, accelerate an opt-in cohort of existing organic ambassadors and defer only network-wide tracking automation",
         "top_cases": ["VitaCare Network", "VerdiCraft Botanicals", "NaturaPure Group"]
       }
     ]
   },
   "known_limits": [
     "The offline client_intake_case adapter extracts recognized patterns. New survey fields and different wording may require additional mappings.",
-    "The VerdeCare advocacy pilot requires an explicitly confirmed target cohort.",
+    "Fast-track eligibility uses a short list of request topics (fast-apply, job-ad rewrite, ambassadors); other requested pilots follow the standard Phase 1 gate.",
+    "Expected-value ranges reuse precedent changes of the same metric; overlapping lines are not additive and staff hours are not converted to EUR.",
     "Population and construct dependence detection relies on declared lineage IDs or shared provenance."
   ]
 }

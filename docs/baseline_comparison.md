@@ -28,7 +28,7 @@ The organizer’s offline baseline simulates a single unstructured LLM prompt wi
 | Check | Naive baseline | Team 11 engine |
 | --- | --- | --- |
 | Diagnosis | High bounce and slow hiring. | Tests the reported mobile form obstacle and investigates recruiter handoff delays in Bologna and Naples separately. |
-| Action and guardrails | Starts technical LinkedIn storytelling for drivers and deploys fast-apply before a portal audit. | Preserves the functioning HQ channel. Reproduces the suspected form obstacle by device before a pilot, then gates scale on qualified completion, eligibility and recruiter response. |
+| Action and guardrails | Starts technical LinkedIn storytelling for drivers and deploys fast-apply before a portal audit. | Preserves the functioning HQ channel. Because the form obstacle is documented, fast-tracks a scoped fast-apply pilot at the affected hubs after a short device check, rather than a network-wide rollout, then gates scale on qualified completion, eligibility and recruiter response. |
 | Precedents | FlowPay and Beta Logistica. | Beta Logistica, TransEuropa Supply Chain and Meridian Express Logistics. Beta reported a fall in application abandonment from 58% to 29%. Meridian provides a cross-hub operations precedent. |
 
 ### VerdeCare Group
@@ -36,7 +36,7 @@ The organizer’s offline baseline simulates a single unstructured LLM prompt wi
 | Check | Naive baseline | Team 11 engine |
 | --- | --- | --- |
 | Diagnosis | Low social reach and fragmented spreadsheets. | Investigates regional clinic reputation, feedback coverage and interview handoffs. Flags conflicting evidence on role information for verification. |
-| Action and guardrails | Switches on ambassador tracking across all locations before auditing or selecting participants. | Preserves the healthy employer proposition and gates wider automation on readiness, opt-in participation and reporting. The pilot cohort still needs confirmation. |
+| Action and guardrails | Switches on ambassador tracking across all locations before auditing or selecting participants. | Preserves the healthy employer proposition. Healthy culture, existing organic ambassadors and no Say-Do gap or burnout blocker let it accelerate an opt-in ambassador cohort; only network-wide tracking automation waits for the local profile audit. |
 | Precedents | Alfa Group. | VitaCare Network, VerdiCraft Botanicals and NaturaPure Group. VitaCare reported 120 hours per year saved in manual review and spreadsheet work. |
 
 ## Interpretation and reproduction
