@@ -122,7 +122,7 @@ def load_standalone_input(input_path: Path) -> List[RawScenarioBundle]:
         if isinstance(document, list):
             rows = document
         elif isinstance(document, dict) and is_messy_intake(document):
-            rows = [document]
+            rows = [document.get("client_intake_case", document)]
         elif isinstance(document, dict):
             rows = None
             for key in (
@@ -168,9 +168,11 @@ def load_standalone_input(input_path: Path) -> List[RawScenarioBundle]:
         raw_candidate = row.get("raw_scenario", row)
         if not isinstance(raw_candidate, dict):
             raise ValueError(f"Standalone JSON client #{index} has an invalid raw_scenario object.")
-        raw_scenario = (
-            adapt_messy_intake(raw_candidate) if is_messy_intake(raw_candidate) else dict(raw_candidate)
-        )
+        # Preserve nested and unstructured source data for the same LLM
+        # extraction path used by normalized client records.
+        if isinstance(raw_candidate.get("client_intake_case"), dict):
+            raw_candidate = raw_candidate["client_intake_case"]
+        raw_scenario = dict(raw_candidate)
         derived_code = path.stem if len(rows) == 1 else f"{path.stem}_{index:03d}"
         scenario_code = str(
             row.get("scenario_code")
@@ -313,11 +315,8 @@ def _append_noise(
 
 
 def _find_unverified_feed_excerpts(raw_scenario: dict) -> List[str]:
-    platform = raw_scenario.get("ingaze_platform_signals", {})
-    if not isinstance(platform, dict):
-        return []
     excerpts: List[str] = []
-    for value in platform.values():
+    for value in _flatten_source_values(raw_scenario):
         if not isinstance(value, str):
             continue
         match = _UNVERIFIED_MARKERS.search(value)
@@ -500,12 +499,17 @@ def _is_impossible_retail_shift(raw_bundle: RawScenarioBundle, evidence_quote: s
     )
     if _PHYSICAL_RETAIL_NEGATIVE.search(factual_context):
         return True
-    industry = str(raw.get("industry", ""))
+    facts = raw.get("basic_company_facts", {})
+    facts = facts if isinstance(facts, dict) else {}
+    industry = str(raw.get("industry") or facts.get("industry", ""))
+    workforce_target = str(
+        raw.get("workforce_target") or facts.get("open_roles_mentioned_verbally", "")
+    )
     if re.search(r"\bretail\b", industry, re.IGNORECASE):
         return False
     if _PHYSICAL_RETAIL_POSITIVE.search(industry):
         return False
-    if _PHYSICAL_RETAIL_POSITIVE.search(raw.get("workforce_target", "")):
+    if _PHYSICAL_RETAIL_POSITIVE.search(workforce_target):
         return False
     if _PHYSICAL_RETAIL_POSITIVE.search(
         " ".join(
@@ -554,6 +558,12 @@ def normalize_client_input_deterministically(
     or telemetry. It does not diagnose causes or recommend interventions.
     """
     raw = raw_bundle.raw_scenario
+    if is_messy_intake(raw):
+        # Keep a useful, explicit opt-out/no-key fallback for organizer-style
+        # inputs. The normal client path still sends the untouched record to
+        # the LLM before this fallback can be selected.
+        raw = adapt_messy_intake(raw)
+        raw_bundle = raw_bundle.model_copy(update={"raw_scenario": raw})
     platform = raw.get("ingaze_platform_signals", {})
     internal = raw.get("client_internal_context", {})
     platform_texts = _flatten_source_values(platform)
@@ -883,13 +893,13 @@ def _deterministic_asymmetries(internal: object) -> List[CohortSiteAsymmetry]:
         sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z0-9\"'“])", text.strip())
         struggling = next(
             (sentence.strip() for sentence in sentences if re.search(
-                r"\b(?:concentrated|bleeding|struggling|quit|leave|turnover|attrition|chaotic)\b", sentence, re.I
+                r"\b(?:concentrated|bleeding|struggling|quit|leave|resign|turnover|attrition|chaotic|blocked)\b", sentence, re.I
             )),
             "",
         )
         healthy = next(
             (sentence.strip() for sentence in sentences if re.search(
-                r"\b(?:smoothly|long[- ]term|high[- ]retention|retain|retention|strong performance)\b", sentence, re.I
+                r"\b(?:smoothly|long[- ]term|high[- ]retention|retain|retention|stay|strong performance)\b", sentence, re.I
             )),
             "",
         )
@@ -926,7 +936,7 @@ def _deterministic_leadership_requests(internal: object) -> List[LeadershipReque
     if not text:
         return []
     pattern = re.compile(
-        r"\b(?P<role>(?:the\s+)?(?:VP|Vice President|Head|Director|CFO|CEO|"
+        r"\b(?P<role>(?:the\s+)?(?:CHRO|VP|Vice President|Head|Director|CFO|CEO|"
         r"Finance|Marketing|Leadership)[\w /&-]{0,48}?)\s+"
         r"(?P<verb>wants|suggested|asked|requested|proposed)\s+",
         re.IGNORECASE,
@@ -941,6 +951,8 @@ def _deterministic_leadership_requests(internal: object) -> List[LeadershipReque
         lowered = action_text.casefold()
         if re.search(r"ambassador|employee advocacy|day in the life", lowered):
             category = ActionCategory.AMBASSADOR_SELECTION_ENABLEMENT
+        elif re.search(r"\bEVP\b|employer value proposition|EVP overhaul", action_text, re.I):
+            category = ActionCategory.EVP_OVERHAUL_FROM_SCRATCH
         elif re.search(r"linkedin|thought leadership|blog|content campaign", lowered):
             category = ActionCategory.TECHNICAL_LINKEDIN_STORYTELLING
         elif re.search(r"discount|pay|compensation|wage|benefit", lowered):
@@ -977,8 +989,6 @@ def normalize_client_input(
     llm_client: StructuredLLMClient,
 ) -> NormalizedClientInput:
     """Run fact-only LLM extraction followed by deterministic Python hygiene."""
-    if "intake_normalization_audit" in raw_bundle.raw_scenario:
-        return normalize_client_input_deterministically(raw_bundle)
     system_prompt = _build_system_prompt()
     user_prompt = json.dumps(
         {
@@ -1039,6 +1049,15 @@ def _build_system_prompt() -> str:
         "You perform factual client-data normalization for a human-resources "
         "analytics pipeline. Extract facts only. Do not diagnose root causes, "
         "recommend actions, propose advice, or answer the scenario's key questions. "
+        "Inputs may be plain-text briefs or deeply nested/unstructured JSON. Inspect "
+        "all nested objects, arrays, call notes, survey responses, review excerpts, "
+        "and telemetry fields rather than expecting a fixed client schema. In organizer "
+        "messy-intake JSON, use basic_company_facts for the company profile, raw discovery "
+        "call notes and survey answers as inside-out client evidence, and outside-in scraped "
+        "telemetry as outside-in platform evidence. Keep aspirations and stakeholder "
+        "requests distinct from verified employee or applicant evidence. Treat null, N/A, "
+        "bracket ranges, estimates, and untracked values according to what the source says; "
+        "do not turn unknown values into measured facts. "
         "Do not invent unsupported facts. Preserve short verbatim evidence quotes "
         "for every extracted signal. Map signals only to the supplied canonical "
         "SignalCode values. Separate verified healthy baselines, cohort/site "
@@ -1055,7 +1074,8 @@ def _build_system_prompt() -> str:
         "Map early turnover at six months or during the first year to "
         "EARLY_FIRST_YEAR_ATTRITION. Keep direct metrics and T0 telemetry grounded "
         "in the supplied values. Use null for unknown numeric profile fields. "
-        "Before returning, perform a coverage pass over every raw source field: extract "
+        "Before returning, perform a coverage pass over every raw source field, including "
+        "nested arrays and survey subfields: extract "
         "each distinct supported problem signal, preserve quantified healthy baselines, "
         "record explicit struggling-versus-thriving groups, retain every leadership "
         "request separately, and capture budget constraints. Do not leave a field empty "

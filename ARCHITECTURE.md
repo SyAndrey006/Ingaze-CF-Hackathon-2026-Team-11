@@ -1,87 +1,110 @@
-# Team 11 — Ingaze HR Recommendation Engine
+# Architecture & Reasoning Blueprint — Team 11
 
-- **Team number and name** — Team 11
-- **Team members** — Roster pending confirmation
-- **Paradigm and stack** — Python and Pydantic with a typed evidence graph, deterministic policy gates, and weighted case-based reasoning over local JSON.
+**Status:** Describes the current repository implementation.
 
-## 1. Domain representation and state design
+- **Team number:** 11
+- **Team members:** Not listed in the repository.
+- **Chosen paradigm:** Structured LLM intake extraction followed by a deterministic, evidence-linked graph planner, policy gates, and case-based ranking.
+
+The system separates what a client reports from what the planner concludes. The LLM can normalize a client brief into typed facts and signals; it does not choose interventions or write the JSON plan. The downstream Python stages diagnose, score, apply guardrails, sequence actions, estimate precedent-based value, and assemble the submission.
+
+## 1. Domain Representation and State Design
+
+### 1.1 Data models and reference data
+
+The repository stores domain and client data as JSON. `database/ingaze_sandbox_dataset.json` contains the four HR pillars, field notes, research snippets, 21 historical case narratives, and the three official scenarios. `database/knowledge/hr_knowledge_graph.json` is the active diagnostic graph; it currently defines 92 signals and 26 rules. Optional client and case telemetry lives in `database/ingaze_synthetic_analytics_snapshots.json`. Reviewed case records and scoring rules are available under `database/normalized/`.
+
+Pydantic models in `src/schemas/` define the main interfaces:
+
+| State | Contents |
+| --- | --- |
+| `RawScenarioBundle` | Raw scenario JSON plus optional typed T0 telemetry and peer benchmarks. |
+| `NormalizedClientInput` | Company profile, sector and workforce tags, canonical signals with evidence quotes, healthy baselines, cohort/site asymmetries, leadership requests, budget constraints, and filtered noise. |
+| Intake observation | A scoped graph signal with an ID, state, quality, source reference, origin, evidence type, and source text. The scope can include cohort, site, tenure, and window; unknown fields remain unknown. |
+| Diagnosis state | Profile tags, observations, graph hypotheses, evidence slots, counterevidence, and prioritization order. |
+| Scored candidate state | Evidence scores, ranked reviewed case matches, candidate actions, and research references. |
+| Guardrail and phase state | Protected scopes, blockers, action decisions, Phase 1 audits, conditional Phase 2 pilots, Phase 3 scale gates, and client questions. |
+
+Graph rules carry their requirements, direct evidence slot, source references, diagnostic check, pilot, scale gate, counters, alternatives, and track tags. The rule set represents relationships across employer reputation, recruiting, advocacy, and retention without matching on company names.
 
 ```mermaid
-flowchart LR
-    A[Official sandbox scenarios] --> B[Step 2 scoped observations and hypotheses]
-    C[Custom client JSON or text] --> D[Step 1 grounded extraction and noise filter]
-    D --> B
-    E[Graph rules and matching T0 telemetry] --> B
-    B --> F[Step 3 candidate scores and precedents]
-    G[Reviewed cases and research] --> F
-    F --> H[Step 4 policy and scope checks]
-    H --> I[Step 5 diagnostics, pilots, scale gates]
-    I --> J[Step 6 validated JSON, trace, and proposal]
+flowchart TD
+  A[Official sandbox dataset] --> B[Deterministic graph planner]
+  A --> C[Step 1 audit artifact]
+  D[Client JSON or text] --> E[Load and preserve raw fields]
+  E --> F[Structured LLM extraction]
+  F --> G[Schema checks and deterministic evidence hygiene]
+  G --> H[Adapt normalized facts to planner intake]
+  I[Missing API key or explicit skip] --> J[Deterministic fallback extraction]
+  E --> I
+  J --> H
+  B --> K[Step 2 diagnosis]
+  H --> K
+  K --> L[Step 3 evidence scoring and case retrieval]
+  L --> M[Step 4 guardrails]
+  M --> N[Step 5 phased plan and value ranges]
+  N --> O[Step 6 JSON, trace, and readable proposal]
 ```
 
-### 1.1 Core state
+The official `--sandbox` route intentionally keeps the established planner input unchanged for reproducibility. It writes a deterministic Step 1 audit record, then plans from each official scenario directly. Custom `--client-input` records and `--sandbox --extra-scenario` records go through the Step 1 normalization and adaptation path before planning.
 
-| State | Fields and keys used by the engine |
-| --- | --- |
-| Client bundle | `RawScenarioBundle` carries `scenario_code`, `raw_scenario`, optional `t0_telemetry` and `sector_benchmarks`. `NormalizedClientInput` adds canonical signals with evidence quotes, sector, workforce archetypes, healthy baselines, cohort asymmetries, leadership requests, and rejected excerpts. |
-| Observation | `id`, `signal`, `state`, `quality`, `scope`, `source_ref`, `origins`, optional `population_ids`, `dependency_ids`, and `metric_path`. `scope` has `cohort`, `site`, `tenure`, `window`. Numeric measurements carry value, unit, denominator and measurement horizon when available. |
-| Graph pack | Versioned dictionaries keyed by signal, rule and source IDs. A signal has a `family`, `role`, `meaning` and optional metric paths or narrative pattern. A rule has required evidence slots (`requires`), a distinguished `direct` slot, counter-signals, alternative rules, cited sources, and `diagnostic`, `pilot` and `scale_gate` actions. |
-| Hypothesis and decision | Rule ID and scope, status, selected and contradictory evidence IDs, missing and dependent families, competing hypotheses, score breakdown, policy decision and prerequisite. Stage handoffs are saved under `data/intermediate_steps/<scenario_code>/`. |
-| Historical case | `NormalizedCaseStudy` joins to the sandbox and telemetry via exact `case_name`. It carries a `case_id`, review status, sector, workforce, size, T0 problem tags and strengths, intervention steps, cited snippet numbers, T0/T1 snapshots and quantified outcomes. |
+### 1.2 Cross-pillar links, prerequisites, and evidence
 
-The graph has **92 signals, 26 rules and 26 sources**. The reference data includes **21 reviewed historical cases and 10 organizer research snippets**. Graph sources carry a URL, finding and limitation. Output distinguishes scientific findings, observational or context-specific findings, operational guidance, organizer references and mandatory constraints. Peer-gap margins and ranking weights are engineering heuristics. [Graph](database/knowledge/hr_knowledge_graph.json) · [Case schema](src/schemas/domain_models.py) · [Research classification](src/pipeline/step3_conditions_scoring.py)
+The graph treats a reported problem as a lead, not automatically as a root cause. A rule can require evidence from multiple slots and can list counter-signals and alternative explanations. For example, the expectation-drift rule connects a documented recruiting promise or expectation gap with early attrition, then asks the operator to compare dated promises, actual work practices, and exit reasons over the same hire window.
 
-### 1.2 Cross-pillar mechanisms, prerequisites and guardrails
+The planner preserves the status and scope of each hypothesis. Supported, plausible, and conflicted hypotheses remain distinguishable in the trace. `prioritized()` favors supported evidence, direct signals, reported evidence, coverage of required slots, and specific scopes. Symptom-only alternatives are not all promoted into the recommended root-cause list.
 
-- **Cross-pillar diagnosis.** `expectation_drift` requires evidence of a promise mismatch and early exits in a compatible scope. The graph models recruiting claims and employer reputation as possible contributors to retention problems. It checks alternatives such as management practice, onboarding and workload, and records evidence that expectations were met as a contradiction. An active trust or workload problem also constrains employee advocacy.
-- **Evidence independence.** Each rule requires distinct evidence families, with alternatives within a slot sharing a family. Union-find groups observations transitively by source reference, origin, known population ID and declared dependency ID. Maximum matching assigns at most one independent component per required slot. Its trace identifies what was selected, duplicated or still missing.
-- **Scope and readiness.** Step 4 can block a candidate for conflicting evidence, protected-scope overlap, incompatible workforce, missing readiness or a score below `0.35`. A non-retail profile blocks store shift rotation. A freight profile restricts technical LinkedIn content for driver hiring. External advocacy goes through its own readiness rule. Phase 2 is conditional on diagnostic verification, and Phase 3 requires a successful scoped pilot and guard-metric review. [Diagnosis](src/pipeline/step2_root_cause_analysis.py) · [Guardrails](src/pipeline/step4_guardrail_check.py) · [Phase planner](src/pipeline/step5_phase_planner.py)
+Guardrails run after candidate scoring and before action sequencing. They check active blockers such as expectation gaps, management problems, or burnout; protected healthy scopes; workforce and sector fit; direct evidence; and a minimum evidence score. A request can trigger evaluation or fast-track a scoped pilot only when its evidence/readiness conditions are met. A request by itself cannot satisfy a prerequisite. Phase 2 actions remain conditional, and Phase 3 actions state the conditions for scaling.
 
-## 2. Client intake, normalization and noise filtering
+Step 3 uses reviewed normalized cases, weighted problem overlap, workforce and sector fit, ROI evidence, and CFO auditability to rank up to three precedents. T0 information informs matching; historical outcomes are displayed after selection. The ROI estimator applies measured before/after changes for the same metric to a client-stated or observed baseline. It labels ranges as reference estimates, not forecasts; overlapping levers are not additive, and hours are not converted to money without an hourly cost.
 
-1. **Choose the input route.** `--sandbox` loads the three official dual-intake scenarios and sends them directly to Step 2. `--client-input` runs Step 1 for custom files. The organizer's `client_intake_case` JSON uses a deterministic adapter for reported evidence, missing values, quarantined telemetry and explicit restrictions. Other client JSON or text briefs can use structured LLM extraction or the existing deterministic fallback.
-2. **Ground and normalize.** Step 1 checks signal quotes or metric pairs against the source text and telemetry, merges duplicate canonical signal codes and retains affected-cohort labels. Step 2 records narrative clauses as reported observations, preserves polarity and source paths, and validates reviewed records and numeric telemetry. Early exits expressed as “six-month churn” or “first-year attrition” can support the same concept while measured rates retain the 6- or 12-month horizon and new-hire denominator when known.
-3. **Join and filter.** The companion snapshot joins on exact `scenario_code`. Inline telemetry takes precedence where supplied. Unit and range checks reject invalid values, and scope can retain an intake window or reviewed ISO date interval. Step 1 records ungrounded or contaminated excerpts. Step 2 filters known noise and separates leadership requests and healthy baselines from evidence of a problem. Missing or unresolved fields remain visible in the trace. [Intake parser](src/pipeline/step1_normalize_input.py) · [Normalization](src/pipeline/step2_root_cause_analysis.py)
+## 2. Client Intake Parsing, Normalization, and Noise Filtering
 
-## 3. Diagnosis, prioritization and action planning
+`src/pipeline/step1_normalize_input.py` accepts plain-text briefs and JSON objects or lists, including wrapped `client_intake_case` files. It preserves nested discovery notes, survey answers, telemetry, and other raw fields in the LLM prompt. The normalizer requests a Pydantic-validated extraction containing canonical signal codes, short evidence quotes, sector/workforce tags, healthy baselines, asymmetries, stakeholder requests, and budget constraints. Leadership proposals remain requests, not recommendations.
 
-1. **Step 2 — Evaluate competing explanations.** Group observations by exact cohort, site, tenure and window. A hypothesis is `supported` when an explicit scope, independent coverage and verified direct evidence satisfy its rule. A provisional lead is `plausible`. Counterevidence yields `conflicted`. Unmet alternatives and unresolved scopes remain visible in the trace. These labels describe support for investigating a local mechanism.
-2. **Step 3 — Score candidates and retrieve precedents.** The candidate score is `0.85 × local evidence score + 0.15 × precedent fit`. The local score combines status, slot coverage, direct and reported evidence, and scope specificity. The case matcher uses Step 1 canonical signals or translates Step 2 diagnosis tags and site asymmetry. It filters to reviewed cases available in the dataset, requires a shared problem tag, and excludes desk/frontline mismatches without a shared archetype. It ranks the survivors using Dice problem overlap (`0.35`), workforce (`0.25`), sector (`0.15`), quantified evidence coverage (`0.15`) and CFO auditability (`0.10`), with ties broken by case ID. If that path yields no matches, the narrative matcher provides a fallback and labels weak transfer as context-only. Historical outcomes and size ratios accompany the match. ROI evidence coverage rewards availability without using the magnitude of past improvement in similarity.
-3. **Steps 4–5 — Route and sequence.** Preserve documented strengths and explicit protected scopes, run same-scope verification before a structural pilot, then require measured pilot outcomes before scale. Case-derived actions are traceable ideas for review. The executable plan comes from graph rules and scoped pilot designs, such as checking phone eligibility at one freight hub and giving qualified applicants a callback slot. Missing or contradictory evidence becomes an explicit client discovery question. **Fast track instead of blanket deferral:** a pilot that leadership explicitly requests may start in parallel with Phase 1, scoped to the affected sites and never network-wide, but only when the intake already contains direct evidence of the mechanism (e.g. a documented form obstacle) or, for advocacy, verified readiness (healthy culture, existing organic advocates, no Say-Do gap or burnout blocker). The same request is deferred when that evidence is missing; tests flip both cases by editing one scenario fact. [Guardrails](src/pipeline/step4_guardrail_check.py) · [Planner](src/pipeline/step5_phase_planner.py)
-4. **Expected value and pilot targets.** Every Phase 2 pilot carries a measurable target: the client's current value moved by the median before/after change of the same metric in the matched precedents, shown next to the sector peer benchmark. Phase 3 scales only when that target is reached in the pilot scope. The CFO view multiplies the client's own baseline (current telemetry or an amount stated in the brief, annualized from its period) by the smallest and largest precedent improvement, giving a range rather than a forecast. Lines can overlap and are not summed. Without a precedent that measured the same metric there is no number, only a verification note, and staff hours are not converted to EUR because no hourly cost is supplied. [ROI estimator](src/offline/roi_estimator.py)
-5. **Step 6 — Export.** Assemble diagnoses, guardrails, three phase arrays, case ROI, expected-value ranges, research, protected strengths and questions. Serialize through `SubmissionPayload` and run the organizer-format checks on sandbox output. `--trace-out` records observations, evidence lineage, candidate scores, case fit and routing decisions. A readable proposal is generated from the same state. [Matcher](src/offline/case_matching.py) · [Scoring](src/pipeline/step3_conditions_scoring.py) · [Export](src/pipeline/step6_hr_proposal.py)
+The structured client uses an OpenAI-compatible API, with OpenAI, OpenRouter, and Gemini configurations supported. It requests temperature-zero structured output, validates the response against the extraction model, and has a JSON-mode compatibility path. The LLM is followed by deterministic checks and deduplication:
 
-## 4. Tech stack and production trade-offs
+- Signal codes, sector categories, workforce archetypes, and action categories must match the declared enums.
+- Evidence quotes are compared with raw source text using normalized text, metric key/value matching, or token overlap. Weak overlap is logged for review; it is not silently treated as proof.
+- Signals explicitly flagged as unverified/external or incompatible retail-shift evidence for a non-retail workforce are quarantined. Marked unverified excerpts are also searched in nested input fields.
+- Unknown values remain unknown. Raw ranges, N/A answers, nulls, mixed windows, and confounded aggregate measures are not treated as precise measurements.
+
+If no supported API key is configured, the custom path reports that it is using deterministic extraction. `--skip-llm-normalization` selects that fallback explicitly. `src/pipeline/messy_intake.py` provides additional pattern-based handling for the organizer's discovery-call/survey format in this fallback. Its coverage is narrower than the LLM path and can miss unfamiliar phrasing.
+
+The client adapter in `src/main.py` converts normalized signals into graph observations and carries normalized healthy baselines, asymmetries, leadership requests, budget constraints, and quarantined excerpts into the planner. It retains source evidence in the reasoning trace. Step 2 also normalizes scenario narrative and analytics into the same scoped observation shape.
+
+## 3. Diagnosis, Prioritization, and Action Planning
+
+`src/main.py` orchestrates the following deterministic stages for each plan:
+
+1. **Step 2 — Diagnosis:** `run_root_cause_analysis()` builds workforce profile tags, normalizes narrative and telemetry, evaluates graph rules, records evidence slots and counterevidence, and prioritizes hypotheses.
+2. **Step 3 — Scoring and retrieval:** `score_diagnostic_candidates()` calculates an auditable evidence score from rule status, evidence-slot coverage, direct/reported evidence, and scope specificity. It retrieves reviewed historical cases and supporting research, then scores candidate actions. The case ranking is a heuristic for retrieval, not a causal effect estimate.
+3. **Step 4 — Guardrails:** `evaluate_guardrails()` applies blockers, explicit protected scopes, sector/workforce fit, readiness, evidence sufficiency, and policy constraints. It records reasons for conditional, deferred, or excluded actions.
+4. **Step 5 — Phasing and value:** `build_reasoning_phase_plan()` places diagnostics in Phase 1, eligible scoped pilots in Phase 2, and measured expansion gates in Phase 3. Open evidence questions stay with the relevant hypothesis. `estimate_roi()` adds comparable historical ranges and pilot targets when a usable baseline and precedent exist.
+5. **Step 6 — Export:** `assemble_recommendation()` produces the eight required scenario fields and the three supported enrichment fields. It also assembles a trace with observations, hypothesis states, decisions, evidence lineage, case ranking, and guardrails. A readable Markdown proposal is rendered from those decisions. Optional LLM polishing can edit that Markdown draft; it does not decide or rewrite the submission JSON plan.
+
+The root `submission.json` contains only the three official scenarios, A, B, and C. It is checked against `SubmissionPayload` and the organizer validator. A custom-client run validates against its input scenarios. A combined blind regression run uses a separate output file so it does not change the official submission:
+
+```bash
+# Three official scenarios
+python recommendation_engine.py --sandbox --out submission.json
+python starter_baseline_and_validator.py --validate submission.json
+
+# Sunday Meridiana blind regression run (separate four-scenario artifact)
+python recommendation_engine.py --sandbox --extra-scenario data/ingaze_sunday_blind_test_meridiana.json --out submissions/sunday_blind_submission.json --proposal-out submissions/sunday_blind_proposal.md
+python starter_baseline_and_validator.py --validate submissions/sunday_blind_submission.json --extra-scenario data/ingaze_sunday_blind_test_meridiana.json
+```
+
+Use `--client-input PATH` for a standalone custom brief. Set `LLM_API_KEY`, `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, or `GEMINI_API_KEY` in the environment or the ignored project `.env` file to enable structured LLM normalization. `--trace-out PATH` writes the per-scenario reasoning trace.
+
+## 4. Stack and Production Trade-offs
 
 | Layer | Implementation | Trade-off |
 | --- | --- | --- |
-| Data and state | Local JSON, Pydantic 2 models and explicit IDs | Keeps the prototype portable and diffable. Larger case collections would benefit from indexed storage. |
-| Reasoning and planning | Python graph evaluation, weighted retrieval and deterministic policy | Evidence slots and hard gates are easy to inspect and test. New mechanisms require rule and signal authoring. |
-| Parsing | Rule-based extraction with optional structured LLM intake | The benchmark and offline path use zero LLM tokens. Custom extraction can add provider latency and requires grounding checks. |
-| LLM (optional) | Any OpenAI-compatible endpoint via `LLM_BASE_URL` / `LLM_MODEL`; development default `gpt-4o-mini` | No LLM runs in the sandbox route, so the judged output depends on no proprietary model. For a fully open stack, point the client at an open-weight model served locally (e.g. Ollama or vLLM). Temperature 0, Pydantic-validated output and quote-grounding checks keep extraction auditable, and a deterministic fallback runs without any key. |
-| Validation | Pydantic, `unittest`, stage traces and organizer validator | Distinguishes format checks from judgment about case transfer, data quality and causal claims. |
+| Data and state | JSON source files, Pydantic 2 models, normalized case/rule JSON, and per-stage JSON artifacts. | Easy to inspect and reproduce locally; no transactional database or live synchronization. |
+| Intake | Structured LLM extraction through `openai` SDK-compatible endpoints, followed by deterministic validation and hygiene. | Handles varied language and nested intake while keeping decisions outside the LLM; requires credentials for live normalization and can still misclassify facts. |
+| Reasoning and planning | Python graph rules, weighted scoring, explicit guardrails, and deterministic phase planning. | Inspectable and repeatable; rule coverage and phrase adapters require maintenance as new evidence patterns appear. |
+| Cases and value | Reviewed case records, weighted case ranking, same-metric historical deltas, and traceable references. | Gives relevant precedents and bounded reference ranges; synthetic historical results do not establish causal effects for a new client. |
+| Validation | Pydantic models, organizer validator, and regression tests. | Catches structural and selected policy regressions; schema validity does not prove diagnosis quality or business impact. |
 
-**Compared with the organizer’s naive flat-prompt baseline.** The baseline was run locally using the organizer’s mock mode. Both outputs passed validation with zero warnings. The detailed comparison includes per-scenario decisions, counts and reproduction commands. [Baseline comparison](docs/baseline_comparison.md)
-
-| Scenario | Naive baseline | Team 11 run | Historical matches |
-| --- | --- | --- | --- |
-| A — CloudNova | Launches advocacy in Phase 1 and imports retail shift rotation. | Defers advocacy, excludes retail scheduling and preserves the healthy Amsterdam cohort. | Alfa Group, KronoCart Tech, QuantEx Markets |
-| B — EuroFreight | Starts technical LinkedIn content and fast-apply before a portal audit. | Keeps HQ’s channel, fast-tracks a scoped fast-apply pilot at the affected hubs (the form obstacle is documented) instead of a network-wide rollout, and scopes the recruiter handoff to Bologna and Naples. | Beta Logistica, TransEuropa Supply Chain, Meridian Express Logistics |
-| C — VerdeCare | Automates ambassador tracking across all locations immediately. | Preserves the healthy EVP, accelerates an opt-in cohort of the existing organic ambassadors, and defers only network-wide tracking automation until local profiles are audited. | VitaCare Network, VerdiCraft Botanicals, NaturaPure Group |
-
-**Alternative designs.** Flat prompts and vector retrieval offer flexible text handling and fast initial retrieval. The graph and policy layer makes source independence and prerequisites explicit. A database-backed graph or rules service would improve indexing and multi-user management while adding infrastructure to the demo. Local files keep the deterministic route inexpensive to run. CFO review can inspect case fit and observed ROI separately from a proposed client outcome.
-
-**Verification.** The sandbox run reproduces the committed submission, with three scenarios and zero organizer validation errors or warnings. All 110 tests pass, including protections, contradictions, duplication, ROI grounding and live-tweak mutations: removing the documented form obstacle defers fast-apply, and adding burnout to VerdeCare stops the advocacy fast track. [Tests](tests/) · [Proposal JSON](submissions/proposal.json) · [HR proposal](submissions/hr_proposal.md)
-
-**Robustness to reworded briefs.** Cohorts are detected from generic role vocabulary per workforce (e.g. HGV or lorry drivers, logistics associates, developers, caregivers, care homes), with a fallback to the client's own `workforce_target`. “HQ” counts as a cohort only when HQ people are meant. Sites come from the client's footprint, so renamed hubs are scoped correctly. In “X (vs. Y)” comparisons the subject's sites are kept. Population-specific studies, such as retail-only experiments, are cited only for matching client profiles. Regression tests cover synonym swaps and renamed sites.
-
-**Live intake limit.** The raw format adapter extracts recognized patterns and preserves source paths. It treats self-reports as provisional, flags untracked metrics, and withholds unfiltered aggregates from diagnosis. New survey fields and unrecognized wording may require additional mappings. [Adapter](src/pipeline/messy_intake.py) · [Organizer’s live intake format](https://github.com/guglielmo-Ingaze/Ingaze-CF-Hackathon-2026/blob/main/data/ingaze_real_world_messy_intake.json)
-
-```bash
-python3 recommendation_engine.py --sandbox --out submissions/proposal.json --proposal-out submissions/hr_proposal.md --trace-out trace.json
-python3 starter_baseline_and_validator.py --validate submissions/proposal.json
-python3 starter_baseline_and_validator.py --run-naive-baseline --out naive_baseline.json
-python3 -m unittest discover -s tests
-```
-
-See the machine-readable [architecture](ARCHITECTURE.json).
+Compared with the organizer's flat single-prompt baseline, this design exposes the evidence and policy decision behind each action and can block unsupported or out-of-scope plans before export. The documented baseline comparison reports three case matches per official scenario, healthy-baseline protections, and actions in all three phases. Those results are a prototype comparison, not proof of general accuracy. Live LLM quality and vector-RAG comparisons have not been established; rule-based extraction can miss novel language, and the graph can encode imperfect assumptions. The system should be judged by whether its evidence, scope, uncertainty, and next verification step are inspectable.

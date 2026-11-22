@@ -38,35 +38,6 @@ python starter_baseline_and_validator.py --validate naive_baseline_output.json
 
 > **Optional Live LLM Baseline (BYOK):** Set `OPENAI_API_KEY`, `OPENROUTER_API_KEY`, or `GEMINI_API_KEY` and pass `--live-llm` to benchmark your architecture directly against a live single-prompt LLM call.
 
-### Team 11 offline engine
-
-Run from the repository root with Python 3.9 or later.
-
-```bash
-mkdir -p database/ingaze-knowledge-graph
-python3 recommendation_engine.py --sandbox --out submissions/proposal.json \
-  --proposal-out submissions/hr_proposal.md \
-  --trace-out database/ingaze-knowledge-graph/diagnostic_report.json \
-  --graph-out database/ingaze-knowledge-graph/graph.json
-python3 starter_baseline_and_validator.py --validate submissions/proposal.json
-python3 -m scripts.demo_recommendations
-```
-
-The active knowledge-graph orchestrator lives in `src/main.py` and calls the stages in `src/pipeline/`. The reusable modules under `src/reasoning/` provide policy, intake, evidence, and graph utilities; `recommendation_engine.py` is the public CLI and Python facade. Offline case preparation lives in `src/offline/`. The online pipeline requires Pydantic 2 and python-dotenv.
-
-| Folder | Contents |
-| --- | --- |
-| `database/` | Sandbox datasets, normalized cases, knowledge assets, and retained Ingaze inspection datasets |
-| `database/knowledge/` | Editable graph rules and research catalog |
-| `data/` | Client input/output files and pipeline intermediate files |
-| `scripts/` | Demo and historical replay commands |
-| `database/ingaze-knowledge-graph/` | Graph exports, diagnostic traces, and historical replay |
-| `database/ingaze-telemetry-excel/` | Existing telemetry spreadsheet |
-| `database/ingaze_csv_exports/` | Existing CSV inspection exports and source note |
-| `submissions/` | Official sandbox results: `proposal.json` and `hr_proposal.md` |
-
-The generated sandbox deliverables are grouped in `submissions/`. [Architecture](ARCHITECTURE.md) · [Proposal JSON](submissions/proposal.json) · [HR proposal](submissions/hr_proposal.md)
-
 ---
 
 ## Repository Map & Essential Docs
@@ -76,13 +47,26 @@ The generated sandbox deliverables are grouped in `submissions/`. [Architecture]
 | **[`docs/HR_DOMAIN_PRIMER_FOR_ENGINEERS.md`](./docs/HR_DOMAIN_PRIMER_FOR_ENGINEERS.md)** | **5 min** | **Start here if HR is new to you!** Plain-English crash course on EVP, Say-Do Gap, CpH/TtH, EMV, Workforce Archetypes, Phase 1$\to$3 dependencies, and how CFOs think. |
 | **[`docs/CHALLENGE_BRIEF.md`](./docs/CHALLENGE_BRIEF.md)** | **6 min** | Full problem statement, architectural freedom (100% open paradigm & stack), and realistic scope for a 3-person weekend sprint. |
 | **[`docs/OUTPUT_CONTRACT_AND_RUBRIC.md`](./docs/OUTPUT_CONTRACT_AND_RUBRIC.md)** | **3 min** | Exact `submission.json` schema, anti-hardcoding rules, and the 100-point Campus Founders Jury Rubric. |
-| **[`docs/ANALYTICS_TELEMETRY_DICTIONARY.md`](./docs/ANALYTICS_TELEMETRY_DICTIONARY.md)** | **4 min** | **Data Guide ("What Is What"):** Field-by-field walkthrough of **both** JSON files (`ingaze_sandbox_dataset.json` + `ingaze_synthetic_analytics_snapshots.json`), how they link `1:1`, and all metric scales/polarities. |
-| **[`ARCHITECTURE_TEMPLATE.md`](./ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
-| **[`database/ingaze_sandbox_dataset.json`](./database/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **21 Past B2B Case Studies**, and **3 Active Client Scenarios to Solve**. |
-| **[`database/ingaze_synthetic_analytics_snapshots.json`](./database/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 21 past cases + `T0` intake snapshot for the 3 active scenarios). |
+| **[`docs/ANALYTICS_TELEMETRY_DICTIONARY.md`](./docs/ANALYTICS_TELEMETRY_DICTIONARY.md)** | **4 min** | **Data Guide ("What Is What"):** Field-by-field walkthrough of all JSON datasets (`ingaze_sandbox_dataset.json`, `ingaze_synthetic_analytics_snapshots.json`, and `ingaze_real_world_messy_intake.json`) + metric scales. |
+| **[`docs/ARCHITECTURE_TEMPLATE.md`](./docs/ARCHITECTURE_TEMPLATE.md)** | — | Copy to `ARCHITECTURE.md` and fill in your representation design, context structuring & noise-filtering controls, planning mechanism, and stack trade-offs. |
+| **[`database/ingaze_sandbox_dataset.json`](./database/ingaze_sandbox_dataset.json)** | — | Core sandbox dataset: **4 Pillars**, **6 Cross-Pillar Field Notes**, **10 Empirical Research Studies**, **21 Past B2B Case Studies**, and **3 Clean Benchmark Scenarios (`A, B, C`)**. |
+| **[`database/ingaze_synthetic_analytics_snapshots.json`](./database/ingaze_synthetic_analytics_snapshots.json)** | — | *(Optional)* Aggregated synthetic multi-channel telemetry & sector peer benchmarks (`T0 -> T1` for the 21 past cases + `T0` intake snapshot for the 3 benchmark scenarios). |
+| **[`data/ingaze_real_world_messy_intake.json`](./data/ingaze_real_world_messy_intake.json)** | — | **Real-World Messy Client Intake #1 (`SCENARIO_REALWORLD_01_VALLEYSYS`):** Unfiltered onboarding reality — raw discovery call notes, HR's self-reported *Employer Archetype* & *Recruiting Cost Review* surveys, untracked `null`s, and noisy telemetry. |
+| **[`data/ingaze_sunday_blind_test_meridiana.json`](./data/ingaze_sunday_blind_test_meridiana.json)** | — | **SUNDAY PRE-FINALS BLIND LIVE TEST (`SCENARIO_BLIND_02_MERIDIANA`):** Unseen real-world messy client intake (*Meridiana Multi-Service & Energy Grid S.p.A.*) — exact same JSON schema and variable names as `ingaze_real_world_messy_intake.json`! |
 | **[`starter_baseline_and_validator.py`](./starter_baseline_and_validator.py)** | — | CLI dataset inspector, naive baseline runner, and `submission.json` validator. |
 
 *(Note: While the intro slides mentioned 5 sample case studies, we included **21 anonymized B2B Case Studies** across overlapping industries so precedent retrieval requires real structural matching rather than a trivial 1-per-sector lookup.)*
+
+### Generate and validate the Sunday blind test
+
+Keep the root `submission.json` for official scenarios A, B, and C. To check Meridiana separately alongside those scenarios, write the four-scenario run to a separate file:
+
+```bash
+python recommendation_engine.py --sandbox --extra-scenario data/ingaze_sunday_blind_test_meridiana.json --out submissions/sunday_blind_submission.json --proposal-out submissions/sunday_blind_proposal.md
+python starter_baseline_and_validator.py --validate submissions/sunday_blind_submission.json --extra-scenario data/ingaze_sunday_blind_test_meridiana.json
+```
+
+For a standalone blind-case run, use `--client-input data/ingaze_sunday_blind_test_meridiana.json --out submissions/meridiana_blind_submission.json`. Client inputs use the Step 1 LLM normalizer when credentials are configured; a deterministic fallback is reported when no key is available.
 
 ---
 
@@ -92,7 +76,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 
 1. **Root-Cause Precision & `100%` Sector-Trap Immunity:** Across all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), distinguish underlying cross-pillar root causes from surface symptoms without false-positive keyword stuffing, and block every wrong-industry trap (e.g., no retail weekend shift rotation for a cloud FinTech; no LinkedIn engineering-blog strategy for commercial truck drivers).
 2. **Prerequisite-Safe 3-Phase Sequencing & ROI Grounding:** Sequence actions strictly across `Phase 1 (Audits & Listening) -> Phase 2 (Core Structural Fixes) -> Phase 3 (Scaling & Advocacy)`—deferring premature advocacy when an internal Say-Do Gap/burnout blocker is active—and match the **Top-3** structurally relevant historical Case Studies with quantified ROI + empirical research citations.
-3. **Reproducible Execution, Schema Validity & Zero Hardcoding:** Export `submissions/proposal.json` that passes `python starter_baseline_and_validator.py --validate submissions/proposal.json` with `0` errors, runs live from general domain logic (zero `if company == "..."` rules), and adapts dynamically if a scenario trait is tweaked live during Sunday Q&A.
+3. **Reproducible Execution, Schema Validity & Zero Hardcoding:** Export a `submission.json` that passes `python starter_baseline_and_validator.py --validate submission.json` with `0` errors, runs live from general domain logic (zero `if company == "..."` rules), and adapts dynamically if a scenario trait is tweaked live during Sunday Q&A.
 
 ---
 
@@ -101,7 +85,7 @@ A winning weekend PoC clearly beats the naive baseline across **3 verifiable fun
 Everything is self-contained in this repo—**no extra datasets or files to wait for during the weekend!** Before Sunday `09:30`, push to your team's GitHub repo:
 1. **`ARCHITECTURE.md`** (based on `ARCHITECTURE_TEMPLATE.md`) — Formal representation design, context structuring & noise-filtering controls, diagnostic/3-phase sequencing mechanism, and stack justification.
 2. **Working Python PoC + Live Demo** — Ingests `database/ingaze_sandbox_dataset.json`, outperforms the naive baseline on all 3 scenarios (`CloudNova Pay`, `EuroFreight Interport`, `VerdeCare Group`), and generalizes cleanly (during Q&A we may tweak a scenario trait live to verify zero hardcoded `if company == ...` rules!).
-3. **Validated `submissions/proposal.json`** — Passing:
+3. **Validated `submission.json`** — Committed in your repo root and passing:
    ```bash
-   python starter_baseline_and_validator.py --validate submissions/proposal.json
+   python starter_baseline_and_validator.py --validate submission.json
    ```

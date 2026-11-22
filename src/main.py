@@ -5,6 +5,7 @@ import argparse
 import json
 import re
 import sys
+import tempfile
 from pathlib import Path
 from typing import Optional, Sequence
 
@@ -33,8 +34,8 @@ from starter_baseline_and_validator import validate_submission
 DEFAULT_DATA = Path(__file__).resolve().parents[1] / "database" / "ingaze_sandbox_dataset.json"
 DEFAULT_CLIENT_INPUT = PROJECT_ROOT / "data" / "client_io" / "input.json"
 DEFAULT_NORMALIZED_CLIENT_OUTPUT = PROJECT_ROOT / "data" / "intermediate_steps"
-DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "output.json"
-DEFAULT_SUBMISSION_OUTPUT = PROJECT_ROOT / "submissions" / "proposal.json"
+DEFAULT_CUSTOM_OUTPUT = PROJECT_ROOT / "submission.json"
+DEFAULT_SUBMISSION_OUTPUT = PROJECT_ROOT / "submission.json"
 DEFAULT_PROPOSAL_OUTPUT = PROJECT_ROOT / "submissions" / "hr_proposal.md"
 DEFAULT_CUSTOM_PROPOSAL_OUTPUT = PROJECT_ROOT / "data" / "client_io" / "proposal.md"
 DEFAULT_INTERMEDIATE_DIR = PROJECT_ROOT / "data" / "intermediate_steps"
@@ -281,6 +282,15 @@ def _adapt_client_for_engine(bundle, normalized, graph):
         context[REQUEST_FIELD] = " ".join(
             value for value in (str(context.get(REQUEST_FIELD, "")), mapped_requests) if value
         )
+    if normalized.budget_and_cfo_constraints:
+        context["budget_and_capacity_constraints"] = " ".join(
+            value
+            for value in (
+                str(context.get("budget_and_capacity_constraints", "")),
+                *normalized.budget_and_cfo_constraints,
+            )
+            if value
+        )
     scenario["client_internal_context"] = context
 
     platform = scenario.get("ingaze_platform_signals", {})
@@ -299,10 +309,7 @@ def _adapt_client_for_engine(bundle, normalized, graph):
     if not isinstance(existing_observations, list):
         existing_observations = []
     observations = list(existing_observations)
-    # The organizer adapter already supplies source-level observations. Its
-    # canonical signal list is for matching, with no second copy of the evidence.
-    adapted_signals = () if "intake_normalization_audit" in scenario else normalized.canonical_signals
-    for index, signal in enumerate(adapted_signals, start=1):
+    for index, signal in enumerate(normalized.canonical_signals, start=1):
         engine_signal = next(
             (tag for tag in _STEP1_SIGNAL_ADAPTER.get(signal.signal_code.value, ()) if tag in graph["signals"]),
             None,
@@ -326,6 +333,33 @@ def _adapt_client_for_engine(bundle, normalized, graph):
             "text": signal.evidence_quote,
         })
     scenario["diagnostic_observations"] = observations
+
+    # Carry Step 1's quarantined excerpts into the shared trace/audit channel so
+    # nested third-party and out-of-scope feed noise remains visible downstream.
+    reported_observations = scenario.get("reported_intake_observations", [])
+    scenario["reported_intake_observations"] = (
+        reported_observations if isinstance(reported_observations, list) else []
+    )
+    prior_audit = scenario.get("intake_normalization_audit", {})
+    prior_audit = prior_audit if isinstance(prior_audit, dict) else {}
+    prior_measurements = prior_audit.get("measurements", [])
+    prior_excluded = prior_audit.get("excluded", [])
+    scenario["intake_normalization_audit"] = {
+        **prior_audit,
+        "measurements": prior_measurements if isinstance(prior_measurements, list) else [],
+        "excluded": [
+            *(prior_excluded if isinstance(prior_excluded, list) else []),
+            *[
+                {
+                    "source": "step1.normalized_input",
+                    "topic": item.inferred_mismatched_action_or_topic,
+                    "reason": item.reason_filtered,
+                    "excerpt": item.raw_excerpt,
+                }
+                for item in normalized.filtered_noise_items
+            ],
+        ],
+    }
 
     if bundle.t0_telemetry is not None or bundle.sector_benchmarks is not None:
         snapshot = dict(scenario.get("analytics", {})) if isinstance(scenario.get("analytics"), dict) else {}
@@ -397,16 +431,11 @@ def run_custom_client(
     normalized_inputs = []
     normalization_status = "llm_normalized"
     proposal_llm_client = None if skip_llm_normalization else proposal_llm_client
-    adapted_count = sum("intake_normalization_audit" in bundle.raw_scenario for bundle in bundles)
-    if skip_llm_normalization or adapted_count == len(bundles):
-        normalization_status = (
-            "deterministic_messy_intake" if adapted_count == len(bundles) else "deterministic_fallback"
-        )
+    if skip_llm_normalization:
+        normalization_status = "deterministic_fallback"
         normalized_inputs = [_deterministic_normalized_client(bundle) for bundle in bundles]
-        print("Step 1 is using deterministic fact extraction.")
+        print("Step 1 is using deterministic fact extraction by request.")
     else:
-        if adapted_count:
-            normalization_status = "mixed_llm_and_deterministic_messy_intake"
         client = llm_client or StructuredLLMClient()
         for bundle in bundles:
             print(f"Processing {input_path.name} — {bundle.scenario_code}...")
@@ -433,12 +462,6 @@ def run_custom_client(
     for bundle, normalized in zip(bundles, normalized_inputs):
         raw = bundle.raw_scenario
         output = normalized.model_dump(mode="json")
-        if "intake_normalization_audit" in raw:
-            output.update(
-                reported_intake_observations=raw["reported_intake_observations"],
-                protected_scopes=raw["protected_scopes"],
-                intake_normalization_audit=raw["intake_normalization_audit"],
-            )
         normalized_paths.append(
             _persist_stage_result(bundle.scenario_code, "step1_normalize_input", output, normalized_root)
         )
@@ -483,6 +506,15 @@ def run_custom_client(
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    errors, warnings = validate_submission(
+        output,
+        dataset,
+        [bundle.raw_scenario for bundle in bundles],
+    )
+    if errors:
+        raise ValueError("Generated client submission failed validation: " + " ".join(errors))
+    for warning in warnings:
+        print(f"Warning: {warning}")
 
     for bundle, result in zip(bundles, planned):
         company_name = bundle.raw_scenario.get("company_name") or result["scenario_code"]
@@ -499,7 +531,7 @@ def run_custom_client(
     )
     for normalized_path in normalized_paths:
         print(f"Wrote normalized client input: {normalized_path}")
-    print(f"Wrote custom recommendation and reasoning trace: {output}")
+    print(f"Validated and wrote custom submission: {output}")
     print(f"Wrote readable HR proposal: {proposal_path}")
     return payload
 
@@ -531,7 +563,12 @@ def main(argv: Optional[Sequence[str]] = None):
     parser.add_argument(
         "--skip-llm-normalization",
         action="store_true",
-        help="Skip Step 1's LLM extraction and run the raw client brief through deterministic intake.",
+        help="Use deterministic Step 1 extraction explicitly (custom input or --sandbox --extra-scenario).",
+    )
+    parser.add_argument(
+        "--extra-scenario",
+        type=Path,
+        help="Append a raw client intake to sandbox output; Step 1 normalizes it before planning.",
     )
     parser.add_argument("--trace", action="store_true", help="Print source paths and planning decisions")
     parser.add_argument("--trace-out", type=Path, help="Write the reasoning trace as JSON")
@@ -553,8 +590,10 @@ def main(argv: Optional[Sequence[str]] = None):
     if args.search_evidence is not None:
         print(json.dumps(search_library(evidence_library, query=args.search_evidence), indent=2, ensure_ascii=False))
         return
-    if args.skip_llm_normalization and args.client_input is None:
-        parser.error("--skip-llm-normalization requires --client-input.")
+    if args.extra_scenario is not None and not args.sandbox:
+        parser.error("--extra-scenario requires --sandbox.")
+    if args.skip_llm_normalization and args.client_input is None and args.extra_scenario is None:
+        parser.error("--skip-llm-normalization requires --client-input or --extra-scenario.")
     if args.client_input is not None:
         try:
             proposal_llm_client = None
@@ -615,6 +654,30 @@ def main(argv: Optional[Sequence[str]] = None):
             # official submission remains byte-for-byte reproducible.
             _normalize_official_scenario(scenario, analytics)
             plans.append(plan(scenario, dataset, evidence_library, graph, analytics))
+        extra_scenarios = []
+        if args.extra_scenario is not None:
+            from src.pipeline.step1_normalize_input import load_standalone_input
+
+            extra_bundles = load_standalone_input(args.extra_scenario)
+            extra_scenarios = [bundle.raw_scenario for bundle in extra_bundles]
+            official_codes = {scenario["scenario_code"] for scenario in scenarios}
+            extra_codes = [bundle.scenario_code for bundle in extra_bundles]
+            if len(extra_codes) != len(set(extra_codes)) or official_codes.intersection(extra_codes):
+                raise ValueError("Extra scenario codes must be unique and must not duplicate sandbox scenarios.")
+            with tempfile.TemporaryDirectory(prefix="ingaze-extra-") as temp_dir:
+                temp_root = Path(temp_dir)
+                extra_result = run_custom_client(
+                    args.extra_scenario,
+                    dataset_path=args.dataset,
+                    analytics_path=args.analytics,
+                    output_path=temp_root / "extra_submission.json",
+                    proposal_output_path=temp_root / "extra_proposal.md",
+                    skip_llm_normalization=args.skip_llm_normalization,
+                    no_analytics=args.no_analytics,
+                    graph=graph,
+                    evidence_library=evidence_library,
+                )
+            plans.extend(zip(extra_result["scenarios"], extra_result["traces"]))
     except (OSError, ValueError) as exc:
         parser.error(str(exc))
     payload = {
@@ -626,7 +689,7 @@ def main(argv: Optional[Sequence[str]] = None):
     output_path = args.out or DEFAULT_SUBMISSION_OUTPUT
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    errors, warnings = validate_submission(output_path, dataset, scenarios)
+    errors, warnings = validate_submission(output_path, dataset, scenarios + extra_scenarios)
     traces = [trace for _, trace in plans]
     proposal_path = args.proposal_out or (
         args.out.parent / "hr_proposal.md" if args.out else DEFAULT_PROPOSAL_OUTPUT

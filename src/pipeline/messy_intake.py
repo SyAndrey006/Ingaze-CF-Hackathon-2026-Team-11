@@ -18,6 +18,9 @@ ENGINE_TO_CANONICAL = {
     "manager_support": "WEAK_MIDDLE_MANAGEMENT",
     "career_clarity": "CAREER_PATH_OPACITY",
     "agency_spend": "HIGH_EXTERNAL_AGENCY_DEPENDENCY",
+    "mobile_friction": "MOBILE_PORTAL_FRICTION",
+    "generic_ads": "GENERIC_BOILERPLATE_JDS",
+    "manual_tracking_load": "MANUAL_HR_SPREADSHEET_DRAG",
 }
 
 EXIT_COUNT = re.compile(
@@ -46,7 +49,32 @@ REALITY = re.compile(r"\b(?:day one|actual (?:job|work)|in reality|instead it wa
 MANAGER = re.compile(r"\b(?:cancell?ed|missed)\b.{0,65}\b(?:1[- ]on[- ]1s?|one[- ]on[- ]ones?)\b", re.I)
 CAREER = re.compile(
     r"\b(?:nobody|no one) explained\b.{0,85}\b(?:move from|progress|promotion)\b"
-    r"|\b(?:no|zero|unclear)\s+career (?:ladder|path|progression)\b", re.I,
+    r"|\b(?:no|zero|unclear)\s+career (?:ladder|path|progression)\b"
+    r"|\b(?:block|blocked|blocking)\w*\b.{0,110}\b(?:internal transfers?|internal mobility|career|promotion|advance|progress)\b"
+    r"|\bresign\w*\b.{0,70}\b(?:to grow|to advance|career|a grade)\b", re.I,
+)
+MOBILE_FRICTION = re.compile(
+    r"\b(?:mobile|smartphone|phone)\b.{0,180}\b(?:apply\w*|application|portal|form|ATS)\b"
+    r".{0,180}\b(?:account|register\w*|OTP|upload\w*|PDFs?|screens?|abandon\w*|gave up)\b"
+    r"|\b(?:portal|ATS|application form)\b.{0,180}\b(?:mobile|smartphone|phone)\b"
+    r".{0,180}\b(?:account|register\w*|OTP|upload\w*|PDFs?|abandon\w*)\b", re.I,
+)
+GENERIC_JOB_AD = re.compile(
+    r"\b(?:job ads?|job postings?|vacanc(?:y|ies))\b.{0,120}"
+    r"\b(?:read like|legal notice|boilerplate|outdated|199\d|none of which is written|"
+    r"do not mention|does not mention)\b", re.I,
+)
+AGENCY_PERCENT = re.compile(
+    r"(?:~|about\s+|approximately\s+)?(?P<pct>\d+(?:[.,]\d+)?)%"
+    r"\s+of\b.{0,130}\b(?:agenc(?:y|ies)|headhunters?|temporary staffing)\b", re.I,
+)
+MANUAL_SCREENING = re.compile(
+    r"\b\d+(?:[.,]\d+)?\s*(?:hours?|h)\s*(?:/\s*week|per week)\b"
+    r".{0,100}\b(?:recruiters?|screen(?:ing|ing)?|PDFs?|CVs?)\b", re.I,
+)
+RETENTION_STRENGTH = re.compile(
+    r"\b(?:over\s+|above\s+)?\d+(?:[.,]\d+)?%\s+(?:of\s+)?(?:employees?\s+)?stay\s+for years\b",
+    re.I,
 )
 OFF_TOPIC = re.compile(r"\b(?:vending machine|visitor parking|air conditioning)\b", re.I)
 
@@ -82,9 +110,9 @@ def _site_names(footprint):
 def _scope(text, sites, tenure=None):
     named = [name.casefold() for name in sites if re.search(rf"\b{re.escape(name)}\b", text, re.I)]
     cohort = None
-    if re.search(r"\b(?:software|automation|firmware|IoT|developer|C\+\+)", text, re.I):
+    if re.search(r"\b(?:software|automation|firmware|IoT|developer|C\+\+|data|cloud|digital|cybersecurity)", text, re.I):
         cohort = "engineering_workforce"
-    elif re.search(r"\b(?:commissioning|plant|assembl(?:y|er)|mechatronic)\b", text, re.I):
+    elif re.search(r"\b(?:commissioning|plant|assembl(?:y|er)|mechatronic|electrician|technician|grid|depot|field)\b", text, re.I):
         cohort = "field_and_plant_workforce"
     return {"cohort": cohort, "site": named[0] if len(named) == 1 else None, "tenure": tenure, "window": "intake"}
 
@@ -129,6 +157,16 @@ def adapt_messy_intake(document):
             if re.search(r"\b(?:campaign|trade.fair|CTA|clicks)\b", text, re.I):
                 exclude(source, "promotional traffic", "Campaign visitors are not a qualified applicant sample.", text)
                 continue
+        if MOBILE_FRICTION.search(text):
+            observe("mobile_friction", source, text, _scope(text, sites, "applicant"), "intake_candidate_feedback")
+        if CAREER.search(text):
+            observe("career_clarity", source, text, _scope(text, sites, "mid_tenure"), "intake_employee_feedback")
+        if GENERIC_JOB_AD.search(text):
+            observe("generic_ads", source, text, _scope(text, sites, "applicant"), "intake_job_posting_feedback")
+        if MANUAL_SCREENING.search(text):
+            observe("manual_tracking_load", source, text, _scope(text, sites, "applicant"), "recruiting_self_report")
+        if RETENTION_STRENGTH.search(text):
+            strengths.append({"text": text, "source_ref": source})
         veto = VETO.search(text)
         if veto:
             protected.append({
@@ -179,6 +217,25 @@ def adapt_messy_intake(document):
             observe("agency_spend", source, agency, scope, "recruiting_self_report")
             measure("reported_agency_filled_roles_pct", round(100 * placed / total, 2), "%", source, scope,
                     numerator=placed, denominator="reported_hires", denominator_count=total)
+    else:
+        percent = AGENCY_PERCENT.search(agency)
+        if percent:
+            pct = float(percent.group("pct").replace(",", "."))
+            source = f"{cost_path}/q8_agency_note"
+            scope = {"cohort": "field_and_plant_workforce", "site": "all", "tenure": "all", "window": "intake"}
+            observe("agency_spend", source, agency, scope, "recruiting_self_report")
+            measure("reported_agency_filled_roles_pct", pct, "%", source, scope,
+                    numerator=None, denominator="reported approximate share")
+
+    screening_note = _text(cost, "q4_screening_note")
+    if screening_note and MANUAL_SCREENING.search(screening_note):
+        observe(
+            "manual_tracking_load",
+            f"{cost_path}/q4_screening_note",
+            screening_note,
+            {"cohort": "recruiters", "site": "all", "tenure": "all", "window": "intake"},
+            "recruiting_self_report",
+        )
 
     feedback_key = "internal_climate_and_candidate_feedback_notes"
     feedback = _object(surveys, feedback_key)
@@ -189,9 +246,14 @@ def adapt_messy_intake(document):
         if OFF_TOPIC.search(note) and not re.search(r"\b(?:burnout|workload|resigned|hire|safety)\b", note, re.I):
             exclude(source, "off-topic feedback", "No link to the hiring or retention diagnosis was reported.", note)
             continue
-        if not re.search(r"^\[\s*exit note\b", note, re.I):
+        is_exit = re.search(r"^\[\s*exit (?:note|interview)\b", note, re.I)
+        if MOBILE_FRICTION.search(note):
+            observe("mobile_friction", source, note, _scope(note, sites, "applicant"), "intake_candidate_feedback")
+        if GENERIC_JOB_AD.search(note):
+            observe("generic_ads", source, note, _scope(note, sites, "applicant"), "intake_job_posting_feedback")
+        if not is_exit:
             continue
-        scope = _scope(note, sites, "new_or_early_tenure")
+        scope = _scope(note, sites, "mid_tenure" if CAREER.search(note) else "new_or_early_tenure")
         if EXPECTATION_CLAIM.search(note) and REALITY.search(note):
             observe("documented_broken_promise", source, note, scope, "intake_exit_feedback")
         if MANAGER.search(note):
@@ -207,6 +269,24 @@ def adapt_messy_intake(document):
                 "Unfiltered review aggregates need an employee-sample check and screening for external or coordinated entries.",
                 reviews.get("raw_unfiltered_overall_rating_5"))
     funnel = _object(_object(outside, "career_website_and_jd_telemetry"), "traffic_and_funnel_metrics")
+    tracking_note = _text(funnel, "tracking_diagnostic_note")
+    if tracking_note and MOBILE_FRICTION.search(tracking_note):
+        observe(
+            "mobile_friction",
+            f"{outside_path}/career_website_and_jd_telemetry/traffic_and_funnel_metrics/tracking_diagnostic_note",
+            tracking_note,
+            _scope(tracking_note, sites, "applicant"),
+            "outside_in_platform",
+        )
+    job_ad = _text(_object(outside, "career_website_and_jd_telemetry"), "sample_live_job_ad_text")
+    if job_ad and re.search(r"\b(?:NOTICE OF SELECTION|register|attach scanned copies|sections [A-E])\b", job_ad, re.I):
+        observe(
+            "generic_ads",
+            f"{outside_path}/career_website_and_jd_telemetry/sample_live_job_ad_text",
+            job_ad,
+            _scope(job_ad, sites, "applicant"),
+            "outside_in_platform",
+        )
     if "last_30d_raw_bounce_or_dropoff_pct" in funnel:
         exclude(f"{outside_path}/career_website_and_jd_telemetry/traffic_and_funnel_metrics/last_30d_raw_bounce_or_dropoff_pct",
                 "ambiguous bounce or drop-off", "A combined traffic measure cannot establish application-form abandonment.",
@@ -226,15 +306,30 @@ def adapt_messy_intake(document):
         missing.update({f"{path}/{key}": None for key in keys if key in record and record[key] is None})
     if strengths:
         context["healthy_metrics_and_strengths_not_to_break"] = " ".join(row["text"] for row in strengths)
+    career_evidence = next(
+        (row for row in observations if row["signal"] == "career_clarity"),
+        None,
+    )
+    if career_evidence and strengths:
+        context["cohort_and_site_asymmetries"] = (
+            f"Struggling: {career_evidence['text']} "
+            f"Healthy comparison: {strengths[0]['text']}"
+        )
     request_notes = [
         context.get("leadership_perceptions_and_requests", ""),
         protected[0]["reason"] if protected else "",
         _text(employer, "q8_initiative_hr_believes_they_need"),
     ]
     if any(note.strip() for note in request_notes if isinstance(note, str)):
+        request_text = " ".join(note.strip() for note in request_notes if isinstance(note, str) and note.strip())
+        request_parts = [part.strip() for part in re.split(r"\s*[+;]\s*", request_text) if part.strip()]
         context["leadership_perceptions_and_requests"] = " ".join(
-            note.strip() for note in request_notes if isinstance(note, str) and note.strip()
+            f"The CHRO proposed {part.rstrip('.')}" + "." for part in request_parts
         )
+
+    cfo_constraint = _text(employer, "q4_internal_budget_approver")
+    if cfo_constraint:
+        context["budget_and_capacity_constraints"] = cfo_constraint
 
     workflow_notes = [
         _text(cost, "q4_screening_note"),
