@@ -560,7 +560,7 @@ QUANTITY = re.compile(
 PEER_CHANNELS = {"portal_funnel": "career_portal_and_funnel",
                  "social_and_advocacy": "social_and_employee_voice",
                  "hiring_and_retention": "hiring_and_retention_kpis"}
-REVIEW_COHORTS = re.compile(r"regional (?:clinics|senior care centers)|formulation labs|"
+REVIEW_COHORTS = re.compile(r"(?:regional|local) (?:clinics|senior care centers|care (?:centers|centres|homes))|formulation labs|"
                             r"(?:core (?:platform|infrastructure)|product) (?:squads|hubs)|hq", re.I)
 SIGNAL_PATTERNS = {
     "documented_broken_promise": r"gap between external recruiting claims.{0,180}(?:reviews citing|micromanagement)|promis\w*.{0,100}contradict",
@@ -691,6 +691,40 @@ def _number(value, unit, path=""):
     return value >= 0
 
 
+# Generic role vocabulary per cohort, checked in priority order. Kept broad so a
+# reworded brief ("HGV drivers", "developers", "care homes") keeps its cohort.
+COHORT_PATTERNS = (
+    ("frontline_workforce",
+     r"frontline|deskless|C-CQC|\bHGV\b|(?:truck|lorry|delivery|van|bus|long.haul|licensed|commercial|fleet)\s+drivers?"
+     r"|\bdrivers?\s+(?:and|&)\s+warehouse|warehouse|logistics (?:associates?|operatives?|workers?)|pickers?"
+     r"|couriers?|forklift|sortation"),
+    ("engineering_workforce",
+     r"engineer|developers?|software|data scien|product managers?|\bPMs\b|\bSREs?\b|devops"
+     r"|product (?:squads|teams)"),
+    ("regional_clinical_workforce",
+     r"(?:regional|local) (?:clinics|senior care centers|care (?:centers|centres|homes))|nurses?|therapists?"
+     r"|caregivers?|care (?:workers?|homes|staff)|clinical staff"),
+)
+# "HQ" is a cohort only when HQ people are meant, not "corporate HQ templates".
+HQ_STAFF = re.compile(
+    r"\bHQ\b[^.;]{0,25}\b(?:staff|roles|admin|analysts|employees|hiring|hires|teams?)\b"
+    r"|\b(?:commercial|admin\w*|office)\b[^.;]{0,25}\bHQ\b", re.I)
+_TARGET_STOPWORDS = {
+    "senior", "junior", "licensed", "commercial", "urgent", "openings", "roles", "professionals",
+    "early", "career", "specialists", "this", "year", "open", "staff", "and", "with", "across",
+}
+
+
+def _target_cohort(scenario, clause):
+    """Fall back to the client's own workforce_target role words named in the clause."""
+    target = str(scenario.get("workforce_target") or "")
+    words = {word.casefold() for word in re.findall(r"[A-Za-z][A-Za-z-]{4,}", target)} - _TARGET_STOPWORDS
+    if not words or not any(re.search(rf"\b{re.escape(word)}\b", clause, re.I) for word in words):
+        return None
+    labels = {label for label, pattern in COHORT_PATTERNS if re.search(pattern, target, re.I)}
+    return labels.pop() if len(labels) == 1 else None
+
+
 def _word_scope(scenario, clause):
     footprint = str(scenario.get("headcount_and_footprint", ""))
     locations = [
@@ -699,15 +733,11 @@ def _word_scope(scenario, clause):
     ]
     sites = sorted({city.casefold() for city in locations if re.search(rf"\b{re.escape(city)}\b", clause, re.I)})
     group = REVIEW_COHORTS.search(clause)
-    cohort = None
-    if re.search(r"frontline|truck drivers?|C-CQC|warehouse operators?", clause, re.I):
-        cohort = "frontline_workforce"
-    elif re.search(r"engineers?|product squads", clause, re.I):
-        cohort = "engineering_workforce"
-    elif re.search(r"regional (?:clinics|senior care centers)|nurses|therapists", clause, re.I):
-        cohort = "regional_clinical_workforce"
-    elif re.search(r"\bHQ\b", clause):
+    cohort = next((label for label, pattern in COHORT_PATTERNS if re.search(pattern, clause, re.I)), None)
+    if cohort is None and HQ_STAFF.search(clause):
         cohort = "hq"
+    if cohort is None:
+        cohort = _target_cohort(scenario, clause)
     career_stage = re.search(r"newly hired|new.hire|early.career|tenured|candidates?|applicants?", clause, re.I)
     tenure = ({"candidate": "applicant", "applicant": "applicant", "tenured": "tenured"}.get(
         career_stage[0].lower().rstrip("s"), "new_or_early_tenure") if career_stage else None)

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import unittest
 from unittest.mock import patch
 
@@ -51,6 +52,56 @@ class ProposalValueTests(unittest.TestCase):
         scoped = {row["rule"]: row["scope"]["site"] for row in result["diagnosed_root_causes"]}
         self.assertEqual(scoped.get("management_practice"), "berlin+milan")
         self.assertEqual(scoped.get("expectation_drift"), "berlin+milan")
+
+    # --- Step 2: paraphrased briefs keep their cohorts and sites ---------------
+    def _rewrite(self, value, pairs):
+        if isinstance(value, str):
+            for old, new in pairs:
+                value = re.sub(old, new, value, flags=re.I)
+            return value
+        if isinstance(value, dict):
+            return {k: v if k == "scenario_code" else self._rewrite(v, pairs) for k, v in value.items()}
+        if isinstance(value, list):
+            return [self._rewrite(v, pairs) for v in value]
+        return value
+
+    def _scopes(self, scenario):
+        result, _ = self._plan(scenario)
+        return {row["rule"]: row["scope"] for row in result["diagnosed_root_causes"]}, result
+
+    def test_frontline_synonyms_keep_frontline_cohort_not_hq(self):
+        tweaked = self._rewrite(self._scenario("SCENARIO_B"), [
+            (r"C-CQC", "HGV"), (r"warehouse operators?", "logistics associates")])
+        scopes, result = self._scopes(tweaked)
+        self.assertEqual(scopes["role_information"]["cohort"], "frontline_workforce")
+        self.assertIn("Fast-track", " ".join(result["blocked_traps_and_guardrails"]))
+
+    def test_renamed_sites_follow_the_brief(self):
+        tweaked = self._rewrite(self._scenario("SCENARIO_A"), [(r"Milan", "Turin"), (r"Berlin", "Munich")])
+        scopes, _ = self._scopes(tweaked)
+        self.assertEqual(scopes["management_practice"]["site"], "munich+turin")
+        tweaked = self._rewrite(self._scenario("SCENARIO_B"), [(r"Bologna", "Padua"), (r"Naples", "Bari")])
+        scopes, _ = self._scopes(tweaked)
+        self.assertEqual(scopes["recruiter_handoff"]["site"], "bari+padua")
+
+    def test_role_synonyms_keep_engineering_and_clinical_cohorts(self):
+        tweaked = self._rewrite(self._scenario("SCENARIO_A"), [
+            (r"product squads", "product teams"), (r"engineers", "developers")])
+        scopes, _ = self._scopes(tweaked)
+        self.assertEqual(scopes["management_practice"]["cohort"], "engineering_workforce")
+        self.assertEqual(scopes["management_practice"]["site"], "berlin+milan")
+        tweaked = self._rewrite(self._scenario("SCENARIO_C"), [
+            (r"regional senior care centers", "local care homes"), (r"regional care centers", "local care homes"),
+            (r"regional clinics?", "local care homes"), (r"nurses and therapists", "caregivers")])
+        scopes, result = self._scopes(tweaked)
+        self.assertEqual(scopes["reputation_location"]["cohort"], "regional_clinical_workforce")
+        self.assertEqual(scopes["reputation_location"]["site"], "local care homes")
+        self.assertIn("Accelerate advocacy", " ".join(result["blocked_traps_and_guardrails"]))
+
+    def test_hq_mention_without_hq_people_is_not_an_hq_cohort(self):
+        scenario = {"headcount_and_footprint": "", "workforce_target": "Warehouse pickers"}
+        self.assertIsNone(_word_scope(scenario, "Ads use generic corporate HQ templates.")["cohort"])
+        self.assertEqual(_word_scope(scenario, "HQ admin roles hire in 24 days.")["cohort"], "hq")
 
     # --- Step 3: population-specific research ----------------------------------
     def test_retail_only_studies_are_not_cited_for_non_retail_clients(self):
